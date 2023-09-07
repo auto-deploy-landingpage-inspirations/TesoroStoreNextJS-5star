@@ -13,17 +13,17 @@ interface MenuProps {
 const HeaderMenu: React.FC<MenuProps> = ({ data, className }) => {
 	const { t } = useTranslation("menu");
 	return (
-		<nav className={classNames(`headerMenu flex w-full relative`, className)}>
+		<nav className={classNames(`headerMenu flex w-2/3 relative`, className)}>
 			{data?.map((item: any) => (
 				<div
-					className={`menuItem group cursor-pointer py-7 ${
+					className={`menuItem group cursor-pointer py-1 ${
 						item.subMenu ? "relative" : ""
 					}`}
 					key={item.id}
 				>
 					<Link
 						href={item.path}
-						className="inline-flex items-center text-sm xl:text-base text-heading px-3 xl:px-4 py-2 font-normal relative group-hover:text-black"
+						className="inline-flex items-center text-sm xl:text-base text-black menu-text px-1 xl:px-4 py-2 font-normal relative "
 					>
 						{t(item.label)}
 						{(item?.columns || item.subMenu) && (
@@ -39,7 +39,7 @@ const HeaderMenu: React.FC<MenuProps> = ({ data, className }) => {
 
 					{item?.subMenu && Array.isArray(item.subMenu) && (
 						<div className="subMenu shadow-header bg-gray-200 absolute start-0 opacity-0 group-hover:opacity-100">
-							<ul className="text-body text-sm py-5">
+							<ul className="menu-text text-sm py-5">
 								{item.subMenu.map((menu: any, index: number) => {
 									const dept: number = 1;
 									const menuName: string = `sidebar-menu-${dept}-${index}`;

@@ -9,7 +9,7 @@ export default function NewArrivalsProductFeed() {
 	return (
 		<ProductsBlock
 			sectionHeading="text-new-arrivals"
-			products={data}
+			products={data?.slice(0, 5)}
 			loading={isLoading}
 			error={error?.message}
 			uniqueKey="new-arrivals"

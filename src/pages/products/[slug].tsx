@@ -7,17 +7,20 @@ import Divider from "@components/ui/divider";
 import Breadcrumb from "@components/common/breadcrumb";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetServerSideProps } from "next";
+import RelatedCategories from "@containers/related-categories";
 
 export default function ProductPage() {
 	return (
 		<>
 			<Divider className="mb-0" />
 			<Container>
-				<div className="pt-8">
+				<div className="pt-2">
 					<Breadcrumb />
 				</div>
 				<ProductSingleDetails />
-				<RelatedProducts sectionHeading="text-related-products" />
+				<RelatedProducts sectionHeading="People Buying this also bought" />
+				<RelatedProducts sectionHeading="Similar Products" />
+				<RelatedCategories />
 				<Subscription />
 			</Container>
 		</>

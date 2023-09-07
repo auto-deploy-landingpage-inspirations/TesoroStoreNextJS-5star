@@ -5,7 +5,7 @@
 // import { DEFlag } from "@components/icons/DEFlag";
 // import { ESFlag } from "@components/icons/ESFlag";
 export const siteSettings = {
-	name: "ChawkBazar",
+	name: "Tesoro Store",
 	description:
 		"Fastest E-commerce template built with React, NextJS, TypeScript, React-Query and Tailwind CSS.",
 	author: {
@@ -17,8 +17,8 @@ export const siteSettings = {
 		url: "/assets/images/logo.png",
 		alt: "Tesoro Store",
 		href: "/",
-		width: 95,
-		height: 30,
+		width: 110,
+		height: 50,
 	},
 	defaultLanguage: "en",
 	currencyCode: "INR",
@@ -26,215 +26,183 @@ export const siteSettings = {
 		menu: [
 			{
 				id: 1,
-				path: "#",
-				label: "Categories",
-				columns: [
+				path: "/",
+				label: "Home Decor",
+				subMenu: [
 					{
 						id: 1,
-						columnItems: [
-							{
-								id: 1,
-								path: "/collections/home-decor",
-								label: "Home Decor",
-								columnItemItems: [
-									{
-										id: 1,
-										path: "/sub-collections/planters",
-										label: "Planters",
-									},
-									{
-										id: 2,
-										path: "/sub-collections/candles",
-										label: "Candles",
-									},
-									{
-										id: 3,
-										path: "/sub-collections/candle-stand",
-										label: "Candle Stand",
-									},
-									{
-										id: 4,
-										path: "/sub-collections/mirrors",
-										label: "Mirrors",
-									},
-									{
-										id: 5,
-										path: "/sub-collections/vases",
-										label: "Vases",
-									},
-									{
-										id: 6,
-										path: "/sub-collections/frames",
-										label: "Frames",
-									},
-								],
-							},
-							{
-								id: 2,
-								path: "/collections/handmade-with-love",
-								label: "Handmade with Love",
-							},
-							{
-								id: 3,
-								path: "/collections/custom-made",
-								label: "Custom Made"
-							}
-						],
+						path: "/sub-collections/planters",
+						label: "Planters",
 					},
 					{
 						id: 2,
-						columnItems: [
-							{
-								id: 1,
-								path: "/collections/stationary",
-								label: "Stationary",
-								columnItemItems: [
-									{
-										id: 1,
-										path: '/sub-collections/pens-and-highlighters',
-										label: 'Pens & Highlighters'
-									},
-									{
-										id: 2,
-										path: '/sub-collections/notebooks-and-planners',
-										label: 'Notebook & Planners'
-									},
-									{
-										id: 3,
-										path: '/sub-collections/journals',
-										label: 'Journals'
-									},
-									{
-										id: 4,
-										path: '/sub-collections/photo-books',
-										label: 'Photo Books'
-									},
-									{
-										id: 5,
-										path: '/sub-collections/bookmarks',
-										label: 'Bookmarks'
-									},
-									{
-										id: 6,
-										path: '/sub-collections/sticky-notes',
-										label: 'Sticky Notes'
-									},
-									{
-										id: 7,
-										path: '/sub-collections/to-do-lists-notepad',
-										label: 'To-Do List & Notepad'
-									},
-									{
-										id: 8,
-										path: '/sub-collections/pencils',
-										label: 'Pencils'
-									}
-								]
-							},
-						],
+						path: "/sub-collections/candles",
+						label: "Candles",
 					},
 					{
 						id: 3,
-						columnItems: [
-							{
-								id: 1,
-								path: "/collections/tableware",
-								label: "Tableware",
-								columnItemItems: [
-									{
-										id: 1,
-										path: '/sub-collections/ceramic-bowl',
-										label: 'Ceramic Bowls'
-									},
-									{
-										id: 2,
-										path: '/sub-collections/cutlery',
-										label: 'Cutlery'
-									},
-									{
-										id: 3,
-										path: '/sub-collections/plates',
-										label: 'Plates'
-									},
-									{
-										id: 4,
-										path: '/sub-collections/serving-plates-and-bowls',
-										label: 'Serving Plates and Bowls'
-									},
-									{
-										id: 5,
-										path: '/sub-collections/mugs',
-										label: 'Mugs'
-									},
-									{
-										id: 6,
-										path: '/sub-collections/cups',
-										label: 'Cups'
-									},
-									{
-										id: 7,
-										path: '/sub-collections/customizable-products',
-										label: 'Customizable Products'
-									},
-									{
-										id: 8,
-										path: '/sub-collections/glassware',
-										label: 'Glassware'
-									}
-								]
-							},
-						],
+						path: "/sub-collections/candle-stand",
+						label: "Candle Stand",
 					},
 					{
 						id: 4,
-						columnItems: [
-							{
-								id: 1,
-								path: "/collections/gifting",
-								label: "Gifting",
-								columnItemItems: [
-									{
-										id: 1,
-										path: '/sub-collections/gifts-for-her',
-										label: 'Gifts for Her'
-									},
-									{
-										id: 2,
-										path: '/sub-collections/gifts-for-him',
-										label: 'Gift for Him'
-									},
-									{
-										id: 3,
-										path: '/sub-collections/gifts-for-kids',
-										label: 'Kids for Kids'
-									},
-									{
-										id: 4,
-										path: '/sub-collections/gifts-for-mom',
-										label: 'Gifts for Mom'
-									},
-									{
-										id: 5,
-										path: '/sub-collections/gifts-for-dad',
-										label: 'Gifts for Dad'
-									}
-								]
-							},
-							
-						],
+						path: "/sub-collections/mirrors",
+						label: "Mirrors",
+					},
+					{
+						id: 5,
+						path: "/sub-collections/vases",
+						label: "Vases",
+					},
+					{
+						id: 6,
+						path: "/sub-collections/frames",
+						label: "Frames",
 					},
 				],
 			},
-			
 			{
 				id: 2,
-				path: "/pages/sale",
-				label: "Sale"
+				path: "/",
+				label: "Stationary",
+				subMenu: [
+					{
+						id: 1,
+						path: '/sub-collections/pens-and-highlighters',
+						label: 'Pens & Highlighters'
+					},
+					{
+						id: 2,
+						path: '/sub-collections/notebooks-and-planners',
+						label: 'Notebook & Planners'
+					},
+					{
+						id: 3,
+						path: '/sub-collections/journals',
+						label: 'Journals'
+					},
+					{
+						id: 4,
+						path: '/sub-collections/photo-books',
+						label: 'Photo Books'
+					},
+					{
+						id: 5,
+						path: '/sub-collections/bookmarks',
+						label: 'Bookmarks'
+					},
+					{
+						id: 6,
+						path: '/sub-collections/sticky-notes',
+						label: 'Sticky Notes'
+					},
+					{
+						id: 7,
+						path: '/sub-collections/to-do-lists-notepad',
+						label: 'To-Do List & Notepad'
+					},
+					{
+						id: 8,
+						path: '/sub-collections/pencils',
+						label: 'Pencils'
+					}
+				]
 			},
 			{
 				id: 3,
+				path: "/",
+				label: "Tableware",
+				subMenu: [
+					{
+						id: 1,
+						path: '/sub-collections/ceramic-bowl',
+						label: 'Ceramic Bowls'
+					},
+					{
+						id: 2,
+						path: '/sub-collections/cutlery',
+						label: 'Cutlery'
+					},
+					{
+						id: 3,
+						path: '/sub-collections/plates',
+						label: 'Plates'
+					},
+					{
+						id: 4,
+						path: '/sub-collections/serving-plates-and-bowls',
+						label: 'Serving Plates and Bowls'
+					},
+					{
+						id: 5,
+						path: '/sub-collections/mugs',
+						label: 'Mugs'
+					},
+					{
+						id: 6,
+						path: '/sub-collections/cups',
+						label: 'Cups'
+					},
+					{
+						id: 7,
+						path: '/sub-collections/customizable-products',
+						label: 'Customizable Products'
+					},
+					{
+						id: 8,
+						path: '/sub-collections/glassware',
+						label: 'Glassware'
+					}
+				]
+			},
+			{
+				id: 4,
+				path: "/",
+				label: "Gifting",
+				subMenu: [
+					{
+						id: 1,
+						path: '/sub-collections/gifts-for-her',
+						label: 'Gifts for Her'
+					},
+					{
+						id: 2,
+						path: '/sub-collections/gifts-for-him',
+						label: 'Gift for Him'
+					},
+					{
+						id: 3,
+						path: '/sub-collections/gifts-for-kids',
+						label: 'Kids for Kids'
+					},
+					{
+						id: 4,
+						path: '/sub-collections/gifts-for-mom',
+						label: 'Gifts for Mom'
+					},
+					{
+						id: 5,
+						path: '/sub-collections/gifts-for-dad',
+						label: 'Gifts for Dad'
+					}
+				]
+			},
+			
+			
+			{
+				id: 5,
+				path: "/pages/sale",
+				label: "Handmade with Love"
+			},
+			{
+				id: 6,
 				path: "/pages/about-us",
-				label: "About us"
+				label: "Custom Made"
+			},
+			{
+				id: 7,
+				path: '/accessories',
+				label: 'Accessories'
 			},
 		],
 		mobileMenu: [
@@ -419,6 +387,11 @@ export const siteSettings = {
 						id: 6,
 						path: "/search?q=handbags-wallets",
 						label: "Custom Made",
+					},
+					{
+						id: 7,
+						path: '/accessories',
+						label: 'Accessories'
 					},
 				],
 			},

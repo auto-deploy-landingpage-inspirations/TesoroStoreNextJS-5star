@@ -6,12 +6,12 @@ export const homeOneBanner = {
     mobile: {
       url: "/assets/images/new-banner/banner.jpg",
       width: 450,
-      height: 120,
+      height: 450,
     },
     desktop: {
-      url: "/assets/images/new-banner/banner.jpg",
+      url: "/assets/images/banners/About-Us-1.png",
       width: 1800,
-      height: 270,
+      height: 500,
     },
   },
 };
@@ -23,12 +23,12 @@ export const homeOneHeroBanner = [
 		slug: "winter-collection",
 		image: {
 			mobile: {
-				url: "/assets/images/new-banner/banner.jpg",
+				url: "/assets/images/banners/banner1.png",
 				width: 480,
 				height: 275,
 			},
 			desktop: {
-				url: "/assets/images/new-banner/banner.jpg",
+				url: "/assets/images/banners/banner1.png",
 				width: 1800,
 				height: 800,
 			},
@@ -40,12 +40,12 @@ export const homeOneHeroBanner = [
 		slug: "gift-collection",
 		image: {
 			mobile: {
-				url: "/assets/images/new-banner/banner 4.jpg",
+				url: "/assets/images/banners/banner2.png",
 				width: 480,
 				height: 275,
 			},
 			desktop: {
-				url: "/assets/images/new-banner/banner 4.jpg",
+				url: "/assets/images/banners/banner2.png",
 				width: 1800,
 				height: 800,
 			},
@@ -57,12 +57,29 @@ export const homeOneHeroBanner = [
 		slug: "party-collection",
 		image: {
 			mobile: {
-				url: "/assets/images/new-banner/banner 3.jpg",
+				url: "/assets/images/banners/banner3.png",
 				width: 480,
 				height: 275,
 			},
 			desktop: {
-				url: "/assets/images/new-banner/banner 3.jpg",
+				url: "/assets/images/banners/banner3.png",
+				width: 1800,
+				height: 800,
+			},
+		},
+	},
+  {
+		id: 4,
+		title: "another collection",
+		slug: "another-collection",
+		image: {
+			mobile: {
+				url: "/assets/images/banners/banner4.png",
+				width: 480,
+				height: 275,
+			},
+			desktop: {
+				url: "/assets/images/banners/banner4.png",
 				width: 1800,
 				height: 800,
 			},

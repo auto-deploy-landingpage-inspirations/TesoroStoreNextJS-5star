@@ -8,8 +8,8 @@ export default function BestSellerProductFeed() {
 
 	return (
 		<ProductsBlock
-			sectionHeading="text-best-sellers"
-			products={data}
+			sectionHeading="Recently Viewed"
+			products={data?.slice(0, 5)}
 			loading={isLoading}
 			error={error?.message}
 			uniqueKey="best-sellers"

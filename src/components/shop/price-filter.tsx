@@ -5,43 +5,43 @@ import { useTranslation } from "next-i18next";
 const priceFilterItems = [
 	{
 		id: "1",
-		name: "Under $50",
-		slug: "0-50",
+		name: "Under ₹500",
+		slug: "0-500",
 	},
 	{
 		id: "2",
-		name: "$50 to $100",
-		slug: "50-100",
+		name: "₹500 to ₹1000",
+		slug: "500-1000",
 	},
 	{
 		id: "3",
-		name: "$100 to $150",
-		slug: "100-150",
+		name: "₹1000 to ₹1500",
+		slug: "1000-1500",
 	},
 	{
 		id: "4",
-		name: "$150 to $200",
-		slug: "150-200",
+		name: "₹1500 to ₹2000",
+		slug: "1500-2000",
 	},
 	{
 		id: "5",
-		name: "$200 to $300",
-		slug: "200-300",
+		name: "₹2000 to ₹3000",
+		slug: "2000-3000",
 	},
 	{
 		id: "6",
-		name: "$300 to $500",
-		slug: "300-500",
+		name: "₹3000 to ₹5000",
+		slug: "3000-5000",
 	},
 	{
 		id: "7",
-		name: "$500 to $1000",
+		name: "₹5000 to ₹10000",
 		slug: "500-1000",
 	},
 	{
 		id: "8",
-		name: "Over $1000",
-		slug: "1000-",
+		name: "Over ₹10000",
+		slug: "10000-",
 	},
 ];
 export const PriceFilter = () => {

@@ -18,10 +18,10 @@ const Copyright: React.FC<CopyrightProps> = ({ payment }) => {
 	return (
 		<div className="border-t border-gray-300 pt-5 pb-16 sm:pb-20 md:pb-5 mb-2 sm:mb-0">
 			<Container className="flex flex-col-reverse md:flex-row text-center md:justify-between">
-				<p className="text-body text-xs lg:text-sm leading-6">
+				<p className="text-xs lg:text-sm leading-6 text-white">
 					{t("text-copyright")} &copy; {year}&nbsp;
 					<a
-						className="font-semibold text-gray-700 transition-colors duration-200 ease-in-out hover:text-body"
+						className="font-semibold text-white transition-colors duration-200 ease-in-out hover:text-gray"
 						href={siteSettings.author.websiteUrl}
 					>
 						{siteSettings.author.name}

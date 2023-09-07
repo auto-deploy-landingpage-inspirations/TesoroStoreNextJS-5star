@@ -8,12 +8,12 @@ const ListMenu = ({ dept, data, hasSubMenu, menuIndex }: any) => {
 		<li className="relative">
 			<Link
 				href={data.path}
-				className="flex items-center justify-between py-2 ps-5 xl:ps-7 pe-3 xl:pe-3.5 hover:text-heading hover:bg-gray-300"
+				className="flex items-center justify-between py-2 ps-5 xl:ps-7 pe-3 xl:pe-3.5 text-[#f7b081] hover:text-white hover:bg-[#f7b081]"
 			>
 				{t(data.label)}
 				{data.subMenu && (
 					<span className="text-sm mt-0.5 shrink-0">
-						<IoIosArrowForward className="text-body transition duration-300 ease-in-out group-hover:text-black" />
+						<IoIosArrowForward className="text-black transition duration-300 ease-in-out group-hover:text-black" />
 					</span>
 				)}
 			</Link>
@@ -27,7 +27,7 @@ const ListMenu = ({ dept, data, hasSubMenu, menuIndex }: any) => {
 const SubMenu: React.FC<any> = ({ dept, data, menuIndex }) => {
 	dept = dept + 1;
 	return (
-		<ul className="subMenuChild shadow-subMenu bg-gray-200 absolute z-0 end-full 2xl:end-auto 2xl:start-full opacity-0 invisible top-4 w-56 py-3">
+		<ul className="subMenuChild shadow-subMenu bg-pink-300 absolute z-0 end-full 2xl:end-auto 2xl:start-full opacity-0 invisible top-4 w-56 py-3">
 			{data?.map((menu: any, index: number) => {
 				const menuName: string = `sidebar-submenu-${dept}-${menuIndex}-${index}`;
 

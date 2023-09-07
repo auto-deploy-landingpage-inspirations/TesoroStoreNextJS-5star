@@ -7,7 +7,7 @@ import Divider from "@components/ui/divider";
 // import Support from "@components/common/support";
 import Subscription from "@components/common/subscription";
 import HeroBlock from "@containers/hero-block";
-import BrandBlock from "@containers/brand-block";
+// import BrandBlock from "@containers/brand-block";
 import CategoryBlock from "@containers/category-block";
 import FeatureBlock from "@containers/feature-block";
 import Layout from "@components/layout/layout";
@@ -28,6 +28,16 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useEffect } from "react";
 import { ROUTES } from "@utils/routes";
 import { useUI } from "@contexts/ui.context";
+import BusinessMagic from "@containers/BusinessMagic";
+import SpecialSection from "@containers/SpecialSection";
+
+function Space() {
+	return (
+		<div className="mt-10 h-10 w-full">
+
+		</div>
+	)
+}
 
 export default function Home() {
 	const { openModal, setModalView } = useUI();
@@ -39,29 +49,44 @@ export default function Home() {
 	}, []);
 	return (
 		<>
+			<div 
+				className="bg-main-gradient"
+			>
 			<HeroBlock />
 			<Container>
-				<FlashSaleBlock />
+				{/* <h1 className="items-center text-center font-bold text-pink-400" style={{ fontSize: '40px'}}>
+					New Arrivals
+				</h1> */}
+				<NewArrivalsProductFeed />
+				<CategoryBlock sectionHeading="Top Selling Categories" />
+				<Space />
 				<BannerCarouselBlock />
-				<CategoryBlock sectionHeading="text-shop-by-category" />
-				<Divider />
+				<Space />
+				<FlashSaleBlock />
+				<Space />
 				<BestSellerProductFeed />
-				<BannerCard
+				<Space />
+				<BusinessMagic />
+				<CollectionBlock />
+				<Divider />
+				{/* <BannerCard
 					key={`banner--key${banner.id}`}
 					banner={banner}
 					href={`${ROUTES.COLLECTIONS}/${banner.slug}`}
 					className="mb-12 lg:mb-14 xl:mb-16 pb-0.5 lg:pb-1 xl:pb-0"
-					classNameInner="h-28 sm:h-auto"
-				/>
-				<NewArrivalsProductFeed />
-				<Divider />
-				<BrandBlock sectionHeading="text-top-brands" />
-				<CollectionBlock />
+					classNameInner="h-full sm:h-auto"
+				/> */}
+				
+				{/* <Divider /> */}
+				{/* <BrandBlock sectionHeading="text-top-brands" /> */}
+				
+				<SpecialSection />
 				<FeatureBlock />
 				{/* <DownloadApps className="bg-linen" /> */}
 				{/* <Support /> */}
 				<Subscription className="bg-linen px-5 sm:px-8 md:px-16 2xl:px-24" />
 			</Container>
+			</div>
 		</>
 	);
 }

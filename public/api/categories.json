@@ -2,98 +2,98 @@
   "data": [
     {
       "id": 1,
-      "name": "Woman",
-      "slug": "woman",
+      "name": "Planters",
+      "slug": "planter",
       "productCount": 20,
-      "icon": "/assets/images/category/icons/woman.png",
+      "icon": "/assets/images/categories/planters.jpg",
       "image": {
         "id": 1,
-        "thumbnail": "/assets/images/category/woman.jpg",
-        "original": "/assets/images/category/woman.jpg"
+        "thumbnail": "/assets/images/categories/planters.jpg",
+        "original": "/assets/images/categories/planters.jpg"
       }
     },
     {
       "id": 2,
-      "name": "Man",
-      "slug": "man",
+      "name": "Candles",
+      "slug": "Candles",
       "productCount": 20,
-      "icon": "/assets/images/category/icons/man.png",
+      "icon": "/assets/images/categories/candles.jpg",
       "image": {
         "id": 1,
-        "thumbnail": "/assets/images/category/man.jpg",
-        "original": "/assets/images/category/man.jpg"
+        "thumbnail": "/assets/images/categories/candles.jpg",
+        "original": "/assets/images/categories/candles.jpg"
       }
     },
     {
       "id": 3,
-      "name": "Watch",
-      "slug": "watch",
+      "name": "Vases",
+      "slug": "Vases",
       "productCount": 20,
-      "icon": "/assets/images/category/icons/watch.png",
+      "icon": "/assets/images/categories/vases.jpg",
       "image": {
         "id": 1,
-        "thumbnail": "/assets/images/category/watch.jpg",
-        "original": "/assets/images/category/watch.jpg"
+        "thumbnail": "/assets/images/categories/vases.jpg",
+        "original": "/assets/images/categories/vases.jpg"
       }
     },
     {
       "id": 4,
-      "name": "Kids",
-      "slug": "kids",
+      "name": "Ceramic Bowls",
+      "slug": "ceramic-bowls",
       "productCount": 20,
-      "icon": "/assets/images/category/icons/kids.png",
+      "icon": "/assets/images/categories/ceramic_bowls.jpg",
       "image": {
         "id": 1,
-        "thumbnail": "/assets/images/category/kid.jpg",
-        "original": "/assets/images/category/kid.jpg"
+        "thumbnail":"/assets/images/categories/ceramic_bowls.jpg",
+        "original": "/assets/images/categories/ceramic_bowls.jpg"
       }
     },
     {
       "id": 5,
-      "name": "Sports",
-      "slug": "sports",
+      "name": "Glassware",
+      "slug": "glassware",
       "productCount": 20,
-      "icon": "/assets/images/category/icons/sports.png",
+      "icon": "/assets/images/categories/glassware.jpg",
       "image": {
         "id": 1,
-        "thumbnail": "/assets/images/category/sports.jpg",
-        "original": "/assets/images/category/sports.jpg"
+        "thumbnail": "/assets/images/categories/glassware.jpg",
+        "original": "/assets/images/categories/glassware.jpg"
       }
     },
     {
       "id": 6,
-      "name": "Sunglass",
-      "slug": "sunglass",
+      "name": "Customized Gifts",
+      "slug": "custom-gifts",
       "productCount": 20,
-      "icon": "/assets/images/category/icons/sunglass.png",
+      "icon": "/assets/images/categories/customized_gifts.jpg",
       "image": {
         "id": 1,
-        "thumbnail": "/assets/images/category/sunglass.jpg",
-        "original": "/assets/images/category/sunglass.jpg"
+        "thumbnail": "/assets/images/categories/customized_gifts.jpg",
+        "original": "/assets/images/categories/customized_gifts.jpg"
       }
     },
     {
       "id": 7,
-      "name": "Bags",
-      "slug": "bags",
+      "name": "Handmade",
+      "slug": "handmade",
       "productCount": 20,
-      "icon": "/assets/images/category/icons/bags.png",
+      "icon": "/assets/images/categories/handmade.jpg",
       "image": {
         "id": 1,
-        "thumbnail": "/assets/images/category/bags.jpg",
-        "original": "/assets/images/category/bags.jpg"
+        "thumbnail": "/assets/images/categories/handmade.jpg",
+        "original": "/assets/images/categories/handmade.jpg"
       }
     },
     {
       "id": 8,
-      "name": "Sneakers",
-      "slug": "sneakers",
+      "name": "Sticky Notes",
+      "slug": "sticky-notes",
       "productCount": 20,
-      "icon": "/assets/images/category/icons/sneakers.png",
+      "icon": "/assets/images/categories/sticky_notes.jpg",
       "image": {
         "id": 1,
-        "thumbnail": "/assets/images/category/sneakers.jpg",
-        "original": "/assets/images/category/sneakers.jpg"
+        "thumbnail": "/assets/images/categories/sticky_notes.jpg",
+        "original": "/assets/images/categories/sticky_notes.jpg"
       }
     }
   ]

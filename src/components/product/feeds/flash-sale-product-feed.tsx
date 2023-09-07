@@ -15,12 +15,12 @@ const banner = {
 	slug: "/search",
 	image: {
 		mobile: {
-			url: "/assets/images/banner/banner-mobile-2.jpg",
+			url: "/assets/images/banners/banner1.png",
 			width: 450,
 			height: 150,
 		},
 		desktop: {
-			url: "/assets/images/banner/banner-2.jpg",
+			url: "/assets/images/banners/banner4.png",
 			width: 1190,
 			height: 450,
 		},

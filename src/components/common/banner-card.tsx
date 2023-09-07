@@ -51,6 +51,9 @@ const BannerCard: FC<BannerProps> = ({
         {effectActive && (
           <div className="absolute top-0 -start-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
         )}
+        <button type='button' className='rounded-md drop-shadow-lg border-0 cursor-pointer absolute bottom-[10%] bg-gray-300 hover:bg-gray-150 text-[orange]  px-5 py-2 text-lg font-semibold align-bottom'>
+          Shop Now
+        </button>
       </Link>
     </div>
   );

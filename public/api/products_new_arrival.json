@@ -1,13 +1,13 @@
 [
   {
     "id": 1,
-    "name": "Armani Veni Vidi Vici",
-    "description": "Fendi began life in 1925 as a fur and leather speciality store in Rome.",
+    "name": "Homey Shoes",
+    "description": "The Best gift for your loved ones",
     "slug": "armani-veni-vidi-vici",
     "image": {
       "id": 1,
-      "thumbnail": "/assets/images/products/p-11.png",
-      "original": "/assets/images/products/p-11-m.png"
+      "thumbnail": "https://images.contentstack.io/v3/assets/blt83ec2ae5e0dbde7f/blt36b4be3146e09799/64cb7a0738c04dc905aebf8f/Slippers-Treats-for-you-.jpg?width=350&auto=webp&quality=70&crop=4%3A3",
+      "original": "https://images.contentstack.io/v3/assets/blt83ec2ae5e0dbde7f/blt36b4be3146e09799/64cb7a0738c04dc905aebf8f/Slippers-Treats-for-you-.jpg?width=350&auto=webp&quality=70&crop=4%3A3"
     },
     "gallery": [
       {
@@ -114,13 +114,13 @@
   },
   {
     "id": 2,
-    "name": "H&M Global Desi",
-    "description": "Blue solid woven regular top, curved hem with tassell detailing has shoulder straps, and sleeveless",
+    "name": "The Love Pendant",
+    "description": "Customize this pendant with the name of your loved ones!",
     "slug": "hm-global-desi",
     "image": {
       "id": 1,
-      "thumbnail": "/assets/images/products/p-22.png",
-      "original": "/assets/images/products/p-22-m.png"
+      "thumbnail": "https://cdn.notonthehighstreet.com/fs/59/91/f99b-22cb-44ba-ba01-277a9d3d96b5/normal_confetti-birthstone-albert-t-bar-necklace.jpg",
+      "original": "https://cdn.notonthehighstreet.com/fs/59/91/f99b-22cb-44ba-ba01-277a9d3d96b5/normal_confetti-birthstone-albert-t-bar-necklace.jpg"
     },
     "gallery": [
       {
@@ -227,13 +227,13 @@
   },
   {
     "id": 3,
-    "name": "Zara Solly White Shirt",
-    "description": "For a chic and smart look, don this white shirt from Solly by Allen Solly. Crafted from a cotton-nylon blend with a hint of stretch, this design features a dotted pattern. Wear this 3/4th sleeves shirt with trousers and wedges to a client meeting.",
+    "name": "The Perfect Wine Glass",
+    "description": "This is the glass which is the glass",
     "slug": "zara-solly-white-shirt",
     "image": {
       "id": 1,
-      "thumbnail": "/assets/images/products/p-18.png",
-      "original": "/assets/images/products/p-18-m.png"
+      "thumbnail": "https://images.contentstack.io/v3/assets/blt83ec2ae5e0dbde7f/blt1a4d974add773787/64c27150840382756ef23a7e/27.07.22_Best_Wedding_Gifts_Edit.jpg?width=350&auto=webp&quality=70&crop=4%3A3",
+      "original": "https://images.contentstack.io/v3/assets/blt83ec2ae5e0dbde7f/blt1a4d974add773787/64c27150840382756ef23a7e/27.07.22_Best_Wedding_Gifts_Edit.jpg?width=350&auto=webp&quality=70&crop=4%3A3"
     },
     "gallery": [
       {
@@ -340,13 +340,13 @@
   },
   {
     "id": 4,
-    "name": "Hermes  Carlton London",
-    "description": "Off-White self-striped knitted midi A-line dress, has a scoop neck, sleeveless, straight hem",
+    "name": "Memorial Star Map Print",
+    "description": "Memorial Star Map Print",
     "slug": "hermes-carlton-london",
     "image": {
       "id": 1,
-      "thumbnail": "/assets/images/products/p-14.png",
-      "original": "/assets/images/products/p-14-m.png"
+      "thumbnail": "https://dwgokgnbz84c3.cloudfront.net/wp-content/uploads/2021/02/in-loving-memory-star-map-framed-print.jpeg",
+      "original": "https://dwgokgnbz84c3.cloudfront.net/wp-content/uploads/2021/02/in-loving-memory-star-map-framed-print.jpeg"
     },
     "gallery": [
       {
@@ -453,13 +453,13 @@
   },
   {
     "id": 5,
-    "name": "Scuba Stand Collar Topper Jacket",
-    "description": "Zara provides only the highest-quality selection of dresses, womens suits, and suited separates.",
+    "name": "Personalized Wooden Clock",
+    "description": "A Father’s Love Is Timeless” Wooden Clock",
     "slug": "scuba-stand-collar-topper-jacket",
     "image": {
       "id": 1,
-      "thumbnail": "/assets/images/products/p-15.png",
-      "original": "/assets/images/products/p-15-m.png"
+      "thumbnail": "https://dwgokgnbz84c3.cloudfront.net/wp-content/uploads/2021/03/in-loving-memory-custom-photo-framed-print-memorial-gift-1024x1024.jpeg",
+      "original": "https://dwgokgnbz84c3.cloudfront.net/wp-content/uploads/2021/03/in-loving-memory-custom-photo-framed-print-memorial-gift-1024x1024.jpeg"
     },
     "gallery": [
       {

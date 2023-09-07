@@ -8,4 +8,13 @@ module.exports = withPWA({
     runtimeCaching,
   },
   i18n,
+  images: {
+    domains: [
+      "images.contentstack.io",
+      "cdn.notonthehighstreet.com",
+      "dwgokgnbz84c3.cloudfront.net",
+      "dwgokgnbz84c3.cloudfront.net",
+      "m.media-amazon.com"
+    ]
+  }
 });

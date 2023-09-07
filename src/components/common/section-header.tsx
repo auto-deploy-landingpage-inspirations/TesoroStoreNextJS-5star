@@ -18,16 +18,19 @@ const SectionHeader: React.FC<Props> = ({
 	const { t } = useTranslation("common");
 	return (
 		<div
-			className={`flex items-center justify-between -mt-2 lg:-mt-2.5 ${className}`}
+			className={`flex items-center justify-center -mt-2 lg:-mt-2.5 ${className}`}
 		>
 			{boxshadow?(
 				<Text variant="mediumHeading" style={
 					{
-						backgroundColor: 'white',
-						boxShadow: '8px 11px 8px rgb(218, 224, 245)',
+						backgroundColor: '',
+						color: 'black',
+						boxShadow: '8px 11px 8px rgba(218, 224, 245, 0)',
 						padding: '10px',
 						marginTop: '9px',
-						borderRadius: '12px'
+						borderRadius: '12px',
+						alignItems: 'center',
+						textAlign: 'center',
 					}
 				}>{t(`${sectionHeading}`)}</Text>
 			):(

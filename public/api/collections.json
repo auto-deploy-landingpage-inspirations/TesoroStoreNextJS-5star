@@ -2,52 +2,52 @@
   "data": [
     {
       "id": 1,
-      "name": "Winter Collection",
+      "name": "Home Decor",
       "slug": "winter-collection"
     },
     {
       "id": 2,
-      "name": "Summer Collection",
+      "name": "Stationary",
       "slug": "summer-collection"
     },
     {
       "id": 3,
-      "name": "Wedding Collection",
+      "name": "Ceramic Bowls",
       "slug": "wedding-collection"
     },
     {
       "id": 4,
-      "name": "Trekking Collection",
+      "name": "Mugs",
       "slug": "trekking-collection"
     },
     {
       "id": 5,
-      "name": "Gift Collection",
+      "name": "Cups",
       "slug": "gift-collection"
     },
     {
       "id": 6,
-      "name": "Mens Collection",
+      "name": "Gifs for Him",
       "slug": "mens-collection"
     },
     {
       "id": 7,
-      "name": "Womens Collection",
+      "name": "Gifts for Her",
       "slug": "womens-collection"
     },
     {
       "id": 8,
-      "name": "Kids Collection",
+      "name": "Handmade Gifts",
       "slug": "kids-collection"
     },
     {
       "id": 9,
-      "name": "Party Collection",
+      "name": "Frames",
       "slug": "party-collection"
     },
     {
       "id": 10,
-      "name": "Backpack Collection",
+      "name": "Customized Gifts",
       "slug": "backpack-collection"
     }
   ]

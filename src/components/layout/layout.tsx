@@ -7,6 +7,7 @@ import CookieBar from "@components/common/cookie-bar";
 import { useAcceptCookies } from "@utils/use-accept-cookies";
 import Button from "@components/ui/button";
 import { useTranslation } from "next-i18next";
+import TopBar from "./TopBar";
 
 const Layout: React.FC = ({ children }) => {
 	const { acceptedCookies, onAcceptCookies } = useAcceptCookies();
@@ -44,6 +45,7 @@ const Layout: React.FC = ({ children }) => {
 					],
 				}}
 			/>
+			<TopBar />
 			<Header />
 			<main
 				className="relative flex-grow"

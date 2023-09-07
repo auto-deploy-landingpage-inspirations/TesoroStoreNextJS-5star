@@ -69,7 +69,7 @@ const breakpointsCircle = {
 };
 
 const CategoryBlock: React.FC<CategoriesProps> = ({
-  className = 'mb-10 md:mb-11 lg:mb-12 xl:mb-14 lg:pb-1 xl:pb-0',
+  className = 'mb-10 md:mb-11 lg:mb-12 xl:mb-14 lg:pb-1 xl:pb-0 mx-0 w-full drop-shadow-lg',
   sectionHeading,
   type = 'circle',
 }) => {
@@ -78,7 +78,7 @@ const CategoryBlock: React.FC<CategoriesProps> = ({
   });
 
   return (
-    <div className={className} style={
+    <div className={className+" bg-category-section"} style={
       {
         backgroundColor: '#efe3fc',
         borderRadius: '12px',

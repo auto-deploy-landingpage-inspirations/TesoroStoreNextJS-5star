@@ -3,7 +3,7 @@ import React, { forwardRef, ButtonHTMLAttributes } from "react";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	className?: string;
-	variant?: "flat" | "slim";
+	variant?: "flat" | "slim" | "new";
 	active?: boolean;
 	type?: "submit" | "reset" | "button";
 	loading?: boolean;
@@ -22,7 +22,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 	} = props;
 
 	const rootClassName = cn(
-		"text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent rounded-md placeholder-white focus-visible:outline-none focus:outline-none",
+		"text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center rounded-md placeholder-white focus-visible:outline-none focus:outline-none",
 		{
 			"bg-heading text-white px-5 md:px-6 lg:px-8 py-4 md:py-3.5 lg:py-4 hover:text-white hover:bg-gray-600 hover:shadow-cart":
 				variant === "flat",
@@ -30,6 +30,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 				variant === "slim",
 			"cursor-not-allowed": loading,
 			"cursor-not-allowed hover:cursor-not-allowed": disabled,
+			"bg-white text-indigo-400 hover:bg-indigo-500 hover:text-white border-indigo-600": variant === "new",
 		},
 		className
 	);
@@ -42,6 +43,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 			className={rootClassName}
 			disabled={disabled}
 			{...rest}
+			style={{border: '1px solid #6366f1'}}
 		>
 			{children}
 			{loading && (

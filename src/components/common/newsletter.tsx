@@ -25,17 +25,20 @@ export default function Newsletter() {
 	}
 	const { t } = useTranslation();
 	return (
-		<div className="flex items-center justify-center">
+		<div className="flex items-center justify-center overflow-hidden">
 			<div className="w-full sm:w-[450px] md:w-[550px] lg:w-[980px] xl:w-[1170px] flex flex-col max-w-full max-h-full bg-white overflow-hidden rounded-md">
 				<div className="flex items-center">
-					<div className="flex-shrink-0 items-center justify-center bg-gray-200 hidden lg:flex lg:w-[520px] xl:w-auto">
+					<div className="flex-shrink-0 items-center justify-center bg-gray-200 overflow-hidden lg:flex lg:w-[520px] xl:w-auto">
 						<Image
-							src="/assets/images/newsletter.jpg"
+							src="/assets/images/new-products/alertsBanner.jpg"
 							alt="Thumbnail"
 							width={655}
 							height={655}
 							className="object-cover w-full h-full"
 						/>
+						{/* <p className="absolute top-5 left-5 text-xl font-bold text-white">
+							Tesoro Store
+						</p> */}
 					</div>
 					<div className="flex flex-col px-5 py-7 sm:p-10 md:p-12 xl:p-14 text-center w-full">
 						<h4 className="uppercase font-semibold text-xs sm:text-sm text-body mb-2 lg:mb-4">
