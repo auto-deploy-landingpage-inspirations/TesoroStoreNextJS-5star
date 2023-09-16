@@ -25,7 +25,8 @@
       "@framework/*": ["src/framework/basic-rest/*"],
       "@settings/*": ["src/settings/*"],
       "@styles/*": ["src/styles/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@fonts/*": ["public/assets/fonts/*"],
     }
   },
   "include": [

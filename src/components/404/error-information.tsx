@@ -18,14 +18,14 @@ const ErrorInformation: React.FC = () => {
 
 				<Text variant="mediumHeading">{t("error-heading")}</Text>
 				<p className="text-sm md:text-base leading-7 pt-2 md:pt-3.5 pb-7 md:pb-9">
-					{t("error-sub-heading")}
+					{("error-sub-heading")}
 				</p>
 				<Link
 					href="/"
 					className="text-[13px] md:text-sm lg:text-base leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 bg-heading text-white px-4 md:px-6  py-2.5 lg:py-3 hover:text-white hover:bg-gray-600 hover:shadow-cart rounded-lg"
 				>
 					<IoHomeSharp />
-					<span className="ps-1.5">{t("button-go-home")}</span>
+					<span className="ps-1.5">button-go-home</span>
 				</Link>
 			</div>
 		</div>

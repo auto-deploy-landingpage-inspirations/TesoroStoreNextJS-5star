@@ -6,7 +6,7 @@ interface Props {
 	sectionHeading: string;
 	categorySlug?: string;
 	className?: string;
-	boxshadow?: boolean
+	boxshadow?: boolean;
 }
 
 const SectionHeader: React.FC<Props> = ({
@@ -31,10 +31,11 @@ const SectionHeader: React.FC<Props> = ({
 						borderRadius: '12px',
 						alignItems: 'center',
 						textAlign: 'center',
+						fontFamily: 'Van'
 					}
 				}>{t(`${sectionHeading}`)}</Text>
 			):(
-				<Text variant="mediumHeading">{t(`${sectionHeading}`)}</Text>
+				<Text variant="mediumHeading" style={{fontFamily: 'Van'}}>{t(`${sectionHeading}`)}</Text>
 			)}
 			
 			{categorySlug && (

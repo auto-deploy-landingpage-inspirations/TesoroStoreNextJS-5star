@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import Logo from "@components/ui/logo";
 import { useUI } from "@contexts/ui.context";
 import { useSignUpMutation, SignUpInputType } from "@framework/auth/use-signup";
-import { ImGoogle2, ImFacebook2 } from "react-icons/im";
+// import { ImGoogle2, ImFacebook2 } from "react-icons/im";
 import Link from "@components/ui/link";
 import { ROUTES } from "@utils/routes";
 import { useTranslation } from "next-i18next";

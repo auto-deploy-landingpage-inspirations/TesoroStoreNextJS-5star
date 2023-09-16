@@ -12,7 +12,7 @@ import RelatedCategories from "@containers/related-categories";
 export default function ProductPage() {
 	return (
 		<>
-			<Divider className="mb-0" />
+			<Divider className="mt-[10vh]" />
 			<Container>
 				<div className="pt-2">
 					<Breadcrumb />

@@ -11,15 +11,13 @@ const data:string[] = [
 
 export default function RelatedCategories() {
   return (
-    <div className='flex items-center my-10'>
+    <div className='flex items-center mt-4 mb-10'>
         <h1>You may also like: </h1>
         <div>
             <ul className='flex'>
                 {data.map((item, index:number) => (
-                    <li key={index} className='border-indigo-500 ml-5  py-1 px-2 text-white hover:bg-gradient-to-r hover:from-green-500 hover:to-blue-500 cursor-pointer' style={{ borderRadius: '20px', border: '0.5px indigo solid'}}>
-                        <p className='text-indigo-500 hover:text-white'>
-                            {item}
-                        </p>
+                    <li key={index} className='mx-1 items-center h-8 px-3 bg-indigo-100 border-2 border-indigo-500 rounded-full hover:bg-indigo-200 cursor-pointer' >
+                        <span className="text-indigo-500 text-xs font-normal">{item}</span>
                     </li>
                 ))}
                 

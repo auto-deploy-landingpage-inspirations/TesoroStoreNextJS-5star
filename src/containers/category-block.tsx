@@ -7,6 +7,7 @@ import { useCategoriesQuery } from '@framework/category/get-all-categories';
 import { ROUTES } from '@utils/routes';
 import Alert from '@components/ui/alert';
 import { SwiperSlide } from 'swiper/react';
+import Fade from "react-reveal/Fade"
 
 interface CategoriesProps {
   sectionHeading: string;
@@ -89,6 +90,7 @@ const CategoryBlock: React.FC<CategoriesProps> = ({
       {error ? (
         <Alert message={error?.message} />
       ) : (
+        <Fade bottom>
         <Carousel
           breakpoints={type === 'rounded' ? breakpoints : breakpointsCircle}
           buttonClassName="-mt-8 md:-mt-10"
@@ -109,17 +111,19 @@ const CategoryBlock: React.FC<CategoriesProps> = ({
                 );
               })
             : data?.categories?.data?.map((category) => (
-                <SwiperSlide key={`category--key-${category.id}`}>
-                  <Card
-                    item={category}
-                    href={`${ROUTES.CATEGORY}/${category.slug}`}
-                    variant={type}
-                    effectActive={true}
-                    size={type === 'rounded' ? 'medium' : 'small'}
-                  />
-                </SwiperSlide>
+                
+                  <SwiperSlide key={`category--key-${category.id}`}>
+                    <Card
+                      item={category}
+                      href={`${ROUTES.CATEGORY}/${category.slug}`}
+                      variant={type}
+                      effectActive={true}
+                      size={type === 'rounded' ? 'medium' : 'small'}
+                    />
+                  </SwiperSlide>
               ))}
         </Carousel>
+        </Fade>
       )}
     </div>
   );

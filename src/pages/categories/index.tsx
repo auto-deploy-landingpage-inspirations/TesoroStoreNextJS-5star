@@ -13,8 +13,17 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ROUTES } from "@utils/routes";
 import { GetStaticProps } from "next";
 import CategoryBanner from "@containers/category-banner";
-import CategoryBlock from "@containers/category-block";
+// import CategoryBlock from "@containers/category-block";
+import CategoryBlock2 from "@containers/CategoryBlock2";
 
+const colors:string[] = [
+	'bg-[#f786be]', //pink
+	'bg-blue-400', //lavendar
+	'bg-yellow-300', //light yellow
+	'bg-[#50c79b]', // mint
+	'bg-[orange]',
+	'bg-green-500'
+  ]
 
 export default function Products() {
 	const { t } = useTranslation("common");
@@ -22,10 +31,10 @@ export default function Products() {
 		<>
 			{/* <ShopDiscount /> */}
 			<Container>
-				{/* <CategoryBanner /> */}
-				<CategoryBlock sectionHeading="Categories" />
+				<CategoryBanner bgColor={colors[0]} />
+				<CategoryBlock2 sectionHeading="Categories" />
 				<div className={`flex pt-8 pb-16 lg:pb-20`}>
-					<div className="flex-shrink-0 pe-24 hidden lg:block w-96">
+					<div className="flex-shrink-0 pe-24 hidden lg:block w-72">
 						<StickyBox offsetTop={50} offsetBottom={20}>
 							<div className="pb-7">
 								<BreadcrumbItems separator="/">

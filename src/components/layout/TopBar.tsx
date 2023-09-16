@@ -2,7 +2,7 @@ import React from 'react'
 
 function TopBar() {
   return (
-    <div className='h-7 w-full sticky top-0 left-0 bg-gradient-topbar ' 
+    <div className='h-7 w-full sticky top-0 left-0 bg-[#60a5fa]' 
       style={{
         // backgroundColor: '#7066e0', 
         zIndex: 50}}

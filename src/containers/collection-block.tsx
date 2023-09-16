@@ -4,21 +4,21 @@ const data = [
 	{
 		id: 1,
 		slug: "/search",
-		image: "/assets/images/collection/1.jpg",
+		image: "/assets/images/new-images/founder-pick.png",
 		title: "Mr. Virat Kohli",
 		description: "Meet our featured artist and check their exclusive collection at Tesoro Store",
 	},
 	{
 		id: 2,
 		slug: "/search",
-		image: "/assets/images/collection/3.jpg",
+		image: "/assets/images/new-images/founders-pick-2.png",
 		title: "Monthly Featured",
 		description: "Meet our Artist/Entrepreneur of the Month",
 	},
 	{
 		id: 3,
 		slug: "/search",
-		image: "/assets/images/collection/2.jpg",
+		image: "/assets/images/new-images/founders-pick-2.png",
 		title: "Virat Kohli",
 		description: "Meet our featured entrepreneur and check their exclusive collection at Tesoro Store",
 	},
@@ -36,19 +36,25 @@ const CollectionBlock: React.FC<Props> = ({
 	};
 	return (
 		<div
-			className={`${className} grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-7`}
+			className={`${className} relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-7 px-[18vw] bg-[#fda4af] w-[98.5vw] -translate-x-4 md:-translate-x-8 2xl:-translate-x-16`}
 		>
-			{data?.slice(0, 3)?.map((item, index) => (
-				<CollectionCard
-					key={item.id}
-					collection={item}
-					contactClassName={
-						isEven(index + 1) == 0
-							? "sm:pb-4 md:pb-5 lg:pb-4 2xl:pb-5 3xl:pb-6 pt-3.5 sm:pt-0.5 lg:pt-1 px-4 sm:px-0"
-							: "pt-3.5 lg:pt-4 xl:pt-5 3xl:pt-7 px-4 sm:px-0"
-					}
-				/>
-			))}
+
+			{/* <Fade> */}
+				{data?.slice(0, 3)?.map((item, index) => (
+					<CollectionCard
+						key={item.id}
+						uniqueKey={index}
+						collection={item}
+						contactClassName={
+							isEven(index + 1) == 0
+								? "sm:pb-4 md:pb-5 lg:pb-4 2xl:pb-5 3xl:pb-6 pt-3.5 sm:pt-0.5 lg:pt-1 px-4 sm:px-0"
+								: "pt-3.5 lg:pt-4 xl:pt-5 3xl:pt-7 px-4 sm:px-0"
+						}
+					/>
+				))}
+			{/* </Fade> */}
+			<img src="/assets/images/new-images/diamond_output.gif" className="absolute top-0 right-10 h-[90%]" alt="" />
+			{/* <img src="/assets/images/new-images/diamond_output.gif" className="absolute top-0 right-10 h-[90%]" alt="" /> */}
 		</div>
 	);
 };

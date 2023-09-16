@@ -14,9 +14,13 @@ import { toast } from "react-toastify";
 import { useWindowSize } from "@utils/use-window-size";
 import Carousel from "@components/ui/carousel/carousel";
 import { SwiperSlide } from "swiper/react";
-import ProductMetaReview from "@components/product/product-meta-review";
+// import ProductMetaReview from "@components/product/product-meta-review";
 import PinCodeCheckForm from "./pinCodeForm";
 import ProductRating from "./productRating";
+import CardRoundedLoader from "@components/ui/loaders/card-rounded-loader";
+import ProductReviewCards from "./product-review";
+
+
 
 const productGalleryCarouselResponsive = {
 	"768": {
@@ -219,7 +223,7 @@ const ProductSingleDetails: React.FC = () => {
 
 			<div className="col-span-4 pt-8 lg:pt-0 hide-scrollbar" style={{height: '80vh', overflowY: 'scroll', overflowX: 'hidden'}}>
 				<div className="pb-4 mb-4 border-b border-gray-300">
-					<h2 className="text-heading text-lg md:text-xl lg:text-2xl 2xl:text-3xl font-bold hover:text-black ">
+					<h2 className="text-heading text-lg md:text-xl lg:text-2xl 2xl:text-3xl font-bold hover:text-black mt-10">
 						{data?.name}
 					</h2>
 					<p className="font-bold">
@@ -253,7 +257,7 @@ const ProductSingleDetails: React.FC = () => {
 							/>
 						);
 					})}
-					<div className="md:w-1/3 sm:w-full">
+					<div className="md:w-1/3 sm:w-full mb-2">
 						<Counter
 							quantity={quantity}
 							onIncrement={() => setQuantity((prev) => prev + 1)}
@@ -269,8 +273,8 @@ const ProductSingleDetails: React.FC = () => {
 					
 					
 				</div> */}
-				<div>
-				<table className="table-fixed sm:w-full md:w-2/3" 
+				<div className="mt-4">
+				<table className="table-fixed sm:w-full md:w-2/3 " 
 					style={
 						{ borderBottomRightRadius: '10px', borderTopLeftRadius: '10px', padding: '5px', margin: '10px', boxShadow: '1.5px 1.5px 1.5px 2px rgba(5, 5, 255, 0.25)'}
 					}
@@ -299,14 +303,14 @@ const ProductSingleDetails: React.FC = () => {
 					</tbody>
 					</table>
 				</div>
-				<div>
+				<div className="my-5">
 					<PinCodeCheckForm />
 				</div>
-				<div className="flex items-center">
+				<div className="flex items-center w-[70%] sm:w-full">
 					<Button
 						onClick={addToCart}
-						variant="slim"
-						className={`w-full md:w-6/12 xl:w-full m-2 bg-gradient-to-r from-green-200 to-blue-600 hover:from-green-400 hover:to-blue-800 ${
+						variant="new"
+						className={`w-full md:w-1/2 xl:w-1/3 m-2 ${
 							!isSelected && ""
 						}`}
 						disabled={!isSelected}
@@ -316,8 +320,8 @@ const ProductSingleDetails: React.FC = () => {
 					</Button>
 					<Button
 						onClick={addToCart}
-						variant="slim"
-						className={`w-full md:w-6/12 m-2 xl:w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-600 hover:to-blue-700 ${
+						variant="new"
+						className={`w-full md:w-1/2 m-2 xl:w-1/3 hover:bg-white hover:drop-shadow-md bg-indigo-500 hover:text-indigo-500 text-white ${
 							!isSelected && ""
 						}`}
 						disabled={!isSelected}
@@ -403,6 +407,12 @@ const ProductSingleDetails: React.FC = () => {
 							</span>
 							SKU1253fC
 						</li>
+						<li>
+							<span className="font-semibold text-heading inline-block pe-2">
+								Delivery time:
+							</span>
+							The product would be delivered in 3-10 days after shipping
+						</li>
 						{/* <li>
 							<span className="font-semibold text-heading inline-block pe-2">
 								Composition
@@ -413,97 +423,11 @@ const ProductSingleDetails: React.FC = () => {
 				</div>
 			</div>
 		</div>
-		<div className="block lg:grid grid-cols-9 gap-x-10 xl:gap-x-14 pt-3 pb-10 lg:pb-14 2xl:pb-20 items-start">
-			{/* <div className="md:col-span-1"></div> */}
-		<section className="col-span-6 ml-10 pb-24 pt-10  rounded-t-10xl overflow-hidden" 
-			// style={{backgroundColor: 'rgba(102, 153, 204, 0.1)'}}
-		>
-  <div className="container px-4 mx-auto">
-    
 
-    <a className="inline-block mb-14 text-3xl font-heading font-medium underline hover:text-darkBlueGray-700" href="#">{data?.gallery?.length} reviews</a>
-		{data?.gallery?.map((item, index:number) => (
-			<div className="mb-5 rounded-t-8xl rounded-b-5xl overflow-hidden" key={index} style={{boxShadow: '2px 2px 2px 2px rgba(1, 1, 1, 0.2)', borderRadius: '20px'}}>
-				<div className="pt-3 pb-5 md:pb-1 px-4 md:px-16 bg-gray-300 bg-opacity-40" style={{borderTopLeftRadius: '40px', borderTopRightRadius: '40px'}}>
-					<div className="flex flex-wrap items-center">
-						<div className="bg-white items-center p-2 mr-6" style={{borderRadius: '20%', width: 'min-content', boxShadow: '2px 2px 2px 2px rgba(100, 100, 100, 0.1)'}}>
-							<img className="mr-6" src="/assets/images/users/user1.jpg" height={50} width={50} alt="" style={{borderRadius: '50%'}}/>
-						</div>
-					<h4 className="w-full md:w-auto text-xl font-heading font-semibold">Prashant Mishra</h4>
-					<div className="w-full md:w-px h-2 md:h-8 mx-8 bg-transparent md:bg-gray-400"></div>
-					<span className="mr-4 text-xl font-heading font-semibold">5.0</span>
-					<div className="inline-flex">
-						<a className="inline-block mr-1" href="#">
-						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M20 7.91677H12.4167L10 0.416763L7.58333 7.91677H0L6.18335 12.3168L3.81668 19.5834L10 15.0834L16.1834 19.5834L13.8167 12.3168L20 7.91677Z" fill="#FFCB00"></path>
-						</svg>
-						</a>
-						<a className="inline-block mr-1" href="#">
-						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M20 7.91677H12.4167L10 0.416763L7.58333 7.91677H0L6.18335 12.3168L3.81668 19.5834L10 15.0834L16.1834 19.5834L13.8167 12.3168L20 7.91677Z" fill="#FFCB00"></path>
-						</svg>
-						</a>
-						<a className="inline-block mr-1" href="#">
-						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M20 7.91677H12.4167L10 0.416763L7.58333 7.91677H0L6.18335 12.3168L3.81668 19.5834L10 15.0834L16.1834 19.5834L13.8167 12.3168L20 7.91677Z" fill="#FFCB00"></path>
-						</svg>
-						</a>
-						<a className="inline-block mr-1" href="#">
-						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M20 7.91677H12.4167L10 0.416763L7.58333 7.91677H0L6.18335 12.3168L3.81668 19.5834L10 15.0834L16.1834 19.5834L13.8167 12.3168L20 7.91677Z" fill="#FFCB00"></path>
-						</svg>
-						</a>
-						<a className="inline-block text-gray-200" href="#">
-						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M20 7.91677H12.4167L10 0.416763L7.58333 7.91677H0L6.18335 12.3168L3.81668 19.5834L10 15.0834L16.1834 19.5834L13.8167 12.3168L20 7.91677Z" fill="#FFCB00"></path>
-						</svg>
-						</a>
-					</div>
-					</div>
-				</div>
-				<div className="px-4 overflow-hidden md:px-16 pt-4 pb-6 bg-white">
-					<div className="flex flex-wrap">
-					<div className="w-full md:w-2/3 mb-6 md:mb-0">
-						<p className="mb-8 max-w-2xl text-darkBlueGray-400 leading-loose">My friend really loved this gift. One of the best gifting options ever! </p>
-						<div className="-mb-2">
-							<div className="inline-flex w-full md:w-auto md:mr-2 mb-2">
-								<div className="flex items-center h-12 pl-2 pr-6 bg-indigo-100 border-2 border-indigo-500 rounded-full">
-									<div className="flex mr-2 w-6 h-6 items-center justify-center bg-white rounded-full text-indigo-500">
-										<svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M10.016 6.366H6.38V10.092H4.472V6.366H0.836V4.638H4.472V0.911999H6.38V4.638H10.016V6.366Z" fill="currentColor"></path>
-										</svg>
-									</div>
-								<span className="text-indigo-500 text-sm font-normal">Aesthetics</span>
-								</div>
-							</div>
-							<div className="inline-flex w-full md:w-auto md:mr-2 mb-2">
-								<div className="flex items-center h-12 pl-2 pr-6 bg-indigo-100 border-2 border-indigo-500 rounded-full">
-									<div className="flex mr-2 w-6 h-6 items-center justify-center bg-white rounded-full text-indigo-500">
-										<svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M10.016 6.366H6.38V10.092H4.472V6.366H0.836V4.638H4.472V0.911999H6.38V4.638H10.016V6.366Z" fill="currentColor"></path>
-										</svg>
-									</div>
-								<span className="text-indigo-500 text-sm font-normal">Finishing</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div className="w-full md:w-1/3 text-right">
-						<p className="mb-8 text-sm text-gray-300">Added {index+1} months ago</p>
-					</div>
-					</div>
-				</div>
-				</div>
-		))}
-      
-    
-    
-    <div className="text-center">
-      <button className="inline-block w-full md:w-auto h-full py-4 px-10 leading-8 font-heading font-medium tracking-tighter text-xl text-white bg-blue-500 hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-xl">See all</button>
-    </div>
-  </div>
-</section>
-		</div>
+
+
+		
+<ProductReviewCards ReviewData={data} />
 		</>
 	);
 };

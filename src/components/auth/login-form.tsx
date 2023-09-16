@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { useLoginMutation, LoginInputType } from "@framework/auth/use-login";
 import { useUI } from "@contexts/ui.context";
 import Logo from "@components/ui/logo";
-import { ImGoogle2, ImFacebook2 } from "react-icons/im";
+// import { ImGoogle2, ImFacebook2 } from "react-icons/im";
 import { useTranslation } from "next-i18next";
 
 const LoginForm: React.FC = () => {
@@ -27,13 +27,13 @@ const LoginForm: React.FC = () => {
 		});
 		console.log(email, password, remember_me, "data");
 	}
-	function handelSocialLogin() {
-		login({
-			email: "demo@demo.com",
-			password: "demo",
-			remember_me: true,
-		});
-	}
+	// function handelSocialLogin() {
+	// 	login({
+	// 		email: "demo@demo.com",
+	// 		password: "demo",
+	// 		remember_me: true,
+	// 	});
+	// }
 	function handleSignUp() {
 		setModalView("SIGN_UP_VIEW");
 		return openModal();

@@ -16,7 +16,7 @@ const SearchBox = React.forwardRef<HTMLInputElement, SearchProps>(
 		const { t } = useTranslation("forms");
 		return (
 			<form
-				className="relative pe-12 md:pe-14 bg-white overflow-hidden rounded-md w-full"
+				className="relative mt-10 pe-12 md:pe-14 bg-white overflow-hidden rounded-md w-full"
 				noValidate
 				role="search"
 				onSubmit={onSubmit}

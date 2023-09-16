@@ -5,6 +5,7 @@ import type { FC } from "react";
 import { useUI } from "@contexts/ui.context";
 import usePrice from "@framework/product/use-price";
 import { Product } from "@framework/types";
+import Tooltip from "@components/Tooltip"
 
 interface ProductProps {
 	product: Product;
@@ -15,6 +16,52 @@ interface ProductProps {
 	imgWidth?: number | string;
 	imgHeight?: number | string;
 	imgLoading?: "eager" | "lazy";
+}
+
+
+const AddToCartButton = ({setAddToCart, addToCart}) => {
+	return(
+		<Tooltip message="add to cart">
+			<button 
+				className="group relative flex rounded-lg w-full items-center py-3 px-8 mx-auto text-center bg-[yellow] stroke-[black] hover:stroke-[white] transition ease-in-out duration-300 shadow-navigation hover:bg-heading hover:text-white transform lg:translate-y-full lg:opacity-0 lg:group-hover:opacity-100 lg:group-hover:translate-y-0" 
+				type="button"
+				onClick={() => {
+					setAddToCart(!addToCart)
+				}}
+				style={{
+					fontWeight: 'bold',
+					// border: '1px solid indigo',
+					lineHeight: '4px',
+					fontSize: '12px'
+				}}
+			>	
+			{/* <span className="text-sm mr-2">
+				{addToCart?(<>Added</>):(<>Add</>)}
+				{" to Cart  "}
+			</span> */}
+			<span className="text-sm font-bold">
+
+			{
+				addToCart? 
+				(
+					<>
+						Added!
+					{/* <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 15"><path fill="pink" d="M5 3.5a2.5 2.5 0 0 1 5 0V4h1v-.5a3.5 3.5 0 1 0-7 0V4h1v-.5Z"/><path fill="pink" fill-rule="evenodd" d="M1.904 6.334A1.5 1.5 0 0 1 3.395 5h8.21a1.5 1.5 0 0 1 1.49 1.334l.779 7A1.5 1.5 0 0 1 12.383 15H2.617a1.5 1.5 0 0 1-1.49-1.666l.777-7ZM7 9V7h1v2h2v1H8v2H7v-2H5V9h2Z" clip-rule="evenodd"/></svg> */}
+					</>
+				):(
+					<>
+						Add To Cart
+						{/* <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><g className="" fill="none"  stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12.5 21H8.574a3 3 0 0 1-2.965-2.544l-1.255-8.152A2 2 0 0 1 6.331 8H17.67a2 2 0 0 1 1.977 2.304l-.263 1.708M16 19h6m-3-3v6"/><path d="M9 11V6a3 3 0 0 1 6 0v5"/></g></svg> */}
+					</>
+				)
+			}
+			</span>
+			{/* <span className="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-sm text-gray-100 rounded-md absolute top-0 left-1/2 
+			-translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto">Tooltip</span> */}
+			
+		</button>
+		</Tooltip>
+	)
 }
 
 
@@ -76,12 +123,12 @@ const ProductCard: FC<ProductProps> = ({
 			>
 				<Image
 					src={product?.image?.thumbnail ?? placeholderImage}
+					
 					width={imgWidth}
 					height={imgWidth}
 					loading={imgLoading}
-					quality={100}
 					alt={product?.name || "Product Image"}
-					className={cn("bg-gray-300 object-cover rounded-xl aspect-square", {
+					className={cn("bg-gray-300 hover:hidden object-cover rounded-xl aspect-square", {
 						"w-full rounded-md ":
 							variant === "grid",
 						"rounded-md transition duration-150 ease-linear transform group-hover:scale-105":
@@ -100,16 +147,19 @@ const ProductCard: FC<ProductProps> = ({
 				>
 					{favorite? (
 						<>
-						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 256"><g fill="orange"><path d="M232 94c0 66-104 122-104 122S24 160 24 94a54 54 0 0 1 54-54c22.59 0 41.94 12.31 50 32c8.06-19.69 27.41-32 50-32a54 54 0 0 1 54 54Z" opacity=".2"/><path d="M178 32c-20.65 0-38.73 8.88-50 23.89C116.73 40.88 98.65 32 78 32a62.07 62.07 0 0 0-62 62c0 70 103.79 126.66 108.21 129a8 8 0 0 0 7.58 0C136.21 220.66 240 164 240 94a62.07 62.07 0 0 0-62-62Zm-50 174.8C109.74 196.16 32 147.69 32 94a46.06 46.06 0 0 1 46-46c19.45 0 35.78 10.36 42.6 27a8 8 0 0 0 14.8 0c6.82-16.67 23.15-27 42.6-27a46.06 46.06 0 0 1 46 46c0 53.61-77.76 102.15-96 112.8Z"/></g></svg>
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><g fill="orange"><path d="M232 94c0 66-104 122-104 122S24 160 24 94a54 54 0 0 1 54-54c22.59 0 41.94 12.31 50 32c8.06-19.69 27.41-32 50-32a54 54 0 0 1 54 54Z" opacity=".2"/><path d="M178 32c-20.65 0-38.73 8.88-50 23.89C116.73 40.88 98.65 32 78 32a62.07 62.07 0 0 0-62 62c0 70 103.79 126.66 108.21 129a8 8 0 0 0 7.58 0C136.21 220.66 240 164 240 94a62.07 62.07 0 0 0-62-62Zm-50 174.8C109.74 196.16 32 147.69 32 94a46.06 46.06 0 0 1 46-46c19.45 0 35.78 10.36 42.6 27a8 8 0 0 0 14.8 0c6.82-16.67 23.15-27 42.6-27a46.06 46.06 0 0 1 46 46c0 53.61-77.76 102.15-96 112.8Z"/></g></svg>
 						</>
 					):(
 						<>
-						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 256"><path fill="black" d="M178 28c-20.09 0-37.92 7.93-50 21.56C115.92 35.93 98.09 28 78 28a66.08 66.08 0 0 0-66 66c0 72.34 105.81 130.14 110.31 132.57a12 12 0 0 0 11.38 0C138.19 224.14 244 166.34 244 94a66.08 66.08 0 0 0-66-66Zm-5.49 142.36a328.69 328.69 0 0 1-44.51 31.8a328.69 328.69 0 0 1-44.51-31.8C61.82 151.77 36 123.42 36 94a42 42 0 0 1 42-42c17.8 0 32.7 9.4 38.89 24.54a12 12 0 0 0 22.22 0C145.3 61.4 160.2 52 178 52a42 42 0 0 1 42 42c0 29.42-25.82 57.77-47.49 76.36Z"/></svg>
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><path stroke="1" fill="black" d="M178 28c-20.09 0-37.92 7.93-50 21.56C115.92 35.93 98.09 28 78 28a66.08 66.08 0 0 0-66 66c0 72.34 105.81 130.14 110.31 132.57a12 12 0 0 0 11.38 0C138.19 224.14 244 166.34 244 94a66.08 66.08 0 0 0-66-66Zm-5.49 142.36a328.69 328.69 0 0 1-44.51 31.8a328.69 328.69 0 0 1-44.51-31.8C61.82 151.77 36 123.42 36 94a42 42 0 0 1 42-42c17.8 0 32.7 9.4 38.89 24.54a12 12 0 0 0 22.22 0C145.3 61.4 160.2 52 178 52a42 42 0 0 1 42 42c0 29.42-25.82 57.77-47.49 76.36Z"/></svg>
 						</>
 					)}
 				</div>
 				<div>
 
+				</div>
+				<div className="overflow-hidden absolute bottom-3.5 lg:bottom-5 end-3.5 lg:end-5 p-2">
+						<AddToCartButton setAddToCart={setAddToCart} addToCart={addToCart}   />
 				</div>
 			</div>
 			<div
@@ -124,19 +174,21 @@ const ProductCard: FC<ProductProps> = ({
 				)}
 			>
 				<h2
-					className={cn("text-heading font-semibold truncate mb-1", {
+					className={cn("text-heading font-semibold truncate", {
 						"text-sm md:text-base": variant === "grid",
 						"md:mb-1.5 text-sm sm:text-base md:text-sm lg:text-base xl:text-lg":
 							variant === "gridSlim",
-						"text-sm sm:text-base md:mb-1.5 pb-0": variant === "listSmall",
-						"text-sm sm:text-base md:text-sm lg:text-base xl:text-lg md:mb-1.5":
+						"text-sm sm:text-base pb-0": variant === "listSmall",
+						"text-sm sm:text-base md:text-sm lg:text-base xl:text-lg md:mb-1":
 							variant === "list",
 					})}
+					style={{fontFamily: 'Hap'}}
 				>
 					{product?.name}
 				</h2>
 				{product?.description && (
-					<p className="text-body text-xs lg:text-sm leading-normal xl:leading-relaxed max-w-[250px] truncate">
+					<p className="text-body text-xs lg:text-sm leading-normal xl:leading-relaxed max-w-[250px] truncate" 
+					style={{fontFamily: 'Hap'}}>
 						{product?.description}
 					</p>
 				)}
@@ -147,49 +199,18 @@ const ProductCard: FC<ProductProps> = ({
 							: "sm:text-xl md:text-base lg:text-xl md:mt-2.5 2xl:mt-3"
 					}`}
 				>
-					<span className="inline-block">{price}</span>
+					<span className="inline-block"
+					style={{fontFamily: 'Hap'}}>{price}</span>
 					{discount && (
-						<del className="sm:text-base font-normal text-red-600">
+						<del className="sm:text-base font-normal text-red-600" 
+						style={{fontFamily: 'Hap'}}>
 							{basePrice}
 						</del>
 					)}
 				</div>
+				
 				<div className="text-center justify-center flex mt-2">
-					<button 
-						className="border flex items-center bg-gradient-button-1 px-8 py-1 text-center  hover:text-white" 
-						type="button"
-						onClick={() => {
-							setAddToCart(!addToCart)
-						}}
-						style={{
-							fontWeight: '1000',
-							border: '1px solid indigo',
-							borderRadius: '12px',
-							lineHeight: '4px',
-							fontSize: '12px'
-						}}
-					>	
-					<span className="text-sm mr-2">
-						{addToCart?(<>Added</>):(<>Add</>)}
-						{" to Cart  "}
-					</span>
-					<span>
-
-					{
-						addToCart? 
-						(
-							<>
-							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 15"><path fill="pink" d="M5 3.5a2.5 2.5 0 0 1 5 0V4h1v-.5a3.5 3.5 0 1 0-7 0V4h1v-.5Z"/><path fill="pink" fill-rule="evenodd" d="M1.904 6.334A1.5 1.5 0 0 1 3.395 5h8.21a1.5 1.5 0 0 1 1.49 1.334l.779 7A1.5 1.5 0 0 1 12.383 15H2.617a1.5 1.5 0 0 1-1.49-1.666l.777-7ZM7 9V7h1v2h2v1H8v2H7v-2H5V9h2Z" clip-rule="evenodd"/></svg>
-							</>
-						):(
-							<>
-								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><g fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12.5 21H8.574a3 3 0 0 1-2.965-2.544l-1.255-8.152A2 2 0 0 1 6.331 8H17.67a2 2 0 0 1 1.977 2.304l-.263 1.708M16 19h6m-3-3v6"/><path d="M9 11V6a3 3 0 0 1 6 0v5"/></g></svg>
-							</>
-						)
-					}
-					</span>
 					
-					</button>
 				</div>
 			</div>
 		</div>

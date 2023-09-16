@@ -1,20 +1,20 @@
-import BannerCard from "@components/common/banner-card";
+// import BannerCard from "@components/common/banner-card";
 import Container from "@components/ui/container";
 import CollectionBlock from "@containers/collection-block";
 import BannerCarouselBlock from "@containers/banner-carousel-block";
-import Divider from "@components/ui/divider";
+// import Divider from "@components/ui/divider";
 // import DownloadApps from "@components/common/download-apps";
 // import Support from "@components/common/support";
 import Subscription from "@components/common/subscription";
 import HeroBlock from "@containers/hero-block";
 // import BrandBlock from "@containers/brand-block";
 import CategoryBlock from "@containers/category-block";
-import FeatureBlock from "@containers/feature-block";
+// import FeatureBlock from "@containers/feature-block";
 import Layout from "@components/layout/layout";
 import FlashSaleBlock from "@components/product/feeds/flash-sale-product-feed";
 import BestSellerProductFeed from "@components/product/feeds/best-seller-product-feed";
 import NewArrivalsProductFeed from "@components/product/feeds/new-arrivals-product-feed";
-import { homeOneBanner as banner } from "@framework/static/banner";
+// import { homeOneBanner as banner } from "@framework/static/banner";
 import { GetStaticProps } from "next";
 import { QueryClient } from "react-query";
 import { dehydrate } from "react-query/hydration";
@@ -25,32 +25,28 @@ import { fetchBestSellerProducts } from "@framework/product/get-all-best-seller-
 import { fetchNewArrivalProducts } from "@framework/product/get-all-new-arrival-products";
 import { fetchBrands } from "@framework/brand/get-all-brands";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useEffect } from "react";
-import { ROUTES } from "@utils/routes";
-import { useUI } from "@contexts/ui.context";
-import BusinessMagic from "@containers/BusinessMagic";
+// import { useEffect } from "react";
+// import { ROUTES } from "@utils/routes";
+// import { useUI } from "@contexts/ui.context";
+// import BusinessMagic from "@containers/BusinessMagic";
 import SpecialSection from "@containers/SpecialSection";
-
-function Space() {
-	return (
-		<div className="mt-10 h-10 w-full">
-
-		</div>
-	)
-}
+import { Feature } from "@containers/featuresIndexPage";
+// import SectionHalf from "@containers/halfsectionindex";
+import BizMagic2 from "@containers/BizMagic2";
+import Fade from "react-reveal/Fade"
 
 export default function Home() {
-	const { openModal, setModalView } = useUI();
-	useEffect(() => {
-		setModalView("NEWSLETTER_VIEW");
-		setTimeout(() => {
-			openModal();
-		}, 2000);
-	}, []);
+	// const { openModal, setModalView } = useUI();
+	// useEffect(() => {
+	// 	setModalView("NEWSLETTER_VIEW");
+	// 	setTimeout(() => {
+	// 		openModal();
+	// 	}, 2000);
+	// }, []);
 	return (
 		<>
 			<div 
-				className="bg-main-gradient"
+				className="bg-main-gradient pb-10"
 			>
 			<HeroBlock />
 			<Container>
@@ -59,16 +55,16 @@ export default function Home() {
 				</h1> */}
 				<NewArrivalsProductFeed />
 				<CategoryBlock sectionHeading="Top Selling Categories" />
-				<Space />
+				
+				
 				<BannerCarouselBlock />
-				<Space />
 				<FlashSaleBlock />
-				<Space />
 				<BestSellerProductFeed />
-				<Space />
-				<BusinessMagic />
-				<CollectionBlock />
-				<Divider />
+				<BizMagic2 />
+				{/* <BusinessMagic /> */}
+				<Fade bottom>
+					<CollectionBlock />
+				</Fade>
 				{/* <BannerCard
 					key={`banner--key${banner.id}`}
 					banner={banner}
@@ -80,8 +76,11 @@ export default function Home() {
 				{/* <Divider /> */}
 				{/* <BrandBlock sectionHeading="text-top-brands" /> */}
 				
-				<SpecialSection />
-				<FeatureBlock />
+				<SpecialSection />  
+				
+				{/* <SectionHalf /> */}
+				<Feature />
+				{/* <FeatureBlock /> */}
 				{/* <DownloadApps className="bg-linen" /> */}
 				{/* <Support /> */}
 				<Subscription className="bg-linen px-5 sm:px-8 md:px-16 2xl:px-24" />

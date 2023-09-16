@@ -12,7 +12,7 @@ interface ProductsProps {
 
 const RelatedProducts: React.FC<ProductsProps> = ({
 	sectionHeading,
-	className = "mb-9 lg:mb-10 xl:mb-14",
+	className = "mb-5 lg:mb-5 xl:mb-8",
 }) => {
 	const {data, isLoading, error} = useNewArrivalProductsQuery({
 		limit: 6,

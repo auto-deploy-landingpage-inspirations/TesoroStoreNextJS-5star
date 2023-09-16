@@ -61,7 +61,8 @@ const Card: React.FC<Props> = ({
 					</>
 				)}
 			</div>
-			<Text variant="heading" className="capitalize">
+			<Text variant="heading" className="capitalize"
+					style={{fontFamily: 'Hap'}}>
 				{name}
 			</Text>
 		</Link>
