@@ -1,7 +1,7 @@
 import SectionHeader from "@components/common/section-header";
 import ProductCard from "@components/product/product-card";
 import ProductFeedLoader from "@components/ui/loaders/product-feed-loader";
-import { useRelatedProductsQuery } from "@framework/product/get-related-product";
+// import { useRelatedProductsQuery } from "@framework/product/get-related-product";
 import Alert from "@components/ui/alert";
 import { useNewArrivalProductsQuery } from "@framework/product/get-all-new-arrival-products";
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Feature } from './featuresIndexPage'
+// import { Feature } from './featuresIndexPage'
 
 export default function SectionHalf() {
   return (

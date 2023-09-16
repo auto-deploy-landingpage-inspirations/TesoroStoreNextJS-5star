@@ -59,7 +59,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>(
 						htmlFor={name}
 						className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer"
 					>
-						{t(labelKey)}
+						{t(labelKey) as string}
 					</label>
 				)}
 				<input
@@ -75,7 +75,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>(
 					aria-invalid={errorKey ? "true" : "false"}
 					{...rest}
 				/>
-				{errorKey && <p className="my-2 text-xs text-red-500">{t(errorKey)}</p>}
+				{errorKey && <p className="my-2 text-xs text-red-500">{t(errorKey)as string}</p>}
 			</div>
 		);
 	}

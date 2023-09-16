@@ -207,7 +207,7 @@ function uiReducer(state: State, action: Action) {
   }
 }
 
-export const UIProvider: React.FC = (props) => {
+export const UIProvider: React.FC<{children:any}> = (props) => {
   const [state, dispatch] = React.useReducer(uiReducer, initialState);
 
   const authorize = () => dispatch({ type: "SET_AUTHORIZED" });
@@ -285,7 +285,7 @@ export const useUI = () => {
   return context;
 };
 
-export const ManagedUIContext: React.FC = ({ children }) => (
+export const ManagedUIContext: React.FC<{children: any}> = ({ children }) => (
   <CartProvider>
     <UIProvider>{children}</UIProvider>
   </CartProvider>

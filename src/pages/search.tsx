@@ -29,13 +29,13 @@ export default function Shop() {
 										href={"/"}
 										activeClassName="font-semibold text-heading"
 									>
-										<a>{t("breadcrumb-home")}</a>
+										<a>{t("breadcrumb-home")as string}</a>
 									</ActiveLink>
 									<ActiveLink
 										href={ROUTES.SEARCH}
 										activeClassName="font-semibold text-heading"
 									>
-										<a className="capitalize">{t("breadcrumb-search")}</a>
+										<a className="capitalize">{t("breadcrumb-search")as string}</a>
 									</ActiveLink>
 								</BreadcrumbItems>
 							</div>

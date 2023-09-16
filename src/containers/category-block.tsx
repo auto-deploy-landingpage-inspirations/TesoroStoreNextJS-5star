@@ -7,7 +7,7 @@ import { useCategoriesQuery } from '@framework/category/get-all-categories';
 import { ROUTES } from '@utils/routes';
 import Alert from '@components/ui/alert';
 import { SwiperSlide } from 'swiper/react';
-import Fade from "react-reveal/Fade"
+import {Fade} from "react-reveal"
 
 interface CategoriesProps {
   sectionHeading: string;

@@ -36,7 +36,7 @@ function handleExitComplete() {
 	}
 }
 
-const Noop: React.FC = ({ children }) => <>{children}</>;
+const Noop: React.FC<{children:any}> = ({ children }) => <>{children}</>;
 
 const CustomApp = ({ Component, pageProps }: AppProps) => {
 	const queryClientRef = useRef<any>();

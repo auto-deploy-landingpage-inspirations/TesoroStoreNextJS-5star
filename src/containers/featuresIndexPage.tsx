@@ -1,4 +1,4 @@
-import Fade from "react-reveal/Fade"
+import {Fade} from "react-reveal"
 const data = [
 	{
 		id: 1,

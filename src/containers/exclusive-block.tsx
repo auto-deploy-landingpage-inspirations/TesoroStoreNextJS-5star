@@ -57,7 +57,7 @@ const ExclusiveBlock: React.FC<Props> = ({
 									: "end-3 sm:end-5 xl:end-7"
 							}`}
 						>
-							{t(`${item.buttonText}`)}
+							{t(`${item.buttonText}`)as string}
 						</Link>
 						{data.exclusiveName && (
 							<div
@@ -66,8 +66,8 @@ const ExclusiveBlock: React.FC<Props> = ({
 								}`}
 							>
 								{item.id !== 2
-									? t(`${data.exclusiveName}`)
-									: t("text-exclusive")}
+									? t(`${data.exclusiveName}`)as string
+									: t("text-exclusive")as string}
 							</div>
 						)}
 

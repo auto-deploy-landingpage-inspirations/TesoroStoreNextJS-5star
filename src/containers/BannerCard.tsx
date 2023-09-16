@@ -1,10 +1,10 @@
 import Link from '@components/ui/link';
 // import Image from 'next/image';
 import type { FC } from 'react';
-import { useWindowSize } from '@utils/use-window-size';
+// import { useWindowSize } from '@utils/use-window-size';
 import cn from 'classnames';
 import { LinkProps } from 'next/link';
-import Fade from 'react-reveal/Fade'
+import {Fade} from 'react-reveal'
 
 
 const colors:string[] = [
@@ -26,22 +26,22 @@ interface BannerProps {
   href: LinkProps['href'];
 }
 
-function getImage(deviceWidth: number, imgObj: any) {
-  return deviceWidth < 480 ? imgObj.mobile : imgObj.desktop;
-}
+// function getImage(deviceWidth: number, imgObj: any) {
+//   return deviceWidth < 480 ? imgObj.mobile : imgObj.desktop;
+// }
 
 const BannerCard2: FC<BannerProps> = ({
   idx,
-  banner, 
+  // banner, 
   className, 
-  variant='rounded',
-  effectActive=false,
+  // variant='rounded',
+  // effectActive=false,
   classNameInner,
   href
 }) => {
-  const {width} = useWindowSize();
-  const {title, image} = banner;
-  const selectedImage = getImage(width, image);
+  // const {width} = useWindowSize();
+  // const {title, image} = banner;
+  // const selectedImage = getImage(width, image);
   return (
     <Fade right delay={1000}>
       <div className={cn('mx-auto', className)}>

@@ -126,9 +126,6 @@ const ProductSingleDetails: React.FC = () => {
 										slidesPerView={data?.gallery?.length}
 										className="product-gallery"
 										buttonClassName="hidden"
-										style={{
-											// height: '10vh',
-										}}
 									>
 									{data?.gallery?.map((item, index: number) => (
 										<SwiperSlide key={`product-gallery-key-${index}`}>
@@ -338,34 +335,36 @@ const ProductSingleDetails: React.FC = () => {
 							</span>
 							{data?.sku}
 						</li> */}
-						<li>
-							<span className="font-semibold text-heading inline-block pe-2">
-								Category:
-							</span>
-							<Link
-								href="/"
-								className="transition hover:underline hover:text-heading"
-							>
-								{data?.category?.name}
-							</Link>
-						</li>
-						{data?.tags && Array.isArray(data.tags) && (
-							<li className="productTags">
+						<li className="productCategory">
 								<span className="font-semibold text-heading inline-block pe-2">
-									Tags:
+									Category:
 								</span>
-								{data.tags.map((tag) => (
-									<Link
-										key={tag.id}
-										href={tag.slug}
-										className="inline-block pe-1.5 transition hover:underline hover:text-heading last:pe-0"
-									>
-										{tag.name}
-										<span className="text-heading">,</span>
-									</Link>
-								))}
-							</li>
-						)}
+								<Link
+									href="/"
+									className="transition hover:underline hover:text-heading"
+								>
+									{data?.category?.name}
+								</Link>
+						</li>
+						<>
+							{data?.tags && Array.isArray(data.tags) && (
+								<li className="productTags">
+									<span className="font-semibold text-heading inline-block pe-2">
+										Tags:
+									</span>
+									{data.tags.map((tag) => (
+										<Link
+											key={tag.id}
+											href={tag.slug}
+											className="inline-block pe-1.5 transition hover:underline hover:text-heading last:pe-0"
+										>
+											{tag.name}
+											<span className="text-heading">,</span>
+										</Link>
+									))}
+								</li>
+							)}
+						</>
 					</ul>
 				</div>
 
@@ -423,11 +422,7 @@ const ProductSingleDetails: React.FC = () => {
 				</div>
 			</div>
 		</div>
-
-
-
-		
-<ProductReviewCards ReviewData={data} />
+		<ProductReviewCards ReviewData={data} />
 		</>
 	);
 };

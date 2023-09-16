@@ -34,7 +34,7 @@ const ContactInfoBlock: FC<Props> = () => {
 	return (
 		<div className="mb-6 lg:border lg:rounded-md border-gray-300 lg:p-7">
 			<h4 className="text-2xl md:text-lg font-bold text-heading pb-7 md:pb-10 lg:pb-6 -mt-1">
-				{t("text-find-us-here")}
+				{t("text-find-us-here") as string}
 			</h4>
 			{data?.map((item: any) => (
 				<div key={`contact--key${item.id}`} className="flex pb-7">
@@ -43,10 +43,10 @@ const ContactInfoBlock: FC<Props> = () => {
 					</div>
 					<div className="flex flex-col ps-3 2xl:ps-4">
 						<h5 className="text-sm font-bold text-heading">
-							{t(`${item.name}`)}
+							{t(`${item.name}`)as string}
 						</h5>
 						<Link href={item.slug} className="text-sm mt-0">
-							{t(`${item.description}`)}
+							{t(`${item.description}`)as string}
 						</Link>
 					</div>
 				</div>

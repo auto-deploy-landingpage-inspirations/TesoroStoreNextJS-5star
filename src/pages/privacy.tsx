@@ -52,7 +52,7 @@ export default function PrivacyPage() {
 									className="mb-10"
 								>
 									<h2 className="text-lg md:text-xl lg:text-2xl text-heading font-bold mb-4">
-										{t(`${item.title}`)}
+										{t(`${item.title}`)as string}
 									</h2>
 									<div
 										className="text-heading text-sm leading-7 lg:text-base lg:leading-loose"

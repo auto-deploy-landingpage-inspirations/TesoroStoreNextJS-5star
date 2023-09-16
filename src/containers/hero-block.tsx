@@ -1,7 +1,7 @@
 import BannerCard from "@components/common/banner-card";
 import Carousel from "@components/ui/carousel/carousel";
 import { homeOneHeroBanner as banners } from "@framework/static/banner";
-import { useWindowSize } from "@utils/use-window-size";
+// import { useWindowSize } from "@utils/use-window-size";
 import { ROUTES } from "@utils/routes";
 import { SwiperSlide } from "swiper/react";
 
@@ -15,7 +15,7 @@ const breakpoints = {
 };
 
 const HeroBlock: React.FC = () => {
-	const { width } = useWindowSize();
+	// const { width } = useWindowSize();
 	return (
 		<div className="heroBannerOne relative left-0 mt-0 max-w-[1920px] mb-5 mx-auto overflow-hidden " style={{
 			maxHeight: '100vh'

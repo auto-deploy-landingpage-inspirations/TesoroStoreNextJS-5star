@@ -1,7 +1,7 @@
 import React from 'react'
-import Fade from "react-reveal/Fade"
-import Zoom from "react-reveal/Zoom"
-import Reveal from "react-reveal/Reveal"
+import {Fade} from "react-reveal"
+import {Zoom} from "react-reveal"
+import {Reveal} from "react-reveal"
 
 
 

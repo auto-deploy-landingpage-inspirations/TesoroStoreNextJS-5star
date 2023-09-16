@@ -4,7 +4,7 @@ import ProductCard from "@components/product/product-card";
 import ProductFeedLoader from "@components/ui/loaders/product-feed-loader";
 import { Product } from "@framework/types";
 import Alert from "@components/ui/alert";
-import Fade from 'react-reveal/Fade';
+import {Fade} from 'react-reveal';
 
 interface ProductsProps {
 	sectionHeading: string;

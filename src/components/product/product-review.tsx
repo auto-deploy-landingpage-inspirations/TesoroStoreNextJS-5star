@@ -11,9 +11,8 @@ import SectionHeader2 from '@components/common/sectionHeader2';
 import React from 'react';
 
 interface CategoriesProps {
-  sectionHeading: string;
+  sectionHeading?: string;
   className?: string;
-  ReviewData?:string;
   type?: 'rounded' | 'circle';
 }
 
@@ -145,10 +144,11 @@ const ProductCard: React.FC<{data?: any}> = ({
     )
 }
 
-const ProductsReviewCards: React.FC<CategoriesProps> = ({
+const ProductsReviewCards: React.FC<CategoriesProps& {ReviewData?:any}> = ({
   className = 'mb-10 md:mb-11 lg:mb-12 xl:mb-14 lg:pb-1 xl:pb-0 mx-0 w-full drop-shadow-lg',
-  // sectionHeading,
+  sectionHeading="Product Reviews",
   // ReviewData,
+  
   type = 'circle',
 }) => {
   const { data, isLoading, error } = useCategoriesQuery({
@@ -163,7 +163,7 @@ const ProductsReviewCards: React.FC<CategoriesProps> = ({
         padding: '10px'
       }
     }>
-      <SectionHeader2 sectionHeading="Product Reviews" boxshadow={true}/>
+      <SectionHeader2 sectionHeading={sectionHeading} boxshadow={true}/>
       {error ? (
         <Alert message={error?.message} />
       ) : (

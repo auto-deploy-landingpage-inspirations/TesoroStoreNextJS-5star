@@ -18,6 +18,7 @@ SwiperCore.use([Navigation, Pagination, Autoplay, Scrollbar]);
 type CarouselPropsType = {
   className?: string;
   buttonClassName?: string;
+  slidesPerView?: number;
   buttonSize?: 'default' | 'small';
   paginationVariant?: 'default' | 'circle';
   paginationPosition?: 'center' | 'left' | 'right';
