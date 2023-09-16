@@ -62,7 +62,7 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
 					{generateCartItemName(item.name, item.attributes)}
 				</Link>
 				<span className="text-sm text-gray-400 mb-2.5">
-					{t("text-unit-price")} : &nbsp;
+					{t("text-unit-price") as string} : &nbsp;
 					{price}
 				</span>
 

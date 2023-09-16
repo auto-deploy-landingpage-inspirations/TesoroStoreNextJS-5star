@@ -1,4 +1,5 @@
 import React from 'react'
+import Marquee from "react-fast-marquee";
 
 function TopBar() {
   return (
@@ -9,7 +10,7 @@ function TopBar() {
     >
         
             <h1 className='font-bold text-md h-7' style={{color: '#fff'}}>
-              <marquee width="100%" direction="left" height="100px" className="h-7"> Free shipping on all orders. <a href="/collection/sale">Shop Now</a></marquee>
+              <Marquee className="h-7"> Free shipping on all orders.{" "}<a href="/collection/sale">Shop Now</a></Marquee>
             </h1>
         
     </div>

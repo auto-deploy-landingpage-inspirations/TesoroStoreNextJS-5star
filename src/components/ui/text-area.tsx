@@ -41,7 +41,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
 					htmlFor={name}
 					className="block text-gray-600 font-semibold text-sm leading-none mb-3"
 				>
-					{t(labelKey)}
+					{t(labelKey) as string}
 				</label>
 			)}
 			<textarea
@@ -61,7 +61,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
 				placeholder={t(placeholderKey)}
 				{...rest}
 			/>
-			{errorKey && <p className="my-2 text-xs text-red-500">{t(errorKey)}</p>}
+			{errorKey && <p className="my-2 text-xs text-red-500">{t(errorKey) as string}</p>}
 		</div>
 	);
 });

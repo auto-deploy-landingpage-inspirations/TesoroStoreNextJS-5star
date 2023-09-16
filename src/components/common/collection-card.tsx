@@ -22,7 +22,7 @@ const CollectionCard: React.FC<Props> = ({
 	imgHeight = 580,
 	contactClassName = "",
 }) => {
-	const { slug, image, title, description } = collection;
+	const { slug, image, title } = collection;
 	const { t } = useTranslation("common");
 	console.log(uniqueKey)
 	if(uniqueKey<=1)

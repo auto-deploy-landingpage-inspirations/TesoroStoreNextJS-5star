@@ -49,7 +49,7 @@ const LoginForm: React.FC = () => {
 					<Logo />
 				</div>
 				<p className="text-sm md:text-base text-body mt-2 mb-8 sm:mb-10">
-					{t("common:login-helper")}
+					{t("common:login-helper") as string}
 				</p>
 			</div>
 			<form
@@ -94,7 +94,7 @@ const LoginForm: React.FC = () => {
 								htmlFor="remember"
 								className="flex-shrink-0 text-sm text-heading ps-3 cursor-pointer"
 							>
-								{t("forms:label-remember-me")}
+								{t("forms:label-remember-me") as string}
 							</label>
 						</div>
 						<div className="flex ms-auto">
@@ -103,7 +103,7 @@ const LoginForm: React.FC = () => {
 								onClick={handleForgetPassword}
 								className="text-end text-sm text-heading ps-3 underline hover:no-underline focus:outline-none"
 							>
-								{t("common:text-forgot-password")}
+								{t("common:text-forgot-password") as string}
 							</button>
 						</div>
 					</div>
@@ -114,7 +114,7 @@ const LoginForm: React.FC = () => {
 							disabled={isLoading}
 							className="h-11 md:h-12 w-full mt-1.5"
 						>
-							{t("common:text-login")}
+							{t("common:text-login") as string}
 						</Button>
 					</div>
 				</div>
@@ -144,13 +144,13 @@ const LoginForm: React.FC = () => {
 				{t("common:text-login-with-google")}
 			</Button> */}
 			<div className="text-sm sm:text-base text-body text-center mt-5 mb-1">
-				{t("common:text-no-account")}{" "}
+				{t("common:text-no-account") as string}{" "}
 				<button
 					type="button"
 					className="text-sm sm:text-base text-heading underline font-bold hover:no-underline focus:outline-none"
 					onClick={handleSignUp}
 				>
-					{t("common:text-register")}
+					{t("common:text-register") as string}
 				</button>
 			</div>
 		</div>

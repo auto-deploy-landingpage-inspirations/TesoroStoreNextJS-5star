@@ -27,6 +27,7 @@ type CarouselPropsType = {
   navigation?: {} | any;
   scrollbar?: {} | any;
   autoplay?: {} | any;
+  children?: {} | any;
 };
 
 const Carousel: React.FunctionComponent<CarouselPropsType> = ({

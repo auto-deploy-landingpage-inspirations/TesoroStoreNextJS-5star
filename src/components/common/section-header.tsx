@@ -43,7 +43,7 @@ const SectionHeader: React.FC<Props> = ({
 					href={categorySlug}
 					className="text-xs lg:text-sm xl:text-base text-heading mt-0.5 lg:mt-1"
 				>
-					{t("text-see-all-product")}
+					{t("text-see-all-product") as string}
 				</Link>
 			)}
 		</div>

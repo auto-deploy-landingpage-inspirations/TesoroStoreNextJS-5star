@@ -35,7 +35,7 @@ const ReviewForm: React.FC = () => {
 			<div className="flex flex-col space-y-5 md:space-y-6 lg:space-y-7">
 				<div className="pb-1.5">
 					<label className="block text-gray-600 font-semibold text-sm leading-none mb-3 cursor-pointer">
-						{t("forms:label-your-rating")}
+						{t("forms:label-your-rating") as string}
 					</label>
 					<ReactStars
 						count={5}
@@ -82,7 +82,7 @@ const ReviewForm: React.FC = () => {
 						type="submit"
 						className="h-12 md:mt-1 text-sm lg:text-base w-full sm:w-auto"
 					>
-						{t("common:button-submit")}
+						{t("common:button-submit") as string}
 					</Button>
 				</div>
 			</div>

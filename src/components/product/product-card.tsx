@@ -19,7 +19,7 @@ interface ProductProps {
 }
 
 
-const AddToCartButton = ({setAddToCart, addToCart}) => {
+const AddToCartButton: React.FC<{setAddToCart:any, addToCart:Boolean}> = ({setAddToCart, addToCart}) => {
 	return(
 		<Tooltip message="add to cart">
 			<button 
@@ -72,13 +72,15 @@ const ProductCard: FC<ProductProps> = ({
 	imageContentClassName = "",
 	variant = "list",
 	imgWidth = 300,
-	imgHeight = 300,
+	// imgHeight = 300,
 	imgLoading,
 }) => {
 	const [favorite, setFavorite] = useState<boolean>(false);
 	const [addToCart, setAddToCart] = useState<boolean>(false);
 
-	const { openModal, setModalView, setModalData } = useUI();
+	const { 
+		// openModal, 
+		setModalView, setModalData } = useUI();
 	const placeholderImage = `/assets/placeholder/products/product-${variant}.svg`;
 	const { price, basePrice, discount } = usePrice({
 		amount: product.sale_price ? product.sale_price : product.price,

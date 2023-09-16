@@ -42,13 +42,13 @@ export default function Newsletter() {
 					</div>
 					<div className="flex flex-col px-5 py-7 sm:p-10 md:p-12 xl:p-14 text-center w-full">
 						<h4 className="uppercase font-semibold text-xs sm:text-sm text-body mb-2 lg:mb-4">
-							{t("common:text-subscribe-now")}
+							{t("common:text-subscribe-now") as string}
 						</h4>
 						<h2 className="text-heading text-lg sm:text-xl md:text-2xl leading-8 font-bold mb-5 sm:mb-7 md:mb-9">
-							{t("common:text-newsletter-title")}
+							{t("common:text-newsletter-title") as string}
 						</h2>
 						<p className="text-body text-sm leading-6 md:leading-7">
-							{t("common:text-newsletter-subtitle")}
+							{t("common:text-newsletter-subtitle") as string}
 						</p>
 						<form
 							className="pt-8 sm:pt-10 md:pt-14 mb-1 sm:mb-0"
@@ -71,7 +71,7 @@ export default function Newsletter() {
 								errorKey={errors.email?.message}
 							/>
 							<Button className="w-full h-12 lg:h-14 mt-3 sm:mt-4">
-								{t("common:button-subscribe")}
+								{t("common:button-subscribe") as string}
 							</Button>
 						</form>
 					</div>

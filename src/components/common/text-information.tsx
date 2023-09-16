@@ -33,10 +33,10 @@ const TextInformation: React.FC<Props> = ({ item, className }) => {
 			</div>
 			<div className="-mb-1">
 				<h3 className="text-heading text-base md:text-lg font-semibold mb-1.5 md:mb-2">
-					{t(`${item.title}`)}
+					{t(`${item.title}`) as string}
 				</h3>
 				<p className="text-body text-xs md:text-sm leading-6 md:leading-7">
-					{t(`${item.description}`)}
+					{t(`${item.description}`) as string}
 				</p>
 			</div>
 		</div>

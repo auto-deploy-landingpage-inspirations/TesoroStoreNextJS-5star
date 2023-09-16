@@ -3,6 +3,7 @@ import { IoHomeSharp } from "react-icons/io5";
 import Text from "@components/ui/text";
 import Link from "@components/ui/link";
 import { useTranslation } from "next-i18next";
+// import Link from "next/link"
 
 const ErrorInformation: React.FC = () => {
 	const { t } = useTranslation("common");
@@ -25,7 +26,7 @@ const ErrorInformation: React.FC = () => {
 					className="text-[13px] md:text-sm lg:text-base leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 bg-heading text-white px-4 md:px-6  py-2.5 lg:py-3 hover:text-white hover:bg-gray-600 hover:shadow-cart rounded-lg"
 				>
 					<IoHomeSharp />
-					<span className="ps-1.5">button-go-home</span>
+					<span className="ps-1.5">Go Home</span>
 				</Link>
 			</div>
 		</div>

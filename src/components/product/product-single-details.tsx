@@ -17,34 +17,34 @@ import { SwiperSlide } from "swiper/react";
 // import ProductMetaReview from "@components/product/product-meta-review";
 import PinCodeCheckForm from "./pinCodeForm";
 import ProductRating from "./productRating";
-import CardRoundedLoader from "@components/ui/loaders/card-rounded-loader";
+// import CardRoundedLoader from "@components/ui/loaders/card-rounded-loader";
 import ProductReviewCards from "./product-review";
 
 
 
-const productGalleryCarouselResponsive = {
-	"768": {
-		slidesPerView: 2,
-	},
-	"0": {
-		slidesPerView: 1,
-	},
-};
+// const productGalleryCarouselResponsive = {
+// 	"768": {
+// 		slidesPerView: 2,
+// 	},
+// 	"0": {
+// 		slidesPerView: 1,
+// 	},
+// };
 
-const productGalleryCarouselResponsive2 = {
-	"768": {
-		slidesPerView: 2,
-	},
-	"0": {
-		slidesPerView: 1,
-	},
-};
+// const productGalleryCarouselResponsive2 = {
+// 	"768": {
+// 		slidesPerView: 2,
+// 	},
+// 	"0": {
+// 		slidesPerView: 1,
+// 	},
+// };
 
-const productVerticalGalleryCarouselResponsive = {
-	"1200": {
-		slidesPerview: 6
-	}
-}
+// const productVerticalGalleryCarouselResponsive = {
+// 	"1200": {
+// 		slidesPerview: 6
+// 	}
+// }
 
 const ProductSingleDetails: React.FC = () => {
 	const [imgToShow, setImgToShow] = useState("")
@@ -65,7 +65,7 @@ const ProductSingleDetails: React.FC = () => {
 		}
 	);
 	useEffect(() => {
-		setImgToShow(data?.image?.original)
+		setImgToShow(data?.image?.original??"")
 	}, [data])
 	if (isLoading) return <p>Loading...</p>;
 	const variations = getVariations(data?.variations);

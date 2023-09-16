@@ -42,7 +42,7 @@ export default function ListBox({ options }: { options: Option[] }) {
 			{({ open }) => (
 				<div className="relative ms-2 lg:ms-0 z-10 min-w-[180px]">
 					<Listbox.Button className="border border-gray-300  text-heading text-[13px] md:text-sm font-semibold  relative w-full py-2 ps-3 pe-10 text-start bg-white rounded-lg shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm cursor-pointer">
-						<span className="block truncate">{t(selectedItem.name)}</span>
+						<span className="block truncate">{t(selectedItem.name) as string}</span>
 						<span className="absolute inset-y-0 end-0 flex items-center pe-2 pointer-events-none">
 							<HiOutlineSelector
 								className="w-5 h-5 text-gray-400"
@@ -77,7 +77,7 @@ export default function ListBox({ options }: { options: Option[] }) {
 													selected ? "font-medium" : "font-normal"
 												} block truncate`}
 											>
-												{t(option.name)}
+												{t(option.name) as string}
 											</span>
 											{selected ? (
 												<span

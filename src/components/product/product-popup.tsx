@@ -146,7 +146,7 @@ export default function ProductPopup() {
 								disabled={!isSelected}
 								loading={addToCartLoader}
 							>
-								{t("text-add-to-cart")}
+								{t("text-add-to-cart") as string}
 							</Button>
 						</div>
 
@@ -155,7 +155,7 @@ export default function ProductPopup() {
 								onClick={navigateToCartPage}
 								className="w-full mb-4 h-11 md:h-12 rounded bg-gray-100 text-heading focus:outline-none border border-gray-300 transition-colors hover:bg-gray-50 focus:bg-gray-50"
 							>
-								{t("text-view-cart")}
+								{t("text-view-cart") as string}
 							</button>
 						)}
 
@@ -164,7 +164,7 @@ export default function ProductPopup() {
 							variant="flat"
 							className="w-full h-11 md:h-12"
 						>
-							{t("text-view-details")}
+							{t("text-view-details") as string}
 						</Button>
 					</div>
 				</div>

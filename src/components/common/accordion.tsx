@@ -57,7 +57,7 @@ export const Collapse: React.FC<CollapseProps> = ({
 						}
 					)}
 				>
-					{titleKey ? t(titleKey) : title}
+					{`${titleKey ? t(titleKey) : title}`}
 				</h2>
 				<div className="flex-shrink-0 relative w-4 h-4 flex justify-center items-center">
 					<div className="w-full h-0.5 bg-heading rounded-sm" />

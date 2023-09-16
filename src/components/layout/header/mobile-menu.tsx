@@ -81,7 +81,7 @@ export default function MobileMenu() {
 						className="w-full text-[15px] menu-item relative py-3 ps-5 md:ps-7 pe-4 transition duration-300 ease-in-out"
 					>
 						<span className="block w-full" onClick={closeSidebar}>
-							{t(`${data.label}`)}
+							{t(`${data.label}`) as string}
 						</span>
 					</Link>
 					{hasSubMenu && (
@@ -181,7 +181,7 @@ export default function MobileMenu() {
 							target="_blank"
 							key={index}
 						>
-							<span className="sr-only">{t(`${item.title}`)}</span>
+							<span className="sr-only">{t(`${item.title}`) as string}</span>
 							{item.icon}
 						</a>
 					))}

@@ -7,23 +7,25 @@ import {
 	useUpdateUserMutation,
 	UpdateUserType,
 } from "@framework/customer/use-update-customer";
-import { RadioBox } from "@components/ui/radiobox";
+// import { RadioBox } from "@components/ui/radiobox";
 import { useTranslation } from "next-i18next";
 
 const defaultValues = {};
 const PinCodeCheckForm: React.FC = () => {
-	const { mutate: updateUser, isLoading } = useUpdateUserMutation();
+	const { 
+		// mutate: updateUser, 
+		isLoading } = useUpdateUserMutation();
 	const { t } = useTranslation();
 	const {
 		register,
-		handleSubmit,
+		// handleSubmit,
 		formState: { errors },
 	} = useForm<UpdateUserType>({
 		defaultValues,
 	});
-	function onSubmit(input: UpdateUserType) {
-		updateUser(input);
-	}
+	// function onSubmit(input: UpdateUserType) {
+	// 	updateUser(input);
+	// }
     function handlePinCheck(e:any){
         console.log(e)
     }
@@ -66,7 +68,7 @@ const PinCodeCheckForm: React.FC = () => {
                             variant="new"
 							className="h-10 w-28 m-2 "
 						>
-							{t("Check")}
+							{t("Check") as string}
 						</Button>
 					{/* </div> */}
 				</div>

@@ -36,7 +36,7 @@ const AccountDetails: React.FC = () => {
 			className={`w-full flex flex-col`}
 		>
 			<h2 className="text-lg md:text-xl xl:text-2xl font-bold text-heading mb-6 xl:mb-8">
-				{t("common:text-account-details")}
+				{t("common:text-account-details") as string}
 			</h2>
 			<form
 				onSubmit={handleSubmit(onSubmit)}
@@ -100,7 +100,7 @@ const AccountDetails: React.FC = () => {
 					</div>
 					<div className="relative flex flex-col">
 						<span className="mt-2 text-sm text-heading font-semibold block pb-1">
-							{t("common:text-gender")}
+							{t("common:text-gender") as string}
 						</span>
 						<div className="mt-2 flex items-center space-s-6">
 							<RadioBox
@@ -122,7 +122,7 @@ const AccountDetails: React.FC = () => {
 							disabled={isLoading}
 							className="h-12 mt-3 w-full sm:w-32"
 						>
-							{t("common:button-save")}
+							{t("common:button-save") as string}
 						</Button>
 					</div>
 				</div>

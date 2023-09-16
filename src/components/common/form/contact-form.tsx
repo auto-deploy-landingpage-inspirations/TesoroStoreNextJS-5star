@@ -73,7 +73,7 @@ const ContactForm: React.FC = () => {
 						type="submit"
 						className="h-12 lg:h-14 mt-1 text-sm lg:text-base w-full sm:w-auto"
 					>
-						{t("common:button-send-message")}
+						{t("common:button-send-message") as string} 
 					</Button>
 				</div>
 			</div>

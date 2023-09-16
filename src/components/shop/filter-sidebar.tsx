@@ -26,7 +26,7 @@ const FilterSidebar = () => {
 					)}
 				</button>
 				<h2 className="font-bold text-xl md:text-2xl m-0 text-heading w-full text-center pe-6">
-					{t("text-filters")}
+					{t("text-filters") as string}
 				</h2>
 			</div>
 
@@ -37,7 +37,7 @@ const FilterSidebar = () => {
 			</Scrollbar>
 
 			<div className="text-sm md:text-base leading-4 flex items-center justify-center px-7 flex-shrink-0 h-14 bg-heading text-white">
-				9,608 {t("text-items")}
+				9,608 {t("text-items") as string}
 			</div>
 		</div>
 	);

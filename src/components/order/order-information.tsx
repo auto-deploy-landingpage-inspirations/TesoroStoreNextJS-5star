@@ -24,44 +24,44 @@ export default function OrderInformation() {
 				<span className="w-10 h-10 me-3 lg:me-4 rounded-full bg-gray-300 flex items-center justify-center flex-shrink-0">
 					<IoCheckmarkCircle className="w-5 h-5 text-green-600" />
 				</span>
-				{t("text-order-received")}
+				{t("text-order-received")as string}
 			</div>
 
 			<ul className="border border-gray-300 bg-gray-50 rounded-md flex flex-col md:flex-row mb-7 lg:mb-8 xl:mb-10">
 				<li className="text-heading font-semibold text-base lg:text-lg border-b md:border-b-0 md:border-r border-dashed border-gray-300 px-4 lg:px-6 xl:px-8 py-4 md:py-5 lg:py-6 last:border-0">
 					<span className="uppercase text-[11px] block text-body font-normal leading-5">
-						{t("text-order-number")}:
+						{t("text-order-number")as string}:
 					</span>
 					{data?.tracking_number}
 				</li>
 				<li className="text-heading font-semibold text-base lg:text-lg border-b md:border-b-0 md:border-r border-dashed border-gray-300 px-4 lg:px-6 xl:px-8 py-4 md:py-5 lg:py-6 last:border-0">
 					<span className="uppercase text-[11px] block text-body font-normal leading-5">
-						{t("text-date")}:
+						{t("text-date")as string}:
 					</span>
 					April 22, 2021
 				</li>
 				<li className="text-heading font-semibold text-base lg:text-lg border-b md:border-b-0 md:border-r border-dashed border-gray-300 px-4 lg:px-6 xl:px-8 py-4 md:py-5 lg:py-6 last:border-0">
 					<span className="uppercase text-[11px] block text-body font-normal leading-5">
-						{t("text-email")}:
+						{t("text-email")as string}:
 					</span>
 					{data?.customer.email}
 				</li>
 				<li className="text-heading font-semibold text-base lg:text-lg border-b md:border-b-0 md:border-r border-dashed border-gray-300 px-4 lg:px-6 xl:px-8 py-4 md:py-5 lg:py-6 last:border-0">
 					<span className="uppercase text-[11px] block text-body font-normal leading-5">
-						{t("text-total")}:
+						{t("text-total")as string}:
 					</span>
 					{total}
 				</li>
 				<li className="text-heading font-semibold text-base lg:text-lg border-b md:border-b-0 md:border-r border-dashed border-gray-300 px-4 lg:px-6 xl:px-8 py-4 md:py-5 lg:py-6 last:border-0">
 					<span className="uppercase text-[11px] block text-body font-normal leading-5">
-						{t("text-payment-method")}:
+						{t("text-payment-method")as string}:
 					</span>
 					{data?.payment_gateway}
 				</li>
 			</ul>
 
 			<p className="text-heading text-sm md:text-base mb-8">
-				{t("text-pay-cash")}
+				{t("text-pay-cash")as string}
 			</p>
 
 			<OrderDetails />

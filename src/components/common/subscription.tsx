@@ -51,7 +51,7 @@ const Subscription: React.FC<Props> = ({
 				</Text>
 				<p className="text-body text-xs md:text-sm leading-6 md:leading-7"
 					style={{fontFamily: 'Hap'}}>
-					{t(`${description}`)}
+					{t(`${description}`) as string}
 				</p>
 			</div>
 			<form
@@ -77,7 +77,7 @@ const Subscription: React.FC<Props> = ({
 					/>
 					<Button className="mt-3 sm:mt-0 w-full sm:w-auto sm:ms-2 md:h-full flex-shrink-0">
 						<span className="lg:py-0.5" 
-					style={{fontFamily: 'Hap'}}>{t(`${buttonText}`)}</span>
+					style={{fontFamily: 'Hap'}}>{t(`${buttonText}`) as string}</span>
 					</Button>
 				</div>
 			</form>

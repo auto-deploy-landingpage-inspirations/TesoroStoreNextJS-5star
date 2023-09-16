@@ -33,7 +33,7 @@ import SpecialSection from "@containers/SpecialSection";
 import { Feature } from "@containers/featuresIndexPage";
 // import SectionHalf from "@containers/halfsectionindex";
 import BizMagic2 from "@containers/BizMagic2";
-import Fade from "react-reveal/Fade"
+import {Fade} from "react-reveal"
 
 export default function Home() {
 	// const { openModal, setModalView } = useUI();

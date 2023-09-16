@@ -17,9 +17,9 @@ const ShopDiscount: React.FC = () => {
 		>
 			<Container className={status === true ? "opacity-0 invisible" : "w-full"}>
 				<div className="relative text-center text-heading text-xs md:text-sm leading-6 md:leading-7 px-8">
-					{t("text-discount")} &nbsp;
+					{t("text-discount") as string} &nbsp;
 					<a className="underline" href="#">
-						{t("text-details")}
+						{t("text-details") as string}
 					</a>
 					<button
 						className="absolute h-full end-0 top-0 flex text-lg md:text-2xl items-center justify-center text-gray-500 opacity-50 focus:outline-none transition-opacity hover:opacity-100"

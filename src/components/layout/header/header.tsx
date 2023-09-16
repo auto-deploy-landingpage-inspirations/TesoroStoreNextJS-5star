@@ -18,8 +18,8 @@ type DivElementRef = React.MutableRefObject<HTMLDivElement>;
 const { site_header } = siteSettings;
 const Header: React.FC = () => {
 	const {
-		openSidebar,
-		setDrawerView,
+		// openSidebar,
+		// setDrawerView,
 		openSearch,
 		openModal,
 		setModalView,
@@ -33,10 +33,10 @@ const Header: React.FC = () => {
 		setModalView("LOGIN_VIEW");
 		return openModal();
 	}
-	function handleMobileMenu() {
-		setDrawerView("MOBILE_MENU");
-		return openSidebar();
-	}
+	// function handleMobileMenu() {
+	// 	setDrawerView("MOBILE_MENU");
+	// 	return openSidebar();
+	// }
 
 	const [scrollY, setScrollY] = useState<number>(0);
 
@@ -94,11 +94,11 @@ const Header: React.FC = () => {
 		 						btnProps={{
 		 							className:
 		 								"text-sm xl:text-base text-heading font-semibold focus:outline-none",
-		 							children: t("text-sign-in"),
+		 							children: "Sign in",
 		 							onClick: handleLogin,
 		 						}}
 		 					>
-		 						{t("text-account")}
+		 						{t("text-account") as string}
 		 					</AuthMenu>
 		 				</div>
 		 				<CartButton />

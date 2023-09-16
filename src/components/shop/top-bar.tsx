@@ -24,11 +24,11 @@ const SearchTopBar = () => {
 				onClick={openFilter}
 			>
 				<FilterIcon />
-				<span className="ps-2.5">{t("text-filters")}</span>
+				<span className="ps-2.5">{t("text-filters") as string}</span>
 			</button>
 			<div className="flex items-center justify-end">
 				<div className="flex-shrink-0 text-body text-xs md:text-sm leading-4 pe-4 md:me-6 ps-2 hidden lg:block">
-					165 {t("text-items")}
+					165 {t("text-items") as string}
 				</div>
 				<ListBox
 					options={[

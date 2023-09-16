@@ -40,7 +40,7 @@ const ForgetPasswordForm = () => {
 					<Logo />
 				</div>
 				<p className="text-sm md:text-base text-body mt-3 sm:mt-4 mb-8 sm:mb-10">
-					{t("common:forgot-password-helper")}
+					{t("common:forgot-password-helper") as string}
 				</p>
 			</div>
 			<form
@@ -64,23 +64,23 @@ const ForgetPasswordForm = () => {
 				/>
 
 				<Button type="submit" className="h-11 md:h-12 w-full mt-2">
-					{t("common:text-reset-password")}
+					{t("common:text-reset-password") as string}
 				</Button>
 			</form>
 			<div className="flex flex-col items-center justify-center relative text-sm text-heading mt-8 sm:mt-10 mb-6 sm:mb-7">
 				<hr className="w-full border-gray-300" />
 				<span className="absolute -top-2.5 px-2 bg-white">
-					{t("common:text-or")}
+					{t("common:text-or") as string}
 				</span>
 			</div>
 			<div className="text-sm sm:text-base text-body text-center">
-				{t("common:text-back-to")}{" "}
+				{t("common:text-back-to") as string}{" "}
 				<button
 					type="button"
 					className="text-sm sm:text-base text-heading underline font-bold hover:no-underline focus:outline-none"
 					onClick={handleSignIn}
 				>
-					{t("common:text-login")}
+					{t("common:text-login") as string}
 				</button>
 			</div>
 		</div>

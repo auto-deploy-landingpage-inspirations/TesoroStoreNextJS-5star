@@ -15,7 +15,7 @@ export const RadioBox = React.forwardRef<HTMLInputElement, RadioBoxProps>(
 					{...rest}
 				/>
 				<span className="ms-2 text-sm text-heading relative">
-					{t(`${labelKey}`)}
+					{t(`${labelKey}`) as string}
 				</span>
 			</label>
 		);

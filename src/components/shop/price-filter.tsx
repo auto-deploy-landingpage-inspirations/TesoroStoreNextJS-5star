@@ -79,7 +79,7 @@ export const PriceFilter = () => {
 	return (
 		<div className="block border-b border-gray-300 pb-7 mb-7">
 			<h3 className="text-heading text-sm md:text-base font-semibold mb-7">
-				{t("text-price")}
+				{t("text-price") as string}
 			</h3>
 			<div className="mt-2 flex flex-col space-y-4">
 				{items?.map((item: any) => (

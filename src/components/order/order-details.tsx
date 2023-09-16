@@ -52,16 +52,16 @@ const OrderDetails: React.FC<{ className?: string }> = ({
 	return (
 		<div className={className}>
 			<h2 className="text-lg md:text-xl xl:text-2xl font-bold text-heading mb-6 xl:mb-8">
-				{t("text-order-details")}:
+				{t("text-order-details") as string}:
 			</h2>
 			<table className="w-full text-heading font-semibold text-sm lg:text-base">
 				<thead>
 					<tr>
 						<th className="bg-gray-150 p-4 text-start first:rounded-ts-md w-1/2">
-							{t("text-product")}
+							{t("text-product")as string}
 						</th>
 						<th className="bg-gray-150 p-4 text-start last:rounded-te-md w-1/2">
-							{t("text-total")}
+							{t("text-total")as string}
 						</th>
 					</tr>
 				</thead>
@@ -72,11 +72,11 @@ const OrderDetails: React.FC<{ className?: string }> = ({
 				</tbody>
 				<tfoot>
 					<tr className="odd:bg-gray-150">
-						<td className="p-4 italic">{t("text-sub-total")}:</td>
+						<td className="p-4 italic">{t("text-sub-total")as string}:</td>
 						<td className="p-4">{subtotal}</td>
 					</tr>
 					<tr className="odd:bg-gray-150">
-						<td className="p-4 italic">{t("text-shipping")}:</td>
+						<td className="p-4 italic">{t("text-shipping")as string}:</td>
 						<td className="p-4">
 							{shipping}
 							<span className="text-[13px] font-normal ps-1.5 inline-block">
@@ -85,15 +85,15 @@ const OrderDetails: React.FC<{ className?: string }> = ({
 						</td>
 					</tr>
 					<tr className="odd:bg-gray-150">
-						<td className="p-4 italic">{t("text-payment-method")}:</td>
+						<td className="p-4 italic">{t("text-payment-method")as string}:</td>
 						<td className="p-4">{order?.payment_gateway}</td>
 					</tr>
 					<tr className="odd:bg-gray-150">
-						<td className="p-4 italic">{t("text-total")}:</td>
+						<td className="p-4 italic">{t("text-total")as string}:</td>
 						<td className="p-4">{total}</td>
 					</tr>
 					<tr className="odd:bg-gray-150">
-						<td className="p-4 italic">{t("text-note")}:</td>
+						<td className="p-4 italic">{t("text-note")as string}:</td>
 						<td className="p-4">new order</td>
 					</tr>
 				</tfoot>

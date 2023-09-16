@@ -36,7 +36,7 @@ const CheckoutForm: React.FC = () => {
 	return (
 		<>
 			<h2 className="text-lg md:text-xl xl:text-2xl font-bold text-heading mb-6 xl:mb-8">
-				{t("text-shipping-address")}
+				{t("text-shipping-address") as string}
 			</h2>
 			<form
 				onSubmit={handleSubmit(onSubmit)}
@@ -129,7 +129,7 @@ const CheckoutForm: React.FC = () => {
 							loading={isLoading}
 							disabled={isLoading}
 						>
-							{t("common:button-place-order")}
+							{t("common:button-place-order") as string}
 						</Button>
 					</div>
 				</div>

@@ -10,7 +10,7 @@ const OrdersTable: React.FC = () => {
 	return (
 		<>
 			<h2 className="text-lg md:text-xl xl:text-2xl font-bold text-heading mb-6 xl:mb-8">
-				{t("text-orders")}
+				{t("text-orders") as string}
 			</h2>
 			<motion.div
 				layout
@@ -26,19 +26,19 @@ const OrdersTable: React.FC = () => {
 						<thead className="text-sm lg:text-base">
 							<tr>
 								<th className="bg-gray-100 p-4 text-heading font-semibold text-start first:rounded-ts-md">
-									{t("text-order")}
+									{t("text-order") as string}
 								</th>
 								<th className="bg-gray-100 p-4 text-heading font-semibold text-start lg:text-center">
-									{t("text-date")}
+									{t("text-date") as string}
 								</th>
 								<th className="bg-gray-100 p-4 text-heading font-semibold text-start lg:text-center">
-									{t("text-status")}
+									{t("text-status") as string}
 								</th>
 								<th className="bg-gray-100 p-4 text-heading font-semibold text-start lg:text-center">
-									{t("text-total")}
+									{t("text-total") as string}
 								</th>
 								<th className="bg-gray-100 p-4 text-heading font-semibold text-start lg:text-end last:rounded-te-md">
-									{t("text-actions")}
+									{t("text-actions") as string}
 								</th>
 							</tr>
 						</thead>
@@ -66,7 +66,7 @@ const OrdersTable: React.FC = () => {
 										href="/my-account/orders/3203"
 										className="text-sm leading-4 bg-heading text-white px-4 py-2.5 inline-block rounded-md hover:text-white hover:bg-gray-600"
 									>
-										{t("button-view")}
+										{t("button-view") as string}
 									</Link>
 								</td>
 							</tr>
@@ -93,7 +93,7 @@ const OrdersTable: React.FC = () => {
 										href="/my-account/orders/3204"
 										className="text-sm leading-4 bg-heading text-white px-4 py-2.5 inline-block rounded-md hover:text-white hover:bg-gray-600"
 									>
-										{t("button-view")}
+										{t("button-view") as string}
 									</Link>
 								</td>
 							</tr>
@@ -103,7 +103,7 @@ const OrdersTable: React.FC = () => {
 					<div className="w-full space-y-4">
 						<ul className="text-sm font-semibold text-heading border border-gray-300 rounded-md flex flex-col px-4 pt-5 pb-6 space-y-5">
 							<li className="flex items-center justify-between">
-								{t("text-order")}
+								{t("text-order") as string}
 								<span className="font-normal">
 									<Link
 										href="/my-account/orders/3203"
@@ -114,32 +114,32 @@ const OrdersTable: React.FC = () => {
 								</span>
 							</li>
 							<li className="flex items-center justify-between">
-								{t("text-date")}
+								{t("text-date") as string}
 								<span className="font-normal">March 18, 2021</span>
 							</li>
 							<li className="flex items-center justify-between">
-								{t("text-status")}
+								{t("text-status") as string}
 								<span className="font-normal">Completed</span>
 							</li>
 							<li className="flex items-center justify-between">
-								{t("text-total")}
+								{t("text-total") as string}
 								<span className="font-normal">$16,950.00 for 93 items</span>
 							</li>
 							<li className="flex items-center justify-between">
-								{t("text-actions")}
+								{t("text-actions") as string}
 								<span className="font-normal">
 									<Link
 										href="/my-account/orders/3203"
 										className="text-sm leading-4 bg-heading text-white px-4 py-2.5 inline-block rounded-md hover:text-white hover:bg-gray-600"
 									>
-										{t("button-view")}
+										{t("button-view") as string}
 									</Link>
 								</span>
 							</li>
 						</ul>
 						<ul className="text-sm font-semibold text-heading border border-gray-300 rounded-md flex flex-col px-4 pt-5 pb-6 space-y-5">
 							<li className="flex items-center justify-between">
-								{t("text-order")}
+								{t("text-order") as string}
 								<span className="font-normal">
 									<Link
 										href="/my-account/orders/3204"
@@ -150,25 +150,25 @@ const OrdersTable: React.FC = () => {
 								</span>
 							</li>
 							<li className="flex items-center justify-between">
-								{t("text-date")}
+								{t("text-date") as string}
 								<span className="font-normal">March 18, 2021</span>
 							</li>
 							<li className="flex items-center justify-between">
-								{t("text-status")}
+								{t("text-status") as string}
 								<span className="font-normal">Completed</span>
 							</li>
 							<li className="flex items-center justify-between">
-								{t("text-total")}
+								{t("text-total") as string}
 								<span className="font-normal">$16,950.00 for 93 items</span>
 							</li>
 							<li className="flex items-center justify-between">
-								{t("text-actions")}
+								{t("text-actions") as string}
 								<span className="font-normal">
 									<Link
 										href="/my-account/orders/3204"
 										className="text-sm leading-4 bg-heading text-white px-4 py-2.5 inline-block rounded-md hover:text-white hover:bg-gray-600"
 									>
-										{t("button-view")}
+										{t("button-view") as string}
 									</Link>
 								</span>
 							</li>

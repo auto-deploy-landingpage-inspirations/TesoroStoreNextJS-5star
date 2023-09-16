@@ -9,7 +9,7 @@ import Button from "@components/ui/button";
 import { useTranslation } from "next-i18next";
 import TopBar from "./TopBar";
 
-const Layout: React.FC = ({ children }) => {
+const Layout: React.FC<{children:any}> = ({ children }) => {
 	const { acceptedCookies, onAcceptCookies } = useAcceptCookies();
 	const { t } = useTranslation("common");
 	return (
@@ -64,7 +64,7 @@ const Layout: React.FC = ({ children }) => {
 				hide={acceptedCookies}
 				action={
 					<Button onClick={() => onAcceptCookies()} variant="slim">
-						{t("text-accept-cookies")}
+						{t("text-accept-cookies") as string}
 					</Button>
 				}
 			/>

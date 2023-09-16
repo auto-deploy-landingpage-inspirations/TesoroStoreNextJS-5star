@@ -40,19 +40,19 @@ const SignUpForm: React.FC = () => {
 					<Logo />
 				</div>
 				<p className="text-sm md:text-base text-body mt-2 mb-8 sm:mb-10">
-					{t("common:registration-helper")}{" "}
+					{t("common:registration-helper") as string}{" "}
 					<Link
 						href={ROUTES.TERMS}
 						className="text-heading underline hover:no-underline focus:outline-none"
 					>
-						{t("common:text-terms")}
+						{t("common:text-terms") as string}
 					</Link>{" "}
 					&amp;{" "}
 					<Link
 						href={ROUTES.POLICY}
 						className="text-heading underline hover:no-underline focus:outline-none"
 					>
-						{t("common:text-policy")}
+						{t("common:text-policy") as string}
 					</Link>
 				</p>
 			</div>
@@ -99,7 +99,7 @@ const SignUpForm: React.FC = () => {
 							disabled={isLoading}
 							className="h-11 md:h-12 w-full mt-2"
 						>
-							{t("common:text-register")}
+							{t("common:text-register") as string}
 						</Button>
 					</div>
 				</div>
@@ -130,13 +130,13 @@ const SignUpForm: React.FC = () => {
 				{t("common:text-login-with-google")}
 			</Button> */}
 			<div className="text-sm sm:text-base text-body text-center mt-5 mb-1">
-				{t("common:text-have-account")}{" "}
+				{t("common:text-have-account") as string}{" "}
 				<button
 					type="button"
 					className="text-sm sm:text-base text-heading underline font-bold hover:no-underline focus:outline-none"
 					onClick={handleSignIn}
 				>
-					{t("common:text-login")}
+					{t("common:text-login") as string}
 				</button>
 			</div>
 		</div>

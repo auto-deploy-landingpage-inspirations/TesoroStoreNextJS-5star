@@ -19,14 +19,16 @@ const Copyright: React.FC<CopyrightProps> = ({ payment }) => {
 		<div className="border-t border-gray-300 pt-5 pb-16 sm:pb-20 md:pb-5 mb-2 sm:mb-0">
 			<Container className="flex flex-col-reverse md:flex-row text-center md:justify-between">
 				<p className="text-xs lg:text-sm leading-6 text-white">
-					{t("text-copyright")} &copy; {year}&nbsp;
+					<>
+					{t("text-copyright") as string} &copy; {year}&nbsp;
 					<a
 						className="font-semibold text-white transition-colors duration-200 ease-in-out hover:text-gray"
 						href={siteSettings.author.websiteUrl}
 					>
 						{siteSettings.author.name}
 					</a>
-					&nbsp; {t("text-all-rights-reserved")}
+					&nbsp; {t("text-all-rights-reserved") as string}
+					</>
 				</p>
 
 				{payment && (

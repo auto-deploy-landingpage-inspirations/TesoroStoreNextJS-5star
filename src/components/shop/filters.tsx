@@ -16,7 +16,7 @@ export const ShopFilters: React.FC = () => {
 			<div className="block border-b border-gray-300 pb-7 mb-7">
 				<div className="flex items-center justify-between mb-2.5">
 					<h2 className="font-semibold text-heading text-xl md:text-2xl">
-						{t("text-filters")}
+						{t("text-filters") as string}
 					</h2>
 					<button
 						className="flex-shrink text-xs mt-0.5 transition duration-150 ease-in focus:outline-none hover:text-heading"
@@ -25,7 +25,7 @@ export const ShopFilters: React.FC = () => {
 							router.push(pathname);
 						}}
 					>
-						{t("text-clear-all")}
+						{t("text-clear-all") as string}
 					</button>
 				</div>
 				<div className="flex flex-wrap -m-1.5 pt-2">

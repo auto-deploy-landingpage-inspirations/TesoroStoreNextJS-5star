@@ -1,7 +1,7 @@
 import Container from "@components/ui/container";
 import Layout from "@components/layout/layout";
 import Subscription from "@components/common/subscription";
-import ShopDiscount from "@components/shop/discount";
+// import ShopDiscount from "@components/shop/discount";
 import { ShopFilters } from "@components/shop/filters";
 import StickyBox from "react-sticky-box";
 import { ProductGrid } from "@components/product/product-grid";
@@ -42,7 +42,7 @@ export default function Products() {
 										href={"/"}
 										activeClassName="font-semibold text-heading"
 									>
-										<a>{t("breadcrumb-home")}</a>
+										<a>{t("breadcrumb-home") as string}</a>
 									</ActiveLink>
 									<ActiveLink
 										href={ROUTES.PRODUCT}

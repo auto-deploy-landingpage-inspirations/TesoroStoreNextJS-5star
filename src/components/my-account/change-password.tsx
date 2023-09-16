@@ -31,7 +31,7 @@ const ChangePassword: React.FC = () => {
 	return (
 		<>
 			<h2 className="text-lg md:text-xl xl:text-2xl font-bold text-heading mb-6 xl:mb-8">
-				{t("common:text-change-password")}
+				{t("common:text-change-password") as string}
 			</h2>
 			<motion.div
 				layout
@@ -71,7 +71,7 @@ const ChangePassword: React.FC = () => {
 								disabled={isLoading}
 								className="h-13 mt-3"
 							>
-								{t("common:text-change-password")}
+								{t("common:text-change-password") as string}
 							</Button>
 						</div>
 					</div>

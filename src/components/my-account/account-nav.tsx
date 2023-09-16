@@ -56,7 +56,7 @@ export default function AccountNav() {
 							}
 						>
 							{item.icon}
-							<span className="ps-2">{t(`${item.name}`)}</span>
+							<span className="ps-2">{t(`${item.name}`) as string}</span>
 						</a>
 					</Link>
 				);
@@ -66,7 +66,7 @@ export default function AccountNav() {
 				onClick={() => logout()}
 			>
 				<IoLogOutOutline className="w-5 h-5" />
-				<span className="ps-2">{t("text-logout")}</span>
+				<span className="ps-2">{t("text-logout") as string}</span>
 			</button>
 		</nav>
 	);

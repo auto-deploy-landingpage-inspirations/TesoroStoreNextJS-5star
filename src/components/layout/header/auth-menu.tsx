@@ -8,7 +8,7 @@ interface Props {
   isAuthorized: boolean;
 }
 
-const AuthMenu: React.FC<Props> = ({
+const AuthMenu: React.FC<Props & {children:React.ReactNode}> = ({
   isAuthorized,
   href,
   className,

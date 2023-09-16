@@ -19,7 +19,7 @@ const CategoryListCard: React.FC<Props> = ({ category }) => {
 					<div className="inline-flex flex-shrink-0 2xl:w-12 2xl:h-12 3xl:w-auto 3xl:h-auto">
 						<Image
 							src={image?.original ?? "/assets/placeholder/category-small.svg"}
-							alt={name || t("text-category-thumbnail")}
+							alt={name || t("text-category-thumbnail")  as string}
 							width={60}
 							height={60}
 							className="bg-gray-300 object-cover rounded-full"

@@ -31,11 +31,11 @@ const CollectionTopBar = () => {
 				onClick={openFilter}
 			>
 				<MdCollectionsBookmark className="text-lg" />
-				<span className="ps-2">{t("text-filters")}</span>
+				<span className="ps-2">{t("text-filters") as string}</span>
 			</button>
 			<div className="flex items-center justify-end">
 				<div className="flex-shrink-0 text-body text-xs md:text-sm leading-4">
-					9,608 {t("text-items")}
+					9,608 {t("text-items") as string}
 				</div>
 			</div>
 			<Drawer

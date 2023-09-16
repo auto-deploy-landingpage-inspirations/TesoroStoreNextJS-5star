@@ -15,11 +15,11 @@ const ProgressCard: React.FC<Props> = ({
 		<div>
 			<div className="flex justify-between items-center mb-2.5 md:mb-3 xl:mb-2.5 2xl:mb-4">
 				<div className="text-body text-xs md:text-sm leading-6 md:leading-7">
-					{t("text-sold")} :&nbsp;
+					{t("text-sold") as string} :&nbsp;
 					<span className="text-heading">{soldProduct}</span>
 				</div>
 				<div className="text-body text-xs md:text-sm leading-6 md:leading-7">
-					{t("text-available")} :&nbsp;
+					{t("text-available") as string} :&nbsp;
 					<span className="text-heading">{totalProduct - soldProduct}</span>
 				</div>
 			</div>

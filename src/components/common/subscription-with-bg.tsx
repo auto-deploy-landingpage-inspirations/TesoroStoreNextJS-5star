@@ -53,7 +53,7 @@ const SubscriptionWithBg: React.FC<Props> = ({
           {t(`${title}`)}
         </Text>
         <p className="text-body text-xs md:text-sm leading-6 md:leading-7">
-          {t(`${description}`)}
+          {t(`${description}`) as string}
         </p>
       </div>
       <form
@@ -79,7 +79,7 @@ const SubscriptionWithBg: React.FC<Props> = ({
             errorKey={errors.subscription_email?.message}
           />
           <Button className="mt-3 sm:mt-0 w-full sm:w-auto sm:ms-2 md:h-full flex-shrink-0">
-            <span className="lg:py-0.5">{t(`${buttonText}`)}</span>
+            <span className="lg:py-0.5">{t(`${buttonText}`) as string}</span>
           </Button>
         </div>
       </form>

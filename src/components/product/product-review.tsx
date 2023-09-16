@@ -1,13 +1,14 @@
-import Card from '@components/common/card';
+// import Card from '@components/common/card';
 import Carousel from '@components/ui/carousel/carousel';
-import CardLoader from '@components/ui/loaders/card-loader';
+// import CardLoader from '@components/ui/loaders/card-loader';
 import CardRoundedLoader from '@components/ui/loaders/card-rounded-loader';
 import { useCategoriesQuery } from '@framework/category/get-all-categories';
-import { ROUTES } from '@utils/routes';
+// import { ROUTES } from '@utils/routes';
 import Alert from '@components/ui/alert';
 import { SwiperSlide } from 'swiper/react';
-import Fade from "react-reveal/Fade"
+import {Fade} from "react-reveal"
 import SectionHeader2 from '@components/common/sectionHeader2';
+import React from 'react';
 
 interface CategoriesProps {
   sectionHeading: string;
@@ -71,9 +72,11 @@ const breakpointsCircle = {
 };
 
 
-const ProductCard = ({data}) => {
+const ProductCard: React.FC<{data?: any}> = ({
+  data
+}) => {
     return (
-        <div className='drop-shadow-lg rounded-lg hover:drop-shadow-2xl w-full h-full'>
+        <div key={data? data.item:'1'} className='drop-shadow-lg rounded-lg hover:drop-shadow-2xl w-full h-full'>
             <div className="pt-3 pb-5 md:pb-1 px-4 md:px-1 bg-gray-300 bg-opacity-40" style={{borderTopLeftRadius: '40px', borderTopRightRadius: '40px'}}>
                 <div className="flex flex-wrap items-center">
                     <div className="bg-white items-center" style={{borderRadius: '20%', width: 'auto', boxShadow: '2px 2px 2px 2px rgba(100, 100, 100, 0.1)'}}>
@@ -144,8 +147,8 @@ const ProductCard = ({data}) => {
 
 const ProductsReviewCards: React.FC<CategoriesProps> = ({
   className = 'mb-10 md:mb-11 lg:mb-12 xl:mb-14 lg:pb-1 xl:pb-0 mx-0 w-full drop-shadow-lg',
-  sectionHeading,
-  ReviewData,
+  // sectionHeading,
+  // ReviewData,
   type = 'circle',
 }) => {
   const { data, isLoading, error } = useCategoriesQuery({

@@ -32,7 +32,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ columns }) => {
 										href={columnItem.path}
 										className="block text-sm py-1.5 text-heading font-semibold px-5 xl:px-8 2xl:px-10 hover:text-heading hover:bg-gray-300"
 									>
-										{t(columnItem.label)}
+										{t(columnItem.label) as string}
 									</Link>
 								</li>
 								{columnItem?.columnItemItems?.map((item: any) => (
@@ -48,7 +48,7 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ columns }) => {
 											href={item.path}
 											className="text-body text-sm block py-1.5 px-5 xl:px-8 2xl:px-10 hover:text-heading hover:bg-gray-300"
 										>
-											{t(item.label)}
+											{t(item.label) as string}
 										</Link>
 									</li>
 								))}

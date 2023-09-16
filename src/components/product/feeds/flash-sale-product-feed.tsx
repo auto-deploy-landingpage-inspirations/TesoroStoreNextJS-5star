@@ -4,7 +4,7 @@ import { useFlashSaleProductsQuery } from "@framework/product/get-all-flash-sale
 import classNames from "classnames";
 import { ROUTES } from "@utils/routes";
 import Alert from "@components/ui/alert";
-import Fade from 'react-reveal/Fade'
+import {Fade} from 'react-reveal'
 
 interface Props {
 	className?: string;

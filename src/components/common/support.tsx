@@ -30,7 +30,7 @@ const Support: React.FC<Props> = ({ className }) => {
 					{t(`${title}`)}
 				</Text>
 				<p className="text-body text-xs md:text-sm leading-6 md:leading-7">
-					{t(`${description}`)}
+					{t(`${description}`) as string}
 				</p>
 			</div>
 			<div className="mb-2.5 md:mb-0 xl:mb-2 2xl:mb-4 3xl:mb-6 md:px-20 lg:px-40 xl:px-0">
@@ -42,7 +42,7 @@ const Support: React.FC<Props> = ({ className }) => {
 				/>
 			</div>
 			<Button>
-				{t(`${buttonText}`)}
+				{t(`${buttonText}`) as string}
 				<IoChatbubbleEllipsesOutline className="ms-2 text-lg md:text-xl" />
 			</Button>
 		</div>

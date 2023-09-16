@@ -20,7 +20,7 @@ export const CollectionFilters: React.FC = () => {
 			<div className="block border-b border-gray-300 pb-5 mb-7">
 				<div className="flex items-center justify-between mb-2.5">
 					<h2 className="font-semibold text-heading text-xl md:text-2xl">
-						{t("text-collection-list")}
+						{t("text-collection-list") as string}
 					</h2>
 				</div>
 			</div>
