@@ -110,7 +110,7 @@ const CategoryBlock2: React.FC<CategoriesProps> = ({
                   </SwiperSlide>
                 );
               })
-            : data?.categories?.data?.map((category) => (
+            : data?.categories?.data?.map((category:any) => (
                 
                   <SwiperSlide key={`category--key-${category.id}`}>
                     <Card

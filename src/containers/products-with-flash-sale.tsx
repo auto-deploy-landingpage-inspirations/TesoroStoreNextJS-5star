@@ -43,7 +43,7 @@ const ProductsWithFlashSale: React.FC<Props> = ({
 					) : isLoading && !data?.length ? (
 						<ProductListFeedLoader limit={4} />
 					) : (
-						data?.map((product) => (
+						data?.map((product:any) => (
 							<ProductCard
 								key={`product--key${product.id}`}
 								product={product}

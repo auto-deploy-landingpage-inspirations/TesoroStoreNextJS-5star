@@ -40,7 +40,7 @@ const BrandGridBlock: React.FC<BrandProps> = ({
               ))
             : brands
                 ?.slice(0, limit)
-                .map((brand) => (
+                .map((brand:any) => (
                   <BrandCard key={`brand--key${brand.id}`} brand={brand} />
                 ))}
         </div>

@@ -1,5 +1,6 @@
 declare module "react-query" {
     export {QueryClientProvider} from "react-query/types"
+    export {useMutation} from "react-query/types"
 }
 
 declare module "react-query/hydration"{

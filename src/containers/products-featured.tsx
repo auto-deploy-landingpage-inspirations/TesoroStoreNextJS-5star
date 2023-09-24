@@ -32,7 +32,7 @@ const ProductsFeatured: React.FC<ProductsProps> = ({
         <Alert message={error?.message} />
       ) : (
         <div className="grid grid-cols-4 grid-rows-2 gap-3 md:gap-5 xl:gap-7">
-          {data?.slice(0, limit).map((product, idx: number) => (
+          {data?.slice(0, limit).map((product:any, idx: number) => (
             <ProductOverlayCard
               key={`product--key${product.id}`}
               product={product}
