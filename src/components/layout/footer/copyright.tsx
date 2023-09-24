@@ -16,13 +16,13 @@ const year = new Date().getFullYear();
 const Copyright: React.FC<CopyrightProps> = ({ payment }) => {
 	const { t } = useTranslation("footer");
 	return (
-		<div className="border-t border-gray-300 pt-5 pb-16 sm:pb-20 md:pb-5 mb-2 sm:mb-0">
+		<div className="border-t border-gray-700 pt-5 pb-16 sm:pb-20 md:pb-5 mb-2 sm:mb-0">
 			<Container className="flex flex-col-reverse md:flex-row text-center md:justify-between">
-				<p className="text-xs lg:text-sm leading-6 text-white">
+				<p className="text-xs lg:text-sm leading-6 text-gray-700">
 					<>
 					{t("text-copyright") as string} &copy; {year}&nbsp;
 					<a
-						className="font-semibold text-white transition-colors duration-200 ease-in-out hover:text-gray"
+						className="font-semibold text-gray-700 transition-colors duration-200 ease-in-out hover:text-gray"
 						href={siteSettings.author.websiteUrl}
 					>
 						{siteSettings.author.name}

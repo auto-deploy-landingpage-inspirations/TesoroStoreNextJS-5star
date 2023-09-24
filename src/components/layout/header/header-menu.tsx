@@ -23,7 +23,7 @@ const HeaderMenu: React.FC<MenuProps> = ({ data, className }) => {
 				>
 					<Link
 						href={item.path}
-						className="inline-flex items-center text-sm xl:text-base text-black menu-text px-1 xl:px-4 py-2 font-normal relative "
+						className=" font-josephine inline-flex items-center text-sm xl:text-base text-black menu-text px-1 xl:px-4 py-2 font-normal relative "
 					>
 						{t(item.label)}
 						{(item?.columns || item.subMenu) && (

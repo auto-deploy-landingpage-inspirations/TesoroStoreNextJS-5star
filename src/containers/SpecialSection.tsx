@@ -38,7 +38,8 @@ export default function SpecialSection() {
   return (
     <>
     <Fade bottom>
-        <div className='grid lg:grid-cols-4 gap-x-16 md:grid-cols-1 px-16 my-2 drop-shadow-lg bg-[#60a5fa]' 
+    {/* 60a5fa */}
+        <div className='grid lg:grid-cols-4 gap-x-16 md:grid-cols-1 px-16 my-2 drop-shadow-lg bg-[#F4769F]'  
             style={{borderRadius: '20px'}}
         >   
             <div className='col-span-4 text-center py-5 text-[white] text-4xl font-bold w-full'
@@ -60,7 +61,7 @@ export default function SpecialSection() {
                             // background: 'rgba(255, 165, 0, 0.8)',
 
                         }}>
-                            <p className='text-xs text-[#60a5fa] pt-5 text-left pb-0 mb-0'>
+                            <p className='text-xs text-[#F6C0C9] pt-5 text-left pb-0 mb-0'>
                                 <span className='font-semibold pr-3'>{item.createdDate}</span>
                             </p>
                             <h2 className='font-bold text-2xl text-black text-left pb-5'
@@ -75,7 +76,7 @@ export default function SpecialSection() {
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi ullam ut facere accusantium voluptatibus. Sed quibusdam, commodi rerum provident incidunt reprehenderit animi nam ...
                             </p>
                             <div className='w-full flex justify-center'>
-                                <button className='rounded-3xl hover:drop-shadow-md font-bold bg-[#60a5fa]  text-white px-3 py-1 mt-5'>Read More ...</button>
+                                <button className='rounded-3xl hover:drop-shadow-md font-bold bg-[#F6C0C9]  text-white px-3 py-1 mt-5'>Read More ...</button>
                             </div>
                             {/* <p className='text-bold text-sm text-black'>
                                 

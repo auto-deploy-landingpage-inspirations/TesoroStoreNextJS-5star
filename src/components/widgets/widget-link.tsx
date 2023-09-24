@@ -20,7 +20,7 @@ const WidgetLink: FC<Props> = ({ className, data }) => {
 	const { t } = useTranslation("footer");
 	return (
 		<div className={`${className}`}>
-			<h4 className="text-heading text-sm md:text-base xl:text-lg font-semibold mb-5 2xl:mb-6 3xl:mb-7 text-white hover:text-teal-50">
+			<h4 className="text-sm md:text-base xl:text-lg font-semibold mb-5 2xl:mb-6 3xl:mb-7 text-gray-600 hover:text-gray-400">
 				{t(`${widgetTitle}`) as string}
 			</h4>
 			<ul className="text-xs lg:text-sm text-body flex flex-col space-y-3 lg:space-y-3.5">
@@ -30,12 +30,12 @@ const WidgetLink: FC<Props> = ({ className, data }) => {
 						className="flex items-baseline text-white"
 					>
 						{list.icon && (
-							<span className="me-3 relative top-0.5 lg:top-1 text-sm lg:text-base text-white hover:text-teal-50">
+							<span className="me-3 relative top-0.5 lg:top-1 text-sm lg:text-base text-gray-600 hover:text-gray-400">
 								{list.icon}
 							</span>
 						)}
 						<Link href={list.path ? list.path : "#!"}>
-							<a className="transition-colors duration-200 text-white hover:text-teal-50">
+							<a className="transition-colors duration-200 text-gray-600 hover:text-gray-400">
 								{t(`${list.title}`) as string}
 							</a>
 						</Link>

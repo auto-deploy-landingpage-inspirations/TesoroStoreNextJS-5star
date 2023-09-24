@@ -93,7 +93,7 @@ const Header: React.FC = () => {
 		 						className="text-sm xl:text-base text-heading menu-text font-semibold"
 		 						btnProps={{
 		 							className:
-		 								"text-sm xl:text-base text-heading font-semibold focus:outline-none",
+		 								" font-josephine text-sm xl:text-base text-heading font-semibold focus:outline-none",
 		 							children: "Sign in",
 		 							onClick: handleLogin,
 		 						}}

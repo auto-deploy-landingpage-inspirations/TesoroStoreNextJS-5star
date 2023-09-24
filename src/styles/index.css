@@ -1,11 +1,51 @@
 @font-face {
-    font-family: "Van";   /*Can be any text*/
+    font-family: "disabled";   /*Van*/
     src: local("VanillaRavioli"),
       url("./../../public/assets/fonts/VanillaRavioli/VanillaRavioli.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "Hap";   /*Can be any text*/
+  font-family: "disabled";   /*Hap*/
   src: local("GTHaptikBoldRegular"),
     url("./../../public/assets/fonts/GTHaptik/GTHaptikBoldRegular.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: 'Van';
+  src: local("JosefinSans"),
+    url("./../../public/assets/fonts/Josefin_Sans/JosefinSans.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Hap';
+  src: local("JosefinSans"),
+    url("./../../public/assets/fonts/Josefin_Sans/JosefinSans.ttf") format("truetype");
+}
+
+
+@font-face {
+  font-family: 'disabled';
+  src: local("Inter.ttf"),
+    url("./../../public/assets/fonts/Inter/Inter.ttf") format("truetype");
+}
+
+
+@font-face {
+  font-family: 'disabled';
+  src: local("Inter.ttf"),
+    url("./../../public/assets/fonts/Inter/Inter.ttf") format("truetype");
+}
+
+
+@font-face {
+  font-family: 'pfdisplay';
+  src: local("PlayfairDisplay.ttf"),
+    url("./../../public/assets/fonts/PlayfairDisplay/PlayfairDisplay.ttf") format("truetype");
+}
+/* 
+
+@font-face {
+  font-family: 'disabled';
+  src: local("Inter.ttf"),
+    url("./../../public/assets/fonts/Inter/Inter.ttf") format("truetype");
+} */

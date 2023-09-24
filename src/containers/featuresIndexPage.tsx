@@ -40,7 +40,7 @@ export const Feature = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4">
             
               {data&&data.map((item, idx) => (
-                <Fade key={idx} bottom>
+                <Fade key={idx}>
                   <div className={ "cursor-pointer items-center max-w-md text-center align-center py-4 justify-center hover:-translate-y-[2px] hover:drop-shadow-md " + item.color } key={idx} style={{
                       // border: '1px solid gray',
                       // borderRadius: '12px',

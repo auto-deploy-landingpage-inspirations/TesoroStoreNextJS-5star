@@ -7,6 +7,7 @@ import BannerCarouselBlock from "@containers/banner-carousel-block";
 // import Support from "@components/common/support";
 import Subscription from "@components/common/subscription";
 import HeroBlock from "@containers/hero-block";
+import FoundersPick from "@containers/FoundersPick"
 // import BrandBlock from "@containers/brand-block";
 import CategoryBlock from "@containers/category-block";
 // import FeatureBlock from "@containers/feature-block";
@@ -62,6 +63,9 @@ export default function Home() {
 				<BestSellerProductFeed />
 				<BizMagic2 />
 				{/* <BusinessMagic /> */}
+				<Fade bottom>
+					<FoundersPick />
+				</Fade>
 				<Fade bottom>
 					<CollectionBlock />
 				</Fade>

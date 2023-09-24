@@ -16,12 +16,12 @@ const banner = {
 	slug: "/search",
 	image: {
 		mobile: {
-			url: "/assets/images/banners/banner1.png",
+			url: "/assets/images/founderspick/Tosoro_Buy1Get1Free.jpg",
 			width: 450,
 			height: 150,
 		},
 		desktop: {
-			url: "/assets/images/banners/banner4.png",
+			url: "/assets/images/founderspick/Tosoro_Buy1Get1Free.jpg",
 			width: 1190,
 			height: 450,
 		},

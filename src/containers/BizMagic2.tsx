@@ -75,10 +75,10 @@ export default function BizMagic2() {
                 </div>
             </Fade>
         </div>
-        <img className='absolute top-0 right-0  h-[90vh] z-0' src="/assets/images/smallBiz/bg2.png" alt="" />
+        <img className='absolute top-0 right-0 z-0' src="/assets/images/smallBiz/Tosoo_meet.jpg" alt="" />
         <Reveal effect="fadeInUp">
             <div className='w-[45%] h-[100%] relative bottom-0'>
-                    <img className='absolute bottom-0 left-[10%] h-[60vh] z-20' src="/assets/images/smallBiz/hero.png"/>
+                    {/* <img className='absolute bottom-0 left-[10%] h-[60vh] z-20' src="/assets/images/smallBiz/hero.png"/> */}
             </div>
         </Reveal>
         {/* <div className='flex w-full'>

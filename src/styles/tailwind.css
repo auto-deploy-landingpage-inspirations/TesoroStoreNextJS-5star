@@ -382,13 +382,6 @@
 }
 
 
-
-
-
-
-
-
-
 .page-header {
 	position: fixed;
 	top: 20px;
@@ -397,7 +390,7 @@
 	height: 6rem;
 	padding: 20px 0;
 	z-index: 20;
-	background-color: rgba(255, 255, 255, 0.40);
+	background-color: rgba(255, 255, 255, 1);
 	transform: scale(102%, 102%);
 	animation: decreaseSize 0.1s ease-in-out;
   }
@@ -473,10 +466,18 @@
   li:hover > button svg {
 	transform: rotate(-270deg);
   }
+
+.font-josephine{
+	font-family: 'Van';
+}
+
+.font-playfair{
+	font-family: 'pfdisplay';
+}
+
 .bg-special-effect{
 	background-color: #d946ef;
 	opacity: 0.1;
 	background: radial-gradient(circle, transparent 20%, #d946ef 20%, #d946ef 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #d946ef 20%, #d946ef 80%, transparent 80%, transparent) 12.5px 12.5px, linear-gradient(#000000 1px, transparent 1px) 0 -0.5px, linear-gradient(90deg, #000000 1px, #d946ef 1px) -0.5px 0;
 	background-size: 25px 25px, 25px 25px, 12.5px 12.5px, 12.5px 12.5px;}
 
-	

@@ -8,7 +8,7 @@ const ListMenu = ({ dept, data, hasSubMenu, menuIndex }: any) => {
 		<li className="relative">
 			<Link
 				href={data.path}
-				className="flex items-center justify-between py-2 ps-5 xl:ps-7 pe-3 xl:pe-3.5 text-[#f7b081] hover:text-white hover:bg-[#f7b081]"
+				className=" font-josephine flex items-center justify-between py-2 ps-5 xl:ps-7 pe-3 xl:pe-3.5 text-[#f7b081] hover:text-white hover:bg-[#f7b081]"
 			>
 				{t(data.label) as string}
 				{data.subMenu && (

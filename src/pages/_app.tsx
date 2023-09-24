@@ -20,6 +20,8 @@ import "@fontsource/satisfy";
 
 import "@styles/fonts/VanillaRavioli/VanillaRavioli.ttf"
 import "@styles/fonts/GTHaptik/GTHaptikBoldRegular.ttf"
+// import "@styles/fonts/Josefin_Sans/JosefinSans.ttf"
+// import "@styles/fonts/Inter/inter.ttf"
 // external
 import "react-toastify/dist/ReactToastify.css";
 // base css file
