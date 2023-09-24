@@ -66,7 +66,7 @@ const OrderDetails: React.FC<{ className?: string }> = ({
 					</tr>
 				</thead>
 				<tbody>
-					{order?.products.map((product, index) => (
+					{order?.products.map((product:any, index:number) => (
 						<OrderItemCard key={index} product={product} />
 					))}
 				</tbody>

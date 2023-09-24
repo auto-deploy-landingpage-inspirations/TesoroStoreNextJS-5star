@@ -61,7 +61,7 @@ const BrandBlock: React.FC<BrandProps> = ({
 									<CardRoundedLoader uniqueKey={`category-${idx}`} />
 								</SwiperSlide>
 						  ))
-						: brands?.map((brand) => (
+						: brands?.map((brand:any) => (
 								<SwiperSlide key={`brand--key${brand.id}`}>
 									<Card
 										item={brand}

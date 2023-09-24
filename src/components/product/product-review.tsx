@@ -188,7 +188,7 @@ const ProductsReviewCards: React.FC<CategoriesProps& {ReviewData?:any}> = ({
                   </SwiperSlide>
                 );
               })
-            : data?.categories?.data?.map((category) => (
+            : data?.categories?.data?.map((category:any) => (
                 
                   <SwiperSlide key={`category--key-${category.id}`}>
                     <ProductCard data={category}

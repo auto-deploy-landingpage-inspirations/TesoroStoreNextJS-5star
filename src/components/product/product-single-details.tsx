@@ -127,7 +127,7 @@ const ProductSingleDetails: React.FC = () => {
 										className="product-gallery"
 										buttonClassName="hidden"
 									>
-									{data?.gallery?.map((item, index: number) => (
+									{data?.gallery?.map((item:any, index: number) => (
 										<SwiperSlide key={`product-gallery-key-${index}`}>
 											<div className="col-span-1 transition duration-150 ease-in hover:opacity-90"
 												onClick={() => {
@@ -174,7 +174,7 @@ const ProductSingleDetails: React.FC = () => {
 							}}
 						>
 							<ul>
-								{data?.gallery?.map((item, index:number) => (
+								{data?.gallery?.map((item:any, index:number) => (
 									<li 
 										key={index}
 										className=""
@@ -352,7 +352,7 @@ const ProductSingleDetails: React.FC = () => {
 									<span className="font-semibold text-heading inline-block pe-2">
 										Tags:
 									</span>
-									{data.tags.map((tag) => (
+									{data.tags.map((tag:any) => (
 										<Link
 											key={tag.id}
 											href={tag.slug}
