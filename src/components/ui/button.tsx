@@ -3,7 +3,7 @@ import React, { forwardRef, ButtonHTMLAttributes } from "react";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	className?: string;
-	variant?: "flat" | "slim" | "new";
+	variant?: "flat" | "slim" | "new" | "new-2";
 	active?: boolean;
 	type?: "submit" | "reset" | "button";
 	loading?: boolean;
@@ -30,7 +30,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 				variant === "slim",
 			"cursor-not-allowed": loading,
 			"cursor-not-allowed hover:cursor-not-allowed": disabled,
-			"bg-white text-indigo-400 hover:bg-indigo-500 hover:text-white border-indigo-600": variant === "new",
+			"h-11 text-4xl bg-white text-indigo-400 hover:bg-indigo-500 hover:text-white border-indigo-600": variant === "new",
+			"h-11 bg-indigo-800 text-white hover:bg-white hover:text-indigo-800 border-indigo-800": variant === "new-2",
 		},
 		className
 	);

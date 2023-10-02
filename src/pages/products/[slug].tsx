@@ -18,8 +18,8 @@ export default function ProductPage() {
 					<Breadcrumb />
 				</div>
 				<ProductSingleDetails />
-				<RelatedProducts sectionHeading="People Buying this also bought" />
-				<RelatedProducts sectionHeading="Similar Products" />
+				<RelatedProducts sectionHeading="PEOPLE BUYING THIS ALSO BOUGHT" />
+				<RelatedProducts sectionHeading="SIMILAR PRODUCTS" />
 				<RelatedCategories />
 				<Subscription />
 			</Container>

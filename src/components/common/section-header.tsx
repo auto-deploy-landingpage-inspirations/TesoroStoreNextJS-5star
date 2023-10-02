@@ -18,7 +18,7 @@ const SectionHeader: React.FC<Props> = ({
 	const { t } = useTranslation("common");
 	return (
 		<div
-			className={`flex items-center justify-center -mt-2 lg:-mt-2.5 ${className}`}
+			className={`font-josephine flex items-center justify-center -mt-2 lg:-mt-2.5 ${className}`}
 		>
 			{boxshadow?(
 				<Text variant="mediumHeading" style={
@@ -41,7 +41,7 @@ const SectionHeader: React.FC<Props> = ({
 			{categorySlug && (
 				<Link
 					href={categorySlug}
-					className="text-xs lg:text-sm xl:text-base text-heading mt-0.5 lg:mt-1"
+					className="font-josephine text-xs lg:text-sm xl:text-base text-heading mt-0.5 lg:mt-1"
 				>
 					{t("text-see-all-product") as string}
 				</Link>

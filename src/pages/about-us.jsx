@@ -6,18 +6,18 @@ import { Fade, Zoom, Wobble, Animation } from 'react-reveal';
 
 const lefTextBoxCss = 'ml-[15%] col-span-2 w-[70%]';
 const rightTextBoxCss = 'ml-[15%] w-[70%] px-5 col-span-2'
-const boxHeading = 'font-josephine text-center justify-center mt-[58px] text-[#515156] items-center font-semibold text-lg'
+const boxHeading = 'font-josephine text-center justify-center mt-[58px] text-[#515156] items-center font-bold text-lg'
 const boxPara = 'font-josephine text-center justify-center mt-5 text-[#6a6a70] items-center font-normal'
 const boxCss = 'h-[40vh] my-20 rounded-lg grid grid-cols-3'
-
+const subheadingCss = 'italic text-[1.3rem] font-semibold'
 export default function AboutUs() {
   return (
     <>
         <div className='mx-auto my-[14vh] bg-[#fcbfd0] grid grid-cols-2 w-full h-[35vh]'>  
             <div className='ml-[30%] pt-1 '>
               <Fade bottom>
-                  <h1 className='font-josephine text-center justify-center mt-28 text-[#393942] items-center flex font-semibold' style={{fontSize: '3rem', lineHeight: '2.5rem'}}>
-                    We are Tesoro Store
+                  <h1 className='font-josephine text-center justify-center mt-28 text-[#393942] items-center flex font-semibold' style={{fontSize: '2.25rem', lineHeight: '2.5rem'}}>
+                    WE ARE TESORO STORE
                   </h1>
                   {/* <h2 className='font-josephine text-center justify-center mt-5  text-[#515156] items-center flex font-normal' style={{fontSize: '1.25rem', lineHeight: '1.75rem'}}>
                     Crafting Moments, Sharing Joy: Our Story at Tesoro Store
@@ -42,7 +42,7 @@ export default function AboutUs() {
           <div className={'bg-[#FFE583]   '+boxCss}>
             <div className={lefTextBoxCss}>
               <Fade bottom delay={1500}>
-                <h1 className={boxHeading} style={{fontSize: '1.75rem', lineHeight: '2.25rem'}}>One Stop Wonderland:<br/><span className='italic'>All Things Small Business, All in One Place</span> </h1>
+                <h1 className={boxHeading} style={{fontSize: '1.75rem', lineHeight: '2.25rem'}}>One Stop Wonderland<br/><span className={subheadingCss}>All Things Small Business, All in One Place</span> </h1>
                 <p className={boxPara} style={{fontSize: '1rem', lineHeight: '1.75rem'}}>Tired of sliding into DMs like a secret agent? Say goodbye to the hassle! Welcome to Tesoro Store – your ultimate destination for verified small businesses. No more chasing shadows; shop conveniently and explore an artful world without the stress!</p>
               </Fade>
             </div>
@@ -62,7 +62,7 @@ export default function AboutUs() {
             </div>
             <div className={rightTextBoxCss}>
               <Fade bottom delay={1000}>
-              <h1 className={boxHeading} style={{fontSize: '1.75rem', lineHeight: '2.25rem'}}>Treasures Handpicked with Heart:<br/><span className='italic'>  Dive into Diversity</span></h1>
+              <h1 className={boxHeading} style={{fontSize: '1.75rem', lineHeight: '2.25rem'}}>Treasures Handpicked with Heart<br/><span className={subheadingCss}>  Dive into Diversity</span></h1>
               <p className={boxPara} style={{fontSize: '1rem', lineHeight: '1.75rem'}}>Ever wish for a rainbow in your shopping cart? Tesoro Store has you covered! Our treasures are handpicked with more heart than a heartfelt hug. From whimsical to wondrous, our diverse collection celebrates the artistry of small businesses. Because life is too short for ordinary!</p>
               </Fade>
             </div>
@@ -72,7 +72,7 @@ export default function AboutUs() {
           <div className='bg-[#FFE583]  h-[40vh] my-20 rounded-lg grid grid-cols-3'>
             <div className={lefTextBoxCss}>
               <Fade bottom delay={700}>
-              <h1 className={boxHeading} style={{fontSize: '1.75rem', lineHeight: '2.25rem'}}>Supporting Small Businesses: <br/><span className='italic'> Where Dreams Find Their Wings</span></h1>
+              <h1 className={boxHeading} style={{fontSize: '1.75rem', lineHeight: '2.25rem'}}>Supporting Small Businesses<br/><span className={subheadingCss}> Where Dreams Find Their Wings</span></h1>
               <p className={boxPara} style={{fontSize: '1rem', lineHeight: '1.75rem'}}>Dreams come in all sizes – including small! At Tesoro Store, every purchase is a vote of confidence for the dreamers, the makers, and the creators. Your choice to shop unique fuels passions and empowers small business journeys. Let's turn dreams into reality, one treasure at a time!</p>
               </Fade>
             </div>
@@ -93,7 +93,7 @@ export default function AboutUs() {
             </div>
             <div className={rightTextBoxCss}>
               <Fade bottom delay={700}>
-              <h1 className={boxHeading} style={{fontSize: '1.75rem', lineHeight: '2.25rem'}}>Unveil Hidden Treasures:<br/><span className='italic'>  Explore Tesoro Today!</span></h1>
+              <h1 className={boxHeading} style={{fontSize: '1.75rem', lineHeight: '2.25rem'}}>Unveil Hidden Treasures<br/><span className={subheadingCss}>  Explore Tesoro Today!</span></h1>
               <p className={boxPara} style={{fontSize: '1rem', lineHeight: '1.75rem'}}>Unleash your inner explorer and embark on a journey where every treasure you uncover is a masterpiece of passion. Tesoro Store is where dreams meet reality, where artisans find their spotlight, and where you find a world of creativity at your fingertips.</p>
               </Fade>
             </div>
@@ -101,11 +101,11 @@ export default function AboutUs() {
         </Container>
         <>
           <div className='w-[90%] mb-[2vh] mt-[7vh] ml-[5%] h-[15vh]'>
-            <h1 className='text-7xl text-center text-[#F4769F] font-normal font-playfair' style={{fontStyle: 'italic'}}>Meet Our Founders</h1>
+            <h1 className='text-[3.5rem] text-center text-[#F4769F] font-normal font-playfair' style={{fontStyle: 'italic'}}>Meet Our Founders</h1>
           </div>
           <div className='w-[90%] ml-[5%] mb-[10vh] grid grid-cols-2 rounded-3xl bg-[#FFF5F8]'>
             <div className='p-20'>
-              <h1 className='text-[#F4769F] text-2xl text-center mb-7 font-josephine'>Hello from the Founders: Saumya & Shalini </h1>
+              <h1 className='text-[#F4769F] text-2xl text-center mb-7 font-josephine'>Saumya & Shalini </h1>
                 <p className='text-center font-josephine'>
                 Hey there, lovely souls! We're Saumya and Shalini, your friendly neighborhood co-founders of Tesoro Store. Back in the day, we embarked on a journey together at the National Institute of Fashion Technology, where we not only acquired degrees in fashion management but also discovered a friendship that's more precious than a pot of gold.
                 </p>

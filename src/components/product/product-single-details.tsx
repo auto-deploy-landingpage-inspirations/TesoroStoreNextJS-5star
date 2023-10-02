@@ -220,22 +220,22 @@ const ProductSingleDetails: React.FC = () => {
 
 			<div className="col-span-4 pt-8 lg:pt-0 hide-scrollbar" style={{height: '80vh', overflowY: 'scroll', overflowX: 'hidden'}}>
 				<div className="pb-4 mb-4 border-b border-gray-300">
-					<h2 className="text-heading text-lg md:text-xl lg:text-2xl 2xl:text-3xl font-bold hover:text-black mt-10">
+					<h2 className="font-josephine text-gray-600 text-lg md:text-xl lg:text-2xl 2xl:text-3xl font-bold hover:text-slate-800 mt-10 uppercase mb-3">
 						{data?.name}
 					</h2>
-					<p className="font-bold">
-						{"fnp"}
+					<p className="font-bold pb-5 font-josephine">
+						{"Ferns & Petals"}
 					</p>
 					<ProductRating />
 					{/* <p className="text-body text-sm lg:text-base leading-3 lg:leading-6">
 						{data?.description}
 					</p> */}
 					<div className="flex items-center mt-5">
-						<div className="text-heading font-bold text-base md:text-xl lg:text-xl 2xl:text-3xl pe-2 md:pe-0 lg:pe-2 2xl:pe-0">
+						<div className="font-josephine text-gray-600 font-semibold text-base md:text-md lg:text-lg 2xl:text-2xl pe-2 md:pe-0 lg:pe-2 2xl:pe-0">
 							{price}
 						</div>
 						{discount && (
-							<span className="line-through font-segoe text-gray-400 text-sm md:text-base lg:text-lg xl:text-xl ps-2">
+							<span className="font-josephine font-normal line-through font-segoe text-gray-400 text-sm md:text-base lg:text-md xl:text-lg ps-2">
 								{basePrice}
 							</span>
 						)}
@@ -273,27 +273,27 @@ const ProductSingleDetails: React.FC = () => {
 				<div className="mt-4">
 				<table className="table-fixed sm:w-full md:w-2/3 " 
 					style={
-						{ borderBottomRightRadius: '10px', borderTopLeftRadius: '10px', padding: '5px', margin: '10px', boxShadow: '1.5px 1.5px 1.5px 2px rgba(5, 5, 255, 0.25)'}
+						{ borderBottomRightRadius: '10px', borderTopLeftRadius: '10px', padding: '5px', margin: '10px', boxShadow: '1.5px 1.5px 1.5px 2px rgba(248, 113, 113, 0.3)'}
 					}
 				>
 					<thead>
 						<tr>
-							<th className="text-red-400 text-left pl-5 pt-3">BEST OFFERS FOR YOU!</th>
+							<th className="font-josephine text-red-400 text-left pl-5 pt-3">BEST OFFERS FOR YOU!</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td className="">
-								<div className="bg-black w-2/3 ml-5 mt-2 mb-2" style={{height: '1px'}}></div>
-								<div className="font-semibold w-full pl-5 mr-10 mb-0">Get 5% Off sitewide</div>
-								<div className="flex pl-5 items-center mb-1">Use Code <span className="p-1 ml-4 text-white border-2 bg-indigo-600 font-bold text-sm border-indigo-800">MAKEHOMESPECIAL</span> </div>
+								<div className="font-josephine bg-black w-2/3 ml-5 mt-2 mb-2" style={{height: '1px'}}></div>
+								<div className="font-josephine font-semibold w-full pl-5 mr-10 mb-0">Get 5% Off sitewide</div>
+								<div className="font-josephine flex pl-5 items-center mb-1">Use Code <span className="p-1 ml-4 text-gray-600 border-2 bg-[#FFE583] font-bold text-sm">MAKEHOMESPECIAL</span> </div>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<div className="bg-black w-2/3 ml-5 mt-2 mb-2" style={{height: '1px'}}></div>
-								<div className="font-semibold w-full pl-5 mr-10">Get Rs 150 Off on your first purchase</div>
-								<div className="flex pl-5 items-center mb-1">Use Code <span className="p-1 ml-4 text-white border-2 bg-indigo-600 font-bold text-sm border-indigo-800">WELCOMETESORO</span> </div>
+								<div className="font-josephine bg-black w-2/3 ml-5 mt-2 mb-2" style={{height: '1px'}}></div>
+								<div className="font-josephine font-semibold w-full pl-5 mr-10">Get Rs 150 Off on your first purchase</div>
+								<div className="font-josephine flex pl-5 items-center mb-1">Use Code <span className="p-1 ml-4 text-gray-600 border-2 bg-[#FFE583] font-bold text-sm">WELCOMETESORO</span> </div>
 							</td>
 						
 						</tr>
@@ -307,24 +307,24 @@ const ProductSingleDetails: React.FC = () => {
 					<Button
 						onClick={addToCart}
 						variant="new"
-						className={`w-full md:w-1/2 xl:w-1/3 m-2 ${
+						className={`font-josephine w-full md:w-1/2 xl:w-1/3 m-2 ${
 							!isSelected && ""
 						}`}
 						disabled={!isSelected}
 						loading={addToCartLoader}
 					>
-						<span className="py-2 3xl:px-8">Add to cart</span>
+						<span className="py-2 3xl:px-8 text-lg mt-1">ADD TO CART</span>
 					</Button>
 					<Button
 						onClick={addToCart}
-						variant="new"
-						className={`w-full md:w-1/2 m-2 xl:w-1/3 hover:bg-white hover:drop-shadow-md bg-indigo-500 hover:text-indigo-500 text-white ${
+						variant="new-2"
+						className={`font-josephine w-full md:w-1/2 m-2 xl:w-1/3 flex hover:bg-white hover:drop-shadow-md bg-indigo-500 hover:text-indigo-500 text-white ${
 							!isSelected && ""
 						}`}
 						disabled={!isSelected}
 						loading={addToCartLoader}
 					>
-						<span className="py-2 3xl:px-8">Buy Now</span>
+						<span className="py-1 3xl:px-8 text-lg mt-1">BUY NOW</span>
 					</Button>
 				</div>
 				<div className="py-6">
@@ -336,12 +336,12 @@ const ProductSingleDetails: React.FC = () => {
 							{data?.sku}
 						</li> */}
 						<li className="productCategory">
-								<span className="font-semibold text-heading inline-block pe-2">
+								<span className="font-josephine text-xl font-semibold text-gray-900 inline-block pe-2">
 									Category:
 								</span>
 								<Link
 									href="/"
-									className="transition hover:underline hover:text-heading"
+									className="font-josephine text-lg transition hover:underline hover:text-heading"
 								>
 									{data?.category?.name}
 								</Link>
@@ -349,17 +349,17 @@ const ProductSingleDetails: React.FC = () => {
 						<>
 							{data?.tags && Array.isArray(data.tags) && (
 								<li className="productTags">
-									<span className="font-semibold text-heading inline-block pe-2">
+									<span className="text-xl font-josephine font-semibold text-gray-900 inline-block pe-2">
 										Tags:
 									</span>
 									{data.tags.map((tag:any) => (
 										<Link
 											key={tag.id}
 											href={tag.slug}
-											className="inline-block pe-1.5 transition hover:underline hover:text-heading last:pe-0"
+											className="text-xl font-josephine inline-block pe-1.5 transition hover:underline hover:text-heading last:pe-0"
 										>
 											{tag.name}
-											<span className="text-heading">,</span>
+											<span className=" text-lg font-josephine text-heading">,</span>
 										</Link>
 									))}
 								</li>
@@ -374,40 +374,40 @@ const ProductSingleDetails: React.FC = () => {
 		<div className="block lg:grid grid-cols-9 gap-x-10 xl:gap-x-14 pt-3 pb-10 lg:pb-14 2xl:pb-20 items-start">
 			<div className="lg:col-span-1"></div>
 			<div className="lg:col-span-4">
-				<h2 className="text-left text-lg font-bold">
+				<h2 className="font-josephine text-left text-xl font-bold text-gray-800">
 					Product Details
 				</h2>
-				<p>
+				<p className="font-josephine ">
 					{data?.description}
 				</p>
 				
 			</div>
 			<div className="lg:col-span-4">
 				<div className="py-6">
-					<ul className="text-sm space-y-5 pb-1">
+					<ul className="text-lg space-y-5 pb-1">
 						
-						<li>
-							<span className="font-semibold text-heading inline-block pe-2">
+						<li className="font-josephine ">
+							<span className="font-josephine font-semibold text-heading inline-block pe-2">
 								Dimensions
 							</span>
-							<span>
+							<span className="font-josephine">
 								45cm x 25cm x 53cm
 							</span>
 						</li>
-						<li>
-							<span className="font-semibold text-heading inline-block pe-2">
+						<li className="font-josephine ">
+							<span className="font-josephine font-semibold text-heading inline-block pe-2">
 								Composition
 							</span>
 							Glass
 						</li>
-						<li>
-							<span className="font-semibold text-heading inline-block pe-2">
+						<li className="font-josephine ">
+							<span className="font-josephine font-semibold text-heading inline-block pe-2">
 								Product Code:
 							</span>
 							SKU1253fC
 						</li>
-						<li>
-							<span className="font-semibold text-heading inline-block pe-2">
+						<li className="font-josephine ">
+							<span className="font-josephine font-semibold text-heading inline-block pe-2">
 								Delivery time:
 							</span>
 							The product would be delivered in 3-10 days after shipping

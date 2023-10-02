@@ -3,6 +3,7 @@ import Layout from "@components/layout/layout";
 import Subscription from "@components/common/subscription";
 // import ShopDiscount from "@components/shop/discount";
 import { ShopFilters } from "@components/shop/filters";
+import CategoryLiner from "@containers/CategoryLiner"
 import StickyBox from "react-sticky-box";
 import { ProductGrid } from "@components/product/product-grid";
 import SearchTopBar from "@components/shop/top-bar";
@@ -14,7 +15,7 @@ import { ROUTES } from "@utils/routes";
 import { GetStaticProps } from "next";
 import CategoryBanner from "@containers/category-banner";
 // import CategoryBlock from "@containers/category-block";
-import CategoryBlock2 from "@containers/CategoryBlock2";
+// import CategoryBlock2 from "@containers/CategoryBlock2";
 
 const colors:string[] = [
 	'bg-[#f786be]', //pink
@@ -32,7 +33,8 @@ export default function Products() {
 			{/* <ShopDiscount /> */}
 			<Container>
 				<CategoryBanner bgColor={colors[0]} />
-				<CategoryBlock2 sectionHeading="Categories" />
+				{/* <CategoryBlock2 sectionHeading="Categories" /> */}
+				<CategoryLiner />
 				<div className={`flex pt-8 pb-16 lg:pb-20`}>
 					<div className="flex-shrink-0 pe-24 hidden lg:block w-72">
 						<StickyBox offsetTop={50} offsetBottom={20}>

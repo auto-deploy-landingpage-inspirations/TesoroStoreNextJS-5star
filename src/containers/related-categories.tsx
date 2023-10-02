@@ -16,7 +16,7 @@ export default function RelatedCategories() {
         <div>
             <ul className='flex'>
                 {data.map((item, index:number) => (
-                    <li key={index} className='mx-1 items-center h-8 px-3 bg-indigo-100 border-2 border-indigo-500 rounded-full hover:bg-indigo-200 cursor-pointer' >
+                    <li key={index} className='mx-[0.4rem] items-center h-8 px-3 bg-indigo-100 border-2 border-indigo-500 rounded-full hover:bg-indigo-200 cursor-pointer' >
                         <span className="text-indigo-500 text-xs font-normal">{item}</span>
                     </li>
                 ))}

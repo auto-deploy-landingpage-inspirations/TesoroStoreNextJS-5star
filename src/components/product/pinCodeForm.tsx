@@ -57,7 +57,7 @@ const PinCodeCheckForm: React.FC = () => {
 								required: "forms:phone-required",
 							})}
 							variant="solid"
-							className="w-36 m-2"
+							className="font-josephine w-36 m-2"
                             placeholder="Pin Code"
 							errorKey={errors.phoneNumber?.message}
 						/>
@@ -66,13 +66,13 @@ const PinCodeCheckForm: React.FC = () => {
 							loading={isLoading}
 							disabled={isLoading}
                             variant="new"
-							className="h-10 w-28 m-2 "
+							className="font-josephine h-10 w-28 m-2 "
 						>
 							{t("Check") as string}
 						</Button>
 					{/* </div> */}
 				</div>
-                <p className="text-gray-400 text-xs ml-5">Check Pin Code*</p>
+                <p className="font-josephine text-gray-400 text-xs ml-5">Check Pin Code*</p>
 			</form>
 		</motion.div>
 	);

@@ -23,10 +23,9 @@ const SectionHeader2: React.FC<Props> = ({
 		>
 			{/* <Wobble> */}
 			{boxshadow?(
-				<Text variant="mediumHeading" style={
+				<Text variant="mediumHeading" className="text-gray-700" style={
 					{
 						backgroundColor: '',
-						color: 'black',
 						boxShadow: '8px 11px 8px rgba(218, 224, 245, 0)',
 						padding: '10px',
 						marginTop: '9px',
@@ -37,7 +36,7 @@ const SectionHeader2: React.FC<Props> = ({
 					}
 				}>{t(`${sectionHeading}`)}</Text>
 			):(
-				<Text variant="mediumHeading">{t(`${sectionHeading}`)}</Text>
+				<Text variant="subHeading" className="font-normal">{t(`${sectionHeading}`)}</Text>
 			)}
 			{/* </Wobble> */}
 			
