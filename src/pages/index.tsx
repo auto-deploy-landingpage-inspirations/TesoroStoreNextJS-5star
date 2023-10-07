@@ -35,6 +35,10 @@ import { Feature } from "@containers/featuresIndexPage";
 // import SectionHalf from "@containers/halfsectionindex";
 import BizMagic2 from "@containers/BizMagic2";
 import {Fade} from "react-reveal"
+import BizMagic2Mobile from "@containers/BizMagic2Mobile";
+import NewArrivalsProductFeedMobile from "@components/product/feeds/new-arrivals-product-feed-mobile";
+import BestSellerProductFeedMobile from "@components/product/feeds/best-seller-product-feed-mobile";
+import SpecialSectionMobile from "@containers/SpecialSectionMobile";
 
 export default function Home() {
 	// const { openModal, setModalView } = useUI();
@@ -55,13 +59,17 @@ export default function Home() {
 					New Arrivals
 				</h1> */}
 				<NewArrivalsProductFeed />
+				<NewArrivalsProductFeedMobile />
+
 				<CategoryBlock sectionHeading="Top Selling Categories" />
 				
 				
 				<BannerCarouselBlock />
 				<FlashSaleBlock />
 				<BestSellerProductFeed />
+				<BestSellerProductFeedMobile />
 				<BizMagic2 />
+				<BizMagic2Mobile />
 				{/* <BusinessMagic /> */}
 				<Fade bottom>
 					<FoundersPick />
@@ -69,6 +77,7 @@ export default function Home() {
 				<Fade bottom>
 					<CollectionBlock />
 				</Fade>
+				
 				{/* <BannerCard
 					key={`banner--key${banner.id}`}
 					banner={banner}
@@ -80,7 +89,8 @@ export default function Home() {
 				{/* <Divider /> */}
 				{/* <BrandBlock sectionHeading="text-top-brands" /> */}
 				
-				<SpecialSection />  
+				<SpecialSection /> 
+				<SpecialSectionMobile /> 
 				
 				{/* <SectionHalf /> */}
 				<Feature />

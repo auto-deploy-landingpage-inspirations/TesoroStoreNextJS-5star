@@ -37,7 +37,7 @@ export const Feature = () => {
     return (
         <div className="h-full pb-4 sm:max-w-xl md:max-w-full  lg:py-5 my-5">
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4">
             
               {data&&data.map((item, idx) => (
                 <Fade key={idx}>
@@ -62,7 +62,7 @@ export const Feature = () => {
                               />
                           </svg> */}
                       </div>
-                      <h6 className={"mb-2 font-semibold text-xl leading-5 "+item.textColor}>{item.title}</h6>
+                      <h6 className={"mb-2 font-semibold xs:text-lg lg:text-xl leading-5 "+item.textColor}>{item.title}</h6>
                       {/* <p className="mb-3 text-sm text-gray-900">
                       {item.description}
                       </p> */}

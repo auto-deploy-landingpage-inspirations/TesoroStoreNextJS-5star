@@ -42,6 +42,24 @@
   src: local("PlayfairDisplay.ttf"),
     url("./../../public/assets/fonts/PlayfairDisplay/PlayfairDisplay.ttf") format("truetype");
 }
+
+@media only screen and (max-width: 600px){
+  /* .for-mobile{
+    display: block;
+  } */
+  .for-desktop{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .for-mobile{
+    display: none;
+  }
+  /* .for-desktop{
+    display: block;
+  } */
+}
 /* 
 
 @font-face {

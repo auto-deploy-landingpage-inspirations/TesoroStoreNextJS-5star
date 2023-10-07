@@ -15,7 +15,7 @@ const breakpoints = {
 		spaceBetween: 20,
 	},
 	"0": {
-		slidesPerView: 1,
+		slidesPerView: 1.5,
 		spaceBetween: 12,
 	},
 };
@@ -29,7 +29,7 @@ const BannerCarouselBlock: React.FC<BannerProps> = ({
 }) => {
 	return (
 		<div className={className}>
-			<Carousel breakpoints={breakpoints} autoplay={{ delay: 5000 }}>
+			<Carousel breakpoints={breakpoints} autoplay={{ delay: 3000 }}>
 				{banners?.map((banner: any, idx:number) => (
 					<SwiperSlide key={`promotion-banner-key-${banner?.id}`}>
 						<BannerCard2

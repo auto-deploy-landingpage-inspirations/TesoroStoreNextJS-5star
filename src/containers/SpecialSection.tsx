@@ -39,52 +39,54 @@ export default function SpecialSection() {
     <>
     <Fade bottom>
     {/* 60a5fa */}
-        <div className='grid lg:grid-cols-4 gap-x-16 md:grid-cols-1 px-16 my-2 drop-shadow-lg bg-[#F4769F]'  
+        <div className='for-desktop grid grid-cols-1 lg:grid-cols-4 gap-x-16 px-16 my-2 drop-shadow-lg bg-[#F4769F]'  
             style={{borderRadius: '20px'}}
         >   
             <div className='col-span-4 text-center py-5 text-[white] text-4xl font-bold w-full'
 					style={{fontFamily: 'Van'}}>
                 Blogs
             </div>
-            
+           
             {data&&data.map((item, idx:number) => (
-                <Fade left>
-                    <div className='col-span-2 rounded-xl hover:drop-shadow-xl drop-shadow-lg grid grid-cols-2' key={idx} style={{
-                            // background: 'rgba(255, 165, 0, 0.8)',
-                            background: 'rgba(255, 255, 255, 1)'
+                    <Fade left>
+                        
+                        <div className='col-span-4 my-2 lg:col-span-2 rounded-xl hover:drop-shadow-xl drop-shadow-lg grid grid-cols-2' key={idx} style={{
+                                // background: 'rgba(255, 165, 0, 0.8)',
+                                background: 'rgba(255, 255, 255, 1)'
 
-                        }}>
-                        <div style={{borderRadius: '12px'}}>
-                            <img className='p-5 hover:drop-shadow-lg -translate-x-10' src={item.imgLink} style={{borderRadius: '12%'}} />
-                        </div>
-                        <div className='py-2 rounded-xl -translate-x-5' style={{
-                            // background: 'rgba(255, 165, 0, 0.8)',
-
-                        }}>
-                            <p className='text-xs text-[#F6C0C9] pt-5 text-left pb-0 mb-0'>
-                                <span className='font-semibold pr-3'>{item.createdDate}</span>
-                            </p>
-                            <h2 className='font-bold text-2xl text-black text-left pb-5'
-					            style={{fontFamily: 'Hap'}}>
-                                {item.title}
-                            </h2>
-                            {/* <p className='font-bold text-lg'>
-                                {item.subtitle}
-                            </p> */}
-                            <p className='text-justify text-sm pr-5 m-auto' 
-					style={{fontFamily: 'Hap'}}>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi ullam ut facere accusantium voluptatibus. Sed quibusdam, commodi rerum provident incidunt reprehenderit animi nam ...
-                            </p>
-                            <div className='w-full flex justify-center'>
-                                <button className='rounded-3xl hover:drop-shadow-md font-bold bg-[#F6C0C9]  text-white px-3 py-1 mt-5'>Read More ...</button>
+                            }}>
+                            <div style={{borderRadius: '12px'}}>
+                                <img className='p-5 hover:drop-shadow-lg -translate-x-10' src={item.imgLink} style={{borderRadius: '12%'}} />
                             </div>
-                            {/* <p className='text-bold text-sm text-black'>
-                                
-                            </p> */}
+                            <div className='py-2 rounded-xl -translate-x-5' style={{
+                                // background: 'rgba(255, 165, 0, 0.8)',
+
+                            }}>
+                                <p className='text-xs text-[#F6C0C9] pt-5 text-left pb-0 mb-0'>
+                                    <span className='font-semibold pr-3'>{item.createdDate}</span>
+                                </p>
+                                <h2 className='font-bold text-2xl text-black text-left pb-5'
+                                    style={{fontFamily: 'Hap'}}>
+                                    {item.title}
+                                </h2>
+                                {/* <p className='font-bold text-lg'>
+                                    {item.subtitle}
+                                </p> */}
+                                <p className='text-justify text-sm pr-5 m-auto' 
+                                    style={{fontFamily: 'Hap'}}>
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi ullam ut facere accusantium voluptatibus. Sed quibusdam, commodi rerum provident incidunt reprehenderit animi nam ...
+                                </p>
+                                <div className='w-full flex justify-center'>
+                                    <button className='rounded-3xl hover:drop-shadow-md font-bold bg-[#F6C0C9]  text-white px-3 py-1 mt-5'>Read More ...</button>
+                                </div>
+                                {/* <p className='text-bold text-sm text-black'>
+                                    
+                                </p> */}
+                            </div>
                         </div>
-                    </div>
-                </Fade>
-            ))}
+                    </Fade>
+                ))}
+            
             
             
             {/* <div className=''>
