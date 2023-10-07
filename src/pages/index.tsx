@@ -40,7 +40,7 @@ export default function Home() {
 	// const { openModal, setModalView } = useUI();
 	// useEffect(() => {
 	// 	setModalView("NEWSLETTER_VIEW");
-	// 	setTimeout(() => {
+	// 	setTimeout(() => { 
 	// 		openModal();
 	// 	}, 2000);
 	// }, []);
