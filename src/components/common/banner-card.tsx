@@ -45,7 +45,7 @@ const BannerCard: FC<BannerProps> = ({
           width={selectedImage.width}
           height={selectedImage.height}
           alt={title}
-          quality={100}
+          // quality={100}
           className={cn('bg-gray-300 object-cover w-full', {
             'rounded-md': variant === 'rounded',
           })}
