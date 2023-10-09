@@ -23,7 +23,7 @@ const AddToCartButton: React.FC<{setAddToCart:any, addToCart:Boolean}> = ({setAd
 	return(
 		// <Tooltip message="add to cart">
 			<button 
-				className="lg:w-3/5 group relative flex rounded-lg w-full items-center py-2 px-2 lg:py-1 lg:px-6 mx-auto text-center bg-[#FFE583] stroke-[black] hover:stroke-[white] transition ease-in-out duration-300 shadow-navigation hover:bg-heading hover:text-white transform lg:translate-y-full lg:opacity-0 lg:group-hover:opacity-100 lg:group-hover:translate-y-0" 
+				className="w-auto lg:w-3/5 group relative flex rounded-lg items-center py-2 px-2 lg:py-1 lg:px-6 mx-auto text-center bg-[#FFE583] stroke-[black] hover:stroke-[white] transition ease-in-out duration-300 shadow-navigation hover:bg-heading hover:text-white transform lg:translate-y-full lg:opacity-0 lg:group-hover:opacity-100 lg:group-hover:translate-y-0" 
 				type="button"
 				onClick={() => {
 					setAddToCart(!addToCart)
