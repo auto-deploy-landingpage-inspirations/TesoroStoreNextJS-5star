@@ -5,7 +5,7 @@ import type { FC } from "react";
 import { useUI } from "@contexts/ui.context";
 import usePrice from "@framework/product/use-price";
 import { Product } from "@framework/types";
-import Tooltip from "@components/Tooltip"
+// import Tooltip from "@components/Tooltip"
 
 interface ProductProps {
 	product: Product;
@@ -21,9 +21,9 @@ interface ProductProps {
 
 const AddToCartButton: React.FC<{setAddToCart:any, addToCart:Boolean}> = ({setAddToCart, addToCart}) => {
 	return(
-		<Tooltip message="add to cart">
+		// <Tooltip message="add to cart">
 			<button 
-				className="group relative flex rounded-lg w-full items-center py-3 px-8 mx-auto text-center bg-[#FFE583] stroke-[black] hover:stroke-[white] transition ease-in-out duration-300 shadow-navigation hover:bg-heading hover:text-white transform lg:translate-y-full lg:opacity-0 lg:group-hover:opacity-100 lg:group-hover:translate-y-0" 
+				className="group relative flex rounded-lg w-full items-center py-2 px-2 lg:py-1 lg:px-6 mx-auto text-center bg-[#FFE583] stroke-[black] hover:stroke-[white] transition ease-in-out duration-300 shadow-navigation hover:bg-heading hover:text-white transform lg:translate-y-full lg:opacity-0 lg:group-hover:opacity-100 lg:group-hover:translate-y-0" 
 				type="button"
 				onClick={() => {
 					setAddToCart(!addToCart)
@@ -44,14 +44,18 @@ const AddToCartButton: React.FC<{setAddToCart:any, addToCart:Boolean}> = ({setAd
 			{
 				addToCart? 
 				(
-					<>
+					<p>
 						Added!
 					{/* <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 15"><path fill="pink" d="M5 3.5a2.5 2.5 0 0 1 5 0V4h1v-.5a3.5 3.5 0 1 0-7 0V4h1v-.5Z"/><path fill="pink" fill-rule="evenodd" d="M1.904 6.334A1.5 1.5 0 0 1 3.395 5h8.21a1.5 1.5 0 0 1 1.49 1.334l.779 7A1.5 1.5 0 0 1 12.383 15H2.617a1.5 1.5 0 0 1-1.49-1.666l.777-7ZM7 9V7h1v2h2v1H8v2H7v-2H5V9h2Z" clip-rule="evenodd"/></svg> */}
-					</>
+					</p>
 				):(
 					<>
-						Add To Cart
-						{/* <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><g className="" fill="none"  stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12.5 21H8.574a3 3 0 0 1-2.965-2.544l-1.255-8.152A2 2 0 0 1 6.331 8H17.67a2 2 0 0 1 1.977 2.304l-.263 1.708M16 19h6m-3-3v6"/><path d="M9 11V6a3 3 0 0 1 6 0v5"/></g></svg> */}
+						<p className="for-desktop text-xs">
+							Add To Cart
+						</p>
+						<p className="for-mobile">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><g className="" fill="none"  stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12.5 21H8.574a3 3 0 0 1-2.965-2.544l-1.255-8.152A2 2 0 0 1 6.331 8H17.67a2 2 0 0 1 1.977 2.304l-.263 1.708M16 19h6m-3-3v6"/><path d="M9 11V6a3 3 0 0 1 6 0v5"/></g></svg>
+						</p>
 					</>
 				)
 			}
@@ -60,7 +64,7 @@ const AddToCartButton: React.FC<{setAddToCart:any, addToCart:Boolean}> = ({setAd
 			-translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto">Tooltip</span> */}
 			
 		</button>
-		</Tooltip>
+		// </Tooltip>
 	)
 }
 

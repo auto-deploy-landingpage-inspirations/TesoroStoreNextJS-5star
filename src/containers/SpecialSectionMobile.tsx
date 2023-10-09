@@ -57,7 +57,7 @@ export default function SpecialSectionMobile() {
     <>
     <Fade bottom>
     {/* 60a5fa */}
-        <div className='for-mobile grid grid-cols-1 lg:grid-cols-4 px-4 my-2 drop-shadow-lg bg-[#F4769F]'  
+        <div className='for-mobile grid grid-cols-1 lg:grid-cols-4 px-4 my-4 drop-shadow-lg bg-[#F4769F]'  
             style={{borderRadius: '20px'}}
         >   
             <div className='col-span-4 text-center py-5 text-[white] text-4xl font-bold w-full'

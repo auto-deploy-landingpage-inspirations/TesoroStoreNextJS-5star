@@ -17,7 +17,6 @@ export default function Form() {
     <Container>
         <div className='mt-10 justify-center flex'>
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe4X9QKOhSIGn6NYp1rE4iX9alQHgjm5GMxPheGhViUSjAzjA/viewform?embedded=true" width="100%" height="3200" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-
         </div>
     </Container>
     </>

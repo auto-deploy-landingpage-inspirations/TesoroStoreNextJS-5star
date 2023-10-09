@@ -25,22 +25,23 @@ const data = [
 ];
 
 interface Props {
-	className?: string;
+	className?: string; 
 }
 
 const CollectionBlock: React.FC<Props> = ({
-	className = "mb-12 md:mb-14 xl:mb-16 pb-0.5 lg:pt-1 xl:pt-0",
+	className = "for-desktop mb-12 md:mb-14 xl:mb-16 pb-0.5 lg:pt-1 xl:pt-0",
 }) => {
 	const isEven = (value: number) => {
 		return value % 2;
 	};
 	return (
 		<div
-			className={`${className} relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-7 px-[18vw] bg-[#fda4af] w-[98.5vw] -translate-x-4 md:-translate-x-8 2xl:-translate-x-16`}
+			className={`${className} for-desktop  bg-[#fda4af] w-[98.5vw] h-[37vh] -translate-x-4 md:-translate-x-8 2xl:-translate-x-16`}
+			style={{backgroundImage: "url(/assets/images/founderspick/banner-main.jpg)", backgroundSize: '100% 100%'}}
 		>
+			<div className="w-2/3 h-[37vh] relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-7 pl-[2vw]">
 
-			{/* <Fade> */}
-				{data?.slice(0, 3)?.map((item, index) => (
+				{data?.slice(0, 2)?.map((item, index) => (
 					<CollectionCard
 						key={item.id}
 						uniqueKey={index}
@@ -52,8 +53,12 @@ const CollectionBlock: React.FC<Props> = ({
 						}
 					/>
 				))}
+			</div>
+
+			{/* <Fade> */}
+				
 			{/* </Fade> */}
-			<img src="/assets/images/new-images/diamond_output.gif" className="absolute top-0 right-10 h-[90%]" alt="" />
+			{/* <img src="/assets/images/new-images/diamond_output.gif" className="absolute top-0 right-10 h-[90%]" alt="" /> */}
 			{/* <img src="/assets/images/new-images/diamond_output.gif" className="absolute top-0 right-10 h-[90%]" alt="" /> */}
 		</div>
 	);

@@ -17,7 +17,7 @@ const breakpoints = {
 const HeroBlock: React.FC = () => {
 	// const { width } = useWindowSize();
 	return (
-		<div className="heroBannerOne relative left-0 mt-0 max-w-[1920px] mb-5 mx-auto overflow-hidden " style={{
+		<div className="heroBannerOne relative left-0 mt-[10vh] max-w-[1920px] mb-5 lg:mx-auto overflow-hidden " style={{
 			maxHeight: '100vh'
 		}}>
 			<Carousel
@@ -32,7 +32,7 @@ const HeroBlock: React.FC = () => {
 			>
 				{banners?.map((banner: any) => (
 					<SwiperSlide
-						className="carouselItem px-0 h-[100vh] max-w-[100vw]"
+						className="carouselItem px-5 h-[100vh] max-w-[100vw]"
 						key={`banner--key-${banner?.id}`}
 					>
 						<BannerCard

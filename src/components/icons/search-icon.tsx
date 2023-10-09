@@ -1,7 +1,7 @@
 const SearchIcon = ({
-	color = "currentColor",
-	width = "50px",
-	height = "50px",
+	color = "currentColor", 
+	width = "22px",
+	height = "22px",
 	className = "md:w-4 xl:w-5 md:h-4 xl:h-5",
 }) => {
 	return (

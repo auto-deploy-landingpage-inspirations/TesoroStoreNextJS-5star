@@ -7,7 +7,7 @@ import BannerCarouselBlock from "@containers/banner-carousel-block";
 // import Support from "@components/common/support";
 import Subscription from "@components/common/subscription";
 import HeroBlock from "@containers/hero-block";
-import FoundersPick from "@containers/FoundersPick"
+// import FoundersPick from "@containers/FoundersPick"
 // import BrandBlock from "@containers/brand-block";
 import CategoryBlock from "@containers/category-block";
 // import FeatureBlock from "@containers/feature-block";
@@ -39,6 +39,7 @@ import BizMagic2Mobile from "@containers/BizMagic2Mobile";
 import NewArrivalsProductFeedMobile from "@components/product/feeds/new-arrivals-product-feed-mobile";
 import BestSellerProductFeedMobile from "@components/product/feeds/best-seller-product-feed-mobile";
 import SpecialSectionMobile from "@containers/SpecialSectionMobile";
+import CollectionBlockMobile from "@containers/collection-block-mobile";
 
 export default function Home() {
 	// const { openModal, setModalView } = useUI();
@@ -71,11 +72,15 @@ export default function Home() {
 				<BizMagic2 />
 				<BizMagic2Mobile />
 				{/* <BusinessMagic /> */}
-				<Fade bottom>
+				{/* <Fade bottom>
 					<FoundersPick />
-				</Fade>
+				</Fade> */}
 				<Fade bottom>
 					<CollectionBlock />
+				</Fade>
+
+				<Fade bottom>
+					<CollectionBlockMobile />
 				</Fade>
 				
 				{/* <BannerCard

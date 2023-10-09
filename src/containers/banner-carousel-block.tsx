@@ -4,6 +4,7 @@ import { SwiperSlide } from "swiper/react";
 import { ROUTES } from "@utils/routes";
 import { promotionBannerTwo as banners } from "@framework/static/banner";
 import BannerCard2 from "./BannerCard";
+import BannerCard2Mobile from "./BannerCardMobile";
 
 const breakpoints = {
 	"1025": {
@@ -33,6 +34,12 @@ const BannerCarouselBlock: React.FC<BannerProps> = ({
 				{banners?.map((banner: any, idx:number) => (
 					<SwiperSlide key={`promotion-banner-key-${banner?.id}`}>
 						<BannerCard2
+							idx={idx}
+							banner={banner}
+							href={`${ROUTES.COLLECTIONS}/${banner.slug}`}
+							effectActive={true}
+						/>
+						<BannerCard2Mobile
 							idx={idx}
 							banner={banner}
 							href={`${ROUTES.COLLECTIONS}/${banner.slug}`}

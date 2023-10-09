@@ -13,7 +13,7 @@ interface MenuProps {
 const HeaderMenu: React.FC<MenuProps> = ({ data, className }) => {
 	const { t } = useTranslation("menu");
 	return (
-		<nav className={classNames(`headerMenu flex w-2/3 relative`, className)}>
+		<nav className={classNames(`headerMenu hidden lg:flex w-2/3 relative `, className)}>
 			{data?.map((item: any) => (
 				<div
 					className={`menuItem group cursor-pointer py-1 ${

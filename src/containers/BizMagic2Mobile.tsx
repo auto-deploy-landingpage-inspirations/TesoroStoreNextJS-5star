@@ -44,33 +44,33 @@ const showCaseProducts:ShowcaseInterface[] = [
 export default function BizMagic2Mobile() {
   return (
     <>
-    <div className='w-full h-[80vh] my-10 pb-0 text-center items-center bg-[#f3d4da] drop-shadow-md relative overflow-hidden for-mobile'>
+    <div className='w-full h-auto my-10 pb-0 text-center items-center bg-[#f3d4da] drop-shadow-md relative overflow-hidden for-mobile'>
         {/* <h3 className='absolute top-10 mt-2 left-0 z-10 w-full text-center font-semibold mb-20 text-lg '>
                 Our marketplace champions over 5,000 small businesses – including these ones…
             </h3> */}
         
-        <img className='top-1 mb-2 mt-5 m-auto w-[50%] z-0' src="/assets/images/smallBiz/small.jpg" alt="" />
+        <img className='top-1 mb-2 mt-5 m-auto w-[40%] z-0' src="/assets/images/smallBiz/small.jpg" alt="" />
         <div className='z-10'>
             <Fade bottom>
-                <h2 className='z-10 w-full text-center text-4xl font-bold text-blue-500 drop-shadow-md mb-3' style={{fontFamily: 'Van'}}>Small Biz Stars</h2>
+                <h2 className='z-10 w-full text-center text-2xl font-bold text-blue-500 drop-shadow-md mb-1' style={{fontFamily: 'Van'}}>Small Biz Stars</h2>
             </Fade>
             <Fade bottom delay={100}>
-                <h2 className='text-3xl font-bold' style={{fontFamily: 'Hap'}}>
+                <h2 className='text-xl font-bold' style={{fontFamily: 'Hap'}}>
                     Manvi & Tanisha <br/>Quso Home
                 </h2>
             </Fade>
             <Fade bottom delay={400} style={{fontFamily: 'Hap'}}>
-                <p className='text-sm my-5 w-[90%] mx-auto'>
+                <p className='text-sm my-2 w-[90%] mx-auto'>
                     Manvi & Tanisha run the beautifully homegrown decor brand Quoso which is a medley of quirkiness and sophistication, offering truly one of a kind range of products that would give your home a distinct personality. Extremely passionate about home interiors, they are set to win hearts with their fantastic collection!
                 </p>
             </Fade>
             <Zoom delay={500} style={{fontFamily: 'Hap'}}>
-                <button className='text-black hover:bg-blue-400 bg-blue-300 rounded-xl py-2 px-5 drop-shadow hover:drop-shadow-xl mt-6'>
+                <button className='text-black text-sm hover:bg-blue-400 bg-blue-300 rounded-xl py-1 px-5 drop-shadow hover:drop-shadow-xl mt-2'>
                     Shop their Collection
                 </button>
             </Zoom>
             <Fade bottom delay={1000}>
-                <div className='flex w-full mt-2 mx-auto justify-center'>
+                <div className='flex w-full my-2 mx-auto justify-center'>
                     <div className='w-28 h-28 rounded-xl drop-shadow-md mx-3 mt-2' style={{background: `url(${showCaseProducts[0].img})`, backgroundPosition: 'center', backgroundSize: 'cover'}}></div>
                     <div className='w-28 h-28 rounded-xl drop-shadow-md mx-3 mt-2' style={{background: `url(${showCaseProducts[1].img})`, backgroundPosition: 'center', backgroundSize: 'cover'}}></div>
                     <div className='w-28 h-28 rounded-xl drop-shadow-md mx-3 mt-2' style={{background: `url(${showCaseProducts[2].img})`, backgroundPosition: 'center', backgroundSize: 'cover'}}></div>
