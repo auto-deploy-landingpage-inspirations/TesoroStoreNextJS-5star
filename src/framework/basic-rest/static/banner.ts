@@ -23,9 +23,9 @@ export const homeOneHeroBanner = [
 		slug: "winter-collection",
 		image: {
 			mobile: {
-				url: "/assets/images/banners/banner1.png",
+				url: "/assets/images/banners/banner1-mobile.png",
 				width: 480,
-				height: 275,
+				height: 500,
 			},
 			desktop: {
 				url: "/assets/images/banners/banner1.png",
@@ -42,7 +42,7 @@ export const homeOneHeroBanner = [
 			mobile: {
 				url: "/assets/images/banners/banner2.png",
 				width: 480,
-				height: 275,
+				height: 500,
 			},
 			desktop: {
 				url: "/assets/images/banners/banner2.png",
@@ -59,7 +59,7 @@ export const homeOneHeroBanner = [
 			mobile: {
 				url: "/assets/images/banners/banner3.png",
 				width: 480,
-				height: 275,
+				height: 500,
 			},
 			desktop: {
 				url: "/assets/images/banners/banner3.png",
@@ -76,7 +76,7 @@ export const homeOneHeroBanner = [
 			mobile: {
 				url: "/assets/images/banners/banner4.png",
 				width: 480,
-				height: 275,
+				height: 500,
 			},
 			desktop: {
 				url: "/assets/images/banners/banner4.png",

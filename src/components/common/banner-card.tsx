@@ -1,7 +1,7 @@
 import Link from '@components/ui/link';
 import Image from 'next/image';
 import type { FC } from 'react';
-// import { useWindowSize } from '@utils/use-window-size';
+import { useWindowSize } from '@utils/use-window-size';
 import cn from 'classnames';
 import { LinkProps } from 'next/link';
 import Wobble from 'react-reveal'
@@ -17,9 +17,9 @@ interface BannerProps {
 }
 
 
-// function getImage(deviceWidth: number, imgObj: any) {
-//   return deviceWidth < 480 ? imgObj.mobile : imgObj.desktop;
-// }
+function getImage(deviceWidth: number, imgObj: any) {
+  return deviceWidth < 480 ? imgObj.mobile : imgObj.desktop;
+}
 
 const BannerCard: FC<BannerProps> = ({
   banner,
@@ -29,9 +29,9 @@ const BannerCard: FC<BannerProps> = ({
   classNameInner,
   href,
 }) => {
-  // const { width } = useWindowSize();
+  const { width } = useWindowSize();
   const { title, image } = banner;
-  // const selectedImage = getImage(width, image);
+  const selectedImage = getImage(width, image);
   return (
     <div className={cn('mx-auto', className)}>
       <Link
@@ -42,12 +42,12 @@ const BannerCard: FC<BannerProps> = ({
         )}
       >
         <Image
-          src={image.desktop.url}
-          width={image.desktop.width}
-          height={image.desktop.height}
+          src={selectedImage.url}
+          width={selectedImage.width}
+          height={selectedImage.height}
           alt={title}
           unoptimized
-          // quality={100}
+          quality={100}
           className={cn('bg-gray-300 object-cover w-full', {
             'rounded-md': variant === 'rounded',
           })}

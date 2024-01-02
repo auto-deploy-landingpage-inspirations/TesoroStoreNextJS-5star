@@ -103,7 +103,7 @@ const ProductsFlashSaleCarousel: React.FC<ProductsProps> = ({
           breakpoints={breakpoints}
           buttonClassName="-mt-2 sm:-mt-[5.5rem] md:-mt-28"
         >
-          {isLoading && data?.productFlashSellGridTwo?.length
+          {isLoading && data
             ? Array.from({ length: 10 }).map((_, idx) => (
                 <ProductCardGridLoader
                   key={idx}

@@ -57,6 +57,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
 			<QueryClientProvider client={queryClientRef.current}>
 				<Hydrate state={pageProps.dehydratedState}>
 					<ManagedUIContext>
+
 						<Layout pageProps={pageProps}>
 							<DefaultSeo />
 							<Component {...pageProps} key={router.route} />

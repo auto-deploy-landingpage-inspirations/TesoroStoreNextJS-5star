@@ -61,7 +61,7 @@ const Header: React.FC = () => {
 	return (
 		<header className={`top-7 z-100 page-header ${scrollY > 150 ? 'is-sticky': ''}`}>
 			<div className="container h-16 w-full">
-				<nav className="px-10 h-full items-center align-middle">
+				<nav className="px-10 h-full w-full items-center justify-center" style={{justifyContent: 'center'}}>
 					<a href="" className="justify-start ">
 						<Logo />
 					</a>

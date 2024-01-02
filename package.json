@@ -17,8 +17,10 @@
     "axios": "^0.21.1",
     "body-scroll-lock": "^4.0.0-beta.0",
     "classnames": "^2.3.1",
+    "dotenv": "^16.3.1",
     "framer-motion": "^4.1.17",
     "js-cookie": "^3.0.0",
+    "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "next": "11.1.0",
     "next-fonts": "^1.5.1",
@@ -27,6 +29,7 @@
     "next-seo": "^4.26.0",
     "overlayscrollbars": "^1.13.1",
     "overlayscrollbars-react": "^0.2.3",
+    "razorpay": "^2.9.2",
     "rc-drawer": "^4.4.0",
     "react": "^18.2.0",
     "react-content-loader": "^6.0.3",
@@ -44,6 +47,7 @@
     "react-toastify": "^7.0.4",
     "react-use": "^17.2.4",
     "sharp": "^0.32.6",
+    "shortid": "^2.2.16",
     "swiper": "^6.8.1"
   },
   "devDependencies": {

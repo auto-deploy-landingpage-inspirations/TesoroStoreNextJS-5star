@@ -49,7 +49,7 @@ const HeroWithCategory: React.FC<Props> = ({
 			) : width < 1500 ? (
 				<div>
 					<Carousel breakpoints={categoryResponsive} buttonSize="small">
-						{isLoading && !data?.categories?.data?.length
+						{isLoading && data
 							? Array.from({ length: 8 }).map((_, idx) => (
 									<SwiperSlide key={`category-list-${idx}`}>
 										<CategoryListCardLoader
@@ -66,7 +66,7 @@ const HeroWithCategory: React.FC<Props> = ({
 				</div>
 			) : (
 				<div className="2xl:-me-14 grid grid-cols-1 gap-3">
-					{isLoading && !data?.categories?.data?.length ? (
+					{isLoading && data ? (
 						<CategoryListFeedLoader limit={8} />
 					) : (
 						data?.categories?.data

@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { 
+	// useEffect, 
+	useState } from "react";
 import Button from "@components/ui/button";
 import Counter from "@components/common/counter";
 import { useRouter } from "next/router";
 import { useProductQuery } from "@framework/product/get-product";
 import { getVariations } from "@framework/utils/get-variations";
-import usePrice from "@framework/product/use-price";
+// import usePrice from "@framework/product/use-price";
 import { useCart } from "@contexts/cart/cart.context";
 import { generateCartItem } from "@utils/generate-cart-item";
 import { ProductAttributes } from "./product-attributes";
@@ -19,6 +21,7 @@ import PinCodeCheckForm from "./pinCodeForm";
 import ProductRating from "./productRating";
 // import CardRoundedLoader from "@components/ui/loaders/card-rounded-loader";
 import ProductReviewCards from "./product-review";
+import { Item } from "@contexts/cart/cart.utils";
 
 
 
@@ -45,6 +48,13 @@ import ProductReviewCards from "./product-review";
 // 		slidesPerview: 6
 // 	}
 // }
+// import { Product } from "@framework/types";
+// import { useTranslation } from "next-i18next";
+
+// interface ProductProps {
+// 	slug: string;
+// 	variant?: "grid" | "gridSlim" | "list" | "listSmall" | "grid_grad";
+// }
 
 const ProductSingleDetails: React.FC = () => {
 	const [imgToShow, setImgToShow] = useState("")
@@ -57,19 +67,33 @@ const ProductSingleDetails: React.FC = () => {
 	const [attributes, setAttributes] = useState<{ [key: string]: string }>({});
 	const [quantity, setQuantity] = useState(1);
 	const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
-	const { price, basePrice, discount } = usePrice(
-		data && {
-			amount: data.sale_price ? data.sale_price : data.price,
-			baseAmount: data.price,
-			currencyCode: "INR",
-		}
-	);
-	useEffect(() => {
-		setImgToShow(data?.image?.original??"")
-	}, [data])
+	// const { 
+	// 	price, basePrice, 
+	// 	discount } = usePrice(
+	// 	data && {
+	// 		amount: data.prices.price ? data.prices.price : data.prices.orginalPrice,
+	// 		baseAmount: data.prices.price,
+	// 		currencyCode: "INR",
+	// 	}
+	// );
+	// const discount = data?.prices.price
+	// console.log(price, basePrice)
+	// useEffect(() => {
+	// 	setImgToShow(data?.image??"")
+	// }, [data])
 	if (isLoading) return <p>Loading...</p>;
-	const variations = getVariations(data?.variations);
-
+	const variations = getVariations(data?.variants);
+	
+	// let tags:string[];
+	// if(data?.tag){
+	// 	tags = data?.tag.toString().replace(/\"/g, "")
+	// 		.replace(/\[/g,"")
+	// 		.replace(/\]/g,"")
+	// 		.split(",");
+	// }
+	// console.log(tags);
+	
+	// console.log("tags: ",tags)
 	const isSelected = !isEmpty(variations)
 		? !isEmpty(attributes) &&
 		  Object.keys(variations).every((variation) =>
@@ -85,7 +109,16 @@ const ProductSingleDetails: React.FC = () => {
 			setAddToCartLoader(false);
 		}, 600);
 
-		const item = generateCartItem(data!, attributes);
+		const precart: Item = {
+			id: data?._id || '', 
+			name: data?.title.en || ' ', 
+			slug: data?.slug || ' ', 
+			image: data?.image || [''],
+			price: data?.prices.originalPrice || 0, 
+			sale_price: data?.prices.price || 0
+		}
+
+		const item = generateCartItem(precart, attributes);
 		addItemToCart(item, quantity);
 		toast("Added to the bag", {
 			type: "dark",
@@ -106,6 +139,8 @@ const ProductSingleDetails: React.FC = () => {
 			...attribute,
 		}));
 	}
+	
+	// const { t } = useTranslation("common");
 
 	return (
 		<>
@@ -116,14 +151,14 @@ const ProductSingleDetails: React.FC = () => {
 					</div>
 						<div className="lg:col-span-4 md:col-span-6 w-full flex">
 							<div className="w-full h-full">
-								<img src={imgToShow ?? data?.image?.original} alt="" className=" object-fit p-2" style={{borderRadius: '20px', height: '75vh', margin: 'auto'}} />
+								<img src={imgToShow ?? data?.image[0]} alt="" className=" object-fit p-2" style={{borderRadius: '20px', height: '75vh', margin: 'auto'}} />
 								<div className="col-span-2">
 									<Carousel
 										// pagination={{
 										// 	clickable: true,
 										// }}
 										// breakpoints={productGalleryCarouselResponsive}
-										slidesPerView={data?.gallery?.length}
+										slidesPerView={data?.image.length}
 										className="product-gallery"
 										buttonClassName="hidden"
 									>
@@ -143,7 +178,7 @@ const ProductSingleDetails: React.FC = () => {
 														item?.original ??
 														"/assets/placeholder/products/product-gallery.svg"
 													}
-													alt={`${data?.name}--${index}`}
+													alt={`${data?.title.en}--${index}`}
 													className="object-cover w-full" 
 													style={{
 														borderRadius: '15px',
@@ -196,7 +231,7 @@ const ProductSingleDetails: React.FC = () => {
 							</ul>
 						</div>
 						<div className="lg:col-span-4">
-							<img src={imgToShow ?? data?.image?.original} alt="" style={{height: '80vh'}} />
+							<img src={imgToShow ?? data?.image[0]} alt="" style={{height: '80vh'}} />
 						</div>
 				</>
 				// {/* // <div className="col-span-5 grid grid-cols-2 gap-2.5">
@@ -221,10 +256,10 @@ const ProductSingleDetails: React.FC = () => {
 			<div className="col-span-4 pt-8 lg:pt-0 hide-scrollbar" style={{height: '80vh', overflowY: 'scroll', overflowX: 'hidden'}}>
 				<div className="pb-4 mb-4 border-b border-gray-300">
 					<h2 className="font-josephine text-gray-600 text-lg md:text-xl lg:text-2xl 2xl:text-3xl font-bold hover:text-slate-800 mt-10 uppercase mb-3">
-						{data?.name}
+						{data?.title["en"]}
 					</h2>
 					<p className="font-bold pb-5 font-josephine">
-						{"Ferns & Petals"}
+						{data?.description["en"]}
 					</p>
 					<ProductRating />
 					{/* <p className="text-body text-sm lg:text-base leading-3 lg:leading-6">
@@ -232,11 +267,11 @@ const ProductSingleDetails: React.FC = () => {
 					</p> */}
 					<div className="flex items-center mt-5">
 						<div className="font-josephine text-gray-600 font-semibold text-base md:text-md lg:text-lg 2xl:text-2xl pe-2 md:pe-0 lg:pe-2 2xl:pe-0">
-							{price}
+							₹{data?.prices.price}/-
 						</div>
-						{discount && (
+						{data?.prices.discount && (
 							<span className="font-josephine font-normal line-through font-segoe text-gray-400 text-sm md:text-base lg:text-md xl:text-lg ps-2">
-								{basePrice}
+								₹{data?.prices.originalPrice}/-
 							</span>
 						)}
 					</div>
@@ -335,30 +370,32 @@ const ProductSingleDetails: React.FC = () => {
 							</span>
 							{data?.sku}
 						</li> */}
-						<li className="productCategory">
-								<span className="font-josephine text-xl font-semibold text-gray-900 inline-block pe-2">
-									Category:
-								</span>
-								<Link
-									href="/"
-									className="font-josephine text-lg transition hover:underline hover:text-heading"
-								>
-									{data?.category?.name}
-								</Link>
-						</li>
+						{data?.category && (
+							<li className="productCategory">
+									<span className="font-josephine text-xl font-semibold text-gray-900 inline-block pe-2">
+										Category:
+									</span>
+									<Link
+										href="/"
+										className="font-josephine text-lg transition hover:underline hover:text-heading"
+									>
+										{data.category.name.en }
+									</Link>
+							</li>
+						)}
 						<>
-							{data?.tags && Array.isArray(data.tags) && (
+							{data?.tag && Array.isArray(data.tag) && (
 								<li className="productTags">
 									<span className="text-xl font-josephine font-semibold text-gray-900 inline-block pe-2">
 										Tags:
 									</span>
-									{data.tags.map((tag:any) => (
+									{data.tag.map((t:any, index: number) => (
 										<Link
-											key={tag.id}
-											href={tag.slug}
+											key={index}
+											href={t}
 											className="text-xl font-josephine inline-block pe-1.5 transition hover:underline hover:text-heading last:pe-0"
 										>
-											{tag.name}
+											{t}
 											<span className=" text-lg font-josephine text-heading">,</span>
 										</Link>
 									))}
@@ -378,7 +415,7 @@ const ProductSingleDetails: React.FC = () => {
 					Product Details
 				</h2>
 				<p className="font-josephine ">
-					{data?.description}
+					{data?.description["en"]}
 				</p>
 				
 			</div>

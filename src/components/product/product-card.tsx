@@ -39,7 +39,7 @@ const AddToCartButton: React.FC<{setAddToCart:any, addToCart:Boolean}> = ({setAd
 				{addToCart?(<>Added</>):(<>Add</>)}
 				{" to Cart  "}
 			</span> */}
-			<span className="text-sm font-bold">
+			<span className="text-sm font-bold text-center w-full">
 
 			{
 				addToCart? 

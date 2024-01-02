@@ -40,7 +40,7 @@ const ProductsWithFlashSale: React.FC<Props> = ({
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-5 xl:gap-7 xl:-mt-1.5 2xl:mt-0">
 					{error ? (
 						<Alert message={error?.message} />
-					) : isLoading && !data?.length ? (
+					) : isLoading && !data ? (
 						<ProductListFeedLoader limit={4} />
 					) : (
 						data?.map((product:any) => (

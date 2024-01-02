@@ -1,6 +1,6 @@
 export const API_ENDPOINTS = {
-  LOGIN: "/login",
-  REGISTER: "/register",
+  LOGIN: "http://localhost:5055/api/customer/login/",
+  REGISTER: "http://localhost:5055/api/customer/signup/",
   LOGOUT: "/logout",
   FORGET_PASSWORD: "/forget-password",
   CATEGORIES: "/categories.json",
@@ -11,7 +11,7 @@ export const API_ENDPOINTS = {
   FEATURED_PRODUCTS: "/featured_products.json",
   TOP_SELLER_PRODUCTS: "/products_top_seller.json",
   ON_SELLING_PRODUCTS: "/products_on_selling.json",
-  PRODUCT: "/product.json",
+  PRODUCT: "http://localhost:5055/api/products/product/",
   RELATED_PRODUCTS: "/related_products.json",
   BEST_SELLER_PRODUCTS: "/products_best_seller.json",
   NEW_ARRIVAL_PRODUCTS: "/products_new_arrival.json",

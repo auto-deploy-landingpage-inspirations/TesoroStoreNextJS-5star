@@ -8,8 +8,11 @@ import Breadcrumb from "@components/common/breadcrumb";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetServerSideProps } from "next";
 import RelatedCategories from "@containers/related-categories";
+// import { useRouter } from "next/router";
+// import { useProductQuery } from "@framework/product/get-product";
 
 export default function ProductPage() {
+	
 	return (
 		<>
 			<Divider className="mt-[10vh]" />
@@ -17,7 +20,9 @@ export default function ProductPage() {
 				<div className="pt-2">
 					<Breadcrumb />
 				</div>
+				
 				<ProductSingleDetails />
+						
 				<RelatedProducts sectionHeading="PEOPLE BUYING THIS ALSO BOUGHT" />
 				<RelatedProducts sectionHeading="SIMILAR PRODUCTS" />
 				<RelatedCategories />

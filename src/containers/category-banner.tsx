@@ -18,6 +18,8 @@ const CategoryBanner: React.FC<CategoryBannerProps> = ({
 
 	const categoryTitle = slug?.toString().split("-").join("");
 	console.log("Category Title = "+ categoryTitle)
+
+	
 	
 	return (
 		<div
