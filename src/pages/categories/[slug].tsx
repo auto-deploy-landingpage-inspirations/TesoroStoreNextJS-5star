@@ -14,6 +14,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ROUTES } from "@utils/routes";
 import { GetStaticProps } from "next";
 import CategoryBanner from "@containers/category-banner";
+// import { fetchCategories } from "@framework/category/get-all-categories";
 // import { useRouter } from "next/router";
 // import CategoryBlock from "@containers/category-block";
 // import CategoryBlock2 from "@containers/CategoryBlock2";
@@ -26,6 +27,23 @@ const colors:string[] = [
 	'bg-[orange]',
 	'bg-green-500'
   ]
+
+const fetchCategories = () => {
+// Your data-fetching logic here
+return ['category1', 'category2', 'category3']; // Array of category slugs
+};
+
+export async function getStaticPaths() {
+	
+	const categories = fetchCategories()
+	const paths = categories.map((category) => ({
+		params: {slug:category},
+	}))
+	return {
+		paths,
+		fallback: false // Or 'blocking' if you want to use incremental static regeneration (ISR)
+	};
+}
 
 export default function Products() {
     // const {
