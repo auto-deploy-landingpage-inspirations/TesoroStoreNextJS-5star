@@ -5,11 +5,16 @@ export default function NewArrivalsProductFeed() {
 	const { data, isLoading, error } = useNewArrivalProductsQuery({
 		limit: 10,
 	});
+	// const products = data?.productRef;
+	console.log("new arrival products 1: ",data)
+
 
 	return (
+		// <>
+		// </>
 		<ProductsBlock
 			sectionHeading="text-new-arrivals"
-			products={data?.slice(0, 5)}
+			products={data?.productRef}
 			loading={isLoading}
 			error={error?.message}
 			uniqueKey="new-arrivals"

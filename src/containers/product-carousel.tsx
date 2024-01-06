@@ -6,7 +6,8 @@ import ProductFeedLoader from "@components/ui/loaders/product-feed-loader";
 import ProductCard from "@components/product/product-card";
 import {Fade} from 'react-reveal';
 import Alert from "@components/ui/alert";
-import { Product } from "@framework/types";
+// import { Product } from "@framework/types";
+import { ProductDetails } from "@framework/product/get-product";
 
 const breakpoints = {
 	"1025": {
@@ -27,7 +28,7 @@ interface ProductsProps {
 	sectionHeading: string;
 	categorySlug?: string;
 	className?: string;
-	products?: Product[];
+	products?: ProductDetails[];
 	loading: boolean;
 	error?: string;
 	uniqueKey?: string;
@@ -57,10 +58,10 @@ const ProductCarousel: React.FC<ProductsProps> = ({
 							<ProductFeedLoader limit={2} uniqueKey={uniqueKey} />
 						) : (
 							<Carousel breakpoints={breakpoints} autoplay={{ delay: 3000 }}>
-								{products?.map((product: Product) => (
-									<SwiperSlide key={`promotion-banner-key-${product.id}`}>
+								{products?.map((product: ProductDetails) => (
+									<SwiperSlide key={`promotion-banner-key-${product._id}`}>
 										<ProductCard
-											key={`product--key${product.id}`}
+											key={`product--key${product._id}`}
 											product={product}
 											imgWidth={340}
 											imgHeight={440}

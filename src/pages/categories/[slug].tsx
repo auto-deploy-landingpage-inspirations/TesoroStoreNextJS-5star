@@ -34,7 +34,6 @@ return ['category1', 'category2', 'category3']; // Array of category slugs
 };
 
 export async function getStaticPaths() {
-	
 	const categories = fetchCategories()
 	const paths = categories.map((category) => ({
 		params: {slug:category},

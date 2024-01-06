@@ -32,7 +32,7 @@ const RelatedProducts: React.FC<ProductsProps> = ({
 				) : isLoading ? (
 					<ProductFeedLoader limit={5} uniqueKey="related-product" />
 				) : (
-					data?.slice(0, 6).map((product: any) => (
+					data?.productRef.slice(0, 6).map((product: any) => (
 						<ProductCard
 							key={`product--key${product.id}`}
 							product={product}

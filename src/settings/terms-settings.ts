@@ -29,4 +29,19 @@ export const termsAndServices = [
     title: "terms-six-title",
     description:"terms-six-content",
   },
+  {
+    id: "7",
+    title: "terms-seven-title",
+    description:"terms-seven-content",
+  },
+  {
+    id: "8",
+    title: "terms-eight-title",
+    description:"terms-eight-content",
+  },
+  {
+    id: "9",
+    title: "terms-nine-title",
+    description:"terms-nine-content",
+  },
 ];

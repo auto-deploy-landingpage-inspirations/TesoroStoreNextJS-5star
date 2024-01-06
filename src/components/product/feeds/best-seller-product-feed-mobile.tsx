@@ -10,7 +10,7 @@ export default function BestSellerProductFeedMobile() {
 	return (
 		<ProductCarousel
 			sectionHeading="Recently Viewed"
-			products={data?.slice(0, 5)}
+			products={data?.productRef}
 			loading={isLoading}
 			error={error?.message}
 			uniqueKey="best-sellers"

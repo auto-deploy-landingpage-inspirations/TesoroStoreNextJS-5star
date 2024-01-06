@@ -3,12 +3,13 @@ import Image from "next/image";
 import React, { useState } from 'react';
 import type { FC } from "react";
 import { useUI } from "@contexts/ui.context";
-import usePrice from "@framework/product/use-price";
-import { Product } from "@framework/types";
+// import usePrice from "@framework/product/use-price";
+// import { Product } from "@framework/types";
+import { ProductDetails } from "@framework/product/get-product";
 // import Tooltip from "@components/Tooltip"
 
 interface ProductProps {
-	product: Product;
+	product: ProductDetails;
 	className?: string;
 	contactClassName?: string;
 	imageContentClassName?: string;
@@ -86,11 +87,10 @@ const ProductCard: FC<ProductProps> = ({
 		// openModal, 
 		setModalView, setModalData } = useUI();
 	const placeholderImage = `/assets/placeholder/products/product-${variant}.svg`;
-	const { price, basePrice, discount } = usePrice({
-		amount: product.sale_price ? product.sale_price : product.price,
-		baseAmount: product.price,
-		currencyCode: "INR",
-	});
+	
+	const discount = product.prices.price - product.prices.originalPrice;
+	const price = `₹${product.prices.price}/-`;
+	const basePrice = `₹${product.prices.originalPrice}/-`;
 	function handlePopupView() {
 		setModalData({ data: product });
 		setModalView("PRODUCT_VIEW");
@@ -113,7 +113,7 @@ const ProductCard: FC<ProductProps> = ({
 			)}
 			onClick={handlePopupView}
 			role="button"
-			title={product?.name}
+			title={product?.title.en}
 		>
 			<div
 				className={cn(
@@ -128,12 +128,12 @@ const ProductCard: FC<ProductProps> = ({
 				)}
 			>
 				<Image
-					src={product?.image?.thumbnail ?? placeholderImage}
+					src={product?.image[0] ?? placeholderImage}
 					
 					width={imgWidth}
 					height={imgWidth}
 					loading={imgLoading}
-					alt={product?.name || "Product Image"}
+					alt={product?.title.en || "Product Image"}
 					className={cn("bg-gray-300 hover:hidden object-cover rounded-xl aspect-square", {
 						"w-full rounded-md ":
 							variant === "grid",
@@ -190,12 +190,12 @@ const ProductCard: FC<ProductProps> = ({
 					})}
 					style={{fontFamily: 'Hap'}}
 				>
-					{product?.name}
+					{product?.title.en}
 				</h2>
 				{product?.description && (
 					<p className="text-body text-xs lg:text-sm leading-normal xl:leading-relaxed max-w-[250px] truncate" 
 					style={{fontFamily: 'Hap'}}>
-						{product?.description}
+						{product?.description.en}
 					</p>
 				)}
 				<div

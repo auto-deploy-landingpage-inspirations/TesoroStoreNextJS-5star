@@ -1,15 +1,19 @@
-import { QueryOptionsType, Product } from "@framework/types";
-import http from "@framework/utils/http";
+import { QueryOptionsType, FetchProducts } from "@framework/types";
+import https from "@framework/utils/https";
 import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
 import { useQuery } from "react-query";
 
-export const fetchNewArrivalProducts = async ({ queryKey }: any) => {
-  const [_key, _params] = queryKey;
-  const { data } = await http.get(API_ENDPOINTS.NEW_ARRIVAL_PRODUCTS);
-  return data as Product[];
+// interface newarrivals {
+//   products: HomepageBanner[];
+// }
+
+export const fetchNewArrivalProducts = async () => {
+  // const [_key, _params] = queryKey;
+  const { data } = await https.get(API_ENDPOINTS.NEW_ARRIVAL_PRODUCTS);
+  return data.products[0] as FetchProducts;
 };
 export const useNewArrivalProductsQuery = (options: QueryOptionsType) => {
-  return useQuery<Product[], Error>(
+  return useQuery<FetchProducts, Error>(
     [API_ENDPOINTS.NEW_ARRIVAL_PRODUCTS, options],
     fetchNewArrivalProducts
   );

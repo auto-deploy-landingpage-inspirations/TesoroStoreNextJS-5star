@@ -1,10 +1,10 @@
 import axios from "axios";
 import { getToken } from "./get-token";
 
-// const baseURL = 'https://tesoro-backend.onrender.com';
+const baseURL:string = 'https://tesoro-backend.onrender.com';
 
-const http = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_REST_API_ENDPOINT,
+const https = axios.create({
+  baseURL: baseURL,
   timeout: 30000,
   headers: {
     Accept: "application/json",
@@ -13,7 +13,7 @@ const http = axios.create({
 });
 
 // Change request data/error here
-http.interceptors.request.use(
+https.interceptors.request.use(
   (config) => {
     const token = getToken();
     config.headers = {
@@ -29,4 +29,4 @@ http.interceptors.request.use(
 
 
 
-export default http;
+export default https;

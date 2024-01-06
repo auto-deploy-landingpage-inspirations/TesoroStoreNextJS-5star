@@ -1,6 +1,11 @@
 export const API_ENDPOINTS = {
   LOGIN: "http://localhost:5055/api/customer/login/",
   REGISTER: "http://localhost:5055/api/customer/signup/",
+
+  HOMEPAGE_BANNER: "https://tesoro-backend.onrender.com/api/homepage/banners",
+  NEW_ARRIVAL_PRODUCTS: "/api/homepage/new-arrivals",
+  RECENTLY_VIEWED: "/api/homepage/recently-viewed-products",
+
   LOGOUT: "/logout",
   FORGET_PASSWORD: "/forget-password",
   CATEGORIES: "/categories.json",
@@ -14,7 +19,6 @@ export const API_ENDPOINTS = {
   PRODUCT: "http://localhost:5055/api/products/product/",
   RELATED_PRODUCTS: "/related_products.json",
   BEST_SELLER_PRODUCTS: "/products_best_seller.json",
-  NEW_ARRIVAL_PRODUCTS: "/products_new_arrival.json",
   FLASH_SALE_PRODUCTS: "/products_flash_sale.json",
   SEARCH: "/search.json",
   ORDERS: "/orders.json",

@@ -10,6 +10,7 @@ import { useTranslation } from "next-i18next";
 import TopBar from "./TopBar";
 
 const Layout: React.FC<{children:any}> = ({ children }) => {
+	
 	const { acceptedCookies, onAcceptCookies } = useAcceptCookies();
 	const { t } = useTranslation("common");
 	return (
@@ -21,14 +22,14 @@ const Layout: React.FC<{children:any}> = ({ children }) => {
 						content: "width=device-width, initial-scale=1.0",
 					},
 				]}
-				title="Reillusions - Tesoro Store"
+				title="Tesoro Store"
 				description="Fastest E-commerce multivendor website built with React, NextJS, TypeScript, React-Query and Tailwind CSS."
 				canonical=""
 				openGraph={{
 					url: "",
-					title: "Reillusions - Tesoro Store",
+					title: "Tesoro Store",
 					description:
-						"Fastest E-commerce template built with React, NextJS, TypeScript, React-Query and Tailwind CSS.",
+						"Gift.",
 					images: [
 						{
 							url: "/assets/images/og-image-01.png",

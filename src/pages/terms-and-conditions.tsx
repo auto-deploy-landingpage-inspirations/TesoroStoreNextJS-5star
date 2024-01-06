@@ -41,7 +41,6 @@ export default function TermsPage() {
 								))}
 							</ol>
 						</nav>
-						{/* End of section scroll spy menu */}
 
 						<div className="md:w-9/12 md:ps-8 ">
 							{termsAndServices?.map((item) => (

@@ -1,4 +1,5 @@
 import { QueryKey } from "react-query";
+import { ProductDetails } from "./product/get-product";
 
 export type CollectionsQueryOptionsType = {
   text?: string;
@@ -106,3 +107,33 @@ export type Order = {
   shipping_fee: number;
   payment_gateway: string;
 };
+
+interface bannerType {
+  _id: string;
+  offerLink: string;
+  imageRef: string;
+  mobileImageRef: string;
+  state: boolean;
+}
+
+export type HomepageBanner = {
+  visible: boolean;
+  productRef: string[] | ProductDetails[];
+  categoryRef: string[];
+  BlogLinkReference: string[];
+  _id: string;
+  sectionCode: string;
+  sectionTitle: string;
+  offerBlock: bannerType[];
+}
+
+export type FetchProducts = {
+  visible: boolean;
+  productRef: ProductDetails[];
+  categoryRef: string[];
+  BlogLinkReference?: string[];
+  _id: string;
+  sectionCode: string;
+  sectionTitle: string;
+  offerBlock?: bannerType[];
+}
