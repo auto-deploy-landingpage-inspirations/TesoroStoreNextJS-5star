@@ -3,12 +3,13 @@ import Carousel from "@components/ui/carousel/carousel";
 import { SwiperSlide } from "swiper/react";
 import ProductFlashSaleGridLoader from "@components/ui/loaders/product-flash-sale-grid-loader";
 import ProductFlashSaleLoader from "@components/ui/loaders/product-flash-sale-loader";
-import ProgressCard from "@components/common/progress-card";
+// import ProgressCard from "@components/common/progress-card";
 import SectionHeader from "@components/common/section-header";
 import Alert from "@components/ui/alert";
+import { ProductDetails } from "@framework/product/get-product";
 
 interface Props {
-	products: any[];
+	products: ProductDetails[];
 	loading: boolean;
 	imgWidth?: number;
 	imgHeight?: number;
@@ -111,8 +112,8 @@ const SellWithProgress: React.FC<Props> = ({
 											: "-top-12 md:-top-14"
 									}
 								>
-									{products.map((product) => (
-										<SwiperSlide key={`product--key${product.id}`}>
+									{products.map((product: ProductDetails) => (
+										<SwiperSlide key={`product--key${product._id}`}>
 											<div className="h-full flex flex-col justify-between">
 												<div className="mb-5 sm:mb-7 lg:mb-8 2xl:mb-10 3xl:mb-12">
 													<ProductCard
@@ -130,10 +131,10 @@ const SellWithProgress: React.FC<Props> = ({
 														}`}
 													/>
 												</div>
-												<ProgressCard
+												{/* <ProgressCard
 													soldProduct={product?.sold}
 													totalProduct={product?.quantity}
-												/>
+												/> */}
 											</div>
 										</SwiperSlide>
 									))}

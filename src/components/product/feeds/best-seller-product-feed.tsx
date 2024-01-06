@@ -2,10 +2,8 @@ import ProductsBlock from "@containers/products-block";
 import { useBestSellerProductsQuery } from "@framework/product/get-all-best-seller-products";
 
 export default function BestSellerProductFeed() {
-	const { data, isLoading, error } = useBestSellerProductsQuery({
-		limit: 10,
-	});
-
+	const { data, isLoading, error } = useBestSellerProductsQuery({});
+	
 	return (
 		<ProductsBlock
 			sectionHeading="Recently Viewed"

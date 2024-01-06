@@ -10,8 +10,6 @@ export default function NewArrivalsProductFeed() {
 
 
 	return (
-		// <>
-		// </>
 		<ProductsBlock
 			sectionHeading="text-new-arrivals"
 			products={data?.productRef}

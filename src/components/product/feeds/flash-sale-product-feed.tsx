@@ -43,9 +43,10 @@ const flashSaleCarouselBreakpoint = {
 const FlashSaleBlock: React.FC<Props> = ({
 	className = "mb-12 lg:mb-14 xl:mb-7",
 }) => {
-	const { data, isLoading, error } = useFlashSaleProductsQuery({
-		limit: 10,
-	});
+	const { data, isLoading, error } = useFlashSaleProductsQuery({});
+	console.log("Flash Sale Product:")
+	console.log(data)
+	console.log("")
 
 	return (
 		<Fade left>
@@ -69,7 +70,7 @@ const FlashSaleBlock: React.FC<Props> = ({
 				<Fade right>
 					<SellWithProgress
 						carouselBreakpoint={flashSaleCarouselBreakpoint}
-						products={data?.productFlashSellList}
+						products={data?.productRef}
 						loading={isLoading}
 						className="col-span-full xl:col-span-1 lg:mb-1 xl:mb-0"
 					/>

@@ -5,6 +5,7 @@ export const API_ENDPOINTS = {
   HOMEPAGE_BANNER: "https://tesoro-backend.onrender.com/api/homepage/banners",
   NEW_ARRIVAL_PRODUCTS: "/api/homepage/new-arrivals",
   RECENTLY_VIEWED: "/api/homepage/recently-viewed-products",
+  FLASH_SALE: "/api/homepage/flash-sale",
 
   LOGOUT: "/logout",
   FORGET_PASSWORD: "/forget-password",

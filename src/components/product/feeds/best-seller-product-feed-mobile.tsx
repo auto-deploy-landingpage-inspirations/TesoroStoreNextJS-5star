@@ -3,9 +3,7 @@ import ProductCarousel from "@containers/product-carousel";
 import { useBestSellerProductsQuery } from "@framework/product/get-all-best-seller-products";
 
 export default function BestSellerProductFeedMobile() {
-	const { data, isLoading, error } = useBestSellerProductsQuery({
-		limit: 10,
-	});
+	const { data, isLoading, error } = useBestSellerProductsQuery({});
 
 	return (
 		<ProductCarousel
