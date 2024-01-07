@@ -79,7 +79,7 @@ export function CategoryListCardSection() {
 										/>
 									</SwiperSlide>
 							  ))
-							: data?.categories.data.map((category: any) => (
+							: data?.categoryRef.map((category: any) => (
 									<SwiperSlide key={`sm-category--key${category.id}`}>
 										<CategoryListCard category={category} />
 									</SwiperSlide>
@@ -95,7 +95,7 @@ export function CategoryListCardSection() {
 									uniqueKey={`category-list-${idx}`}
 								/>
 						  ))
-						: data?.categories.data
+						: data?.categoryRef
 								.slice(0, 7)
 								.map((category: any) => (
 									<CategoryListCard

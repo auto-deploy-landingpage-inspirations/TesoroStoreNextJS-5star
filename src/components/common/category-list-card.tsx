@@ -2,15 +2,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { IoIosArrowForward } from "react-icons/io";
 import { ROUTES } from "@utils/routes";
-import { Category } from "@framework/types";
+import { categoryRef } from "@framework/types";
 import { useTranslation } from "next-i18next";
 
 interface Props {
-	category: Category;
+	category: categoryRef;
 }
 
 const CategoryListCard: React.FC<Props> = ({ category }) => {
-	const { name, image, productCount } = category;
+	const { name, image } = category;
+	const productCount = 5;
 	const { t } = useTranslation("common");
 	return (
 		<Link href={`${ROUTES.CATEGORY}/${category.slug}`}>
@@ -18,15 +19,15 @@ const CategoryListCard: React.FC<Props> = ({ category }) => {
 				<div className="flex items-center">
 					<div className="inline-flex flex-shrink-0 2xl:w-12 2xl:h-12 3xl:w-auto 3xl:h-auto">
 						<Image
-							src={image?.original ?? "/assets/placeholder/category-small.svg"}
-							alt={name || t("text-category-thumbnail")  as string}
+							src={image ?? "/assets/placeholder/category-small.svg"}
+							alt={name.en || t("text-category-thumbnail")  as string}
 							width={60}
 							height={60}
 							className="bg-gray-300 object-cover rounded-full"
 						/>
 					</div>
 					<h3 className="text-sm md:text-base 2xl:text-sm 3xl:text-base text-heading capitalize ps-2.5 md:ps-4 2xl:ps-3 3xl:ps-4">
-						{name}
+						{name.en}
 					</h3>
 				</div>
 				<div className="flex items-center">

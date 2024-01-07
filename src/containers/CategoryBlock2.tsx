@@ -110,9 +110,9 @@ const CategoryBlock2: React.FC<CategoriesProps> = ({
                   </SwiperSlide>
                 );
               })
-            : data?.categories?.data?.map((category:any) => (
+            : data?.categoryRef.map((category:any) => (
                 
-                  <SwiperSlide key={`category--key-${category.id}`}>
+                  <SwiperSlide key={`category--key-${category._id}`}>
                     <Card
                       item={category}
                       href={`${ROUTES.CATEGORY}/${category.slug}`}

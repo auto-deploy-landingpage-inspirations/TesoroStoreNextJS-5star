@@ -57,8 +57,8 @@ const HeroWithCategory: React.FC<Props> = ({
 										/>
 									</SwiperSlide>
 							  ))
-							: data?.categories?.data?.map((category:any) => (
-									<SwiperSlide key={`category--key${category.id}`}>
+							: data?.categoryRef.map((category:any) => (
+									<SwiperSlide key={`category--key${category._id}`}>
 										<CategoryListCard category={category} />
 									</SwiperSlide>
 							  ))}
@@ -69,11 +69,11 @@ const HeroWithCategory: React.FC<Props> = ({
 					{isLoading && data ? (
 						<CategoryListFeedLoader limit={8} />
 					) : (
-						data?.categories?.data
+						data?.categoryRef
 							?.slice(0, 8)
 							.map((category:any) => (
 								<CategoryListCard
-									key={`category--key${category.id}`}
+									key={`category--key${category._id}`}
 									category={category}
 								/>
 							))

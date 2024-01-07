@@ -139,6 +139,7 @@ export type FetchProducts = {
 }
 
 interface Categories{
+  image: string,
   status: boolean,
   _id: string,
   name: title,
@@ -159,4 +160,18 @@ export type FetchCategories = {
   sectionCode: string;
   sectionTitle: string;
   offerBlock?: bannerType[];
+}
+
+export type categoryRef={
+  image: string,
+  status: boolean,
+  _id: string,
+  name: title,
+  description: title,
+  parentId: string,
+  parentName: string,
+  icon: string,
+  createdAt: string,
+  updatedAt: string,
+  slug: string
 }

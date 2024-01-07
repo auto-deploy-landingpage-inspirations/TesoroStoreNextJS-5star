@@ -21,7 +21,7 @@ const IconCard: React.FC<Props> = ({ item, effectActive = false, href }) => {
 			<div className="relative inline-flex items-center mb-3.5 md:mb-4 lg:mb-5 xl:mb-2 2xl:mb-6 3xl:mb-8 mx-auto :h-24">
 				<img
 					src={icon}
-					alt={name || t("text-card-thumbnail")}
+					alt={name.en || t("text-card-thumbnail")}
 					className="mx-auto w-2/4 sm:w-2/3 md:w-8/12 3xl:w-full mb-4 sm:mb-6"
 				/>
 			</div>
@@ -29,7 +29,7 @@ const IconCard: React.FC<Props> = ({ item, effectActive = false, href }) => {
 				variant="heading"
 				className="capitalize absolute text-center inset-x-0 bottom-4 sm:bottom-5 md:bottom-6 xl:bottom-8"
 			>
-				{name}
+				{name.en}
 			</Text>
 			{effectActive === true && (
 				<>
