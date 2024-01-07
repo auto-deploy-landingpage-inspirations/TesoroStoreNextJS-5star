@@ -38,8 +38,8 @@ const Card: React.FC<Props> = ({
 			>
 				<div className="flex">
 					<Image
-						src={image?.original ?? placeholderImage}
-						alt={name || t("text-card-thumbnail") as string}
+						src={image ?? placeholderImage}
+						alt={name.en || t("text-card-thumbnail") as string}
 						width={imageSize}
 						height={imageSize}
 						quality={100}
@@ -63,7 +63,7 @@ const Card: React.FC<Props> = ({
 			</div>
 			<Text variant="heading" className="capitalize"
 					style={{fontFamily: 'Hap'}}>
-				{name}
+				{name.en}
 			</Text>
 		</Link>
 	);

@@ -21,6 +21,10 @@ function getImage(deviceWidth: number, imgObj: any) {
   return deviceWidth < 480 ? imgObj.mobile : imgObj.desktop;
 }
 
+// function getImage2 (deviceWidth: number, imgObj: any){
+//   return deviceWidth < 480 ? imgObj.mobileImageRef: imgObj.imageRef;
+// }
+
 const BannerCard: FC<BannerProps> = ({
   banner,
   className,
@@ -32,6 +36,7 @@ const BannerCard: FC<BannerProps> = ({
   const { width } = useWindowSize();
   const { title, image } = banner;
   const selectedImage = getImage(width, image);
+  // const selectedImage = getImage2(width, image);
   return (
     <div className={cn('mx-auto', className)}>
       <Link

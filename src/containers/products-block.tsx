@@ -51,7 +51,9 @@ const ProductsBlock: React.FC<ProductsProps> = ({
 				<div className="">
 					<Fade bottom>
 						{loading && !products?.length ? (
-							<ProductFeedLoader limit={5} uniqueKey={uniqueKey} />
+							<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-x-4 md:gap-x-6 xl:gap-x-8 gap-y-3 xl:gap-y-5 2xl:gap-y-8">
+								<ProductFeedLoader limit={5} uniqueKey={uniqueKey} />
+							</div>
 						) : (
 							<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-x-4 md:gap-x-6 xl:gap-x-8 gap-y-3 xl:gap-y-5 2xl:gap-y-8">
 								{products?.map((product: ProductDetails) => (

@@ -1,5 +1,5 @@
 import { QueryKey } from "react-query";
-import { ProductDetails } from "./product/get-product";
+import { ProductDetails, title } from "./product/get-product";
 
 export type CollectionsQueryOptionsType = {
   text?: string;
@@ -131,6 +131,29 @@ export type FetchProducts = {
   visible: boolean;
   productRef: ProductDetails[];
   categoryRef: string[];
+  BlogLinkReference?: string[];
+  _id: string;
+  sectionCode: string;
+  sectionTitle: string;
+  offerBlock?: bannerType[];
+}
+
+interface Categories{
+  status: boolean,
+  _id: string,
+  name: title,
+  description: title,
+  parentId: string,
+  parentName: string,
+  icon: string,
+  createdAt: string,
+  updatedAt: string
+}
+
+export type FetchCategories = {
+  visible: boolean;
+  productRef: String[];
+  categoryRef: Categories[];
   BlogLinkReference?: string[];
   _id: string;
   sectionCode: string;

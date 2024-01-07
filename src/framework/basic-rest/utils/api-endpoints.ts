@@ -6,6 +6,8 @@ export const API_ENDPOINTS = {
   NEW_ARRIVAL_PRODUCTS: "/api/homepage/new-arrivals",
   RECENTLY_VIEWED: "/api/homepage/recently-viewed-products",
   FLASH_SALE: "/api/homepage/flash-sale",
+  TOP_CATEGORIES: "/api/homepage/top-selling-categories",
+  OFFER_BANNER: "/api/homepage/offer-banner",
 
   LOGOUT: "/logout",
   FORGET_PASSWORD: "/forget-password",

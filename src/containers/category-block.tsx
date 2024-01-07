@@ -74,10 +74,9 @@ const CategoryBlock: React.FC<CategoriesProps> = ({
   sectionHeading,
   type = 'circle',
 }) => {
-  const { data, isLoading, error } = useCategoriesQuery({
-    limit: 10,
-  });
-
+  const { data, isLoading, error } = useCategoriesQuery({});
+  console.log("DATa in category block:");
+  console.log(data)
   return (
     <div className={className+" bg-category-section"} style={
       {
@@ -91,12 +90,15 @@ const CategoryBlock: React.FC<CategoriesProps> = ({
         <Alert message={error?.message} />
       ) : (
         <Fade bottom>
-        <Carousel
-          breakpoints={type === 'rounded' ? breakpoints : breakpointsCircle}
-          buttonClassName="-mt-8 md:-mt-10"
-        >
+        
           {isLoading && !data
-            ? Array.from({ length: 10 }).map((_, idx) => {
+            ? 
+            (
+              <Carousel
+                breakpoints={type === 'rounded' ? breakpoints : breakpointsCircle}
+                buttonClassName="-mt-8 md:-mt-10"
+              >
+                {Array.from({ length: 5 }).map((_, idx) => {
                 if (type === 'rounded') {
                   return (
                     <SwiperSlide key={`card-rounded-${idx}`}>
@@ -109,9 +111,15 @@ const CategoryBlock: React.FC<CategoriesProps> = ({
                     <CardLoader uniqueKey={`card-circle-${idx}`} />
                   </SwiperSlide>
                 );
-              })
-            : data?.categories?.data?.map((category:any) => (
-                
+              })}
+            </Carousel>
+            ): 
+            (
+              <Carousel
+                breakpoints={type === 'rounded' ? breakpoints : breakpointsCircle}
+                buttonClassName="-mt-8 md:-mt-10"
+              >
+                {data?.categoryRef.map((category:any) => (
                   <SwiperSlide key={`category--key-${category.id}`}>
                     <Card
                       item={category}
@@ -121,8 +129,9 @@ const CategoryBlock: React.FC<CategoriesProps> = ({
                       size={type === 'rounded' ? 'medium' : 'small'}
                     />
                   </SwiperSlide>
-              ))}
-        </Carousel>
+                ))}
+              </Carousel>)
+              }
         </Fade>
       )}
     </div>
