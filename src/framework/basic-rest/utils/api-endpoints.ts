@@ -8,6 +8,7 @@ export const API_ENDPOINTS = {
   FLASH_SALE: "/api/homepage/flash-sale",
   TOP_CATEGORIES: "/api/homepage/top-selling-categories",
   OFFER_BANNER: "/api/homepage/offer-banner",
+  PRODUCT: "/api/products/product/",
 
   LOGOUT: "/logout",
   FORGET_PASSWORD: "/forget-password",
@@ -19,7 +20,6 @@ export const API_ENDPOINTS = {
   FEATURED_PRODUCTS: "/featured_products.json",
   TOP_SELLER_PRODUCTS: "/products_top_seller.json",
   ON_SELLING_PRODUCTS: "/products_on_selling.json",
-  PRODUCT: "http://localhost:5055/api/products/product/",
   RELATED_PRODUCTS: "/related_products.json",
   BEST_SELLER_PRODUCTS: "/products_best_seller.json",
   FLASH_SALE_PRODUCTS: "/products_flash_sale.json",

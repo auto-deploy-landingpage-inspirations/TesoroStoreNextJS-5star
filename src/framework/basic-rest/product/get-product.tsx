@@ -41,13 +41,13 @@ export type ProductDetails = {
 	// status?: string;
 	limit?: number;
   };
-import http from "@framework/utils/http";
+import https from "@framework/utils/https";
 import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
 import { useQuery } from "react-query";
 
 export const fetchProduct = async (_slug: string) => {
 	let data:ProductDetails;
-	data = (await http.get(`${API_ENDPOINTS.PRODUCT}${_slug}`)).data;
+	data = (await https.get(`${API_ENDPOINTS.PRODUCT}${_slug}`)).data;
 	console.log("fetchProduct:",data)
 	return data;
 };

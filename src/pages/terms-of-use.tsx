@@ -12,15 +12,15 @@ import { GetStaticProps } from "next";
 // 	return title.toLowerCase().split(" ").join("_");
 // }
 
-export default function PrivacyPage() {
+export default function UseTermsPage() {
 	// const { t } = useTranslation("privacy");
 	return (
 		<>
-			<PageHeader pageHeader="text-page-privacy-policy" />
+			<PageHeader pageHeader="Terms Of Use" />
 			<div style={{height: '90vh'}} className="mt-12 lg:mt-14 xl:mt-16 lg:py-1 xl:py-0 border-b border-gray-300 px-4 md:px-10 lg:px-7 xl:px-16 2xl:px-24 3xl:px-32 pb-9 md:pb-14 lg:pb-16 2xl:pb-20 3xl:pb-24 h-[80vh]">
 				<Container className="h-[80vh]">
 				<Iframe 
-					url="https://docs.google.com/document/d/e/2PACX-1vSC6SPa4uuAAz3IiIsndpE-jLVaKc0s0FEu-TdKSLNtC6KlkU0Rr-MLNKFgRPsAyA/pub?embedded=true"
+					url="https://docs.google.com/document/d/e/2PACX-1vQxn4XQ1vCiWfGqpzTuYAmjM717Lv8gaml-M_6u3ucYCwSpxaKGcWtg8HVAlwBF0w/pub?embedded=true"
 					width="90%"
 					height="100%"
 					id="something_new"
@@ -79,7 +79,7 @@ export default function PrivacyPage() {
 	);
 }
 
-PrivacyPage.Layout = Layout;
+UseTermsPage.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
 	return {

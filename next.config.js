@@ -17,7 +17,8 @@ module.exports = withPWA(
         "dwgokgnbz84c3.cloudfront.net",
         "dwgokgnbz84c3.cloudfront.net",
         "m.media-amazon.com",
-        "tesorostoreuser.vercel.app"
+        "tesorostoreuser.vercel.app",
+        "res.cloudinary.com"
       ]
     }
 }));
