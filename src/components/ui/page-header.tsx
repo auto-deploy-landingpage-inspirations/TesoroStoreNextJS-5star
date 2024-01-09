@@ -6,7 +6,6 @@ interface HeaderProps {
 }
 
 const PageHeader: React.FC<HeaderProps> = ({
-	pageSubHeader = "text-page-explore",
 	pageHeader = "text-page-header",
 }) => {
 	const { t } = useTranslation("common");
