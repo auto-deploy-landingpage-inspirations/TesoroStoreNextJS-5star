@@ -48,8 +48,8 @@ export const footer = {
 				},
 				{
 					id: 2,
-					title: "help@tesorostore.com",
-					path: "/",
+					title: "support@tesorostore.in",
+					path: "mailto:support@tesorostore.in",
 				},
 				{
 					id: 3,
@@ -59,7 +59,7 @@ export const footer = {
 				{
 					id: 4,
 					title: "+91 96549 70705",
-					path: "/",
+					path: "tel:+919654970705",
 				},
 			],
 		},
