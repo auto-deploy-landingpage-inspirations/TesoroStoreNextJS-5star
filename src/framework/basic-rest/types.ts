@@ -175,3 +175,22 @@ export type categoryRef={
   updatedAt: string,
   slug: string
 }
+
+
+interface storeDetails{
+  subTitle: string,
+  storeLink: string,
+  description: string
+}
+
+export type SmallBIzStar = {
+  storeDetails: storeDetails;
+  visible: boolean;
+  productRef: ProductDetails[];
+  categoryRef: string[];
+  BlogLinkReference?: string[];
+  _id: string;
+  sectionCode: string;
+  sectionTitle: string;
+  offerBlock?: bannerType[];
+}

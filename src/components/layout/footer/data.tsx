@@ -48,7 +48,7 @@ export const footer = {
 				},
 				{
 					id: 2,
-					title: "link-email",
+					title: "help@tesorostore.com",
 					path: "/",
 				},
 				{
@@ -58,7 +58,7 @@ export const footer = {
 				},
 				{
 					id: 4,
-					title: "link-phone",
+					title: "+91 96549 70705",
 					path: "/",
 				},
 			],
@@ -80,7 +80,7 @@ export const footer = {
 				{
 					id: 3,
 					title: "link-about-us",
-					path: "/contact-us",
+					path: "/about-us",
 				},
 				{
 					id: 4,
@@ -100,14 +100,14 @@ export const footer = {
 				},
 				{
 					id: 2,
-					title: "link-shipping",
-					path: "/",
+					title: "Shipping Policy",
+					path: "/shipping-policy",
 				},
 				{
 					id: 3,
-					title: "link-exchanges",
-					path: "/",
-				},
+					title: "Refund Policy",
+					path: "/refund-policy",
+				}
 			],
 		},
 		{
@@ -116,21 +116,26 @@ export const footer = {
 			lists: [
 				{
 					id: 1,
-					title: "link-privacy",
-					path: "/privacy",
+					title: "Terms of Service",
+					path: "/terms-conditions",
 				},
 				{
 					id: 2,
-					title: "link-terms",
-					path: "/terms",
+					title: "Terms of Use",
+					path: "/terms-of-use",
 				},
 				{
 					id: 3,
-					title: "link-return-policy",
-					path: "/privacy",
+					title: "Privacy Policy",
+					path: "/privacy-policy",
 				},
 				{
 					id: 4,
+					title: "Return & Cancellation Policy",
+					path: "/return-and-cancellation-policy",
+				},
+				{
+					id: 5,
 					title: "link-site-map",
 					path: "/",
 				},

@@ -9,6 +9,7 @@ export const API_ENDPOINTS = {
   TOP_CATEGORIES: "/api/homepage/top-selling-categories",
   OFFER_BANNER: "/api/homepage/offer-banner",
   PRODUCT: "/api/products/product/",
+  SMALL_BIZ_STAR: "/api/homepage/founders-pick",
 
   LOGOUT: "/logout",
   FORGET_PASSWORD: "/forget-password",
