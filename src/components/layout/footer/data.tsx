@@ -44,7 +44,7 @@ export const footer = {
 				{
 					id: 1,
 					title: "link-contact-us",
-					path: "/",
+					path: "/contact-us",
 				},
 				{
 					id: 2,

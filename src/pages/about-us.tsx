@@ -1,16 +1,24 @@
 import React from 'react'
 import Layout from "@components/layout/layout";
 import Container from "@components/ui/container";
+import { Fade, Zoom } from 'react-reveal';
+
+
 // import { useTranslation } from "next-i18next";
-import { Fade, Zoom, Wobble, Animation } from 'react-reveal';
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { GetStaticProps } from "next";
 
 const lefTextBoxCss = 'ml-[15%] col-span-2 w-[70%]';
 const rightTextBoxCss = 'ml-[15%] w-[70%] px-5 col-span-2'
 const boxHeading = 'font-josephine text-center justify-center mt-[58px] text-[#515156] items-center font-bold text-lg'
 const boxPara = 'font-josephine text-center justify-center mt-5 text-[#6a6a70] items-center font-normal'
 const boxCss = 'h-[40vh] my-20 rounded-lg grid grid-cols-3'
-const subheadingCss = 'italic text-[1.3rem] font-semibold'
+const subheadingCss = 'italic text-[1.3rem] font-semibold';
+
+
+
 export default function AboutUs() {
+  // const { t } = useTranslation("common");
   return (
     <>
         <div className='mx-auto my-[14vh] bg-[#fcbfd0] grid grid-cols-2 w-full h-[35vh]'>  
@@ -130,3 +138,16 @@ export default function AboutUs() {
 
 
 AboutUs.Layout = Layout
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+	return {
+		props: {
+			...(await serverSideTranslations(locale!, [
+				"common",
+				"forms",
+				"menu",
+				"footer",
+			])),
+		},
+	};
+};
