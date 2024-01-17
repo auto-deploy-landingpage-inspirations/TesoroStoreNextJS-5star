@@ -53,11 +53,6 @@ export const footer = {
 				},
 				{
 					id: 3,
-					title: "link-email-two",
-					path: "/",
-				},
-				{
-					id: 4,
 					title: "+91 96549 70705",
 					path: "tel:+919654970705",
 				},
@@ -104,10 +99,10 @@ export const footer = {
 					path: "/shipping-policy",
 				},
 				{
-					id: 3,
-					title: "Refund Policy",
-					path: "/refund-policy",
-				}
+					id: 4,
+					title: "Return & Cancellation Policy",
+					path: "/return-and-cancellation-policy",
+				},
 			],
 		},
 		{
@@ -128,11 +123,6 @@ export const footer = {
 					id: 3,
 					title: "Privacy Policy",
 					path: "/privacy-policy",
-				},
-				{
-					id: 4,
-					title: "Return & Cancellation Policy",
-					path: "/return-and-cancellation-policy",
 				},
 				{
 					id: 5,

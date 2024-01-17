@@ -2,28 +2,28 @@ import { FC } from "react";
 import { IoLocationSharp, IoMail, IoCallSharp } from "react-icons/io5";
 import Link from "@components/ui/link";
 import { useTranslation } from "next-i18next";
-const mapImage = "/assets/images/map-image.jpg";
+// const mapImage = "/assets/images/map-image.jpg";
 const data = [
 	{
 		id: 1,
 		slug: "/",
 		icon: <IoLocationSharp />,
 		name: "text-address",
-		description: "text-address-details",
+		description: "103, First Floor, Vardhman Complex, Savita Vihar, New Delhi- 110092",
 	},
 	{
 		id: 2,
 		slug: "/",
 		icon: <IoMail />,
 		name: "text-email",
-		description: "text-email-details",
+		description: "support@tesorostore.in",
 	},
 	{
 		id: 3,
 		slug: "/",
 		icon: <IoCallSharp />,
 		name: "text-phone",
-		description: "text-phone-details",
+		description: "+91 96549 70705",
 	},
 ];
 interface Props {
@@ -51,7 +51,7 @@ const ContactInfoBlock: FC<Props> = () => {
 					</div>
 				</div>
 			))}
-			<img src={mapImage} alt={t("text-map")} className="rounded-md" />
+			{/* <img src={mapImage} alt={t("text-map")} className="rounded-md" /> */}
 		</div>
 	);
 };
