@@ -21,10 +21,10 @@ export default function PrivacyPage() {
 				<Container className="h-[80vh]">
 				<Iframe 
 					url="https://docs.google.com/document/d/e/2PACX-1vSsRAq_wwvK6WpSxuNOXNJsvx4U47XweBeuNJOXQczpQgWpfuKbp_9IAtFkVqLlRhZYfqpMf2WR2xiw/pub?embedded=true"
-					width="90%"
+					width="95%"
 					height="100%"
 					id="something_new"
-					className="ml-[5%]"
+					className="ml-[2%]"
 					display="block"
 					position="relative"/>
 				{/* <iframe src="" className="w-full h-[100%]" style={{height: '100vh'}}></iframe> */}

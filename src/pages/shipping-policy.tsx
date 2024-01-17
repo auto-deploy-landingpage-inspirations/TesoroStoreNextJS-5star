@@ -21,10 +21,10 @@ export default function UseTermsPage() {
 				<Container className="h-[80vh]">
 				<Iframe 
 					url="https://docs.google.com/document/d/e/2PACX-1vSA07rjuhixUXhK6d9OO7D20Ig-XU-KnAHpeFgtSdIR1a2o291Lo4RTlatV9MWLZw/pub?embedded=true"
-					width="90%"
+					width="958%"
 					height="100%"
 					id="something_new"
-					className="ml-[5%]"
+					className="ml-[2%]"
 					display="block"
 					position="relative"/>
 				{/* <iframe src="" className="w-full h-[100%]" style={{height: '100vh'}}></iframe> */}
