@@ -24,7 +24,7 @@ export default function PrivacyPage() {
 					width="90%"
 					height="100%"
 					id="something_new"
-					className=""
+					className="ml-[5%]"
 					display="block"
 					position="relative"/>
 				{/* <iframe src="" className="w-full h-[100%]" style={{height: '100vh'}}></iframe> */}
