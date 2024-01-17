@@ -105,7 +105,7 @@ export default function AboutUsMobile() {
                     <h1 className='text-[3.5rem] text-center text-[#F4769F] font-normal font-playfair' style={{fontStyle: 'italic'}}>Meet Our Founders</h1>
                 </div>
                 <div className='w-[90%] ml-[5%] mb-[10vh] rounded-3xl bg-[#FFF5F8]'>
-                    <div className='pt-16 pr-20 '>
+                    <div className='pt-16'>
                         <img src="/assets/images/about-us/us.jpg" style={{borderRadius: '100%'}} className='w-[90%] ml-[5%]' alt="" />
                     </div>
                     <div className='p-5'>
