@@ -101,12 +101,15 @@ export default function AboutUsMobile() {
             </div>
             </Container>
             <>
-                <div className='w-[90%] mb-[2vh] mt-[7vh] ml-[5%] h-[15vh]'>
+                <div className='w-[90%] mb-[2vh] mt-[5vh] ml-[5%] h-[30vh]'>
                     <h1 className='text-[3.5rem] text-center text-[#F4769F] font-normal font-playfair' style={{fontStyle: 'italic'}}>Meet Our Founders</h1>
                 </div>
-                <div className='w-[90%] ml-[5%] mb-[10vh] grid grid-cols-2 rounded-3xl bg-[#FFF5F8]'>
-                    <div className='p-20'>
-                    <h1 className='text-[#F4769F] text-2xl text-center mb-7 font-josephine'>Saumya & Shalini </h1>
+                <div className='w-[90%] ml-[5%] mb-[10vh] rounded-3xl bg-[#FFF5F8]'>
+                    <div className='pt-16 pr-20 '>
+                        <img src="/assets/images/about-us/us.jpg" style={{borderRadius: '100%'}} className='w-[90%] ml-[5%]' alt="" />
+                    </div>
+                    <div className='p-5'>
+                        <h1 className='text-[#F4769F] text-2xl text-center mb-7 font-josephine'>Saumya & Shalini </h1>
                         <p className='text-center font-josephine'>
                             Hey there, lovely souls! We're Saumya and Shalini, your friendly neighborhood co-founders of Tesoro Store. Back in the day, we embarked on a journey together at the National Institute of Fashion Technology, where we not only acquired degrees in fashion management but also discovered a friendship that's more precious than a pot of gold.
                         </p>
@@ -119,9 +122,6 @@ export default function AboutUsMobile() {
                         <p className='text-center font-josephine'>
                             Together, we're not just co-founders; we're the dynamic duo determined to sprinkle a little bit of magic into your shopping experience. Join us on this whimsical journey where every purchase is a nod to creativity and every treasure you uncover is a testament to the dreams we're chasing together.
                         </p>
-                    </div>
-                    <div className='pt-16 pr-20'>
-                        <img src="/assets/images/about-us/us.jpg" style={{borderRadius: '100%'}} className='' alt="" />
                     </div>
                 </div>
             </>
