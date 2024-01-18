@@ -15,7 +15,7 @@ export default function AboutUsMobile() {
             <div className='mx-auto mt-[14vh] bg-[#fcbfd0] w-full'>  
                 <div className='flex justify-center w-[80vw] ml-[10%]'>
                     <Fade bottom>
-                        <img src="/assets/images/about-us/hero.jpg" className='w-[90%] ml-[5%] mt-10 rounded-md ' style={{outline: '7px white solid'}} alt="" />
+                        <img src="/assets/images/about-us/hero.jpg" className='w-[90%] mt-10 rounded-md ' style={{outline: '7px white solid'}} alt="" />
                     </Fade>
                 </div>
                 <div className='ml-[0%] pt-1 pb-10'>
