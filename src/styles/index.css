@@ -67,3 +67,13 @@
   src: local("Inter.ttf"),
     url("./../../public/assets/fonts/Inter/Inter.ttf") format("truetype");
 } */
+
+/* Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

@@ -24,7 +24,7 @@ export default function TermsPage() {
 					width="95%"
 					height="100%"
 					id="something_new"
-					className="ml-[2%]"
+					className="ml-[2%] no-scrollbar"
 					display="block"
 					position="relative"/>
 				{/* <iframe src="" className="w-full h-[100%]" style={{height: '100vh'}}></iframe> */}

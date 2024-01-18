@@ -5,7 +5,7 @@ const lefTextBoxCss = 'ml-[5%] w-[90%]';
 const rightTextBoxCss = 'ml-[5%] w-[90%] px-5'
 const boxHeading = 'font-josephine pt-[5%] text-center justify-center text-[#515156] items-center font-bold text-lg'
 const boxPara = 'font-josephine text-center justify-center my-5 text-[#6a6a70] items-center font-normal'
-const boxCss = 'h-[100vh] my-20 rounded-lg'
+const boxCss = 'my-20 rounded-lg'
 const subheadingCss = 'italic text-[1.3rem] font-semibold';
 
 
@@ -55,7 +55,7 @@ export default function AboutUsMobile() {
             </div>
 
             
-            <div className='bg-[#fbd3e6] h-[100vh] my-20 rounded-lg'>
+            <div className='bg-[#fbd3e6] pb-10 my-20 rounded-lg'>
                 <div className='flex justify-center'>
                     <Zoom delay={700}>
                         <img src="/assets/images/about-us/4th.jpg" className='w-[90%] my-auto rounded-md' style={{outline: '7px white solid'}} alt="" />
@@ -70,7 +70,7 @@ export default function AboutUsMobile() {
             </div>
 
 
-            <div className='bg-[#FFE583]  h-[100vh] my-20 rounded-lg'>
+            <div className='bg-[#FFE583] pb-10 my-20 rounded-lg'>
                 <div className={lefTextBoxCss}>
                     <Fade bottom delay={700}>
                         <h1 className={boxHeading} style={{fontSize: '1.75rem', lineHeight: '2.25rem'}}>Supporting Small Businesses<br/><span className={subheadingCss}> Where Dreams Find Their Wings</span></h1>
@@ -79,20 +79,20 @@ export default function AboutUsMobile() {
                 </div>
                 <div className='flex justify-center mt-[8vh]'>
                     <Zoom delay={1000}>
-                        <img src="/assets/images/about-us/3rd.jpg" className='w-[80%] ml-[10%] rounded-md' style={{outline: '7px white solid'}} alt="" />
+                        <img src="/assets/images/about-us/3rd.jpg" className='w-[80%] rounded-md' style={{outline: '7px white solid'}} alt="" />
                     </Zoom>
                 </div>
             </div>
 
 
 
-            <div className='bg-[#fbd3e6] h-[100vh] my-10 rounded-lg'>
+            <div className='bg-[#fbd3e6] pb-10 my-10 rounded-lg'>
                 <div className='flex justify-center' style={{transform: 'translate(0, -5vh)'}}> 
                     <Zoom delay={1000}>
-                        <img src="/assets/images/about-us/5th.jpg" className='w-[80%] ml-[5%] rounded-md' style={{outline: '7px white solid'}} alt="" />
+                        <img src="/assets/images/about-us/5th.jpg" className='w-[80%] rounded-md' style={{outline: '7px white solid'}} alt="" />
                     </Zoom>
                 </div>
-                <div className={rightTextBoxCss}>
+                <div className={`${rightTextBoxCss}`}>
                     <Fade bottom delay={700}>
                         <h1 className={boxHeading} style={{fontSize: '1.75rem', lineHeight: '2.25rem'}}>Unveil Hidden Treasures<br/><span className={subheadingCss}>  Explore Tesoro Today!</span></h1>
                         <p className={boxPara} style={{fontSize: '1rem', lineHeight: '1.75rem'}}>Unleash your inner explorer and embark on a journey where every treasure you uncover is a masterpiece of passion. Tesoro Store is where dreams meet reality, where artisans find their spotlight, and where you find a world of creativity at your fingertips.</p>

@@ -2,10 +2,10 @@ import Container from "@components/ui/container";
 import { Fade, Zoom } from 'react-reveal';
 
 const lefTextBoxCss = 'ml-[15%] col-span-2 w-[70%]';
-const rightTextBoxCss = 'ml-[15%] w-[70%] px-5 col-span-2'
-const boxHeading = 'font-josephine text-center justify-center mt-[58px] text-[#515156] items-center font-bold text-lg'
+const rightTextBoxCss = 'ml-[15%] w-[75%] px-5 col-span-2'
+const boxHeading = 'font-josephine text-center justify-center mt-[7%] text-[#515156] items-center font-bold text-lg'
 const boxPara = 'font-josephine text-center justify-center mt-5 text-[#6a6a70] items-center font-normal'
-const boxCss = 'h-[40vh] my-20 rounded-lg grid grid-cols-3'
+const boxCss = 'h-[40vh] mt-10 mb-10 pb-10 rounded-lg grid grid-cols-3'
 const subheadingCss = 'italic text-[1.3rem] font-semibold';
 
 
