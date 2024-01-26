@@ -2,7 +2,8 @@ import cn from "classnames";
 import Image from "next/image";
 import React, { useState } from 'react';
 import type { FC } from "react";
-import { useUI } from "@contexts/ui.context";
+import { useRouter } from "next/router";
+// import { useUI } from "@contexts/ui.context";
 // import usePrice from "@framework/product/use-price";
 // import { Product } from "@framework/types";
 import { ProductDetails } from "@framework/product/get-product";
@@ -82,19 +83,20 @@ const ProductCard: FC<ProductProps> = ({
 }) => {
 	const [favorite, setFavorite] = useState<boolean>(false);
 	const [addToCart, setAddToCart] = useState<boolean>(false);
-
-	const { 
-		// openModal, 
-		setModalView, setModalData } = useUI();
+	const router = useRouter();
+	// const { 
+	// 	// openModal, 
+	// 	setModalView, setModalData } = useUI();
 	const placeholderImage = `/assets/placeholder/products/product-${variant}.svg`;
 	
 	const discount = product.prices.price - product.prices.originalPrice;
 	const price = `₹${product.prices.price}/-`;
 	const basePrice = `₹${product.prices.originalPrice}/-`;
 	function handlePopupView() {
-		setModalData({ data: product });
-		setModalView("PRODUCT_VIEW");
+		// setModalData({ data: product });
+		// setModalView("PRODUCT_VIEW");
 		// return openModal();
+		router.push(`/products/${product.slug}`);
 	}
 	return (
 		<div

@@ -1,5 +1,5 @@
 import React, { 
-	// useEffect, 
+	useEffect, 
 	useState } from "react";
 import Button from "@components/ui/button";
 import Counter from "@components/common/counter";
@@ -61,8 +61,12 @@ const ProductSingleDetails: React.FC = () => {
 	const {
 		query: { slug },
 	} = useRouter();
+	
 	const { width } = useWindowSize();
 	const { data, isLoading } = useProductQuery(slug as string);
+	useEffect(() => {
+		setImgToShow(data?.image[0] ?? "");
+	}, [data]);
 	const { addItemToCart } = useCart();
 	const [attributes, setAttributes] = useState<{ [key: string]: string }>({});
 	const [quantity, setQuantity] = useState(1);
@@ -140,6 +144,7 @@ const ProductSingleDetails: React.FC = () => {
 		}));
 	}
 	
+	
 	// const { t } = useTranslation("common");
 
 	return (
@@ -162,11 +167,11 @@ const ProductSingleDetails: React.FC = () => {
 										className="product-gallery"
 										buttonClassName="hidden"
 									>
-									{data?.gallery?.map((item:any, index: number) => (
+									{data?.image?.map((item:any, index: number) => (
 										<SwiperSlide key={`product-gallery-key-${index}`}>
 											<div className="col-span-1 transition duration-150 ease-in hover:opacity-90"
 												onClick={() => {
-													setImgToShow(item?.original)
+													setImgToShow(item)
 												}}
 												style={{
 													// height: '20vh'
@@ -209,12 +214,12 @@ const ProductSingleDetails: React.FC = () => {
 							}}
 						>
 							<ul>
-								{data?.gallery?.map((item:any, index:number) => (
+								{data?.image?.map((item:any, index:number) => (
 									<li 
 										key={index}
 										className=""
 										onClick={() => {
-											setImgToShow(item?.original)
+											setImgToShow(item)
 										}}
 										style={{
 											border: '1px solid gray',
@@ -222,7 +227,7 @@ const ProductSingleDetails: React.FC = () => {
 										}}
 									>
 										<img 
-											src={item?.original ?? "/assets/placeholder/products/product-gallery.svg"} 
+											src={item ?? "/assets/placeholder/products/product-gallery.svg"} 
 											// height={'10vh'} 
 											// width={'10vh'} 
 										/>
@@ -389,13 +394,13 @@ const ProductSingleDetails: React.FC = () => {
 									<span className="text-xl font-josephine font-semibold text-gray-900 inline-block pe-2">
 										Tags:
 									</span>
-									{data.tag.map((t:any, index: number) => (
+									{data.tag[0].substring(1, data.tag[0].length - 1).split(",").map((t:any, index: number) => (
 										<Link
 											key={index}
-											href={t}
+											href={t.replace(/"/g, "")}
 											className="text-xl font-josephine inline-block pe-1.5 transition hover:underline hover:text-heading last:pe-0"
 										>
-											{t}
+											{t.replace(/"/g, "")}
 											<span className=" text-lg font-josephine text-heading">,</span>
 										</Link>
 									))}
