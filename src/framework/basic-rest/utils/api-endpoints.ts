@@ -10,6 +10,7 @@ export const API_ENDPOINTS = {
   OFFER_BANNER: "/api/homepage/offer-banner",
   PRODUCT: "/api/products/product/",
   SMALL_BIZ_STAR: "/api/homepage/founders-pick",
+  ORDER: "http://localhost:5055/api/order/order_id/",
 
   LOGOUT: "/logout",
   FORGET_PASSWORD: "/forget-password",
@@ -26,5 +27,4 @@ export const API_ENDPOINTS = {
   FLASH_SALE_PRODUCTS: "/products_flash_sale.json",
   SEARCH: "/search.json",
   ORDERS: "/orders.json",
-  ORDER: "/order.json",
 };

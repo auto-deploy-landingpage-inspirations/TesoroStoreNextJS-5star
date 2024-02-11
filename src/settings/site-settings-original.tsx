@@ -5,7 +5,7 @@ import { USFlag } from "@components/icons/USFlag";
 import { DEFlag } from "@components/icons/DEFlag";
 import { ESFlag } from "@components/icons/ESFlag";
 export const siteSettings = {
-	name: "ChawkBazar",
+	name: "TesoroStore",
 	description:
 		"Fastest E-commerce template built with React, NextJS, TypeScript, React-Query and Tailwind CSS.",
 	author: {

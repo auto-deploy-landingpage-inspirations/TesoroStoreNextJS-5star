@@ -1,6 +1,6 @@
 import Container from "@components/ui/container";
 import Layout from "@components/layout/layout";
-import Subscription from "@components/common/subscription";
+// import Subscription from "@components/common/subscription";
 import PageHeader from "@components/ui/page-header";
 import CheckoutForm from "@components/checkout/checkout-form";
 import CheckoutCard from "@components/checkout/checkout-card";
@@ -20,7 +20,7 @@ export default function CheckoutPage() {
 						<CheckoutCard />
 					</div>
 				</div>
-				<Subscription />
+				{/* <Subscription /> */}
 			</Container>
 		</>
 	);

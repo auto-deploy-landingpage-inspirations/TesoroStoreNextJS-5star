@@ -9,22 +9,28 @@ export interface LoginInputType {
   password: string;
   remember_me: boolean;
 }
+
 async function login(input: LoginInputType) {
-  const data = http.post(API_ENDPOINTS.LOGIN, input);
+  const data = await http.post(API_ENDPOINTS.LOGIN, input);
   console.log("Login Data REceiveD:")
-  console.log(data)
-  return data
-  return {
-    token: `${input.email}.${input.remember_me}`.split("").reverse().join(""),
-  };
+  console.log(data['data'].token)
+  if(data['data'].token){
+    return data['data'].token
+  } else {
+    return false
+  }
 }
 export const useLoginMutation = () => {
   const { authorize, closeModal } = useUI();
   return useMutation((input: LoginInputType) => login(input), {
     onSuccess: (data) => {
-      Cookies.set("auth_token", data);
-      authorize();
-      closeModal();
+      if(data == false){
+        // login failed
+      } else {
+        Cookies.set("auth_token", data);
+        authorize();
+        closeModal();
+      }
     },
     onError: (data) => {
       console.log(data, "login error response");

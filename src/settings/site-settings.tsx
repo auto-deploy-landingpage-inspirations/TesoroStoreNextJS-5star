@@ -7,7 +7,7 @@
 export const siteSettings = {
 	name: "Tesoro Store",
 	description:
-		"Fastest E-commerce template built with React, NextJS, TypeScript, React-Query and Tailwind CSS.",
+		"Your own gift shop",
 	author: {
 		name: "Reillusions",
 		websiteUrl: "https://reillusions.com/",

@@ -4,9 +4,19 @@ import TextArea from "@components/ui/text-area";
 import { useCheckoutMutation } from "@framework/checkout/use-checkout";
 import { CheckBox } from "@components/ui/checkbox";
 import Button from "@components/ui/button";
-import Router from "next/router";
-import { ROUTES } from "@utils/routes";
+// import Router from "next/router";
+// import { ROUTES } from "@utils/routes";
 import { useTranslation } from "next-i18next";
+import { 
+	// cartContext, 
+	useCart 
+} from "@contexts/cart/cart.context";
+import Cookies from "js-cookie";
+
+
+const ccav = require('./../../utils/ccavutil.js');
+const crypto = require('crypto');
+
 
 interface CheckoutInputType {
 	firstName: string;
@@ -22,15 +32,110 @@ interface CheckoutInputType {
 
 const CheckoutForm: React.FC = () => {
 	const { t } = useTranslation();
-	const { mutate: updateUser, isLoading } = useCheckoutMutation();
+	const {items, removeItemFromCart} = useCart();
+
+	function clearCart(){
+		for (let i = 0; i < items.length; i++) {
+			removeItemFromCart(items[i].id);
+		}
+	}
+	const { 
+		// mutate: updateUser, 
+		isLoading } = useCheckoutMutation();
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm<CheckoutInputType>();
 	function onSubmit(input: CheckoutInputType) {
-		updateUser(input);
-		Router.push(ROUTES.ORDER);
+		const merchantId = 3163052;
+		
+		const accessCode = "AVCK53LA79CN78KCNC";
+		const workingKey = "B119F30E7F577B431660D1EF7065B53B";
+		const currency = "INR";
+		// const orderId = "ORD0001";
+		const redirectUrl = "http://127.0.0.1:3001/api/ccavResponseHandler";
+		const cancelUrl = "http://127.0.0.1:3001/api/ccavResponseHandler";
+		const language = "EN";
+		// const ccaRequest = `merchantId=${merchantId}&accessCode=${accessCode}`;
+		// console.log(workingKey, orderId, currency, amount, redirectUrl, cancelUrl, language, ccaRequest);
+		var md5 = crypto.createHash('md5').update(workingKey).digest();
+		var keyBase64 = Buffer.from(md5).toString('base64');
+
+		//Initializing Vector and then convert in base64 string
+		var ivBase64 = Buffer.from([0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d,0x0e, 0x0f]).toString('base64');
+
+		const submitForm = async () => {
+			const orderDetails = await createOrder();
+			console.log("Order Details: ");
+			console.log(orderDetails);
+			var form = document.createElement("form");
+			form.setAttribute("method", "post");
+			form.setAttribute("action", "https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction");
+			form.setAttribute("name", "redirect");
+			form.setAttribute("id", "nonseamless");
+			// console.log(input)
+			const username = `${input.firstName} ${input.lastName}`
+			
+			const body = `merchant_id=${merchantId}&order_id=${orderDetails.orderId}&currency=${currency}&amount=${orderDetails.total}&redirect_url=${redirectUrl}&cancel_url=${cancelUrl}&language=${language}&billing_name=${username}&billing_address=${input.address}&billing_city=${input.city}&billing_state=&billing_zip=${input.zipCode}&billing_country=&billing_tel=${input.phone}&billing_email=${input.email}&delivery_name=&delivery_address=&delivery_city=&delivery_state=&delivery_zip=&delivery_country=&delivery_tel=&merchant_param1=&merchant_param2=&merchant_param3=&merchant_param4=&merchant_param5=&promo_code=&customer_identifier=`
+			console.log("body Data: ",body);
+			const encRequest = ccav.encrypt(body, keyBase64, ivBase64);
+			// console.log(encRequest)
+
+			// form fields
+			var encRequestInput = document.createElement("input");
+			encRequestInput.setAttribute("type", "hidden");
+			encRequestInput.setAttribute("name", "encRequest");
+			encRequestInput.setAttribute("value", encRequest);
+			form.appendChild(encRequestInput);
+
+			var accessCodeInput = document.createElement("input");
+			accessCodeInput.setAttribute("type", "hidden");
+			accessCodeInput.setAttribute("name", "access_code");
+			accessCodeInput.setAttribute("value", accessCode);
+			form.appendChild(accessCodeInput);
+
+			document.body.appendChild(form);
+			clearCart();
+			form.submit();
+		}
+		
+
+		const createOrder = async() => {
+			// const items:any = [];
+			
+			const orderDetails = {
+				cart: items,
+				billing: input,
+			}
+			console.log("Payload to be sent")
+			console.log(orderDetails)
+			const response = await fetch('http://localhost:5055/api/order/add', {
+				method: 'POST',
+				body: JSON.stringify(orderDetails),
+				headers: {
+					'Content-Type': 'application/json',
+					'auth': Cookies.get('auth_token')??''
+				}
+			})
+			console.log("API Response: ");
+			const data = await response.json();
+			console.log(data.order);
+			return data.order;
+		}
+		
+		try {
+			
+			submitForm();
+
+		} catch (error) {
+			console.log("Error Creating Order: ")
+			console.log(error)
+		}
+		// console.log(input); // User Billing Details
+		
+		// updateUser(input);
+		// Router.push(ROUTES.ORDER);
 	}
 
 	return (
@@ -129,7 +234,7 @@ const CheckoutForm: React.FC = () => {
 							loading={isLoading}
 							disabled={isLoading}
 						>
-							{t("common:button-place-order") as string}
+							{t("Pay & Place Order") as string}
 						</Button>
 					</div>
 				</div>

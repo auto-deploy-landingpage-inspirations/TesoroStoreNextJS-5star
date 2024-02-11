@@ -93,19 +93,49 @@ export type OrderItem = {
   price: number;
   quantity: number;
 };
-export type Order = {
-  id: string | number;
+
+export type OrderedProduct = {
+  id: number | string;
+  productName: string;
+  variant: string;
+  quantity: number;
+  originalPrice: number;
+  price: number;
+  discount: number;
+  store: string;
+  slug?: string;
+  image?: string;
+}
+
+export type OrderUserInfo = {
   name: string;
-  slug: string;
-  products: OrderItem[];
+  email: string;
+  phone: string;
+  address: string;
+  city: string;
+  state: string;
+  country: string;
+  zipCode: string;
+};
+
+export type Order = {
+  _id: string | number;
+  name: string;
+  discount: number;
+  invoice: string;
+  orderId: string;
+  cart: OrderedProduct[];
+  shipping: number;
+  confirmed: boolean;
+  createdAt: string;
+  paymentMethod: string;
+  paymentStatus: boolean;
+  status: string;
+  subTotal: number;
   total: number;
-  tracking_number: string;
-  customer: {
-    id: number;
-    email: string;
-  };
-  shipping_fee: number;
-  payment_gateway: string;
+  user: string;
+  user_info: OrderUserInfo;
+  ccavData: any;
 };
 
 interface bannerType {

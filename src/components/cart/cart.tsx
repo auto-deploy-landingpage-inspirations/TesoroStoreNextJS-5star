@@ -18,8 +18,12 @@ export default function Cart() {
 	const { items, total, isEmpty } = useCart();
 	const { price: cartTotal } = usePrice({
 		amount: total,
-		currencyCode: "USD",
+		currencyCode: "INR",
 	});
+
+	const handleCheckout = () => {
+		// alert("checkout");
+	}
 	return (
 		<div className="flex flex-col w-full h-full justify-between">
 			<div className="w-full flex justify-between items-center relative ps-5 md:ps-7 py-0.5 border-b border-gray-100">
@@ -60,7 +64,7 @@ export default function Cart() {
 
 			<div
 				className="flex flex-col px-5 md:px-7 pt-2 pb-5 md:pb-7"
-				onClick={closeCart}
+				onClick={isEmpty === false ? handleCheckout: closeCart}
 			>
 				<Link
 					href={isEmpty === false ? ROUTES.CHECKOUT : "/"}

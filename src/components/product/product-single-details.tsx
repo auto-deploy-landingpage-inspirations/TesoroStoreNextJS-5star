@@ -117,7 +117,7 @@ const ProductSingleDetails: React.FC = () => {
 			id: data?._id || '', 
 			name: data?.title.en || ' ', 
 			slug: data?.slug || ' ', 
-			image: data?.image || [''],
+			image: data?.image[0] || '',
 			price: data?.prices.originalPrice || 0, 
 			sale_price: data?.prices.price || 0
 		}

@@ -23,7 +23,7 @@ const Layout: React.FC<{children:any}> = ({ children }) => {
 					},
 				]}
 				title="Tesoro Store"
-				description="Fastest E-commerce multivendor website built with React, NextJS, TypeScript, React-Query and Tailwind CSS."
+				description="Your own gifting store."
 				canonical=""
 				openGraph={{
 					url: "",

@@ -1,10 +1,10 @@
 {
-  "name": "chawkbazar",
+  "name": "tesorostore",
   "version": "1.0.5",
   "private": true,
   "scripts": {
     "clean": "rimraf \"{.next,dist,build,out,node_modules}\"",
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start"
   },

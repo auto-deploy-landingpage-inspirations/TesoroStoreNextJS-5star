@@ -28,7 +28,7 @@ export const useCart = () => {
 
 export const CartProvider: React.FC<{children:any}> = (props) => {
   const [savedCart, saveCart] = useLocalStorage(
-    `chawkbazar-cart`,
+    `tesorostore-cart`,
     JSON.stringify(initialState)
   );
   const [state, dispatch] = React.useReducer(
@@ -40,8 +40,11 @@ export const CartProvider: React.FC<{children:any}> = (props) => {
     saveCart(JSON.stringify(state));
   }, [state, saveCart]);
 
-  const addItemToCart = (item: Item, quantity: number) =>
+  const addItemToCart = async(item: Item, quantity: number) =>{
+    
     dispatch({ type: "ADD_ITEM_WITH_QUANTITY", item, quantity });
+    
+  }
   const removeItemFromCart = (id: Item["id"]) =>
     dispatch({ type: "REMOVE_ITEM_OR_QUANTITY", id });
   const clearItemFromCart = (id: Item["id"]) =>

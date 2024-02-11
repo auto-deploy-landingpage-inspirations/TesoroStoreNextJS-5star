@@ -2,7 +2,7 @@ export interface Item {
   id: string | number;
   name: string;
   slug: string;
-  image: string[];
+  image: string;
   price: number;
   quantity?: number;
   [key: string]: any;

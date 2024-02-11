@@ -13,7 +13,7 @@ export default function OrderInformation() {
 	const { data, isLoading } = useOrderQuery(id?.toString()!);
 	const { price: total } = usePrice(
 		data && {
-			amount: data.shipping_fee ? data.total + data.shipping_fee : data.total,
+			amount: data.shipping ? data.total + data.shipping : data.total,
 			currencyCode: "USD",
 		}
 	);
@@ -32,7 +32,7 @@ export default function OrderInformation() {
 					<span className="uppercase text-[11px] block text-body font-normal leading-5">
 						{t("text-order-number")as string}:
 					</span>
-					{data?.tracking_number}
+					{data?.ccavData.tracking_number}
 				</li>
 				<li className="text-heading font-semibold text-base lg:text-lg border-b md:border-b-0 md:border-r border-dashed border-gray-300 px-4 lg:px-6 xl:px-8 py-4 md:py-5 lg:py-6 last:border-0">
 					<span className="uppercase text-[11px] block text-body font-normal leading-5">
@@ -44,7 +44,7 @@ export default function OrderInformation() {
 					<span className="uppercase text-[11px] block text-body font-normal leading-5">
 						{t("text-email")as string}:
 					</span>
-					{data?.customer.email}
+					{data?.user_info.email}
 				</li>
 				<li className="text-heading font-semibold text-base lg:text-lg border-b md:border-b-0 md:border-r border-dashed border-gray-300 px-4 lg:px-6 xl:px-8 py-4 md:py-5 lg:py-6 last:border-0">
 					<span className="uppercase text-[11px] block text-body font-normal leading-5">
@@ -56,7 +56,7 @@ export default function OrderInformation() {
 					<span className="uppercase text-[11px] block text-body font-normal leading-5">
 						{t("text-payment-method")as string}:
 					</span>
-					{data?.payment_gateway}
+					{data?.paymentMethod}
 				</li>
 			</ul>
 
