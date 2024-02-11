@@ -1,4 +1,9 @@
 {
+  "functions": {
+    "pages/**": {
+      "maxDuration": 500
+    }
+  },
   "env": {
     "NEXT_PUBLIC_REST_API_ENDPOINT": "Put your api endpoint here"
   },
