@@ -6,7 +6,8 @@
     "clean": "rimraf \"{.next,dist,build,out,node_modules}\"",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 3001"
+    "start": "next start",
+    "start:local": "next start -p 3001"
   },
   "dependencies": {
     "@fontsource/open-sans": "^4.5.0",

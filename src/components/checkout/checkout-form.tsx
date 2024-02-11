@@ -52,17 +52,21 @@ const CheckoutForm: React.FC = () => {
 		
 		let accessCode = '';
 		let workingKey = '';
+		let redirectUrl = '';
+		let cancelUrl = '';
 		if(process.env.NEXT_PUBLIC_ENV === 'PROD'){
 			accessCode += "AVXZ47LA41AP26ZXPA";
 			workingKey += "298BE0AC1AF59F06692096195F57D059"
+			redirectUrl += "https://tesorostore.in/api/ccavResponseHandler";
+			cancelUrl += "https://tesorostore.in/api/ccavResponseHandler";
 		} else {
 			accessCode += "AVCK53LA79CN78KCNC";
 			workingKey += "B119F30E7F577B431660D1EF7065B53B";
+			redirectUrl += "http://127.0.0.1:3001/api/ccavResponseHandler";
+			cancelUrl += "http://127.0.0.1:3001/api/ccavResponseHandler";
 		}
 		const currency = "INR";
 		// const orderId = "ORD0001";
-		const redirectUrl = "http://127.0.0.1:3001/api/ccavResponseHandler";
-		const cancelUrl = "http://127.0.0.1:3001/api/ccavResponseHandler";
 		const language = "EN";
 		// const ccaRequest = `merchantId=${merchantId}&accessCode=${accessCode}`;
 		// console.log(workingKey, orderId, currency, amount, redirectUrl, cancelUrl, language, ccaRequest);
