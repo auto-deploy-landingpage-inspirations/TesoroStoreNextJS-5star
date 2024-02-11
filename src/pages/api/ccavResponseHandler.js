@@ -29,7 +29,7 @@ export default async function handler(req, res) {
 
             // Update order details with Payment Details
             // console.log("Cookies.get('auth_token')", Cookies.get('auth_token'));
-            const responseFrom = await fetch(`http://localhost:5055/api/order/update-order/`, {
+            const responseFrom = await fetch(`https://tesoro-backend.onrender.com/api/order/update-order/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
