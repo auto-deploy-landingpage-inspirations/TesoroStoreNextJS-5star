@@ -7,7 +7,12 @@ export default async function handler(req, res) {
         if(req.method === 'POST') {
             console.log(req.method);
             // const accessCode = "AVCK53LA79CN78KCNC";
-            const workingKey = "B119F30E7F577B431660D1EF7065B53B";
+            let workingKey = ''
+            if(process.env.NEXT_PUBLIC_ENV === 'PROD'){
+                workingKey += "298BE0AC1AF59F06692096195F57D059";
+            } else{
+                workingKey += "B119F30E7F577B431660D1EF7065B53B";
+            }
             // const merchantId = 3163052;
             const md5 = crypto.createHash('md5').update(workingKey).digest();
             const keyBase64 = Buffer.from(md5).toString('base64');
