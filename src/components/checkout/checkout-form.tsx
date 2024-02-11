@@ -110,7 +110,7 @@ const CheckoutForm: React.FC = () => {
 			}
 			console.log("Payload to be sent")
 			console.log(orderDetails)
-			const response = await fetch('http://localhost:5055/api/order/add', {
+			const response = await fetch('https://tesoro-backend.onrender.com/api/order/add', {
 				method: 'POST',
 				body: JSON.stringify(orderDetails),
 				headers: {
