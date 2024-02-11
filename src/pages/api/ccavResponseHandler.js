@@ -45,7 +45,11 @@ export default async function handler(req, res) {
             //     redirectUrl: `http://localhost:3001/my-account/orders/${req.body.orderNo}`,
             //     response: response
             // })
-            res.writeHead(302, {location: `http://localhost:3001/my-account/orders/${req.body.orderNo}`})
+            if(process.env.NEXT_PUBLIC_ENV === 'PROD'){
+                res.writeHead(302, {location: `https://tesorostore.in/my-account/orders/${req.body.orderNo}`})
+            } else{
+                res.writeHead(302, {location: `http://localhost:3001/my-account/orders/${req.body.orderNo}`})
+            }
             res.end()
             // res.status(200).json({ message: 'Success', data: data, orderId: req.body.orderNo });
         } else {
