@@ -42,6 +42,7 @@ import SpecialSectionMobile from "@containers/SpecialSectionMobile";
 import CollectionBlockMobile from "@containers/collection-block-mobile";
 
 export default function Home() {
+	console.log("ENV Variable: ", process.env.NEXT_PUBLIC_ENV);
 	// const { openModal, setModalView } = useUI();
 	// useEffect(() => {
 	// 	setModalView("NEWSLETTER_VIEW");
