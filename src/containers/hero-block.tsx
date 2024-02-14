@@ -1,6 +1,7 @@
 import BannerCard from "@components/common/banner-card";
 import Carousel from "@components/ui/carousel/carousel";
 import { useHomePageBanner } from "@framework/homepage/get-homepage-banners";
+import { useWindowSize } from "react-use";
 // import { homeOneHeroBanner as banners } from "@framework/static/banner";
 // import { useWindowSize } from "@utils/use-window-size";
 // import { ROUTES } from "@utils/routes";
@@ -16,24 +17,24 @@ const breakpoints = {
 };
 
 const HeroBlock: React.FC = () => {
-
+	const { width } = useWindowSize();
 	const {data, isLoading, isError} = useHomePageBanner({});
-	console.log(data);
+	// console.log(data);
 	const bannerData = data?.banners.data[0].offerBlock.map((banner)=>{
 		return {
 			id: banner._id,
 			title: '',
 			slug: banner.offerLink,
 			image: {
-				mobile: {
-					url: banner.imageRef,
-					width: 480,
-					height: 500,
-				},
 				desktop: {
-					url: banner.mobileImageRef,
+					url: banner.imageRef,
 					width: 1800,
-					height: 800
+					height: 1000,
+				},
+				mobile: {
+					url: banner.mobileImageRef,
+					width: 480,
+					height: 480
 				},
 			}
 
@@ -41,18 +42,16 @@ const HeroBlock: React.FC = () => {
 	})
 	// console.log(banners)
 	console.log(isLoading);
-	console.log(isError)
+	console.log(isError);
 
 	// const { width } = useWindowSize();
 	return (
-		<div className="heroBannerOne relative left-0 mt-[10vh] max-w-[1920px] mb-5 lg:mx-auto overflow-hidden " style={{
-			maxHeight: '95vh'
-		}}>
+		<div className="heroBannerOne relative mt-[12vh] max-w-[1920px] mb-5 md:mb-12 lg:mb-14 2xl:mb-16 mx-auto overflow-hidden px-4 md:px-8 2xl:px-0">
 			<Carousel
 				breakpoints={breakpoints}
-				centeredSlides={false}
+				centeredSlides={width > 1500 ? false: true}
 				autoplay={{ delay: 4000 }}
-				className="mx-0 max-w-[100vw]"
+				className="mx-0"
 				buttonClassName="hidden"
 				pagination={{
 					clickable: true,
@@ -60,7 +59,7 @@ const HeroBlock: React.FC = () => {
 			>
 				{bannerData && bannerData.map((banner: any) => (
 					<SwiperSlide
-						className="carouselItem px-5 lg:px-0 h-[100vh] max-w-[100vw]"
+						className="carouselItem px-0 2xl:px-3.5"
 						key={`banner--key-${banner?.id}`}
 					>
 						<BannerCard

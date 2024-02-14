@@ -12,6 +12,8 @@ import {
 	useCart 
 } from "@contexts/cart/cart.context";
 import Cookies from "js-cookie";
+import { toast } from "react-toastify";
+import { useEffect, useState } from "react";
 
 
 const ccav = require('./../../utils/ccavutil.js');
@@ -25,14 +27,18 @@ interface CheckoutInputType {
 	email: string;
 	address: string;
 	city: string;
+	state: string;
 	zipCode: string;
 	save: boolean;
 	note: string;
+	guestCheckout: boolean;
 }
 
 const CheckoutForm: React.FC = () => {
 	const { t } = useTranslation();
 	const {items, removeItemFromCart} = useCart();
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [guestCheckout, setGuestCheckout] = useState(false);
 
 	function clearCart(){
 		for (let i = 0; i < items.length; i++) {
@@ -47,107 +53,155 @@ const CheckoutForm: React.FC = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm<CheckoutInputType>();
+
+	function handleGuestCheckout(event:any) {
+		setGuestCheckout(event.target.checked);
+	}
+
 	function onSubmit(input: CheckoutInputType) {
-		const merchantId = 3163052;
-		
-		let accessCode = '';
-		let workingKey = '';
-		let redirectUrl = '';
-		let cancelUrl = '';
-		if(process.env.NEXT_PUBLIC_ENV === 'PROD'){
-			accessCode += "AVXZ47LA41AP26ZXPA";
-			workingKey += "298BE0AC1AF59F06692096195F57D059"
-			redirectUrl += "https://tesorostore.in/api/ccavResponseHandler";
-			cancelUrl += "https://tesorostore.in/api/ccavResponseHandler";
-		} else {
-			accessCode += "AVCK53LA79CN78KCNC";
-			workingKey += "B119F30E7F577B431660D1EF7065B53B";
-			redirectUrl += "http://127.0.0.1:3001/api/ccavResponseHandler";
-			cancelUrl += "http://127.0.0.1:3001/api/ccavResponseHandler";
-		}
-		const currency = "INR";
-		// const orderId = "ORD0001";
-		const language = "EN";
-		// const ccaRequest = `merchantId=${merchantId}&accessCode=${accessCode}`;
-		// console.log(workingKey, orderId, currency, amount, redirectUrl, cancelUrl, language, ccaRequest);
-		var md5 = crypto.createHash('md5').update(workingKey).digest();
-		var keyBase64 = Buffer.from(md5).toString('base64');
-
-		//Initializing Vector and then convert in base64 string
-		var ivBase64 = Buffer.from([0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d,0x0e, 0x0f]).toString('base64');
-
-		const submitForm = async () => {
-			const orderDetails = await createOrder();
-			console.log("Order Details: ");
-			console.log(orderDetails);
-			var form = document.createElement("form");
-			form.setAttribute("method", "post");
-			form.setAttribute("action", "https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction");
-			form.setAttribute("name", "redirect");
-			form.setAttribute("id", "nonseamless");
-			// console.log(input)
-			const username = `${input.firstName} ${input.lastName}`
-			
-			const body = `merchant_id=${merchantId}&order_id=${orderDetails.orderId}&currency=${currency}&amount=${orderDetails.total}&redirect_url=${redirectUrl}&cancel_url=${cancelUrl}&language=${language}&billing_name=${username}&billing_address=${input.address}&billing_city=${input.city}&billing_state=&billing_zip=${input.zipCode}&billing_country=&billing_tel=${input.phone}&billing_email=${input.email}&delivery_name=&delivery_address=&delivery_city=&delivery_state=&delivery_zip=&delivery_country=&delivery_tel=&merchant_param1=&merchant_param2=&merchant_param3=&merchant_param4=&merchant_param5=&promo_code=&customer_identifier=`
-			console.log("body Data: ",body);
-			const encRequest = ccav.encrypt(body, keyBase64, ivBase64);
-			// console.log(encRequest)
-
-			// form fields
-			var encRequestInput = document.createElement("input");
-			encRequestInput.setAttribute("type", "hidden");
-			encRequestInput.setAttribute("name", "encRequest");
-			encRequestInput.setAttribute("value", encRequest);
-			form.appendChild(encRequestInput);
-
-			var accessCodeInput = document.createElement("input");
-			accessCodeInput.setAttribute("type", "hidden");
-			accessCodeInput.setAttribute("name", "access_code");
-			accessCodeInput.setAttribute("value", accessCode);
-			form.appendChild(accessCodeInput);
-
-			document.body.appendChild(form);
-			clearCart();
-			form.submit();
-		}
-		
-
-		const createOrder = async() => {
-			// const items:any = [];
-			
-			const orderDetails = {
-				cart: items,
-				billing: input,
-			}
-			console.log("Payload to be sent")
-			console.log(orderDetails)
-			const response = await fetch('https://tesoro-backend.onrender.com/api/order/add', {
-				method: 'POST',
-				body: JSON.stringify(orderDetails),
-				headers: {
-					'Content-Type': 'application/json',
-					'auth': Cookies.get('auth_token')??''
-				}
-			})
-			console.log("API Response: ");
-			const data = await response.json();
-			console.log(data.order);
-			return data.order;
-		}
-		
 		try {
+			if(Cookies.get('auth_token') === undefined && guestCheckout === false){
+				toast("Please Login Or Select Guest Checkout", {
+					type: "error",
+					autoClose: 2000,
+				})
+				return;
+			}
+			const merchantId = 3163052;
 			
+			let accessCode = '';
+			let workingKey = '';
+			let redirectUrl = '';
+			let cancelUrl = '';
+			if(process.env.NEXT_PUBLIC_ENV === 'PROD'){
+				accessCode += "AVXZ47LA41AP26ZXPA";
+				workingKey += "298BE0AC1AF59F06692096195F57D059"
+				redirectUrl += "https://tesorostore.in/api/ccavResponseHandler";
+				cancelUrl += "https://tesorostore.in/api/ccavResponseHandler";
+			} else {
+				accessCode += "AVCK53LA79CN78KCNC";
+				workingKey += "B119F30E7F577B431660D1EF7065B53B";
+				redirectUrl += "http://127.0.0.1:3001/api/ccavResponseHandler";
+				cancelUrl += "http://127.0.0.1:3001/api/ccavResponseHandler";
+			}
+			const currency = "INR";
+			// const orderId = "ORD0001";
+			const language = "EN";
+			// const ccaRequest = `merchantId=${merchantId}&accessCode=${accessCode}`;
+			// console.log(workingKey, orderId, currency, amount, redirectUrl, cancelUrl, language, ccaRequest);
+			var md5 = crypto.createHash('md5').update(workingKey).digest();
+			var keyBase64 = Buffer.from(md5).toString('base64');
+
+			//Initializing Vector and then convert in base64 string
+			var ivBase64 = Buffer.from([0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d,0x0e, 0x0f]).toString('base64');
+
+			const submitForm = async () => {
+				
+				const orderDetails = await createOrder();
+				if(orderDetails === undefined){
+					toast("Error Creating Order", {
+						type: "error"
+					})
+					return;
+				}
+				// console.log("Order Details: ");
+				// console.log(orderDetails);
+				var form = document.createElement("form");
+				form.setAttribute("method", "post");
+				form.setAttribute("action", "https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction");
+				form.setAttribute("name", "redirect");
+				form.setAttribute("id", "nonseamless");
+				// console.log(input)
+				const username = `${input.firstName} ${input.lastName}`
+				
+				const body = `merchant_id=${merchantId}&order_id=${orderDetails.orderId}&currency=${currency}&amount=${orderDetails.total}&redirect_url=${redirectUrl}&cancel_url=${cancelUrl}&language=${language}&billing_name=${username}&billing_address=${input.address}&billing_city=${input.city}&billing_state=${input.state}&billing_zip=${input.zipCode}&billing_country=&billing_tel=${input.phone}&billing_email=${input.email}&delivery_name=&delivery_address=&delivery_city=&delivery_state=&delivery_zip=&delivery_country=&delivery_tel=&merchant_param1=&merchant_param2=&merchant_param3=&merchant_param4=&merchant_param5=&promo_code=&customer_identifier=`
+				// console.log("body Data: ",body);
+				const encRequest = ccav.encrypt(body, keyBase64, ivBase64);
+				// console.log(encRequest)
+
+				// form fields
+				var encRequestInput = document.createElement("input");
+				encRequestInput.setAttribute("type", "hidden");
+				encRequestInput.setAttribute("name", "encRequest");
+				encRequestInput.setAttribute("value", encRequest);
+				form.appendChild(encRequestInput);
+
+				var accessCodeInput = document.createElement("input");
+				accessCodeInput.setAttribute("type", "hidden");
+				accessCodeInput.setAttribute("name", "access_code");
+				accessCodeInput.setAttribute("value", accessCode);
+				form.appendChild(accessCodeInput);
+
+				document.body.appendChild(form);
+				clearCart();
+				form.submit();
+			}
+			
+
+			const createOrder = async() => {
+				// const items:any = [];
+				
+				const orderDetails = {
+					cart: items,
+					billing: input,
+					guestCheckout: guestCheckout
+				}
+				// console.log("Payload to be sent")
+				// console.log(orderDetails)
+				let host = '';
+				if(process.env.NEXT_PUBLIC_ENV === 'PROD'){
+					host += 'https://tesoro-backend.onrender.com';
+				} else {
+					host += 'http://localhost:5055';
+				}
+				let api = '';
+				if(guestCheckout){
+					api += '/api/order/guest-add';
+				} else {
+					api += '/api/order/add';
+				}
+				const response = await fetch(`${host}${api}`, {
+					method: 'POST',
+					body: JSON.stringify(orderDetails),
+					headers: {
+						'Content-Type': 'application/json',
+						'auth': Cookies.get('auth_token')??''
+					}
+				})
+				// console.log("API Response: ");
+				const data = await response.json();
+				if(data.error){
+					toast(data.message, {
+						type: "error"
+					})
+					return;
+				} else {
+					toast("Order Created Successfully", {
+						type: "success"
+					})
+				}
+				// console.log(data.order);
+				return data.order;
+			}
+		
 			submitForm();
 
 		} catch (error) {
+			toast("Error Checking Out", {
+				type: "error"
+			})
 			console.log("Error Creating Order: ")
 			console.log(error)
 		}
-		// console.log(input); // User Billing Details
-		
-		// updateUser(input);
-		// Router.push(ROUTES.ORDER);
 	}
+
+	useEffect(()=>{
+		if(Cookies.get('auth_token') !== undefined){
+			setIsLoggedIn(true);
+		} else {
+			setIsLoggedIn(false);
+		}
+	}, [isLoggedIn, Cookies.get('auth_token')])
 
 	return (
 		<>
@@ -160,6 +214,14 @@ const CheckoutForm: React.FC = () => {
 				noValidate
 			>
 				<div className="flex flex-col space-y-4 lg:space-y-5">
+					{!isLoggedIn && (
+						<div>
+							<div className="relative flex items-center">
+								<CheckBox label="Guest Checkout" onChange={handleGuestCheckout} />
+							</div>
+						</div>
+					)}
+					
 					<div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0">
 						<Input
 							labelKey="forms:label-first-name"
@@ -222,6 +284,14 @@ const CheckoutForm: React.FC = () => {
 							variant="solid"
 							className="w-full lg:w-1/2 "
 						/>
+
+						<Input
+							labelKey="State"
+							{...register("state")}
+							variant="solid"
+							className="w-full lg:w-1/2 "
+						/>
+
 
 						<Input
 							labelKey="forms:label-postcode"

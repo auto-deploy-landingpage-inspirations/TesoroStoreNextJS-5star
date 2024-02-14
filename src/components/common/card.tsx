@@ -20,7 +20,10 @@ const Card: React.FC<Props> = ({
 	effectActive = false,
 	href,
 }) => {
-	const { name, image } = item ?? {};
+	const { name, icon } = item ?? {};
+	console.log(icon)
+	console.log("Item in unique category block:")
+	console.log(item)
 	const imageSize: any =
 		(size === "small" && 180) || (size === "medium" && 198);
 
@@ -38,7 +41,7 @@ const Card: React.FC<Props> = ({
 			>
 				<div className="flex">
 					<Image
-						src={image ?? placeholderImage}
+						src={item?.icon || placeholderImage}
 						alt={name.en || t("text-card-thumbnail") as string}
 						width={imageSize}
 						height={imageSize}

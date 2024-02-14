@@ -110,7 +110,7 @@ export type OrderedProduct = {
 export type OrderUserInfo = {
   name: string;
   email: string;
-  phone: string;
+  contact: string;
   address: string;
   city: string;
   state: string;

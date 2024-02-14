@@ -1,8 +1,11 @@
-import { useOrderQuery } from "@framework/order/get-order";
+// import { useOrderQuery } from "@framework/order/get-order";
 import usePrice from "@framework/product/use-price";
 import { OrderedProduct } from "@framework/types";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
+import { useGuestOrderQuery } from "@framework/order/get-guest-order";
+import { toast } from "react-toastify";
+import { useOrderQuery } from "@framework/order/get-order";
 const OrderItemCard = ({ product }: { product: OrderedProduct }) => {
 	const { price: itemOriginalTotal } = usePrice({
 		amount: product.originalPrice * product.quantity,
@@ -31,7 +34,30 @@ const OrderDetails: React.FC<{ className?: string }> = ({
 		query: { id },
 	} = useRouter();
 	const { t } = useTranslation("common");
-	const { data: order, isLoading } = useOrderQuery(id?.toString()!);
+	const {pathname} = useRouter();
+	const base = pathname.split("/");
+	
+	let order, isLoading, error:any;
+	if(base[1] === "guest-order"){
+		console.log("Guest Order")
+		const result = useGuestOrderQuery(id?.toString()!);
+		console.log(result)
+		error = result.error;
+		order = result.data;
+		isLoading = result.isLoading;
+	} else {
+		console.log("Logged In User Order")
+		const result = useOrderQuery(id?.toString()!);
+		order = result.data;
+		error = result.error;
+		isLoading = result.isLoading;
+	}
+	if(error){
+		// console.log(order.error.response.error)
+		toast(`${error.response.data.error}`, {
+			type: "error",
+		})
+	}
 	// const products = order?.cart;
 	// const paymentDetails = order?.ccavData;
 	
@@ -107,7 +133,7 @@ const OrderDetails: React.FC<{ className?: string }> = ({
 					</tr>
 					<tr className="odd:bg-gray-150">
 						<td className="p-4 italic">Contact:</td>
-						<td className="p-4">{order?.user_info.phone}</td>
+						<td className="p-4">{order?.user_info.contact}</td>
 					</tr>
 					<tr className="odd:bg-gray-150">
 						<td className="p-4 italic">{t("text-payment-method")as string}:</td>

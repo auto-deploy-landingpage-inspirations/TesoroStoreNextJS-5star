@@ -11,6 +11,7 @@ export const API_ENDPOINTS = {
   PRODUCT: "/api/products/product/",
   SMALL_BIZ_STAR: "/api/homepage/founders-pick",
   ORDER: "https://tesoro-backend.onrender.com/api/order/order_id/",
+  GUEST_ORDER: "http://localhost:5055/api/order/guest-order/",
 
   LOGOUT: "/logout",
   FORGET_PASSWORD: "/forget-password",
