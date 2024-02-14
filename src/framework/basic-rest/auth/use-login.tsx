@@ -12,8 +12,8 @@ export interface LoginInputType {
 
 async function login(input: LoginInputType) {
   const data = await http.post(API_ENDPOINTS.LOGIN, input);
-  console.log("Login Data REceiveD:")
-  console.log(data['data'].token)
+  // console.log("Login Data REceiveD:")
+  // console.log(data['data'].token)
   if(data['data'].token){
     return data['data'].token
   } else {

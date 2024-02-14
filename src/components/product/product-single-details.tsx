@@ -22,6 +22,7 @@ import ProductRating from "./productRating";
 // import CardRoundedLoader from "@components/ui/loaders/card-rounded-loader";
 import ProductReviewCards from "./product-review";
 import { Item } from "@contexts/cart/cart.utils";
+import { useUI } from "@contexts/ui.context";
 
 
 
@@ -57,7 +58,7 @@ import { Item } from "@contexts/cart/cart.utils";
 // }
 
 const ProductSingleDetails: React.FC = () => {
-	const [imgToShow, setImgToShow] = useState("")
+	const [imgToShow, setImgToShow] = useState("");
 	const {
 		query: { slug },
 	} = useRouter();
@@ -67,10 +68,13 @@ const ProductSingleDetails: React.FC = () => {
 	useEffect(() => {
 		setImgToShow(data?.image[0] ?? "");
 	}, [data]);
-	const { addItemToCart } = useCart();
+	const { items, removeItemFromCart, addItemToCart } = useCart();
+	const {closeCart} = useUI();
 	const [attributes, setAttributes] = useState<{ [key: string]: string }>({});
 	const [quantity, setQuantity] = useState(1);
 	const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
+	const [buyNowLoader, setBuyNowLoader] = useState<boolean>(false);
+	const router = useRouter();
 	// const { 
 	// 	price, basePrice, 
 	// 	discount } = usePrice(
@@ -134,7 +138,49 @@ const ProductSingleDetails: React.FC = () => {
 			pauseOnHover: true,
 			draggable: true,
 		});
-		console.log(item, "item");
+		// console.log(item, "item");
+	}
+
+	function clearCart(){
+		for (let i = 0; i < items.length; i++) {
+			removeItemFromCart(items[i].id);
+		}
+	}
+
+	function buyNow() {
+		if (!isSelected) return;
+		// to show btn feedback while product carting
+		setBuyNowLoader(true);
+		setTimeout(() => {
+			setBuyNowLoader(false);
+		}, 600);
+
+		const precart: Item = {
+			id: data?._id || '', 
+			name: data?.title.en || ' ', 
+			slug: data?.slug || ' ', 
+			image: data?.image[0] || '',
+			price: data?.prices.originalPrice || 0, 
+			sale_price: data?.prices.price || 0
+		}
+
+		const item = generateCartItem(precart, attributes);
+		addItemToCart(item, quantity);
+		toast("Added to the bag", {
+			type: "dark",
+			progressClassName: "fancy-progress-bar",
+			position: width > 768 ? "bottom-right" : "top-right",
+			autoClose: 2000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+		});
+		// console.log(item, "item");
+		// close cart
+		closeCart();
+		// go to checkout page
+		router.push("/checkout");
 	}
 
 	function handleAttribute(attribute: any) {
@@ -263,9 +309,9 @@ const ProductSingleDetails: React.FC = () => {
 					<h2 className="font-josephine text-gray-600 text-lg md:text-xl lg:text-2xl 2xl:text-3xl font-bold hover:text-slate-800 mt-10 uppercase mb-3">
 						{data?.title["en"]}
 					</h2>
-					<p className="font-bold pb-5 font-josephine">
+					{/* <p className="font-bold pb-5 font-josephine">
 						{data?.description["en"]}
-					</p>
+					</p> */}
 					<ProductRating />
 					{/* <p className="text-body text-sm lg:text-base leading-3 lg:leading-6">
 						{data?.description}
@@ -356,13 +402,16 @@ const ProductSingleDetails: React.FC = () => {
 						<span className="py-2 3xl:px-8 text-lg mt-1">ADD TO CART</span>
 					</Button>
 					<Button
-						onClick={addToCart}
+						onClick={() => {
+							clearCart();
+							buyNow();
+						}}
 						variant="new-2"
 						className={`font-josephine w-full md:w-1/2 m-2 xl:w-1/3 flex hover:bg-white hover:drop-shadow-md bg-indigo-500 hover:text-indigo-500 text-white ${
 							!isSelected && ""
 						}`}
 						disabled={!isSelected}
-						loading={addToCartLoader}
+						loading={buyNowLoader}
 					>
 						<span className="py-1 3xl:px-8 text-lg mt-1">BUY NOW</span>
 					</Button>

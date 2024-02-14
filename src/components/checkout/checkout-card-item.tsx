@@ -18,7 +18,7 @@ export const CheckoutItem: React.FC<{ item: Item }> = ({ item }) => {
 				/>
 			</div>
 			<h6 className="text-sm ps-3 font-regular text-heading">
-				{generateCartItemName(item.name, item.attributes)}
+				{generateCartItemName(item.name, item.attributes)} <span style={{fontSize: '12px'}} className="text-muted"> x {item.quantity} units</span>
 			</h6>
 			<div className="flex ms-auto text-heading text-sm ps-2 flex-shrink-0">
 				{price}

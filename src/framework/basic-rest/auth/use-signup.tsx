@@ -14,15 +14,22 @@ export interface SignUpInputType {
 }
 
 export interface response {
-  token: string;
+  data: {
+    email: string,
+    name: string,
+    _id: string,
+    token: string
+  }
 }
 async function signUp(input: SignUpInputType):Promise<string> {
   try{
-    console.log(input)
+    // console.log(input)
     // const token = jwt.sign(JSON.stringify(input), "alamsfdfsdsdfsdfsdfsdfsdfsdrafdar!@#$0fddlfjdfdfdssfds")
     // console.log(token)
     const data:response =  await http.post(`${API_ENDPOINTS.REGISTER}fsfs`, input);
-    const token = data.token;
+    // console.log("Sign up data received: ")
+    // console.log(data)
+    const token = data['data'].token;
     return token
 0 }
 catch(err){

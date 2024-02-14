@@ -7,6 +7,12 @@ import { useRouter } from "next/router";
 // import usePrice from "@framework/product/use-price";
 // import { Product } from "@framework/types";
 import { ProductDetails } from "@framework/product/get-product";
+import { Item } from "@contexts/cart/cart.utils";
+import { generateCartItem } from "@utils/generate-cart-item";
+import { ProductAttributes } from "./product-attributes";
+import { useCart } from "@contexts/cart/cart.context";
+import { toast } from "react-toastify";
+import { useWindowSize } from "react-use";
 // import Tooltip from "@components/Tooltip"
 
 interface ProductProps {
@@ -21,14 +27,15 @@ interface ProductProps {
 }
 
 
-const AddToCartButton: React.FC<{setAddToCart:any, addToCart:Boolean}> = ({setAddToCart, addToCart}) => {
+const AddToCartButton: React.FC<{setAddToCart:any, addToCart:Boolean, addToCartFunc:any}> = ({setAddToCart, addToCart, addToCartFunc}) => {
 	return(
 		// <Tooltip message="add to cart">
 			<button 
 				className="w-auto lg:w-3/5 group relative flex rounded-lg items-center py-2 px-2 lg:py-1 lg:px-6 mx-auto text-center bg-[#FFE583] stroke-[black] hover:stroke-[white] transition ease-in-out duration-300 shadow-navigation hover:bg-heading hover:text-white transform lg:translate-y-full lg:opacity-0 lg:group-hover:opacity-100 lg:group-hover:translate-y-0" 
 				type="button"
 				onClick={() => {
-					setAddToCart(!addToCart)
+					setAddToCart(!addToCart);
+					addToCartFunc();
 				}}
 				style={{
 					fontWeight: 'bold',
@@ -81,6 +88,8 @@ const ProductCard: FC<ProductProps> = ({
 	// imgHeight = 300,
 	imgLoading,
 }) => {
+	const { width } = useWindowSize();
+	const {addItemToCart} = useCart();
 	const [favorite, setFavorite] = useState<boolean>(false);
 	const [addToCart, setAddToCart] = useState<boolean>(false);
 	const router = useRouter();
@@ -98,6 +107,35 @@ const ProductCard: FC<ProductProps> = ({
 		// return openModal();
 		router.push(`/products/${product.slug}`);
 	}
+
+	// function handleOpenProductPage() {
+	// 	router.push(`/products/${product.slug}`);
+	// }
+
+	function addToCartFunc() {
+		const precart: Item = {
+			id: product._id,
+			name: product.title.en,
+			quantity: 1,
+			image: product.image[0],
+			slug: product.slug,
+			price: product.prices.originalPrice,
+			sale_price: product.prices.price
+		}
+		const item = generateCartItem(precart, ProductAttributes)
+		addItemToCart(item, 1);
+		toast("Added to the bag", {
+			type: "dark",
+			progressClassName: "fancy-progress-bar",
+			position: width > 768 ? "bottom-right" : "top-right",
+			autoClose: 2000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+		});
+		console.log(item, "item");
+	}
 	return (
 		<div
 			className={cn(
@@ -113,11 +151,12 @@ const ProductCard: FC<ProductProps> = ({
 				},
 				className
 			)}
-			onClick={handlePopupView}
+			
 			role="button"
 			title={product?.title.en}
 		>
 			<div
+				onClick={handlePopupView}
 				className={cn(
 					"flex relative",
 					{
@@ -163,14 +202,9 @@ const ProductCard: FC<ProductProps> = ({
 						</>
 					)}
 				</div>
-				<div>
-
-				</div>
-				<div className="overflow-hidden flex justify-center  absolute bottom-3.5 lg:bottom-5 p-2 w-full">
-						<AddToCartButton setAddToCart={setAddToCart} addToCart={addToCart}   />
-				</div>
 			</div>
 			<div
+				onClick={handlePopupView}
 				className={cn(
 					"w-full overflow-hidden",
 					{
@@ -220,6 +254,9 @@ const ProductCard: FC<ProductProps> = ({
 				<div className="text-center justify-center flex mt-2">
 					
 				</div>
+			</div>
+			<div className="overflow-hidden flex justify-center  absolute bottom-3.5 lg:bottom-5 p-2 w-full">
+				<AddToCartButton setAddToCart={setAddToCart} addToCart={addToCart} addToCartFunc={addToCartFunc}  />
 			</div>
 		</div>
 	);

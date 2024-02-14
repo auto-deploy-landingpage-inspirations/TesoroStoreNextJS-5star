@@ -26,8 +26,8 @@ const ProductsBlock: React.FC<ProductsProps> = ({
 	error,
 	uniqueKey,
 }) => {
-	console.log("in productblock:")
-	console.log(products)
+	// console.log("in productblock:")
+	// console.log(products)
 	return (
 		<div className={className}
 		style={

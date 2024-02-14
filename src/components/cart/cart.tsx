@@ -22,6 +22,7 @@ export default function Cart() {
 	});
 
 	const handleCheckout = () => {
+		closeCart();
 		// alert("checkout");
 	}
 	return (
