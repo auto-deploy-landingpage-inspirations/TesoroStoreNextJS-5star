@@ -4,7 +4,7 @@ import type { FC } from 'react';
 import { useWindowSize } from '@utils/use-window-size';
 import cn from 'classnames';
 import { LinkProps } from 'next/link';
-import Wobble from 'react-reveal'
+// import Wobble from 'react-reveal'
 
 
 interface BannerProps {
@@ -62,11 +62,11 @@ const BannerCard: FC<BannerProps> = ({
         {effectActive && (
           <div className="absolute top-0 -start-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
         )}
-        <Wobble delay={2000}>
+        {/* <Wobble delay={2000}>
           <button type='button' className='rounded-md drop-shadow-lg border-0 cursor-pointer absolute bottom-[20%] bg-gray-300 hover:bg-gray-150 text-[orange]  px-5 py-2 text-lg font-semibold align-bottom'>
             Shop Now
           </button>
-        </Wobble>
+        </Wobble> */}
       </Link>
     </div>
   );

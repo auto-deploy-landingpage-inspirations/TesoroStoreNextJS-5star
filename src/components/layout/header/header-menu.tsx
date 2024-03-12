@@ -4,6 +4,7 @@ import MegaMenu from "@components/ui/mega-menu";
 import classNames from "classnames";
 import ListMenu from "@components/ui/list-menu";
 import { useTranslation } from "next-i18next";
+import { useWindowSize } from '@utils/use-window-size';
 
 interface MenuProps {
 	data: any;
@@ -12,9 +13,10 @@ interface MenuProps {
 
 const HeaderMenu: React.FC<MenuProps> = ({ data, className }) => {
 	const { t } = useTranslation("menu");
+	const {width} = useWindowSize();
 	return (
-		<nav className={classNames(`headerMenu hidden lg:flex relative `, className)} 
-			style={{display: 'none'}}
+		<nav className={classNames(`headerMenu lg:flex relative `, className)} 
+			style={{ display: width < 765 ? 'none' : 'flex' }}
 		>
 			{data?.map((item: any) => (
 				<div

@@ -18,6 +18,8 @@ const CollectionTopBar = () => {
 	const collectionTitle = slug?.toString().split("-").join(" ");
 	const dir = getDirection(locale);
 	const contentWrapperCSS = dir === "ltr" ? { left: 0 } : { right: 0 };
+	console.log(collectionTitle);
+	console.log()
 	return (
 		<div className="flex justify-between items-center mb-7">
 			<Text

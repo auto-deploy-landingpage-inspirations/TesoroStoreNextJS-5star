@@ -190,7 +190,7 @@ const EmptyCart: FC<EmptyCartProps> = ({
 								fill="#212121"
 								stroke="rgba(0,0,0,0)"
 								stroke-miterlimit="10"
-								stroke-width="1"
+								strokeWidth="1"
 								opacity="0.3"
 							/>
 							<path
@@ -201,7 +201,7 @@ const EmptyCart: FC<EmptyCartProps> = ({
 								fill="#212121"
 								stroke="rgba(0,0,0,0)"
 								stroke-miterlimit="10"
-								stroke-width="1"
+								strokeWidth="1"
 								opacity="0.3"
 							/>
 							<path
@@ -212,7 +212,7 @@ const EmptyCart: FC<EmptyCartProps> = ({
 								fill="#212121"
 								stroke="rgba(0,0,0,0)"
 								stroke-miterlimit="10"
-								stroke-width="1"
+								strokeWidth="1"
 								opacity="0.3"
 							/>
 						</g>

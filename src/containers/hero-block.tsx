@@ -59,7 +59,7 @@ const HeroBlock: React.FC = () => {
 			>
 				{bannerData && bannerData.map((banner: any) => (
 					<SwiperSlide
-						className="carouselItem px-0 2xl:px-3.5"
+						className="carouselItem px-0 2xl:px-3.5 max-h-[85vh]"
 						key={`banner--key-${banner?.id}`}
 					>
 						<BannerCard

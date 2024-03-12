@@ -48,14 +48,19 @@ export type Category = {
   productCount?: number;
 };
 export type Collection = {
-  id: number | string;
-  name: string;
+  _id: string;
+  description: title;
+  name: title;
   slug: string;
+  status: boolean;
   details?: string;
   image?: Attachment;
   icon?: string;
+  children: Collection[];
   products?: Product[];
   productCount?: number;
+  parentName?: string;
+  parentId?: string;
 };
 export type Brand = {
   id: number | string;

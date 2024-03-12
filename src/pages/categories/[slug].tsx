@@ -12,7 +12,7 @@ import { BreadcrumbItems } from "@components/common/breadcrumb";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ROUTES } from "@utils/routes";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import CategoryBanner from "@containers/category-banner";
 // import { fetchCategories } from "@framework/category/get-all-categories";
 // import { useRouter } from "next/router";
@@ -28,30 +28,13 @@ const colors:string[] = [
 	'bg-green-500'
   ]
 
-const fetchCategories = () => {
-// Your data-fetching logic here
-return ['category1', 'category2', 'category3']; // Array of category slugs
-};
-
-export async function getStaticPaths() {
-	const categories = fetchCategories()
-	const paths = categories.map((category) => ({
-		params: {slug:category},
-	}))
-	return {
-		paths,
-		fallback: false // Or 'blocking' if you want to use incremental static regeneration (ISR)
-	};
-}
 
 export default function Products() {
-    // const {
-    //     query: { slug }
-    // } = useRouter();
-
-    // const data = 
+    
+	// const category = data?.category;
 
 	const { t } = useTranslation("common");
+
 	return (
 		<>
 			{/* <ShopDiscount /> */}
@@ -59,6 +42,7 @@ export default function Products() {
 				<CategoryBanner bgColor={colors[0]} />
 				{/* <CategoryBlock2 sectionHeading="Categories" /> */}
 				<CategoryLiner />
+				{/* <CategoryLiner categoryData={data} /> */}
 				<div className={`flex pt-8 pb-16 lg:pb-20`}>
 					<div className="flex-shrink-0 pe-24 hidden lg:block w-72">
 						<StickyBox offsetTop={50} offsetBottom={20}>
@@ -95,7 +79,7 @@ export default function Products() {
 
 Products.Layout = Layout;
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
 	return {
 		props: {
 			...(await serverSideTranslations(locale!, [

@@ -5,6 +5,7 @@ import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
 import http from "@framework/utils/http";
 import Cookies from "js-cookie";
 import { useMutation } from "react-query";
+import { toast } from "react-toastify";
 // const jwt = require("jsonwebtoken")
 
 export interface SignUpInputType {
@@ -46,11 +47,24 @@ export const useSignUpMutation = () => {
   // const data = fetch(`${API_ENDPOINTS.REGISTER}fsfs`, )
   return useMutation((input: SignUpInputType) => signUp(input), {
     onSuccess: (data: string) => {
-      Cookies.set("auth_token", data);
-      authorize();
-      closeModal();
+      if(data == undefined || data == null){
+        toast("Failed to sign up", {
+          type: "error",
+        });
+      }
+      else {
+        Cookies.set("auth_token", data);
+        authorize();
+        closeModal();
+        toast("Sign Up Success", {
+          type: "success",
+        });
+      }
     },
     onError: (data) => {
+      toast("Failed to sign up", {
+        type: "error",
+      });
       console.log(data, "login error response");
     },
   });

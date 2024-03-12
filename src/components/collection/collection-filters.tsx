@@ -10,11 +10,14 @@ export const CollectionFilters: React.FC = () => {
 	const { data, isLoading } = useCollectionsQuery({
 		limit: 15,
 	});
+	const collection = data;
+	console.log("Collection", collection);
 	if (isLoading) return <p>Loading...</p>;
 	const router = useRouter();
 	const currentPath = router.asPath.split("/").slice(2, 3).join();
 
-	const items = data?.collections.data;
+	const items = data?.data;
+	console.log(items, "items")
 	return (
 		<div className="pt-1">
 			<div className="block border-b border-gray-300 pb-5 mb-7">
@@ -27,14 +30,14 @@ export const CollectionFilters: React.FC = () => {
 			<div className="block pb-7">
 				<ul className="mt-2 flex flex-col space-y-5">
 					{items?.map((item: any) => (
-						<li key={item.id} className="text-sm lg:text-[15px] cursor-pointer">
+						<li key={item._id} className="text-sm lg:text-[15px] cursor-pointer">
 							<ActiveLink href={`${ROUTES.COLLECTIONS}/${item.slug}`}>
 								<a
 									className={`block transition duration-300 ease-in-out text-heading hover:font-semibold py-0.5 ${
 										currentPath === item.slug && "font-semibold"
 									}`}
 								>
-									{item.name}
+									{item.name.en}
 								</a>
 							</ActiveLink>
 						</li>

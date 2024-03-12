@@ -4,6 +4,7 @@ import { useUI } from "@contexts/ui.context";
 import Cookies from "js-cookie";
 import Router from "next/router";
 import { useMutation } from "react-query";
+import { toast } from "react-toastify";
 
 export interface LoginInputType {
   email: string;
@@ -23,6 +24,9 @@ export const useLogoutMutation = () => {
     onSuccess: (_data) => {
       Cookies.remove("auth_token");
       unauthorize();
+      toast("Logout Success", {
+        type: "success",
+      });
       Router.push("/");
     },
     onError: (data) => {
