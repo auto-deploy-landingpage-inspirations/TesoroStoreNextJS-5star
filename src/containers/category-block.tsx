@@ -75,8 +75,8 @@ const CategoryBlock: React.FC<CategoriesProps> = ({
   type = 'circle',
 }) => {
   const { data, isLoading, error } = useCategoriesQuery({});
-  console.log("DATa in category block:");
-  console.log(data)
+  // console.log("DATa in category block:");
+  // console.log(data)
   return (
     <div className={className+" bg-category-section"} style={
       {

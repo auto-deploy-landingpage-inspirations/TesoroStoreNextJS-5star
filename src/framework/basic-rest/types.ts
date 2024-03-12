@@ -123,6 +123,21 @@ export type OrderUserInfo = {
   zipCode: string;
 };
 
+export type OrderShipmentDetails = {
+  length?: string | number;
+  breadth?: string | number;
+  height?: string | number;
+  weight?: string | number;
+}
+
+export type courierDetails= {
+  shipping_id?: String;
+  awb_number?: String;
+  courier_id?: String;
+  courier_name?: String;
+  label?: String;
+}
+
 export type Order = {
   _id: string | number;
   name: string;
@@ -141,6 +156,9 @@ export type Order = {
   user: string;
   user_info: OrderUserInfo;
   ccavData: any;
+  awb?: string;
+  shipmentDetails?: OrderShipmentDetails;
+  courierDetails?: courierDetails;
 };
 
 interface bannerType {

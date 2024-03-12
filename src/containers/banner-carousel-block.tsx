@@ -23,28 +23,36 @@ const breakpoints = {
 
 interface BannerProps {
 	className?: string;
+	mobile?: boolean;
+	web?: boolean;
 }
 
 const BannerCarouselBlock: React.FC<BannerProps> = ({
 	className = "mb-6 md:mb-6 lg:mb-8 pb-0.5 xl:pb-1.5",
+	web,
+	mobile
 }) => {
 	return (
 		<div className={className}>
 			<Carousel breakpoints={breakpoints} autoplay={{ delay: 3000 }}>
 				{banners?.map((banner: any, idx:number) => (
 					<SwiperSlide key={`promotion-banner-key-${banner?.id}`}>
-						<BannerCard2
-							idx={idx}
-							banner={banner}
-							href={`${ROUTES.COLLECTIONS}/${banner.slug}`}
-							effectActive={true}
-						/>
-						<BannerCard2Mobile
-							idx={idx}
-							banner={banner}
-							href={`${ROUTES.COLLECTIONS}/${banner.slug}`}
-							effectActive={true}
-						/>
+						{web === true && (
+							<BannerCard2
+								idx={idx}
+								banner={banner}
+								href={`${ROUTES.COLLECTIONS}/${banner.slug}`}
+								effectActive={true}
+							/>
+						)}
+						{mobile == true && (
+							<BannerCard2Mobile
+								idx={idx}
+								banner={banner}
+								href={`${ROUTES.COLLECTIONS}/${banner.slug}`}
+								effectActive={true}
+							/>
+						)}
 					</SwiperSlide>
 				))}
 			</Carousel>

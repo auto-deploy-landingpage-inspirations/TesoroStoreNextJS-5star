@@ -105,6 +105,10 @@ const OrderDetails: React.FC<{ className?: string }> = ({
 					</tr>
 				</thead>
 				<tbody>
+					<tr className="odd:bg-gray-150">
+						<td>Order Id</td>
+						<td>{order?.orderId}</td>
+					</tr>
 					{order?.cart.map((product:any, index:number) => (
 						<OrderItemCard key={index} product={product} />
 					))}
@@ -118,6 +122,13 @@ const OrderDetails: React.FC<{ className?: string }> = ({
 						<td className="p-4 italic">Order Status:</td>
 						<td className="p-4">{order?.status}</td>
 					</tr>
+					<tr className="odd:bg-gray-150">
+						<td className="p-4 italic">Order Tracking (AWB):</td>
+						<td className="p-4">{order?.awb}</td>
+					</tr>
+					{/* <tr>
+						<td className="p-4 italic"></td>
+					</tr> */}
 					<tr className="odd:bg-gray-150">
 						<td className="p-4 italic">{t("text-shipping")as string}:</td>
 						<td className="p-4">

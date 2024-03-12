@@ -9,7 +9,7 @@ export const API_ENDPOINTS = {
   TOP_CATEGORIES: "/api/homepage/top-selling-categories",
   OFFER_BANNER: "/api/homepage/offer-banner",
   PRODUCT: "/api/products/product/",
-  SMALL_BIZ_STAR: "/api/homepage/founders-pick",
+  SMALL_BIZ_STAR: "http://localhost:5055/api/homepage/small-biz-stars",
   ORDER: "https://tesoro-backend.onrender.com/api/order/order_id/",
   GUEST_ORDER: "https://tesoro-backend.onrender.com/api/order/guest-order/",
   COLLECTIONS: "http://localhost:5055/api/category/",
@@ -18,6 +18,7 @@ export const API_ENDPOINTS = {
   COLLECTION: "http://localhost:5055/api/categories/slug/",
   PRODUCTS_CATEGORY: "http://localhost:5055/api/products/category/",
   PRODUCTS: "http://localhost:5055/api/products/category/",
+  HOMEPAGE_VISIBILITY: "http://localhost:5055/api/homepage/visibility",
 
   LOGOUT: "/logout",
   FORGET_PASSWORD: "/forget-password",

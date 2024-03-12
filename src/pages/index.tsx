@@ -40,16 +40,17 @@ import NewArrivalsProductFeedMobile from "@components/product/feeds/new-arrivals
 import BestSellerProductFeedMobile from "@components/product/feeds/best-seller-product-feed-mobile";
 import SpecialSectionMobile from "@containers/SpecialSectionMobile";
 import CollectionBlockMobile from "@containers/collection-block-mobile";
+import { useVisibilityQuery } from "@framework/homepage/get-visibility";
+
 
 export default function Home() {
 	console.log("ENV Variable: ", process.env.NEXT_PUBLIC_ENV);
-	// const { openModal, setModalView } = useUI();
-	// useEffect(() => {
-	// 	setModalView("NEWSLETTER_VIEW");
-	// 	setTimeout(() => { 
-	// 		openModal();
-	// 	}, 2000);
-	// }, []);
+	const blogsVisibility = false;
+	const { data, isLoading, error } = useVisibilityQuery();
+	console.log("Visiblity Data")
+	console.log(data);
+	if(error) return <p>{error.message}</p>
+	if(isLoading) return <p>Loading...</p>
 	return (
 		<>
 			<div 
@@ -60,26 +61,31 @@ export default function Home() {
 				{/* <h1 className="items-center text-center font-bold text-pink-400" style={{ fontSize: '40px'}}>
 					New Arrivals
 				</h1> */}
+				{/* <h1>{data.NAP.web}</h1> */}
+				
 				<NewArrivalsProductFeed />
 				<NewArrivalsProductFeedMobile />
+				
 
 				<CategoryBlock sectionHeading="Top Selling Categories" />
 				
 				
-				<BannerCarouselBlock />
+				<BannerCarouselBlock /> 
 				<FlashSaleBlock />
+				
 				<BestSellerProductFeed />
+				
 				<BestSellerProductFeedMobile />
+				
 				<BizMagic2 />
 				<BizMagic2Mobile />
-				{/* <BusinessMagic /> */}
-				{/* <Fade bottom>
-					<FoundersPick />
-				</Fade> */}
+				
+				
 				<Fade bottom>
 					<CollectionBlock />
 				</Fade>
-
+				
+				
 				<Fade bottom>
 					<CollectionBlockMobile />
 				</Fade>
@@ -94,10 +100,12 @@ export default function Home() {
 				
 				{/* <Divider /> */}
 				{/* <BrandBlock sectionHeading="text-top-brands" /> */}
-				
-				<SpecialSection /> 
-				<SpecialSectionMobile /> 
-				
+				{blogsVisibility && (
+					<>
+						<SpecialSection /> 
+						<SpecialSectionMobile /> 
+					</>
+				)}
 				{/* <SectionHalf /> */}
 				<Feature />
 				{/* <FeatureBlock /> */}

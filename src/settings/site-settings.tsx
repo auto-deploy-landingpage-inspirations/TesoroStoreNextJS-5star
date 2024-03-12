@@ -31,32 +31,32 @@ export const siteSettings = {
 				subMenu: [
 					{
 						id: 1,
-						path: "/sub-collections/planters",
+						path: "/categories/planters",
 						label: "Planters",
 					},
 					{
 						id: 2,
-						path: "/sub-collections/candles",
+						path: "/categories/candles",
 						label: "Candles",
 					},
 					{
 						id: 3,
-						path: "/sub-collections/candle-stand",
+						path: "/categories/candle-stand",
 						label: "Candle Stand",
 					},
 					{
 						id: 4,
-						path: "/sub-collections/mirrors",
+						path: "/categories/mirrors",
 						label: "Mirrors",
 					},
 					{
 						id: 5,
-						path: "/sub-collections/vases",
+						path: "/categories/vases",
 						label: "Vases",
 					},
 					{
 						id: 6,
-						path: "/sub-collections/frames",
+						path: "/categories/frames",
 						label: "Frames",
 					},
 				],
@@ -68,42 +68,42 @@ export const siteSettings = {
 				subMenu: [
 					{
 						id: 1,
-						path: '/sub-collections/pens-and-highlighters',
+						path: '/categories/pens-and-highlighters',
 						label: 'Pens & Highlighters'
 					},
 					{
 						id: 2,
-						path: '/sub-collections/notebooks-and-planners',
+						path: '/categories/notebooks-and-planners',
 						label: 'Notebook & Planners'
 					},
 					{
 						id: 3,
-						path: '/sub-collections/journals',
+						path: '/categories/journals',
 						label: 'Journals'
 					},
 					{
 						id: 4,
-						path: '/sub-collections/photo-books',
+						path: '/categories/photo-books',
 						label: 'Photo Books'
 					},
 					{
 						id: 5,
-						path: '/sub-collections/bookmarks',
+						path: '/categories/bookmarks',
 						label: 'Bookmarks'
 					},
 					{
 						id: 6,
-						path: '/sub-collections/sticky-notes',
+						path: '/categories/sticky-notes',
 						label: 'Sticky Notes'
 					},
 					{
 						id: 7,
-						path: '/sub-collections/to-do-lists-notepad',
+						path: '/categories/to-do-lists-notepad',
 						label: 'To-Do List & Notepad'
 					},
 					{
 						id: 8,
-						path: '/sub-collections/pencils',
+						path: '/categories/pencils',
 						label: 'Pencils'
 					}
 				]
@@ -115,42 +115,42 @@ export const siteSettings = {
 				subMenu: [
 					{
 						id: 1,
-						path: '/sub-collections/ceramic-bowl',
+						path: '/categories/ceramic-bowl',
 						label: 'Ceramic Bowls'
 					},
 					{
 						id: 2,
-						path: '/sub-collections/cutlery',
+						path: '/categories/cutlery',
 						label: 'Cutlery'
 					},
 					{
 						id: 3,
-						path: '/sub-collections/plates',
+						path: '/categories/plates',
 						label: 'Plates'
 					},
 					{
 						id: 4,
-						path: '/sub-collections/serving-plates-and-bowls',
+						path: '/categories/serving-plates-and-bowls',
 						label: 'Serving Plates and Bowls'
 					},
 					{
 						id: 5,
-						path: '/sub-collections/mugs',
+						path: '/categories/mugs',
 						label: 'Mugs'
 					},
 					{
 						id: 6,
-						path: '/sub-collections/cups',
+						path: '/categories/cups',
 						label: 'Cups'
 					},
 					{
 						id: 7,
-						path: '/sub-collections/customizable-products',
+						path: '/categories/customizable-products',
 						label: 'Customizable Products'
 					},
 					{
 						id: 8,
-						path: '/sub-collections/glassware',
+						path: '/categories/glassware',
 						label: 'Glassware'
 					}
 				]
@@ -162,27 +162,27 @@ export const siteSettings = {
 				subMenu: [
 					{
 						id: 1,
-						path: '/sub-collections/gifts-for-her',
+						path: '/categories/gifts-for-her',
 						label: 'Gifts for Her'
 					},
 					{
 						id: 2,
-						path: '/sub-collections/gifts-for-him',
+						path: '/categories/gifts-for-him',
 						label: 'Gift for Him'
 					},
 					{
 						id: 3,
-						path: '/sub-collections/gifts-for-kids',
+						path: '/categories/gifts-for-kids',
 						label: 'Kids for Kids'
 					},
 					{
 						id: 4,
-						path: '/sub-collections/gifts-for-mom',
+						path: '/categories/gifts-for-mom',
 						label: 'Gifts for Mom'
 					},
 					{
 						id: 5,
-						path: '/sub-collections/gifts-for-dad',
+						path: '/categories/gifts-for-dad',
 						label: 'Gifts for Dad'
 					}
 				]
@@ -191,12 +191,12 @@ export const siteSettings = {
 			
 			{
 				id: 5,
-				path: "/pages/sale",
+				path: "/categories/handmade-with-love",
 				label: "Handmade with Love"
 			},
 			{
 				id: 6,
-				path: "/pages/about-us",
+				path: "/categories/custom-made",
 				label: "Custom Made"
 			},
 			{
@@ -219,32 +219,32 @@ export const siteSettings = {
 						subMenu: [
 							{
 								id: 1,
-								path: "/search?q=t-shit-shirtrt",
+								path: "/categories/planters",
 								label: "Planters",
 							},
 							{
 								id: 2,
-								path: "/search?q=casual-shirts",
+								path: "/categories/candles",
 								label: "Candles",
 							},
 							{
 								id: 3,
-								path: "/search?q=formal-shirts",
+								path: "/categories/candle-stand",
 								label: "Candle Stand",
 							},
 							{
 								id: 4,
-								path: "/search?q=blazwers-coats",
+								path: "/categories/mirrors",
 								label: "Mirrors",
 							},
 							{
 								id: 5,
-								path: "/search?q=suits",
+								path: "/categories/vases",
 								label: "Vases",
 							},
 							{
 								id: 6,
-								path: "/search?q=jackets",
+								path: "/categories/frames",
 								label: "Frames",
 							},
 						],
@@ -257,27 +257,27 @@ export const siteSettings = {
 						subMenu: [
 							{
 								id: 1,
-								path: "/search?q=t-shit-shirtrt",
+								path: "/categories/pens-&-highlighters",
 								label: 'Pens & Highlighters',
 							},
 							{
 								id: 2,
-								path: "/search?q=casual-shirts",
+								path: "/categories/notebook-&-planers",
 								label: 'Notebook & Planners',
 							},
 							{
 								id: 3,
-								path: "/search?q=formal-shirts",
+								path: "/categories/photo-books",
 								label: 'Photo Books',
 							},
 							{
 								id: 4,
-								path: "/search?q=blazwers-coats",
+								path: "/categories/bookmarks",
 								label:'Bookmarks',
 							},
 							{
 								id: 5,
-								path: "/search?q=suits",
+								path: "/sticky-notes",
 								label: 'Sticky Notes',
 							},
 							{

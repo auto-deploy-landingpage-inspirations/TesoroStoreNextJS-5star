@@ -20,10 +20,10 @@ const Card: React.FC<Props> = ({
 	effectActive = false,
 	href,
 }) => {
-	const { name, icon } = item ?? {};
-	console.log(icon)
-	console.log("Item in unique category block:")
-	console.log(item)
+	const { name } = item ?? {};
+	// console.log(icon)
+	// console.log("Item in unique category block:")
+	// console.log(item)
 	const imageSize: any =
 		(size === "small" && 180) || (size === "medium" && 198);
 

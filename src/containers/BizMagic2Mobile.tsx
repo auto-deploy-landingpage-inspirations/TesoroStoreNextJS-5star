@@ -5,28 +5,28 @@ import {Reveal} from "react-reveal"
 
 
 
-interface ShowcaseInterface{
-    img: string,
-    name: string,
-    price: string
-}
+// interface ShowcaseInterface{
+//     img: string,
+//     name: string,
+//     price: string
+// }
 
-const showCaseProducts:ShowcaseInterface[] = [
-    {
-        img: '/assets/images/smallBiz/product-1.jpg',
-        name:'Raspberry + Champagne Marshmallows',
-        price: '500'
-    },
-    {
-        img: '/assets/images/smallBiz/product-2.jpg',
-        name:'Raspberry + Champagne Marshmallows',
-        price: '600'
-    },
-    {
-        img: '/assets/images/smallBiz/product-3.jpg',
-        name:'Raspberry + Champagne Marshmallows',
-        price: '1500'
-    },
+// const showCaseProducts:ShowcaseInterface[] = [
+//     {
+//         img: '/assets/images/smallBiz/product-1.jpg',
+//         name:'Raspberry + Champagne Marshmallows',
+//         price: '500'
+//     },
+//     {
+//         img: '/assets/images/smallBiz/product-2.jpg',
+//         name:'Raspberry + Champagne Marshmallows',
+//         price: '600'
+//     },
+//     {
+//         img: '/assets/images/smallBiz/product-3.jpg',
+//         name:'Raspberry + Champagne Marshmallows',
+//         price: '1500'
+//     },
     // {
     //     img: '/assets/images/new-images/01f1cee7-b377-4689-98a3-a6f3b0606acf.jpg',
     //     name: 'Raspberry + Champagne Marshmallows',
@@ -37,11 +37,16 @@ const showCaseProducts:ShowcaseInterface[] = [
     //     name: 'Raspberry + Champagne Marshmallows',
     //     price: '3000'
     // }
-]
+// ]
 
-
+const {useSmallBizStars} = require('@framework/homepage/get-small-biz')
 
 export default function BizMagic2Mobile() {
+    const {data, error, isLoading} = useSmallBizStars();
+    console.log("Small Biz Stars")
+    console.log(data);
+    if(isLoading) return <p>Loading...</p>
+    if(error) return <p>{error.message}</p>
   return (
     <>
     <div className='w-full h-auto my-10 pb-0 text-center items-center bg-[#f3d4da] drop-shadow-md relative overflow-hidden for-mobile'>
@@ -56,24 +61,30 @@ export default function BizMagic2Mobile() {
             </Fade>
             <Fade bottom delay={100}>
                 <h2 className='text-xl font-bold' style={{fontFamily: 'Hap'}}>
-                    Manvi & Tanisha <br/>Quso Home
+                    {isLoading && data.storeDetails ? (<>Loading....</>): data.storeDetails.subtitle }
                 </h2>
             </Fade>
             <Fade bottom delay={400} style={{fontFamily: 'Hap'}}>
                 <p className='text-sm my-2 w-[90%] mx-auto'>
-                    Manvi & Tanisha run the beautifully homegrown decor brand Quoso which is a medley of quirkiness and sophistication, offering truly one of a kind range of products that would give your home a distinct personality. Extremely passionate about home interiors, they are set to win hearts with their fantastic collection!
+                {isLoading? (<>Loading...</>): data.storeDetails.description}
                 </p>
             </Fade>
             <Zoom delay={500} style={{fontFamily: 'Hap'}}>
-                <button className='text-black text-sm hover:bg-blue-400 bg-blue-300 rounded-xl py-1 px-5 drop-shadow hover:drop-shadow-xl mt-2'>
+                <button className='text-black text-sm hover:bg-blue-400 bg-blue-300 rounded-xl py-1 px-5 drop-shadow hover:drop-shadow-xl mt-2'onClick={() => window.location.href = `${data.storeDetails.storeLink}`}
+                >
                     Shop their Collection
                 </button>
             </Zoom>
             <Fade bottom delay={1000}>
                 <div className='flex w-full my-2 mx-auto justify-center'>
-                    <div className='w-28 h-28 rounded-xl drop-shadow-md mx-3 mt-2' style={{background: `url(${showCaseProducts[0].img})`, backgroundPosition: 'center', backgroundSize: 'cover'}}></div>
+                    {isLoading? (<>Loading...</>): data.productRef.map((product: any, index: number) => {
+                        return (
+                            <div key={index} className='w-28 h-28 rounded-xl drop-shadow-md mx-3 mt-2' style={{background: `url(${product.image[0]})`, backgroundPosition: 'center', backgroundSize: 'cover'}}></div>
+                        )
+                    })}
+                    {/* <div className='w-28 h-28 rounded-xl drop-shadow-md mx-3 mt-2' style={{background: `url(${showCaseProducts[0].img})`, backgroundPosition: 'center', backgroundSize: 'cover'}}></div>
                     <div className='w-28 h-28 rounded-xl drop-shadow-md mx-3 mt-2' style={{background: `url(${showCaseProducts[1].img})`, backgroundPosition: 'center', backgroundSize: 'cover'}}></div>
-                    <div className='w-28 h-28 rounded-xl drop-shadow-md mx-3 mt-2' style={{background: `url(${showCaseProducts[2].img})`, backgroundPosition: 'center', backgroundSize: 'cover'}}></div>
+                    <div className='w-28 h-28 rounded-xl drop-shadow-md mx-3 mt-2' style={{background: `url(${showCaseProducts[2].img})`, backgroundPosition: 'center', backgroundSize: 'cover'}}></div> */}
                 </div>
             </Fade>
         </div>

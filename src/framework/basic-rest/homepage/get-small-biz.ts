@@ -13,10 +13,11 @@ export const fetchSmallBizStar = async () => {
   const {
     data: { data },
   } = await https.get(API_ENDPOINTS.SMALL_BIZ_STAR);
-  console.log(data)
-  return data.data[0] as SmallBIzStar ;
+  // console.log("Inside Get Small Biz Star")
+  // console.log(data)
+  return data[0] as SmallBIzStar ;
 };
-export const useHomePageBanner = (options: QueryOptionsType) => {
+export const useSmallBizStars = (options: QueryOptionsType) => {
   return useQuery<SmallBIzStar, Error>(
     [API_ENDPOINTS.SMALL_BIZ_STAR, options],
     fetchSmallBizStar
