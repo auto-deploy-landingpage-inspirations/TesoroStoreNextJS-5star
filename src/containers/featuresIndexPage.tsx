@@ -27,8 +27,8 @@ const data = [
 	{
 		id: 4,
 		icon: "/assets/images/features/multiple-brands.png",
-		title: "1000+ Brands",
-		description: "More than 1000+ Brands to Shop from ",
+		title: "1000+ Products",
+		description: "More than 1000+ Products to Shop from ",
     color: 'bg-[#fef9c3]',
     textColor: 'text-[orange]'
 	},

@@ -2,7 +2,7 @@ import {
 	IoLogoInstagram,
 	IoLogoTwitter,
 	IoLogoFacebook,
-	IoLogoYoutube,
+	IoLogoPinterest,
 } from "react-icons/io5";
 
 export const footer = {
@@ -14,7 +14,7 @@ export const footer = {
 				{
 					id: 1,
 					title: "link-instagram",
-					path: "https://www.instagram.com/",
+					path: "https://www.instagram.com/tesorostore.in?igsh=MWUzZjJ6NTB0emFiOQ==",
 					icon: <IoLogoInstagram />,
 				},
 				{
@@ -31,9 +31,9 @@ export const footer = {
 				},
 				{
 					id: 4,
-					title: "link-youtube",
-					path: "https://www.youtube.com/",
-					icon: <IoLogoYoutube />,
+					title: "Pinterest",
+					path: "https://in.pinterest.com/pin/tesoro-fashion-store-by-n-design-team-karachi-pakistan--113504853082361775/",
+					icon: <IoLogoPinterest />,
 				},
 			],
 		},
@@ -53,8 +53,8 @@ export const footer = {
 				},
 				{
 					id: 3,
-					title: "+91 96549 70705",
-					path: "tel:+919654970705",
+					title: "+91 88008 89492",
+					path: "tel:+918800889492",
 				},
 			],
 		},
@@ -129,6 +129,11 @@ export const footer = {
 					title: "link-site-map",
 					path: "/",
 				},
+				{
+					id: 6,
+					title: "Sell with Us",
+					path: "/form"
+				}
 			],
 		},
 		{

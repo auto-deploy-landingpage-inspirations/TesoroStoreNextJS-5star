@@ -320,7 +320,7 @@ const ProductSingleDetails: React.FC = () => {
 						<div className="font-josephine text-gray-600 font-semibold text-base md:text-md lg:text-lg 2xl:text-2xl pe-2 md:pe-0 lg:pe-2 2xl:pe-0">
 							₹{data?.prices.finalDiscountedPrice}/-
 						</div>
-						{data?.prices.discount && (
+						{data?.prices.discount !== 0 && (
 							<span className="font-josephine font-normal line-through font-segoe text-gray-400 text-sm md:text-base lg:text-md xl:text-lg ps-2">
 								₹{data?.prices.finalPrice}/-
 							</span>

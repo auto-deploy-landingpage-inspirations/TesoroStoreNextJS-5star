@@ -98,9 +98,13 @@ const ProductCard: FC<ProductProps> = ({
 	// 	setModalView, setModalData } = useUI();
 	const placeholderImage = `/assets/placeholder/products/product-${variant}.svg`;
 	
-	const discount = product.prices.price - product.prices.originalPrice;
-	const price = `₹${product.prices.price}/-`;
-	const basePrice = `₹${product.prices.originalPrice}/-`;
+
+	let discount = product.prices.finalPrice - product.prices.finalDiscountedPrice;
+	const price = `₹${product.prices.finalDiscountedPrice}/-`;
+	const basePrice = `₹${product.prices.finalPrice}/-`;
+	if(product.prices.finalDiscountedPrice === 0 || product.prices.finalDiscountedPrice === null || product.prices.finalDiscountedPrice === undefined){
+		discount = 0;
+	}
 	function handlePopupView() {
 		// setModalData({ data: product });
 		// setModalView("PRODUCT_VIEW");
@@ -243,7 +247,7 @@ const ProductCard: FC<ProductProps> = ({
 				>
 					<span className="inline-block"
 					style={{fontFamily: 'Hap'}}>{price}</span>
-					{discount && (
+					{discount!==0 && (
 						<del className="sm:text-base font-normal text-red-600" 
 						style={{fontFamily: 'Hap'}}>
 							{basePrice}

@@ -64,7 +64,7 @@ export const siteSettings = {
 			{
 				id: 2,
 				path: "/",
-				label: "Stationary",
+				label: "Stationery",
 				subMenu: [
 					{
 						id: 1,
@@ -157,6 +157,32 @@ export const siteSettings = {
 			},
 			{
 				id: 4,
+				path: '/accessories',
+				label: 'Accessories',
+				subMenu: [
+					{
+						id: 1,
+						path: "",
+						label: "Sunglasses"
+					},
+					{
+						id: 2,
+						path: "",
+						label: "Jewellery"
+					},{
+						id: 3,
+						path: "",
+						label: "Bags"
+					},
+					{
+						id: 4,
+						path: "",
+						label: "Hair"
+					},
+				]
+			},
+			{
+				id: 5,
 				path: "/",
 				label: "Gifting",
 				subMenu: [
@@ -190,20 +216,16 @@ export const siteSettings = {
 			
 			
 			{
-				id: 5,
+				id: 6,
 				path: "/categories/handmade-with-love",
 				label: "Handmade with Love"
 			},
 			{
-				id: 6,
-				path: "/categories/custom-made",
-				label: "Custom Made"
-			},
-			{
 				id: 7,
-				path: '/accessories',
-				label: 'Accessories'
+				path: "/categories/personal-care",
+				label: "Personal Care"
 			},
+			
 		],
 		mobileMenu: [
 			
