@@ -120,7 +120,7 @@ const CategoryBlock: React.FC<CategoriesProps> = ({
                 buttonClassName="-mt-8 md:-mt-10"
               >
                 {data?.categoryRef.map((category:any) => (
-                  <SwiperSlide key={`category--key-${category.id}`}>
+                  <SwiperSlide key={`category--key-${category._id}`}>
                     <Card
                       item={category}
                       href={`${ROUTES.CATEGORY}/${category.slug}`}

@@ -180,6 +180,17 @@ export type HomepageBanner = {
   offerBlock: bannerType[];
 }
 
+export type OfferZone = {
+  visible: boolean;
+  productRef?: ProductDetails[];
+  categoryRef?: string[];
+  BlogLinkReference?: string[];
+  _id: string;
+  sectionCode: string;
+  sectionTitle: string;
+  offerBlock?: bannerType[];
+}
+
 export type FetchProducts = {
   visible: boolean;
   productRef: ProductDetails[];

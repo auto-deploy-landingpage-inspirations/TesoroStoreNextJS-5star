@@ -1,5 +1,8 @@
 // import { Product } from "@framework/types";
 export type prices = {
+	finalPrice: number;
+	finalDiscountedPrice: number;
+	slabPrice: number;
 	price: number;
 	originalPrice: number;
 	discount: number;
@@ -37,6 +40,12 @@ export type ProductDetails = {
 	title: title;
 	variants?: object;
 	gallery?:string[];
+	height?: string;
+	width?: string;
+	length?: string;
+	weight: number;
+	composition?: string;
+	shippingTime?: string;
 	// collection?: string;
 	// status?: string;
 	limit?: number;
@@ -47,6 +56,7 @@ import { useQuery } from "react-query";
 
 export const fetchProduct = async (_slug: string) => {
 	let data:ProductDetails;
+	console.log("Loading Products!!")
 	data = (await https.get(`${API_ENDPOINTS.PRODUCT}${_slug}`)).data;
 	console.log("fetchProduct:",data)
 	return data;

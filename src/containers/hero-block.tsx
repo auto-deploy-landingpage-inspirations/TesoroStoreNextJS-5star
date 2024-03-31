@@ -29,7 +29,7 @@ const HeroBlock: React.FC = () => {
 				desktop: {
 					url: banner.imageRef,
 					width: 1800,
-					height: 1000,
+					height: 800,
 				},
 				mobile: {
 					url: banner.mobileImageRef,

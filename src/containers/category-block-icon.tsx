@@ -66,8 +66,8 @@ const CategoryBlockIcon: React.FC<CategoriesProps> = ({
                   </SwiperSlide>
                 );
               })
-            : data?.categoryRef.map((category:any) => (
-                <SwiperSlide key={`category--key-${category.id}`}>
+            : data?.categoryRef.map((category:any, index: number) => (
+                <SwiperSlide key={`category--key-${index}`}>
                   <IconCard
                     item={category}
                     href={`${ROUTES.CATEGORY}/${category.slug}`}

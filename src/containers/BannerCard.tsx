@@ -4,20 +4,23 @@ import type { FC } from 'react';
 // import { useWindowSize } from '@utils/use-window-size';
 import cn from 'classnames';
 import { LinkProps } from 'next/link';
-import {Fade} from 'react-reveal'
+import { Fade } from 'react-reveal'
 
 
-const colors:string[] = [
-  'bg-[#f786be]', //pink
-  'bg-blue-400', //lavendar
-  'bg-yellow-300', //light yellow
-  'bg-[#50c79b]', // mint
-  'bg-[orange]',
-  'bg-green-500'
-]
+// const colors: string[] = [
+//   'bg-[#f786be]', //pink
+//   'bg-blue-400', //lavendar
+//   'bg-yellow-300', //light yellow
+//   'bg-[#50c79b]', // mint
+//   'bg-[orange]',
+//   'bg-green-500'
+// ]
 
 interface BannerProps {
-  idx: number,
+  color: string;
+  title: string;
+  idx: number;
+  image: string;
   banner: any;
   variant?: 'rounded' | 'default';
   effectActive?: boolean;
@@ -31,14 +34,19 @@ interface BannerProps {
 // }
 
 const BannerCard2: FC<BannerProps> = ({
-  idx,
+  title,
+  image,
+  color,
   // banner, 
-  className, 
+  className,
   // variant='rounded',
   // effectActive=false,
   classNameInner,
   href
 }) => {
+  console.log("BannerCard2");
+  console.log(image);
+  console.log(color);
   // const {width} = useWindowSize();
   // const {title, image} = banner;
   // const selectedImage = getImage(width, image);
@@ -52,15 +60,22 @@ const BannerCard2: FC<BannerProps> = ({
             classNameInner
           )}
         >
-          <div className={colors[idx]+' w-full h-full justify-center'}>
-              <p className='text-xl font-semibold text-white relative left-10 top-10 justify-center' 
-              style={{fontFamily: 'Hap'}}
-              >Get 50% OFF <br/> on Stationary<br/></p>
-              <img src="/assets/images/new-images/9bf3a904-574a-487d-b7aa-37aa48d04fb0.jpg" className='rounded-xl absolute w-[40%] right-5 top-5 border-8 border-solid border-white' alt="" />
-              <button type='button' className='rounded-md drop-shadow-lg border-0 cursor-pointer absolute left-[17%] bottom-[10%] bg-gray-300 hover:bg-gray-150 text-[black]  px-5 py-2 text-lg font-semibold align-bottom' 
-					style={{fontFamily: 'Hap'}}>
-                Shop Now
-              </button>
+          <div className={`bg-[${color}] w-full h-full justify-center`}
+            style={{
+              backgroundColor: `${color}`
+            }}
+          >
+            <p className='text-xl font-semibold text-white relative left-10 top-10 justify-center'
+              style={{
+                fontFamily: 'Hap',
+                width: "45%"
+              }}
+            >{title}<br /></p>
+            <img src={image} className='rounded-xl absolute w-[40%] right-5 top-5 border-8 border-solid border-white' alt="" />
+            <button type='button' className='rounded-md drop-shadow-lg border-0 cursor-pointer absolute left-[17%] bottom-[10%] bg-gray-300 hover:bg-gray-150 text-[black]  px-5 py-2 text-lg font-semibold align-bottom'
+              style={{ fontFamily: 'Hap' }}>
+              Shop Now
+            </button>
           </div>
         </Link>
       </div>

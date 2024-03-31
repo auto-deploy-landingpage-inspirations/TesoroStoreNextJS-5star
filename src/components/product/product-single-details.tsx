@@ -261,7 +261,7 @@ const ProductSingleDetails: React.FC = () => {
 						>
 							<ul>
 								{data?.image?.map((item:any, index:number) => (
-									<li 
+									<li
 										key={index}
 										className=""
 										onClick={() => {
@@ -318,11 +318,11 @@ const ProductSingleDetails: React.FC = () => {
 					</p> */}
 					<div className="flex items-center mt-5">
 						<div className="font-josephine text-gray-600 font-semibold text-base md:text-md lg:text-lg 2xl:text-2xl pe-2 md:pe-0 lg:pe-2 2xl:pe-0">
-							₹{data?.prices.price}/-
+							₹{data?.prices.finalDiscountedPrice}/-
 						</div>
 						{data?.prices.discount && (
 							<span className="font-josephine font-normal line-through font-segoe text-gray-400 text-sm md:text-base lg:text-md xl:text-lg ps-2">
-								₹{data?.prices.originalPrice}/-
+								₹{data?.prices.finalPrice}/-
 							</span>
 						)}
 					</div>
@@ -479,35 +479,35 @@ const ProductSingleDetails: React.FC = () => {
 						
 						<li className="font-josephine ">
 							<span className="font-josephine font-semibold text-heading inline-block pe-2">
-								Dimensions
+								Dimensions:
 							</span>
 							<span className="font-josephine">
-								45cm x 25cm x 53cm
+								{data?.length && data?.length}cm x {data?.width}cm x {data?.height}cm
 							</span>
 						</li>
 						<li className="font-josephine ">
 							<span className="font-josephine font-semibold text-heading inline-block pe-2">
-								Composition
+								Composition:
 							</span>
-							Glass
+							{data?.composition && data?.composition}
 						</li>
 						<li className="font-josephine ">
 							<span className="font-josephine font-semibold text-heading inline-block pe-2">
 								Product Code:
 							</span>
-							SKU1253fC
+							{data?.sku && data?.sku}
 						</li>
 						<li className="font-josephine ">
 							<span className="font-josephine font-semibold text-heading inline-block pe-2">
-								Delivery time:
+								Processing time:
 							</span>
-							The product would be delivered in 3-10 days after shipping
+							The product would be shipped in {data?.shippingTime && data?.shippingTime || '3'} days.
 						</li>
 						{/* <li>
 							<span className="font-semibold text-heading inline-block pe-2">
 								Composition
 							</span>
-							Glass
+							{data?.composition!=undefined && data?.composition}
 						</li> */}
 					</ul>
 				</div>

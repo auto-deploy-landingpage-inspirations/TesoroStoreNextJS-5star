@@ -1,10 +1,11 @@
 // import BannerCard from "@components/common/banner-card";
 import Carousel from "@components/ui/carousel/carousel";
 import { SwiperSlide } from "swiper/react";
-import { ROUTES } from "@utils/routes";
-import { promotionBannerTwo as banners } from "@framework/static/banner";
+// import { ROUTES } from "@utils/routes";
+// import { promotionBannerTwo as banners } from "@framework/static/banner";
 import BannerCard2 from "./BannerCard";
 import BannerCard2Mobile from "./BannerCardMobile";
+import { useOfferZone } from "@framework/product/get-offer-zone";
 
 const breakpoints = {
 	"1025": {
@@ -32,27 +33,36 @@ const BannerCarouselBlock: React.FC<BannerProps> = ({
 	web,
 	mobile
 }) => {
+	const {data, error, isLoading} = useOfferZone({});
+	console.log(web, mobile, error, isLoading)
+	if(data){
+		console.log("Offer Zone Data")
+		console.log(data)
+	}
 	return (
 		<div className={className}>
 			<Carousel breakpoints={breakpoints} autoplay={{ delay: 3000 }}>
-				{banners?.map((banner: any, idx:number) => (
-					<SwiperSlide key={`promotion-banner-key-${banner?.id}`}>
-						{web === true && (
-							<BannerCard2
-								idx={idx}
-								banner={banner}
-								href={`${ROUTES.COLLECTIONS}/${banner.slug}`}
-								effectActive={true}
-							/>
-						)}
-						{mobile == true && (
-							<BannerCard2Mobile
-								idx={idx}
-								banner={banner}
-								href={`${ROUTES.COLLECTIONS}/${banner.slug}`}
-								effectActive={true}
-							/>
-						)}
+				{data?.offerBlock?.map((banner: any, idx:number) => (
+					<SwiperSlide key={`promotion-banner-key-${banner?._id}`}>
+						
+						<BannerCard2
+							image={banner.imageRef}
+							color={banner.backgroundColor}
+							idx={idx}
+							title={banner.offerTitle}
+							banner={banner}
+							href={`${banner.offferLink}`}
+							effectActive={true}
+						/>
+						<BannerCard2Mobile
+							idx={idx}
+							image={banner.imageRef}
+							title={banner.offerTitle}
+							color={banner.backgroundColor}
+							banner={banner}
+							href={`${banner.offferLink}`}
+							effectActive={true}
+						/>
 					</SwiperSlide>
 				))}
 			</Carousel>

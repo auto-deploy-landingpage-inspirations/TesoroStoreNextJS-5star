@@ -194,7 +194,7 @@ const ProductsReviewCards: React.FC<CategoriesProps& {ReviewData?:any}> = ({
               })
             : data?.categoryRef.map((category:any) => (
                 
-                  <SwiperSlide key={`category--key-${category.id}`}>
+                  <SwiperSlide key={`category--key-${category._id}`}>
                     <ProductCard data={category}
                     //   item={category}
                     //   href={`${ROUTES.CATEGORY}/${category.slug}`}
