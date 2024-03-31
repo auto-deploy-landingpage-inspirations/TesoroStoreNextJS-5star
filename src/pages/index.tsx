@@ -26,7 +26,6 @@ import { fetchBestSellerProducts } from "@framework/product/get-all-best-seller-
 import { fetchNewArrivalProducts } from "@framework/product/get-all-new-arrival-products";
 import { fetchBrands } from "@framework/brand/get-all-brands";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-// import { useEffect } from "react";
 // import { ROUTES } from "@utils/routes";
 // import { useUI } from "@contexts/ui.context";
 // import BusinessMagic from "@containers/BusinessMagic";
@@ -41,78 +40,88 @@ import BestSellerProductFeedMobile from "@components/product/feeds/best-seller-p
 import SpecialSectionMobile from "@containers/SpecialSectionMobile";
 import CollectionBlockMobile from "@containers/collection-block-mobile";
 import { useVisibilityQuery } from "@framework/homepage/get-visibility";
+import { useState } from "react";
 
 
 export default function Home() {
+	
+	const [bannerLoaded, setBannerLoaded] = useState(false);
 	console.log("ENV Variable: ", process.env.NEXT_PUBLIC_ENV);
 	const blogsVisibility = false;
 	const { data, isLoading, error } = useVisibilityQuery();
 	console.log("Visiblity Data")
 	console.log(data);
 	if(error) return <p>{error.message}</p>
+	
+
 	if(isLoading) return <p>Loading...</p>
+	
 	return (
 		<>
+			
 			<div 
 				className="bg-main-gradient pb-10"
 			>
-			<HeroBlock />
-			<Container>
-				{/* <h1 className="items-center text-center font-bold text-pink-400" style={{ fontSize: '40px'}}>
-					New Arrivals
-				</h1> */}
-				{/* <h1>{data.NAP.web}</h1> */}
-				
-				<NewArrivalsProductFeed />
-				<NewArrivalsProductFeedMobile />
-				
+			<HeroBlock setLoading={setBannerLoaded} />
+			{!bannerLoaded && (
 
-				<CategoryBlock sectionHeading="Top Selling Categories" />
-				
-				
-				<BannerCarouselBlock /> 
-				<FlashSaleBlock />
-				
-				<BestSellerProductFeed />
-				
-				<BestSellerProductFeedMobile />
-				
-				<BizMagic2 />
-				<BizMagic2Mobile />
-				
-				
-				<Fade bottom>
-					<CollectionBlock />
-				</Fade>
-				
-				
-				<Fade bottom>
-					<CollectionBlockMobile />
-				</Fade>
-				
-				{/* <BannerCard
-					key={`banner--key${banner.id}`}
-					banner={banner}
-					href={`${ROUTES.COLLECTIONS}/${banner.slug}`}
-					className="mb-12 lg:mb-14 xl:mb-16 pb-0.5 lg:pb-1 xl:pb-0"
-					classNameInner="h-full sm:h-auto"
-				/> */}
-				
-				{/* <Divider /> */}
-				{/* <BrandBlock sectionHeading="text-top-brands" /> */}
-				{blogsVisibility && (
-					<>
-						<SpecialSection /> 
-						<SpecialSectionMobile /> 
-					</>
-				)}
-				{/* <SectionHalf /> */}
-				<Feature />
-				{/* <FeatureBlock /> */}
-				{/* <DownloadApps className="bg-linen" /> */}
-				{/* <Support /> */}
-				<Subscription className="bg-linen px-5 sm:px-8 md:px-16 2xl:px-24" />
-			</Container>
+				<Container>
+					{/* <h1 className="items-center text-center font-bold text-pink-400" style={{ fontSize: '40px'}}>
+						New Arrivals
+					</h1> */}
+					{/* <h1>{data.NAP.web}</h1> */}
+					
+					<NewArrivalsProductFeed />
+					<NewArrivalsProductFeedMobile />
+					
+
+					<CategoryBlock sectionHeading="Top Selling Categories" />
+					
+					
+					<BannerCarouselBlock /> 
+					<FlashSaleBlock />
+					
+					<BestSellerProductFeed />
+					
+					<BestSellerProductFeedMobile />
+					
+					<BizMagic2 />
+					<BizMagic2Mobile />
+					
+					
+					<Fade bottom>
+						<CollectionBlock />
+					</Fade>
+					
+					
+					<Fade bottom>
+						<CollectionBlockMobile />
+					</Fade>
+					
+					{/* <BannerCard
+						key={`banner--key${banner.id}`}
+						banner={banner}
+						href={`${ROUTES.COLLECTIONS}/${banner.slug}`}
+						className="mb-12 lg:mb-14 xl:mb-16 pb-0.5 lg:pb-1 xl:pb-0"
+						classNameInner="h-full sm:h-auto"
+					/> */}
+					
+					{/* <Divider /> */}
+					{/* <BrandBlock sectionHeading="text-top-brands" /> */}
+					{blogsVisibility && (
+						<>
+							<SpecialSection /> 
+							<SpecialSectionMobile /> 
+						</>
+					)}
+					{/* <SectionHalf /> */}
+					<Feature />
+					{/* <FeatureBlock /> */}
+					{/* <DownloadApps className="bg-linen" /> */}
+					{/* <Support /> */}
+					<Subscription className="bg-linen px-5 sm:px-8 md:px-16 2xl:px-24" />
+				</Container>
+			)}
 			</div>
 		</>
 	);

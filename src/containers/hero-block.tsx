@@ -6,6 +6,7 @@ import { useWindowSize } from "react-use";
 // import { useWindowSize } from "@utils/use-window-size";
 // import { ROUTES } from "@utils/routes";
 import { SwiperSlide } from "swiper/react";
+import React from 'react';
 
 const breakpoints = {
 	"1500": {
@@ -16,9 +17,16 @@ const breakpoints = {
 	},
 };
 
-const HeroBlock: React.FC = () => {
+interface HeroBlockProps {
+	setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  }
+
+const HeroBlock: React.FC<HeroBlockProps> = ({ setLoading }) => {
 	const { width } = useWindowSize();
 	const {data, isLoading, isError} = useHomePageBanner({});
+	if(!isLoading){
+		setLoading(false);
+	}
 	// console.log(data);
 	const bannerData = data?.banners.data[0].offerBlock.map((banner)=>{
 		return {
