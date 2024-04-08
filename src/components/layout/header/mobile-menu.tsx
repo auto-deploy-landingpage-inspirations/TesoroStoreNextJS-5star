@@ -80,7 +80,7 @@ export default function MobileMenu() {
 						href={data.path}
 						className="w-full text-[15px] menu-item relative py-3 ps-5 md:ps-7 pe-4 transition duration-300 ease-in-out"
 					>
-						<span className="block w-full" onClick={closeSidebar}>
+						<span className="block w-full text-black" onClick={closeSidebar}>
 							{t(`${data.label}`) as string}
 						</span>
 					</Link>

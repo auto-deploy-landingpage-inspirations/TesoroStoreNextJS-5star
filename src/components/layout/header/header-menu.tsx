@@ -5,6 +5,7 @@ import classNames from "classnames";
 import ListMenu from "@components/ui/list-menu";
 import { useTranslation } from "next-i18next";
 import { useWindowSize } from '@utils/use-window-size';
+import React from "react";
 
 interface MenuProps {
 	data: any;
@@ -13,10 +14,19 @@ interface MenuProps {
 
 const HeaderMenu: React.FC<MenuProps> = ({ data, className }) => {
 	const { t } = useTranslation("menu");
-	const {width} = useWindowSize();
+	const [width, setWidth] = React.useState<number>(0);
+	// const {width} = useWindowSize();
+	// console.log("width: ", width) 
+	const wi = useWindowSize();
+	React.useEffect(() => {
+		console.log("Printing widths:")
+		console.log(window.innerWidth)
+		console.log(wi)
+		setWidth(window.innerWidth);
+	}, []);
 	return (
-		<nav className={classNames(`headerMenu lg:flex relative `, className)} 
-			style={{ display: width < 765 ? 'none' : 'flex' }}
+		<nav className={classNames(`headerMenu lg:flex relative ${width < 900 ? 'hidden': 'flex'}`, className)} 
+			// style={{ display: width < 900 ? 'none' : 'flex' }}
 		>
 			{data?.map((item: any) => (
 				<div

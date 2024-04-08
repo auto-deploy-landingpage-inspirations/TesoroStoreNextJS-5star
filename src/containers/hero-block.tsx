@@ -37,7 +37,7 @@ const HeroBlock: React.FC<HeroBlockProps> = ({ setLoading }) => {
 				desktop: {
 					url: banner.imageRef,
 					width: 1800,
-					height: 800,
+					height: 700,
 				},
 				mobile: {
 					url: banner.mobileImageRef,
