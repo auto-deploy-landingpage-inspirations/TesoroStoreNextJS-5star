@@ -214,7 +214,7 @@ const ProductSingleDetails: React.FC = () => {
 										borderRadius: '20px',
 										backgroundImage: `url(${imgToShow ?? data?.image[0]})`,
 										backgroundRepeat: 'no-repeat',
-										backgroundAttachment: 'fixed',
+										// backgroundAttachment: 'fixed',
 										backgroundSize: 'contain',
 										backgroundPosition: 'center'
 									}}
@@ -248,7 +248,7 @@ const ProductSingleDetails: React.FC = () => {
 														borderRadius: '10px',
 														backgroundImage: `url(${item ?? data?.image[0]})`,
 														backgroundRepeat: 'no-repeat',
-														backgroundAttachment: 'fixed',
+														// backgroundAttachment: 'fixed',
 														backgroundSize: 'cover',
 														backgroundPosition: 'center',
 														width: '20vw',
