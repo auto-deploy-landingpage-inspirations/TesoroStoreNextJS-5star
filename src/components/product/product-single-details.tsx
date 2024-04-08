@@ -238,20 +238,31 @@ const ProductSingleDetails: React.FC = () => {
 												onClick={() => {
 													setImgToShow(item)
 												}}
-												style={{
-													// height: '20vh'
-													// width: '10vh'
-												}}
+												// style={{
+												// 	height: '20vw',
+												// 	width: '20vw'
+												// }}
 											>
-												<div className="object-cover p-2 border-r-8 aspect-[1/1]">
-													<img
+												<div className="mt-2 object-cover p-2 w-full border-r-8 aspect-[1/1]"
+													style={{
+														borderRadius: '10px',
+														backgroundImage: `url(${item ?? data?.image[0]})`,
+														backgroundRepeat: 'no-repeat',
+														backgroundAttachment: 'fixed',
+														backgroundSize: 'cover',
+														backgroundPosition: 'center',
+														width: '20vw',
+														height: '20vw'
+													}}
+												>
+													{/* <img
 														src={
 															item ??
 															"/assets/placeholder/products/product-gallery.svg"
 														}
 														alt={`${data?.title.en}--${index}`}
 														className="" 
-													/>
+													/> */}
 												</div>
 											</div>
 										</SwiperSlide>
