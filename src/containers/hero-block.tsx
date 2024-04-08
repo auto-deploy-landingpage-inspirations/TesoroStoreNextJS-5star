@@ -23,7 +23,7 @@ interface HeroBlockProps {
 
 const HeroBlock: React.FC<HeroBlockProps> = ({ setLoading }) => {
 	const { width } = useWindowSize();
-	const {data, isLoading, isError} = useHomePageBanner({});
+	const {data, isLoading} = useHomePageBanner({});
 	if(!isLoading){
 		setLoading(false);
 	}
@@ -49,8 +49,8 @@ const HeroBlock: React.FC<HeroBlockProps> = ({ setLoading }) => {
 		}
 	})
 	// console.log(banners)
-	console.log(isLoading);
-	console.log(isError);
+	// console.log(isLoading);
+	// console.log(isError);
 
 	// const { width } = useWindowSize();
 	return (

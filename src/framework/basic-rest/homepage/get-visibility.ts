@@ -6,7 +6,7 @@ export const fetchVisibility = async () => {
   const {
     data,
   } = await http.get(API_ENDPOINTS.HOMEPAGE_VISIBILITY);
-  console.log(data);
+  // console.log(data);
   return data;
 };
 export const useVisibilityQuery = () => {

@@ -6,8 +6,8 @@ import { useQuery } from "react-query";
 export const fetchOfferZone = async ({ queryKey }: any) => {
 	const [_key, _params] = queryKey;
 	const { data } = await https.get(API_ENDPOINTS.OFFER_ZONE);
-	console.log("Offer Zone Data: ");
-	console.log(data);
+	// console.log("Offer Zone Data: ");
+	// console.log(data);
 	return data.data[0] as OfferZone;
 };
 export const useOfferZone = (options: QueryOptionsType) => {

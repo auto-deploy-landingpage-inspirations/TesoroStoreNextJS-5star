@@ -56,9 +56,9 @@ import { useQuery } from "react-query";
 
 export const fetchProduct = async (_slug: string) => {
 	let data:ProductDetails;
-	console.log("Loading Products!!")
+	// console.log("Loading Products!!")
 	data = (await https.get(`${API_ENDPOINTS.PRODUCT}${_slug}`)).data;
-	console.log("fetchProduct:",data)
+	// console.log("fetchProduct:",data)
 	return data;
 };
 export const useProductQuery = (slug: string) => {

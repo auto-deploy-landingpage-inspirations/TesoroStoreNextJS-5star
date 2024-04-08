@@ -418,12 +418,12 @@ export const siteSettings = {
 				],
 			},
 			{
-				id: 3,
+				id: 2,
 				path: "/sale-page",
 				label: "Sale",
 			},
 			{
-				id: 4,
+				id: 3,
 				path: "/contact-us",
 				label: "Contact Us",
 				subMenu: [
