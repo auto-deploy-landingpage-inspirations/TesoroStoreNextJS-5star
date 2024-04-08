@@ -17,7 +17,7 @@ export default function ProductPage() {
 		<>
 			<Divider className="mt-[10vh]" />
 			<Container>
-				<div className="pt-2">
+				<div className="pt-2 mt-2">
 					<Breadcrumb />
 				</div>
 				
