@@ -25,7 +25,7 @@ const HeaderMenu: React.FC<MenuProps> = ({ data, className }) => {
 		setWidth(window.innerWidth);
 	}, []);
 	return (
-		<nav className={classNames(`headerMenu lg:flex relative ${width < 900 ? 'hidden': 'flex'}`, className)} 
+		<nav className={classNames(`headerMenu relative ${width < 900 ? 'hidden': 'flex'}`, className)} 
 			// style={{ display: width < 900 ? 'none' : 'flex' }}
 		>
 			{data?.map((item: any) => (

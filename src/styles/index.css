@@ -48,7 +48,7 @@
     display: block;
   } */
   .for-desktop{
-    display: none;
+    display: none!important;
   }
 }
 

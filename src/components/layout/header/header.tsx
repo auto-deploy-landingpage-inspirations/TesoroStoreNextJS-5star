@@ -81,7 +81,7 @@ const Header: React.FC = () => {
 					</div>
 					<HeaderMenu
 		 				data={site_header.menu}
-		 				className="for-desktop lg:flex md:ms-6 xl:ms-10 justify-center"
+		 				className="for-desktop md:ms-6 xl:ms-10 justify-center"
 		 			/>
 					<div className="hidden md:flex justify-end items-center space-s-6 lg:space-s-5 xl:space-s-8 2xl:space-s-10 ms-auto flex-shrink-0">
 		 				<button
