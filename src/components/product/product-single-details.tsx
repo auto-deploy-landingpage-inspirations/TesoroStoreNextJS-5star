@@ -75,6 +75,8 @@ const ProductSingleDetails: React.FC = () => {
 	const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
 	const [buyNowLoader, setBuyNowLoader] = useState<boolean>(false);
 	const router = useRouter();
+
+
 	// const { 
 	// 	price, basePrice, 
 	// 	discount } = usePrice(
@@ -92,6 +94,11 @@ const ProductSingleDetails: React.FC = () => {
 	if (isLoading) return <p>Loading...</p>;
 	const variations = getVariations(data?.variants);
 	
+	// if(data?.image.length < 4) {
+	// 	for(let i = 0; i < 4 - data?.image.length; i++) {
+	// 		data?.image.push('');
+	// 	}
+	// }
 	// let tags:string[];
 	// if(data?.tag){
 	// 	tags = data?.tag.toString().replace(/\"/g, "")
@@ -202,14 +209,15 @@ const ProductSingleDetails: React.FC = () => {
 					</div>
 						<div className="lg:col-span-4 md:col-span-6 w-full flex">
 							<div className="w-full h-full">
-								<img src={imgToShow ?? data?.image[0]} alt="" className=" object-fit p-2" style={{borderRadius: '20px', height: '75vh', margin: 'auto'}} />
+								<img src={imgToShow ?? data?.image[0]} alt="" className=" object-fit p-2" style={{borderRadius: '20px', height: '90vw', width: '90vw', margin: 'auto'}} />
 								<div className="col-span-2">
 									<Carousel
 										// pagination={{
 										// 	clickable: true,
 										// }}
 										// breakpoints={productGalleryCarouselResponsive}
-										slidesPerView={data?.image.length}
+										// slidesPerView={data?.image.length}
+										slidesPerView={4}
 										className="product-gallery"
 										buttonClassName="hidden"
 									>
@@ -226,7 +234,7 @@ const ProductSingleDetails: React.FC = () => {
 											>
 												<img
 													src={
-														item?.original ??
+														item ??
 														"/assets/placeholder/products/product-gallery.svg"
 													}
 													alt={`${data?.title.en}--${index}`}
@@ -340,7 +348,7 @@ const ProductSingleDetails: React.FC = () => {
 							/>
 						);
 					})}
-					<div className="md:w-1/3 sm:w-full mb-2">
+					<div className="md:w-1/3 sm:w-1/2 mb-2">
 						<Counter
 							quantity={quantity}
 							onIncrement={() => setQuantity((prev) => prev + 1)}
@@ -389,17 +397,17 @@ const ProductSingleDetails: React.FC = () => {
 				<div className="my-5">
 					<PinCodeCheckForm />
 				</div>
-				<div className="flex items-center w-[70%] sm:w-full">
+				<div className={`flex items-center ${width < 1025? ('w-[100%]'): ('w-[70%]')}`}>
 					<Button
 						onClick={addToCart}
 						variant="new"
-						className={`font-josephine w-full md:w-1/2 xl:w-1/3 m-2 ${
+						className={`font-josephine m-2 inline-flex whitespace-nowrap ${
 							!isSelected && ""
 						}`}
 						disabled={!isSelected}
 						loading={addToCartLoader}
 					>
-						<span className="py-2 3xl:px-8 text-lg mt-1">ADD TO CART</span>
+						<span className="px-2 py-1 3xl:px-8 text-lg mt-1">ADD TO CART</span>
 					</Button>
 					<Button
 						onClick={() => {
@@ -407,13 +415,13 @@ const ProductSingleDetails: React.FC = () => {
 							buyNow();
 						}}
 						variant="new-2"
-						className={`font-josephine w-full md:w-1/2 m-2 xl:w-1/3 flex hover:bg-white hover:drop-shadow-md bg-indigo-500 hover:text-indigo-500 text-white ${
+						className={`font-josephine inline-flex whitespace-nowrap hover:bg-white hover:drop-shadow-md bg-indigo-500 hover:text-indigo-500 text-white ${
 							!isSelected && ""
 						}`}
 						disabled={!isSelected}
 						loading={buyNowLoader}
 					>
-						<span className="py-1 3xl:px-8 text-lg mt-1">BUY NOW</span>
+						<span className=" px-2 py-1 3xl:px-8 text-lg mt-1">BUY NOW</span>
 					</Button>
 				</div>
 				<div className="py-6">
