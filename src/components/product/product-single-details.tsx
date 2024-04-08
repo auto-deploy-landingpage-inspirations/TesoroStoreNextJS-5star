@@ -209,7 +209,18 @@ const ProductSingleDetails: React.FC = () => {
 					</div>
 						<div className="lg:col-span-4 md:col-span-6 w-full flex">
 							<div className="w-full h-full">
-								<img src={imgToShow ?? data?.image[0]} alt="" className=" object-fit p-2" style={{borderRadius: '20px', height: '90vw', width: '90vw', margin: 'auto'}} />
+								<div className="object-cover h-[90vw] w-[90vw] mx-auto p-2"
+									style={{
+										borderRadius: '20px',
+										backgroundImage: `url(${imgToShow ?? data?.image[0]})`,
+										backgroundRepeat: 'no-repeat',
+										backgroundAttachment: 'fixed',
+										backgroundSize: 'contain',
+										backgroundPosition: 'center'
+									}}
+								>
+									{/* <img src={imgToShow ?? data?.image[0]} alt="" className=" object-fit" /> */}
+								</div>
 								<div className="col-span-2">
 									<Carousel
 										// pagination={{
@@ -232,20 +243,16 @@ const ProductSingleDetails: React.FC = () => {
 													// width: '10vh'
 												}}
 											>
-												<img
-													src={
-														item ??
-														"/assets/placeholder/products/product-gallery.svg"
-													}
-													alt={`${data?.title.en}--${index}`}
-													className="object-cover w-full" 
-													style={{
-														borderRadius: '15px',
-														padding: '5px',
-														// height: '10vh',
-														// width: '10vh'
-													}}
-												/>
+												<div className="object-cover p-2 border-r-8 aspect-[1/1]">
+													<img
+														src={
+															item ??
+															"/assets/placeholder/products/product-gallery.svg"
+														}
+														alt={`${data?.title.en}--${index}`}
+														className="" 
+													/>
+												</div>
 											</div>
 										</SwiperSlide>
 									))}

@@ -4,6 +4,7 @@ module.exports = {
   darkMode: false,
   theme: {
     extend: {
+      aspectRatio: true,
       colors: {
         body: '#5A5A5A',
         heading: '#212121',
