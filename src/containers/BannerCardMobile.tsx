@@ -71,7 +71,9 @@ const BannerCard2Mobile: FC<BannerProps> = ({
           <div className={`justify-center`}
             style={{
               width: '50vw',
-              height: '35vh',
+              // height: '35vh',
+              display: 'inline-flex',
+              flexDirection: 'column',
               border: `15px ${color} solid`, 
               borderRadius: '20%', 
               backgroundColor: `${color}`

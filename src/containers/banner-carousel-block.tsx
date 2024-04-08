@@ -30,14 +30,20 @@ interface BannerProps {
 
 const BannerCarouselBlock: React.FC<BannerProps> = ({
 	className = "mb-6 md:mb-6 lg:mb-8 pb-0.5 xl:pb-1.5",
-	web,
-	mobile
+	// web,
+	// mobile
 }) => {
 	const {data, error, isLoading} = useOfferZone({});
-	console.log(web, mobile, error, isLoading)
+	// console.log(web, mobile, error, isLoading)
+	if(error){
+
+	} 
+	if(isLoading){
+
+	}
 	if(data){
-		console.log("Offer Zone Data")
-		console.log(data)
+		// console.log("Offer Zone Data")
+		// console.log(data)
 	}
 	return (
 		<div className={className}>
