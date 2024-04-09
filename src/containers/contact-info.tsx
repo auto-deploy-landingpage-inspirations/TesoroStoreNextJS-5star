@@ -23,7 +23,7 @@ const data = [
 		slug: "/",
 		icon: <IoCallSharp />,
 		name: "text-phone",
-		description: "+91 96549 70705",
+		description: "+91 88008 89492",
 	},
 ];
 interface Props {

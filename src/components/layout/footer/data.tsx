@@ -62,26 +62,26 @@ export const footer = {
 			id: 3,
 			widgetTitle: "widget-title-about",
 			lists: [
-				{
-					id: 1,
-					title: "link-support-center",
-					path: "/contact-us",
-				},
-				{
-					id: 2,
-					title: "link-customer-support",
-					path: "/",
-				},
+				// {
+				// 	id: 1,
+				// 	title: "link-support-center",
+				// 	path: "/contact-us",
+				// },
+				// {
+				// 	id: 2,
+				// 	title: "link-customer-support",
+				// 	path: "/",
+				// },
 				{
 					id: 3,
 					title: "link-about-us",
 					path: "/about-us",
 				},
-				{
-					id: 4,
-					title: "link-copyright",
-					path: "/",
-				},
+				// {
+				// 	id: 4,
+				// 	title: "link-copyright",
+				// 	path: "/",
+				// },
 			],
 		},
 		{
@@ -124,11 +124,11 @@ export const footer = {
 					title: "Privacy Policy",
 					path: "/privacy-policy",
 				},
-				{
-					id: 5,
-					title: "link-site-map",
-					path: "/",
-				},
+				// {
+				// 	id: 5,
+				// 	title: "link-site-map",
+				// 	path: "/",
+				// },
 				{
 					id: 6,
 					title: "Sell with Us",

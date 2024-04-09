@@ -4,14 +4,14 @@ import Carousel from '@components/ui/carousel/carousel';
 import CardRoundedLoader from '@components/ui/loaders/card-rounded-loader';
 import { useCategoriesQuery } from '@framework/category/get-all-categories';
 // import { ROUTES } from '@utils/routes';
-import Alert from '@components/ui/alert';
+// import Alert from '@components/ui/alert';
 import { SwiperSlide } from 'swiper/react';
 import {Fade} from "react-reveal"
 import SectionHeader2 from '@components/common/sectionHeader2';
 import React from 'react';
 
-const color = '#F6C0C9'
-const stroke = 'border-gray-400'
+// const color = '#F6C0C9'
+// const stroke = 'border-gray-400'
 
 interface CategoriesProps {
   sectionHeading?: string;
@@ -77,8 +77,10 @@ const breakpointsCircle = {
 const ProductCard: React.FC<{data?: any}> = ({
   data
 }) => {
+  // const noOfReviews = 5;
     return (
         <div key={data? data.item:'1'} className='drop-shadow-lg rounded-lg hover:drop-shadow-2xl w-full h-full'>
+          {/* {Array.from({ length: noOfReviews }).map((_, idx) => ())} */}
             <div className="pt-3 pb-5 md:pb-1 px-4 md:px-1 bg-gray-300 bg-opacity-40" style={{borderTopLeftRadius: '40px', borderTopRightRadius: '40px'}}>
                 <div className="flex flex-wrap items-center">
                     <div className="bg-white items-center" style={{borderRadius: '20%', width: 'auto', boxShadow: '2px 2px 2px 2px rgba(100, 100, 100, 0.1)'}}>
@@ -116,33 +118,7 @@ const ProductCard: React.FC<{data?: any}> = ({
                     </div>
                 </div>
             </div>
-            <div className='bg-white flex flex-wrap overflow-hidden' style={{borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px'}}>
-                <div className="w-full mb-6 md:mb-0 px-5 py-3">
-                    <p className="font-josephine mb-8 max-w-2xl text-gray-800 leading-loose">My friend really loved this gift. One of the best gifting options ever! </p>
-                    <div className=" mt-5">
-                        <div className="inline-flex w-full md:w-auto md:mr-1 mb-1">
-                            <div className={`flex items-center h-8 pl-1 pr-3 bg-[#FFF5F80] border-2 ${stroke} rounded-full`}>
-                                <div className={`flex mr-2 w-4 h-4 items-center justify-center bg-white rounded-full text-[${color}]`}>
-                                    <svg width="8" height="8" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M10.016 6.366H6.38V10.092H4.472V6.366H0.836V4.638H4.472V0.911999H6.38V4.638H10.016V6.366Z" fill="currentColor"></path>
-                                    </svg>
-                                </div>
-                            <span className={`font-josephine text-[${color}] text-xs font-normal`}>Aesthetics</span>
-                            </div>
-                        </div>
-                        <div className="inline-flex w-full md:w-auto md:mr-1 mb-1">
-                            <div className={`flex items-center h-8 pl-1 pr-3 bg-[#FFF5F80] border-2 ${stroke} rounded-full`}>
-                                <div className={`flex mr-2 w-4 h-4 items-center justify-center bg-white rounded-full text-[${color}]`}>
-                                    <svg width="8" height="8" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M10.016 6.366H6.38V10.092H4.472V6.366H0.836V4.638H4.472V0.911999H6.38V4.638H10.016V6.366Z" fill="currentColor"></path>
-                                    </svg>
-                                </div>
-                            <span className={`font-josephine text-[${color}] text-xs font-normal`}>Finishing</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     )
 }
@@ -157,7 +133,8 @@ const ProductsReviewCards: React.FC<CategoriesProps& {ReviewData?:any}> = ({
   const { data, isLoading, error } = useCategoriesQuery({
     limit: 10,
   });
-
+  console.log(error)
+  const errorFlag = true;
   return (
     <div className={className+" bg-category-section"} style={
       {
@@ -167,8 +144,11 @@ const ProductsReviewCards: React.FC<CategoriesProps& {ReviewData?:any}> = ({
       }
     }>
       <SectionHeader2 className='text-gray-700 mb-5' sectionHeading={sectionHeading} boxshadow={true}/>
-      {error ? (
-        <Alert message={error?.message} />
+      {errorFlag ? (
+        <>
+        {/* <Alert message={"No Reviews"} /> */}
+        <h1 className='text-center text-md text-gray-500 font-bold my-3'>No Reviews Yet!</h1>
+        </>
       ) : (
         <Fade bottom>
         <Carousel

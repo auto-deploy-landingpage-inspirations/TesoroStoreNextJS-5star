@@ -338,7 +338,13 @@ const ProductSingleDetails: React.FC = () => {
 					{/* <p className="font-bold pb-5 font-josephine">
 						{data?.description["en"]}
 					</p> */}
-					<ProductRating />
+					{
+						data?.productRating?.overallRating !== undefined ? (
+							<ProductRating productRating={{overallRating: data?.productRating.overallRating ?? 0, ratingCount: data?.productRating.ratingCount ?? 0}} />
+						): (
+							<ProductRating productRating={{overallRating: 0, ratingCount: 0}} />
+						)
+					}
 					{/* <p className="text-body text-sm lg:text-base leading-3 lg:leading-6">
 						{data?.description}
 					</p> */}
@@ -529,6 +535,27 @@ const ProductSingleDetails: React.FC = () => {
 							</span>
 							The product would be shipped in {data?.shippingTime && data?.shippingTime || '3'} days.
 						</li>
+						{data?.returnable === undefined || data?.returnable === true ? (
+							<li className="font-josephine ">
+								<span className="font-josephine px-2 text-sm font-semibold text-green-500 rounded-lg bg-white border-green-500 border-2 inline-block">
+									The product is returnable!
+								</span>
+							</li>
+						): (
+							<li className="font-josephine ">
+								<span className="font-josephine px-2 text-sm font-semibold text-red-500 rounded-lg bg-white border-red-500 border-2 inline-block">
+									The product is not returnable!
+								</span>
+							</li>
+						)}
+						{data?.uploads === true && (
+							<li className="font-josephine ">
+								<span className="font-josephine px-2 text-sm font-semibold text-black rounded-lg bg-white border-black border-2 inline-block">
+									The product requires User Uploads! 
+								</span>
+							</li>
+						)}
+						
 						{/* <li>
 							<span className="font-semibold text-heading inline-block pe-2">
 								Composition

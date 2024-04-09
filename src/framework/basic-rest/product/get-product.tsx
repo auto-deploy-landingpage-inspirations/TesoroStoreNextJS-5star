@@ -46,10 +46,31 @@ export type ProductDetails = {
 	weight: number;
 	composition?: string;
 	shippingTime?: string;
+	returnable: boolean;
+	uploads: boolean;
 	// collection?: string;
 	// status?: string;
 	limit?: number;
+	productRating?: ProductRating;
+	reviews?: string | ProductReviews[];
   };
+
+export type ProductRating = {
+	overallRating?: number;
+	ratingCount?: number;
+}
+
+export type ProductReviews = {
+	_id: string;
+	isApproved: boolean;
+	createdAt: string;
+	productId: string;
+	rating: number;
+	review: string;
+	reviewer: string;
+	updatedAt: string;
+
+}
 import https from "@framework/utils/https";
 import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
 import { useQuery } from "react-query";
