@@ -5,12 +5,12 @@ import Button from "@components/ui/button";
 import Counter from "@components/common/counter";
 import { useRouter } from "next/router";
 import { useProductQuery } from "@framework/product/get-product";
-import { getVariations } from "@framework/utils/get-variations";
+// import { getVariations } from "@framework/utils/get-variations";
 // import usePrice from "@framework/product/use-price";
 import { useCart } from "@contexts/cart/cart.context";
 import { generateCartItem } from "@utils/generate-cart-item";
-import { ProductAttributes } from "./product-attributes";
-import isEmpty from "lodash/isEmpty";
+// import { ProductAttributes } from "./product-attributes";
+// import isEmpty from "lodash/isEmpty";
 import Link from "@components/ui/link";
 import { toast } from "react-toastify";
 import { useWindowSize } from "@utils/use-window-size";
@@ -23,6 +23,7 @@ import ProductRating from "./productRating";
 import ProductReviewCards from "./product-review";
 import { Item } from "@contexts/cart/cart.utils";
 import { useUI } from "@contexts/ui.context";
+import ProductVariantSelector from "@components/product/product-variant"
 
 
 
@@ -65,75 +66,69 @@ const ProductSingleDetails: React.FC = () => {
 	
 	const { width } = useWindowSize();
 	const { data, isLoading } = useProductQuery(slug as string);
+	const [variantData, setVariantData] = useState<any>({});
+	const [selectedVariant, setSelectedVariant] = useState<string>('');
 	useEffect(() => {
 		setImgToShow(data?.image[0] ?? "");
+		if(data?.isCombination) {
+			if(data?.variants && data?.variants.length > 0) {
+				setImgToShow(data?.variants[0].images[0]);
+			}
+		}
+
 	}, [data]);
 	const { items, removeItemFromCart, addItemToCart } = useCart();
 	const {closeCart} = useUI();
-	const [attributes, setAttributes] = useState<{ [key: string]: string }>({});
+	// const [attributes, setAttributes] = useState<{ [key: string]: string }>({});
 	const [quantity, setQuantity] = useState(1);
 	const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
 	const [buyNowLoader, setBuyNowLoader] = useState<boolean>(false);
 	const router = useRouter();
 
 
-	// const { 
-	// 	price, basePrice, 
-	// 	discount } = usePrice(
-	// 	data && {
-	// 		amount: data.prices.price ? data.prices.price : data.prices.orginalPrice,
-	// 		baseAmount: data.prices.price,
-	// 		currencyCode: "INR",
-	// 	}
-	// );
-	// const discount = data?.prices.price
-	// console.log(price, basePrice)
-	// useEffect(() => {
-	// 	setImgToShow(data?.image??"")
-	// }, [data])
 	if (isLoading) return <p>Loading...</p>;
-	const variations = getVariations(data?.variants);
+	// const variations = getVariations(data?.variants);
 	
-	// if(data?.image.length < 4) {
-	// 	for(let i = 0; i < 4 - data?.image.length; i++) {
-	// 		data?.image.push('');
-	// 	}
-	// }
-	// let tags:string[];
-	// if(data?.tag){
-	// 	tags = data?.tag.toString().replace(/\"/g, "")
-	// 		.replace(/\[/g,"")
-	// 		.replace(/\]/g,"")
-	// 		.split(",");
-	// }
-	// console.log(tags);
 	
-	// console.log("tags: ",tags)
-	const isSelected = !isEmpty(variations)
-		? !isEmpty(attributes) &&
-		  Object.keys(variations).every((variation) =>
-				attributes.hasOwnProperty(variation)
-		  )
-		: true;
+	
+	// const isSelected = !isEmpty(variations)
+	// 	? !isEmpty(attributes) &&
+	// 	  Object.keys(variations).every((variation) =>
+	// 			attributes.hasOwnProperty(variation)
+	// 	  )
+	// 	: true;
+	// console.log(attributes, "attributes");
 
+	// useEffect(() => {
+	// 	const variant = data?.variants.filter((variant) => variant._id == selectedVariant);
+
+	// }, [selectedVariant])
 	function addToCart() {
-		if (!isSelected) return;
+		// if (!isSelected) return;
 		// to show btn feedback while product carting
 		setAddToCartLoader(true);
 		setTimeout(() => {
 			setAddToCartLoader(false);
 		}, 600);
 
-		const precart: Item = {
-			id: data?._id || '', 
-			name: data?.title.en || ' ', 
-			slug: data?.slug || ' ', 
-			image: data?.image[0] || '',
-			price: data?.prices.originalPrice || 0, 
-			sale_price: data?.prices.price || 0
+		let name = data?.title.en
+		// alert(variantData)
+		// console.log(variantData, "variantData in add to cart")
+		if(data?.isCombination) {
+			// alert("Combination")
+			name = `${name}-${variantData.name.en}`
 		}
 
-		const item = generateCartItem(precart, attributes);
+		const precart: Item = {
+			id: data?._id || '', 
+			name: name || ' ', 
+			slug: data?.slug || ' ', 
+			image: data?.image[0] || '',
+			price: data?.prices.finalPrice || 0, 
+			sale_price: data?.prices.finalDiscountedPrice || 0
+		}
+
+		const item = generateCartItem(precart, variantData);
 		addItemToCart(item, quantity);
 		toast("Added to the bag", {
 			type: "dark",
@@ -155,7 +150,7 @@ const ProductSingleDetails: React.FC = () => {
 	}
 
 	function buyNow() {
-		if (!isSelected) return;
+		// if (!isSelected) return;
 		// to show btn feedback while product carting
 		setBuyNowLoader(true);
 		setTimeout(() => {
@@ -171,7 +166,7 @@ const ProductSingleDetails: React.FC = () => {
 			sale_price: data?.prices.price || 0
 		}
 
-		const item = generateCartItem(precart, attributes);
+		const item = generateCartItem(precart, variantData);
 		addItemToCart(item, quantity);
 		toast("Added to the bag", {
 			type: "dark",
@@ -190,12 +185,12 @@ const ProductSingleDetails: React.FC = () => {
 		router.push("/checkout");
 	}
 
-	function handleAttribute(attribute: any) {
-		setAttributes((prev) => ({
-			...prev,
-			...attribute,
-		}));
-	}
+	// function handleAttribute(attribute: any) {
+	// 	setAttributes((prev) => ({
+	// 		...prev,
+	// 		...attribute,
+	// 	}));
+	// }
 	
 	
 	// const { t } = useTranslation("common");
@@ -359,9 +354,12 @@ const ProductSingleDetails: React.FC = () => {
 						)}
 					</div>
 				</div>
+				{data?.isCombination && (
+					<ProductVariantSelector product={data} selectedVariant={selectedVariant} setSelectedVariant={setSelectedVariant} setVariantData={setVariantData} />
+				)}
 
 				<div className="pb-3 border-b border-gray-300">
-					{Object.keys(variations).map((variation) => {
+					{/* {Object.keys(variations).map((variation) => {
 						return (
 							<ProductAttributes
 								key={variation}
@@ -371,7 +369,7 @@ const ProductSingleDetails: React.FC = () => {
 								onClick={handleAttribute}
 							/>
 						);
-					})}
+					})} */}
 					<div className="md:w-1/3 sm:w-1/2 mb-2">
 						<Counter
 							quantity={quantity}
@@ -413,7 +411,6 @@ const ProductSingleDetails: React.FC = () => {
 								<div className="font-josephine font-semibold w-full pl-5 mr-10">Get Rs 150 Off on your first purchase</div>
 								<div className="font-josephine flex pl-5 items-center mb-1">Use Code <span className="p-1 ml-4 text-gray-600 border-2 bg-[#FFE583] font-bold text-sm">WELCOMETESORO</span> </div>
 							</td>
-						
 						</tr>
 					</tbody>
 					</table>
@@ -425,10 +422,8 @@ const ProductSingleDetails: React.FC = () => {
 					<Button
 						onClick={addToCart}
 						variant="new"
-						className={`font-josephine m-2 inline-flex whitespace-nowrap ${
-							!isSelected && ""
-						}`}
-						disabled={!isSelected}
+						className={`font-josephine m-2 inline-flex whitespace-nowrap `}
+						// disabled={!isSelected}
 						loading={addToCartLoader}
 					>
 						<span className="px-2 py-1 3xl:px-8 text-lg mt-1">ADD TO CART</span>
@@ -439,10 +434,8 @@ const ProductSingleDetails: React.FC = () => {
 							buyNow();
 						}}
 						variant="new-2"
-						className={`font-josephine inline-flex whitespace-nowrap hover:bg-white hover:drop-shadow-md bg-indigo-500 hover:text-indigo-500 text-white ${
-							!isSelected && ""
-						}`}
-						disabled={!isSelected}
+						className={`font-josephine inline-flex whitespace-nowrap hover:bg-white hover:drop-shadow-md bg-indigo-500 hover:text-indigo-500 text-white`}
+						// disabled={!isSelected}
 						loading={buyNowLoader}
 					>
 						<span className=" px-2 py-1 3xl:px-8 text-lg mt-1">BUY NOW</span>

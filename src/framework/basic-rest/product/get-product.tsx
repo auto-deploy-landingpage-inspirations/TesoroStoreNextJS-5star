@@ -20,6 +20,37 @@ export type category = {
 	parentName: string;
 	icon: string;
 }
+
+export type ProductVariants = {
+	images: string[];
+	image: string;
+	_id: string;
+	variantIds: string[];
+	originalPrice: number;
+	description: string;
+	price: number;
+	quantity: number;
+	discount: number;
+	productId: string;
+	barcode: string;
+	sku: string;
+}
+
+export type AttributeVariant = {
+	status: string;
+	_id: string;
+	name: title;
+}
+
+export type AttributeData = {
+	type: string;
+	name: title;
+	title: title;
+	_id: string;
+	status: string;
+	variants: AttributeVariant[];
+	option: string;
+}
 export type ProductDetails = {
 	_id: string;
 	approved?: boolean;
@@ -38,7 +69,7 @@ export type ProductDetails = {
 	stock: string;
 	tag: string[];
 	title: title;
-	variants?: object;
+	variants?: ProductVariants[];
 	gallery?:string[];
 	height?: string;
 	width?: string;
@@ -53,6 +84,7 @@ export type ProductDetails = {
 	limit?: number;
 	productRating?: ProductRating;
 	reviews?: string | ProductReviews[];
+	variantData?: AttributeData[];
   };
 
 export type ProductRating = {
