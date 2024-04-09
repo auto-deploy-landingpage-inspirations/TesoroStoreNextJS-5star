@@ -123,8 +123,8 @@ const ProductCard: FC<ProductProps> = ({
 			quantity: 1,
 			image: product.image[0],
 			slug: product.slug,
-			price: product.prices.originalPrice,
-			sale_price: product.prices.price
+			price: product.prices.finalPrice,
+			sale_price: product.prices.finalDiscountedPrice
 		}
 		const item = generateCartItem(precart, ProductAttributes)
 		addItemToCart(item, 1);

@@ -327,8 +327,9 @@ const ProductSingleDetails: React.FC = () => {
 
 			<div className="col-span-4 pt-8 lg:pt-0 hide-scrollbar" style={{height: '80vh', overflowY: 'scroll', overflowX: 'hidden'}}>
 				<div className="pb-4 mb-4 border-b border-gray-300">
-					<h2 className="font-josephine text-gray-600 text-lg md:text-xl lg:text-2xl 2xl:text-3xl font-bold hover:text-slate-800 mt-10 uppercase mb-3">
-						{data?.title["en"]}
+					<h2 className="font-josephine text-gray-600 font-bold hover:text-slate-800 mt-10 uppercase mb-3">
+						<span className="font-bold uppercase text-black text-10px">{data?.storeName}</span><br/>
+						<span className="text-lg md:text-xl lg:text-2xl 2xl:text-3xl ">{data?.title["en"]}</span>
 					</h2>
 					{/* <p className="font-bold pb-5 font-josephine">
 						{data?.description["en"]}
@@ -526,15 +527,9 @@ const ProductSingleDetails: React.FC = () => {
 							<span className="font-josephine font-semibold text-heading inline-block pe-2">
 								Processing time:
 							</span>
-							The product would be shipped in {data?.shippingTime && data?.shippingTime || '3'} days.
+							{data?.shippingTime && data?.shippingTime || '3'} days.
 						</li>
-						{data?.returnable === undefined || data?.returnable === true ? (
-							<li className="font-josephine ">
-								<span className="font-josephine px-2 text-sm font-semibold text-green-500 rounded-lg bg-white border-green-500 border-2 inline-block">
-									The product is returnable!
-								</span>
-							</li>
-						): (
+						{data?.returnable === false && (
 							<li className="font-josephine ">
 								<span className="font-josephine px-2 text-sm font-semibold text-red-500 rounded-lg bg-white border-red-500 border-2 inline-block">
 									The product is not returnable!
@@ -544,7 +539,7 @@ const ProductSingleDetails: React.FC = () => {
 						{data?.uploads === true && (
 							<li className="font-josephine ">
 								<span className="font-josephine px-2 text-sm font-semibold text-black rounded-lg bg-white border-black border-2 inline-block">
-									The product requires User Uploads! 
+									This product requires User Uploads for Product Personalization! 
 								</span>
 							</li>
 						)}

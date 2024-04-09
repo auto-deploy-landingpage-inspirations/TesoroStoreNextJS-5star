@@ -40,7 +40,7 @@ export default function ProductVariantSelector ({product, selectedVariant, setSe
                                 return (
                                     <div
                                         key={index}
-                                        className={`w-20 h-20 mx-2 flex flex-col items-center justify-center cursor-pointer border ${selectedVariant[index] === optionId && ('border-gray-700')} rounded transition-all duration-300 ease-in-out`}
+                                        className={`w-20 h-20 mx-2 flex flex-col items-center justify-center cursor-pointer border ${selectedVariant === optionId && ('border-gray-700')} rounded transition-all duration-300 ease-in-out`}
                                         onClick={() => handleSelectVariant(variantTitleOptions, optionId)}
                                     >   
                                         <div

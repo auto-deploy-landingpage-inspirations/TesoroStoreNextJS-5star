@@ -85,6 +85,7 @@ export type ProductDetails = {
 	productRating?: ProductRating;
 	reviews?: string | ProductReviews[];
 	variantData?: AttributeData[];
+	storeName: string;
   };
 
 export type ProductRating = {
