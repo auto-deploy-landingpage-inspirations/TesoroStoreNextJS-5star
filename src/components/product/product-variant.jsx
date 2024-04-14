@@ -6,12 +6,14 @@ export default function ProductVariantSelector ({product, selectedVariant, setSe
     const variantOptions = product?.variants;
     console.log(variantOptions, "VariantOptions");
 
-    const handleSelectVariant = (variantTitleOptions, optionId, index) => {
+    const handleSelectVariant = (variantTitleOptions, optionId, index= -1) => {
         const optionDetails = variantTitleOptions.filter(variant => variant._id === optionId)[0];
         // alert(optionDetails.name.en);
         // alert(index);
-        setImagesToShow(variantOptions[index].images);
-        setImgToShow(variantOptions[index].images[0]);
+        if(index !== -1){
+            setImagesToShow(variantOptions[index].images);
+            setImgToShow(variantOptions[index].images[0]);
+        }
         setSelectedVariant(optionId);
         setVariantData(optionDetails);
     }

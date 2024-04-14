@@ -77,16 +77,18 @@ const ProductSingleDetails: React.FC = () => {
 		let name = data?.title.en
 		
 		if(data?.isCombination) {
-			name = `${name}-${variantData.name.en}`
+			name = `${name}-${variantData.name.en}`;
+
 		}
 
 		const precart: Item = {
 			id: data?._id || '', 
 			name: name || ' ', 
 			slug: data?.slug || ' ', 
-			image: data?.image[0] || '',
+			image: imgToShow || '',
 			price: data?.prices.finalPrice || 0, 
-			sale_price: data?.prices.finalDiscountedPrice || 0
+			sale_price: data?.prices.finalDiscountedPrice || 0,
+			isCombination: data?.isCombination
 		}
 
 		const item = generateCartItem(precart, variantData);
@@ -124,9 +126,10 @@ const ProductSingleDetails: React.FC = () => {
 			id: data?._id || '', 
 			name: name || ' ', 
 			slug: data?.slug || ' ', 
-			image: data?.image[0] || '',
+			image: imgToShow || '',
 			price: data?.prices.finalPrice || 0, 
-			sale_price: data?.prices.finalDiscountedPrice || 0
+			sale_price: data?.prices.finalDiscountedPrice || 0,
+			isCombination: data?.isCombination
 		}
 
 		const item = generateCartItem(precart, variantData);
