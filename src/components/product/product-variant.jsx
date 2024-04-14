@@ -9,7 +9,7 @@ export default function ProductVariantSelector ({product, selectedVariant, setSe
     const handleSelectVariant = (variantTitleOptions, optionId, index) => {
         const optionDetails = variantTitleOptions.filter(variant => variant._id === optionId)[0];
         // alert(optionDetails.name.en);
-        alert(index);
+        // alert(index);
         setImagesToShow(variantOptions[index].images);
         setImgToShow(variantOptions[index].images[0]);
         setSelectedVariant(optionId);
