@@ -4,9 +4,18 @@ import { CheckoutItem } from "@components/checkout/checkout-card-item";
 import { CheckoutCardFooterItem } from "./checkout-card-footer-item";
 import { useTranslation } from "next-i18next";
 
-const CheckoutCard: React.FC = () => {
-	const { items, total, isEmpty } = useCart();
-	const { price: subtotal } = usePrice({
+interface CheckoutCardProps {
+	paymentMethod: string;
+};
+
+const CheckoutCard: React.FC<CheckoutCardProps> = ({paymentMethod}) => {
+	let { items, total, isEmpty } = useCart();
+	
+	if(paymentMethod === "cod"){
+		console.log("COD Selected! Adding Rs 50/-");
+		total = Number(50) + Number(total);
+	}
+	let { price: subtotal } = usePrice({
 		amount: total,
 		currencyCode: "INR",
 	});

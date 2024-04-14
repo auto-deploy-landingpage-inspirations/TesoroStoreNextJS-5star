@@ -5,117 +5,78 @@ import Button from "@components/ui/button";
 import Counter from "@components/common/counter";
 import { useRouter } from "next/router";
 import { useProductQuery } from "@framework/product/get-product";
-// import { getVariations } from "@framework/utils/get-variations";
-// import usePrice from "@framework/product/use-price";
 import { useCart } from "@contexts/cart/cart.context";
 import { generateCartItem } from "@utils/generate-cart-item";
-// import { ProductAttributes } from "./product-attributes";
-// import isEmpty from "lodash/isEmpty";
 import Link from "@components/ui/link";
 import { toast } from "react-toastify";
 import { useWindowSize } from "@utils/use-window-size";
 import Carousel from "@components/ui/carousel/carousel";
 import { SwiperSlide } from "swiper/react";
-// import ProductMetaReview from "@components/product/product-meta-review";
 import PinCodeCheckForm from "./pinCodeForm";
 import ProductRating from "./productRating";
-// import CardRoundedLoader from "@components/ui/loaders/card-rounded-loader";
 import ProductReviewCards from "./product-review";
 import { Item } from "@contexts/cart/cart.utils";
 import { useUI } from "@contexts/ui.context";
 import ProductVariantSelector from "@components/product/product-variant"
 
 
-
-// const productGalleryCarouselResponsive = {
-// 	"768": {
-// 		slidesPerView: 2,
-// 	},
-// 	"0": {
-// 		slidesPerView: 1,
-// 	},
-// };
-
-// const productGalleryCarouselResponsive2 = {
-// 	"768": {
-// 		slidesPerView: 2,
-// 	},
-// 	"0": {
-// 		slidesPerView: 1,
-// 	},
-// };
-
-// const productVerticalGalleryCarouselResponsive = {
-// 	"1200": {
-// 		slidesPerview: 6
-// 	}
-// }
-// import { Product } from "@framework/types";
-// import { useTranslation } from "next-i18next";
-
-// interface ProductProps {
-// 	slug: string;
-// 	variant?: "grid" | "gridSlim" | "list" | "listSmall" | "grid_grad";
-// }
-
 const ProductSingleDetails: React.FC = () => {
-	const [imgToShow, setImgToShow] = useState("");
+	const { width } = useWindowSize();
+	const { items, removeItemFromCart, addItemToCart } = useCart();
+	const {closeCart} = useUI();
+	const router = useRouter();
+
+	const [variantData, setVariantData] = useState<any>({});
+	const [selectedVariant, setSelectedVariant] = useState<string>('');
+	const [quantity, setQuantity] = useState<number>(1);
+	const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
+	const [buyNowLoader, setBuyNowLoader] = useState<boolean>(false);
+	const [imgToShow, setImgToShow] = useState<string>("");
+	const [imagesToShow, setImagesToShow] = useState<any>([]);
+
 	const {
 		query: { slug },
 	} = useRouter();
 	
-	const { width } = useWindowSize();
 	const { data, isLoading } = useProductQuery(slug as string);
-	const [variantData, setVariantData] = useState<any>({});
-	const [selectedVariant, setSelectedVariant] = useState<string>('');
+
 	useEffect(() => {
-		setImgToShow(data?.image[0] ?? "");
+		// setImgToShow(data?.image[0] ?? "");
 		if(data?.isCombination) {
 			if(data?.variants && data?.variants.length > 0) {
 				setImgToShow(data?.variants[0].images[0]);
+				setImagesToShow(data?.variants[0].images);
 			}
+		} else {
+			setImgToShow(data?.image[0] ?? "");
+			setImagesToShow(data?.image);
 		}
 
 	}, [data]);
-	const { items, removeItemFromCart, addItemToCart } = useCart();
-	const {closeCart} = useUI();
-	// const [attributes, setAttributes] = useState<{ [key: string]: string }>({});
-	const [quantity, setQuantity] = useState(1);
-	const [addToCartLoader, setAddToCartLoader] = useState<boolean>(false);
-	const [buyNowLoader, setBuyNowLoader] = useState<boolean>(false);
-	const router = useRouter();
 
+
+	useEffect(() => {
+		// alert(variantData);
+		// setImagesToShow(variantData.images);
+		// setImgToShow(variantData.images[0]);
+		console.log("Variant Data: ", variantData);
+		console.log("Selected Variant: ", selectedVariant);
+		// console.log("ImagesToShow: ", imagesToShow);
+		// console.log("ImgToShow: ", imgToShow);
+	}, [selectedVariant, variantData])
 
 	if (isLoading) return <p>Loading...</p>;
-	// const variations = getVariations(data?.variants);
 	
-	
-	
-	// const isSelected = !isEmpty(variations)
-	// 	? !isEmpty(attributes) &&
-	// 	  Object.keys(variations).every((variation) =>
-	// 			attributes.hasOwnProperty(variation)
-	// 	  )
-	// 	: true;
-	// console.log(attributes, "attributes");
-
-	// useEffect(() => {
-	// 	const variant = data?.variants.filter((variant) => variant._id == selectedVariant);
-
-	// }, [selectedVariant])
 	function addToCart() {
-		// if (!isSelected) return;
-		// to show btn feedback while product carting
+
 		setAddToCartLoader(true);
 		setTimeout(() => {
 			setAddToCartLoader(false);
 		}, 600);
 
 		let name = data?.title.en
-		// alert(variantData)
-		// console.log(variantData, "variantData in add to cart")
+		
 		if(data?.isCombination) {
-			// alert("Combination")
 			name = `${name}-${variantData.name.en}`
 		}
 
@@ -140,7 +101,6 @@ const ProductSingleDetails: React.FC = () => {
 			pauseOnHover: true,
 			draggable: true,
 		});
-		// console.log(item, "item");
 	}
 
 	function clearCart(){
@@ -150,20 +110,23 @@ const ProductSingleDetails: React.FC = () => {
 	}
 
 	function buyNow() {
-		// if (!isSelected) return;
-		// to show btn feedback while product carting
 		setBuyNowLoader(true);
 		setTimeout(() => {
 			setBuyNowLoader(false);
 		}, 600);
 
+		let name = data?.title.en
+		if(data?.isCombination) {
+			name = `${name}-${variantData.name.en}`
+		}
+
 		const precart: Item = {
 			id: data?._id || '', 
-			name: data?.title.en || ' ', 
+			name: name || ' ', 
 			slug: data?.slug || ' ', 
 			image: data?.image[0] || '',
-			price: data?.prices.originalPrice || 0, 
-			sale_price: data?.prices.price || 0
+			price: data?.prices.finalPrice || 0, 
+			sale_price: data?.prices.finalDiscountedPrice || 0
 		}
 
 		const item = generateCartItem(precart, variantData);
@@ -178,25 +141,27 @@ const ProductSingleDetails: React.FC = () => {
 			pauseOnHover: true,
 			draggable: true,
 		});
-		// console.log(item, "item");
-		// close cart
+	
 		closeCart();
-		// go to checkout page
 		router.push("/checkout");
 	}
 
-	// function handleAttribute(attribute: any) {
-	// 	setAttributes((prev) => ({
-	// 		...prev,
-	// 		...attribute,
-	// 	}));
-	// }
-	
-	
-	// const { t } = useTranslation("common");
+	// const thumbs = imagesToShow.map((img: string, idx: number) => (
+	// 	<div key={idx}>
+	// 	  <div>
+	// 		<img
+	// 		  className="inline-flex border-2 border-gray-100 w-24 max-h-24"
+	// 		  src={img}
+	// 		  alt={"Product Images"}
+	// 		/>
+	// 	  </div>
+	// 	</div>
+	//   ));
+
 
 	return (
 		<>
+		
 		<div className="block lg:grid grid-cols-9 gap-x-10 xl:gap-x-14 pt-3 pb-10 lg:pb-14 2xl:pb-20 items-start">
 			{width < 1025 ? (
 				<>
@@ -214,65 +179,54 @@ const ProductSingleDetails: React.FC = () => {
 										backgroundPosition: 'center'
 									}}
 								>
-									{/* <img src={imgToShow ?? data?.image[0]} alt="" className=" object-fit" /> */}
 								</div>
-								<div className="col-span-2">
-									<Carousel
-										// pagination={{
-										// 	clickable: true,
-										// }}
-										// breakpoints={productGalleryCarouselResponsive}
-										// slidesPerView={data?.image.length}
-										slidesPerView={4}
-										className="product-gallery"
-										buttonClassName="hidden"
-									>
-									{data?.image?.map((item:any, index: number) => (
-										<SwiperSlide key={`product-gallery-key-${index}`}>
-											<div className="col-span-1 transition duration-150 ease-in hover:opacity-90"
-												onClick={() => {
-													setImgToShow(item)
-												}}
-												// style={{
-												// 	height: '20vw',
-												// 	width: '20vw'
-												// }}
-											>
-												<div className="mt-2 object-cover p-2 w-full border-r-8 aspect-[1/1]"
-													style={{
-														borderRadius: '10px',
-														backgroundImage: `url(${item ?? data?.image[0]})`,
-														backgroundRepeat: 'no-repeat',
-														// backgroundAttachment: 'fixed',
-														backgroundSize: 'cover',
-														backgroundPosition: 'center',
-														width: '20vw',
-														height: '20vw'
+								{Array.isArray(imagesToShow) && imagesToShow.length > 1 && (
+									<div className="col-span-2">
+										<Carousel
+											// pagination={{
+											// 	clickable: true,
+											// }}
+											// breakpoints={productGalleryCarouselResponsive}
+											// slidesPerView={data?.image.length}
+											slidesPerView={4}
+											className="product-gallery"
+											buttonClassName="hidden"
+										>
+										{Array.isArray(imagesToShow) && imagesToShow.map((item:any, index: number) => (
+											<SwiperSlide key={`product-gallery-key-${index}`}>
+												<div className="col-span-1 transition duration-150 ease-in hover:opacity-90"
+													onClick={() => {
+														setImgToShow(item)
 													}}
 												>
-													{/* <img
-														src={
-															item ??
-															"/assets/placeholder/products/product-gallery.svg"
-														}
-														alt={`${data?.title.en}--${index}`}
-														className="" 
-													/> */}
+													<div className="mt-2 object-cover p-2 w-full border-r-8 aspect-[1/1]"
+														style={{
+															borderRadius: '10px',
+															backgroundImage: `url(${item ?? data?.image[0]})`,
+															backgroundRepeat: 'no-repeat',
+															// backgroundAttachment: 'fixed',
+															backgroundSize: 'cover',
+															backgroundPosition: 'center',
+															width: '20vw',
+															height: '20vw'
+														}}
+													>
+													</div>
 												</div>
-											</div>
-										</SwiperSlide>
-									))}
-								</Carousel>
-								</div>
+											</SwiperSlide>
+										))}
+										</Carousel>
+									</div>
+								)}
+								{/* {Array.isArray(imagesToShow) && thumbs} */}
 							</div>
 						</div>
 						<div className="lg:col-span-1 md:hidden lg:w-full">
-
+									
 						</div>
 				</>
 			) : (
 				<>
-					
 						<div 
 							className="lg:col-span-1"
 						 	style={{
@@ -281,7 +235,7 @@ const ProductSingleDetails: React.FC = () => {
 							}}
 						>
 							<ul>
-								{data?.image?.map((item:any, index:number) => (
+								{Array.isArray(imagesToShow) && imagesToShow.map((item:any, index:number) => (
 									<li
 										key={index}
 										className=""
@@ -295,34 +249,15 @@ const ProductSingleDetails: React.FC = () => {
 									>
 										<img 
 											src={item ?? "/assets/placeholder/products/product-gallery.svg"} 
-											// height={'10vh'} 
-											// width={'10vh'} 
 										/>
 									</li>
 								))}
 							</ul>
 						</div>
 						<div className="lg:col-span-4">
-							<img src={imgToShow ?? data?.image[0]} alt="" style={{height: '80vh'}} />
+							<img src={imgToShow ?? data?.image[0]} alt="" style={{height: '80vh', marginLeft: "auto", marginRight: "auto"}} />
 						</div>
 				</>
-				// {/* // <div className="col-span-5 grid grid-cols-2 gap-2.5">
-				// // 	{data?.gallery?.map((item, index: number) => ( 
-				// // 		<div
-				// // 			key={index}
-				// // 			className="col-span-1 transition duration-150 ease-in hover:opacity-90"
-				// // 		>
-				// // 			<img
-				// // 				src={
-				// // 					item?.original ??
-				// // 					"/assets/placeholder/products/product-gallery.svg"
-				// // 				}
-				// // 				alt={`${data?.name}--${index}`}
-				// // 				className="object-cover w-full"
-				// // 			/>
-				// // 		</div>
-				// // 	))}
-				// // </div>*/}
 			 )}
 
 			<div className="col-span-4 pt-8 lg:pt-0 hide-scrollbar" style={{height: '80vh', overflowY: 'scroll', overflowX: 'hidden'}}>
@@ -331,9 +266,6 @@ const ProductSingleDetails: React.FC = () => {
 						<span className="font-bold uppercase text-black text-10px">{data?.storeName}</span><br/>
 						<span className="text-lg md:text-xl lg:text-2xl 2xl:text-3xl ">{data?.title["en"]}</span>
 					</h2>
-					{/* <p className="font-bold pb-5 font-josephine">
-						{data?.description["en"]}
-					</p> */}
 					{
 						data?.productRating?.overallRating !== undefined ? (
 							<ProductRating productRating={{overallRating: data?.productRating.overallRating ?? 0, ratingCount: data?.productRating.ratingCount ?? 0}} />
@@ -341,9 +273,6 @@ const ProductSingleDetails: React.FC = () => {
 							<ProductRating productRating={{overallRating: 0, ratingCount: 0}} />
 						)
 					}
-					{/* <p className="text-body text-sm lg:text-base leading-3 lg:leading-6">
-						{data?.description}
-					</p> */}
 					<div className="flex items-center mt-5">
 						<div className="font-josephine text-gray-600 font-semibold text-base md:text-md lg:text-lg 2xl:text-2xl pe-2 md:pe-0 lg:pe-2 2xl:pe-0">
 							₹{data?.prices.finalDiscountedPrice}/-
@@ -356,21 +285,10 @@ const ProductSingleDetails: React.FC = () => {
 					</div>
 				</div>
 				{data?.isCombination && (
-					<ProductVariantSelector product={data} selectedVariant={selectedVariant} setSelectedVariant={setSelectedVariant} setVariantData={setVariantData} />
+					<ProductVariantSelector product={data} selectedVariant={selectedVariant} setSelectedVariant={setSelectedVariant} setVariantData={setVariantData} setImagesToShow={setImagesToShow} setImgToShow={setImgToShow} />
 				)}
 
 				<div className="pb-3 border-b border-gray-300">
-					{/* {Object.keys(variations).map((variation) => {
-						return (
-							<ProductAttributes
-								key={variation}
-								title={variation}
-								attributes={variations[variation]}
-								active={attributes[variation]}
-								onClick={handleAttribute}
-							/>
-						);
-					})} */}
 					<div className="md:w-1/3 sm:w-1/2 mb-2">
 						<Counter
 							quantity={quantity}
@@ -383,10 +301,6 @@ const ProductSingleDetails: React.FC = () => {
 					</div>
 				</div>
 
-				{/* <div className="flex items-center space-s-4 md:pe-32 lg:pe-12 2xl:pe-32 3xl:pe-48 border-b border-gray-300 py-8">
-					
-					
-				</div> */}
 				<div className="mt-4">
 				<table className="table-fixed sm:w-full md:w-2/3 " 
 					style={
@@ -484,8 +398,6 @@ const ProductSingleDetails: React.FC = () => {
 						</>
 					</ul>
 				</div>
-
-				{/* <ProductMetaReview data={data} /> */}
 			</div>
 		</div>
 		<div className="block lg:grid grid-cols-9 gap-x-10 xl:gap-x-14 pt-3 pb-10 lg:pb-14 2xl:pb-20 items-start">

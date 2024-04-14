@@ -34,11 +34,18 @@ interface CheckoutInputType {
 	guestCheckout: boolean;
 }
 
-const CheckoutForm: React.FC = () => {
+interface CheckoutFormProps {
+	paymentMethod: string;
+	setPaymentMethod: (paymentMethod: string) => void;
+}
+
+const CheckoutForm: React.FC<CheckoutFormProps> = ({paymentMethod, setPaymentMethod}) => {
 	const { t } = useTranslation();
+	// const [paymentMethod, setPaymentMethod] = useState('');
 	const {items, removeItemFromCart} = useCart();
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [guestCheckout, setGuestCheckout] = useState(false);
+	const [orderDetails, setOrderDetails] = useState({});
 
 	function clearCart(){
 		for (let i = 0; i < items.length; i++) {
@@ -57,6 +64,7 @@ const CheckoutForm: React.FC = () => {
 	function handleGuestCheckout(event:any) {
 		setGuestCheckout(event.target.checked);
 	}
+	
 
 	function onSubmit(input: CheckoutInputType) {
 		try {
@@ -67,6 +75,43 @@ const CheckoutForm: React.FC = () => {
 				})
 				return;
 			}
+
+			const checkPayment = async() => {
+				const orderDetails = await createOrder();
+				if(orderDetails === undefined){
+					toast("Error Creating Order", {
+						type: "error"
+					})
+					return false;
+				}
+				setOrderDetails(orderDetails);
+				return orderDetails;
+			}
+			if(paymentMethod === ''){
+				toast("Please Select Payment Method", {
+					type: "error",
+					autoClose: 2000,
+				})
+				return;
+			} else if(paymentMethod === 'cod'){
+				toast("Cash on Delivery Selected", {
+					type: "success",
+					autoClose: 2000,
+				})
+				checkPayment();
+				let redirectUrl = ''
+				clearCart();
+				console.log(orderDetails)
+				// if(guestCheckout == true){
+				// 	redirectUrl = `/guest-order/${orderDetails.orderId}`
+				// } else {
+				// 	redirectUrl = `/my-account/orders/${orderDetails.orderId}`
+				// }
+				alert(redirectUrl);
+				return;
+			}
+			
+
 			const merchantId = 3163052;
 			
 			let accessCode = '';
@@ -144,7 +189,8 @@ const CheckoutForm: React.FC = () => {
 				const orderDetails = {
 					cart: items,
 					billing: input,
-					guestCheckout: guestCheckout
+					guestCheckout: guestCheckout,
+					paymentMethod: paymentMethod
 				}
 				// console.log("Payload to be sent")
 				// console.log(orderDetails)
@@ -183,8 +229,9 @@ const CheckoutForm: React.FC = () => {
 				// console.log(data.order);
 				return data.order;
 			}
-		
-			submitForm();
+			if(paymentMethod === 'online'){
+				submitForm();
+			}
 
 		} catch (error) {
 			toast("Error Checking Out", {
@@ -221,6 +268,32 @@ const CheckoutForm: React.FC = () => {
 							</div>
 						</div>
 					)}
+					
+					<div className="mt-4">
+					<span className="text-lg font-medium text-heading">Payment Method</span>
+					<div className="mt-2 flex flex-col">
+						<label className="inline-flex items-center">
+						<input 
+							type="radio" 
+							className="form-radio h-5 w-5 text-primary" 
+							name="paymentMethod" 
+							value="cod" 
+							onChange={e => setPaymentMethod(e.target.value)}
+						/>
+						<span className="ml-2 text-sm text-body">Cash on Delivery [Cod Charges Rs 50/- extra]</span>
+						</label>
+						<label className="inline-flex items-center mt-3">
+						<input 
+							type="radio" 
+							className="form-radio h-5 w-5 text-primary" 
+							name="paymentMethod" 
+							value="online" 
+							onChange={e => setPaymentMethod(e.target.value)}
+						/>
+						<span className="ml-2 text-sm text-body">Online Payment</span>
+						</label>
+					</div>
+					</div>
 					
 					<div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0">
 						<Input

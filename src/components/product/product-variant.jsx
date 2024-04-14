@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 
-export default function ProductVariantSelector ({product, selectedVariant, setSelectedVariant, setVariantData}) {
+export default function ProductVariantSelector ({product, selectedVariant, setSelectedVariant, setVariantData, setImgToShow, setImagesToShow}) {
     const [optionDetailsDropdown, setOptionDetailsDropdown] = useState({});
     const variantTitle = product?.variantData;
     const variantOptions = product?.variants;
     console.log(variantOptions, "VariantOptions");
 
-    const handleSelectVariant = (variantTitleOptions, optionId,) => {
+    const handleSelectVariant = (variantTitleOptions, optionId, index) => {
         const optionDetails = variantTitleOptions.filter(variant => variant._id === optionId)[0];
-        // alert(optionDetails.name.en)
+        // alert(optionDetails.name.en);
+        alert(index);
+        setImagesToShow(variantOptions[index].images);
+        setImgToShow(variantOptions[index].images[0]);
         setSelectedVariant(optionId);
         setVariantData(optionDetails);
     }
 
-    // useEffect(() => {
-    //     handleSelectVariant(variantTitle[0].variants, variantOptions[0][variantTitle[0]._id])
-    // }, [])
     return (
         <div
             className="pb-3 border-b border-gray-300"
@@ -41,7 +41,7 @@ export default function ProductVariantSelector ({product, selectedVariant, setSe
                                     <div
                                         key={index}
                                         className={`w-20 h-20 mx-2 flex flex-col items-center justify-center cursor-pointer border ${selectedVariant === optionId && ('border-gray-700')} rounded transition-all duration-300 ease-in-out`}
-                                        onClick={() => handleSelectVariant(variantTitleOptions, optionId)}
+                                        onClick={() => handleSelectVariant(variantTitleOptions, optionId, index)}
                                     >   
                                         <div
                                             className="w-16 h-16 rounded"

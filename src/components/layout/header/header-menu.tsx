@@ -4,7 +4,7 @@ import MegaMenu from "@components/ui/mega-menu";
 import classNames from "classnames";
 import ListMenu from "@components/ui/list-menu";
 import { useTranslation } from "next-i18next";
-import { useWindowSize } from '@utils/use-window-size';
+// import { useWindowSize } from '@utils/use-window-size';
 import React from "react";
 
 interface MenuProps {
@@ -15,13 +15,8 @@ interface MenuProps {
 const HeaderMenu: React.FC<MenuProps> = ({ data, className }) => {
 	const { t } = useTranslation("menu");
 	const [width, setWidth] = React.useState<number>(0);
-	// const {width} = useWindowSize();
-	// console.log("width: ", width) 
-	const wi = useWindowSize();
+
 	React.useEffect(() => {
-		console.log("Printing widths:")
-		console.log(window.innerWidth)
-		console.log(wi)
 		setWidth(window.innerWidth);
 	}, []);
 	return (

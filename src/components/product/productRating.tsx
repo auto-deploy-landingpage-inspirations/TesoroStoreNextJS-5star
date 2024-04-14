@@ -8,14 +8,14 @@ interface ProductRatingProps {
 }
 
 export default function ProductRating ({ productRating }: ProductRatingProps) {
-    console.log(productRating)
+    // console.log(productRating)
     const noOfHighlightStars = Math.floor(productRating.overallRating);
-    console.log(noOfHighlightStars)
+    // console.log(noOfHighlightStars)
     let noOfGreyStars = 5 - noOfHighlightStars;
-    console.log(noOfGreyStars)
+    // console.log(noOfGreyStars)
     const decimalPart = productRating.overallRating % Math.floor(noOfHighlightStars);
     let halfStar = false;
-    console.log(decimalPart)
+    // console.log(decimalPart)
     if(decimalPart > 0.1) {
         halfStar = true;
     } else if(Number.isNaN(decimalPart)){
@@ -26,7 +26,7 @@ export default function ProductRating ({ productRating }: ProductRatingProps) {
     } else {
         noOfGreyStars = 0;
     }
-    console.log("Does it have half star? ", halfStar)
+    // console.log("Does it have half star? ", halfStar)
   return (
     <ul className='pt-0 mt-0 mb-2 flex items-center'>
         {Array.from({ length: Math.floor(noOfHighlightStars) }).map((_, idx) => (
