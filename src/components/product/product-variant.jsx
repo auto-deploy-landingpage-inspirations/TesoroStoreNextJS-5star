@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function ProductVariantSelector ({product, selectedVariant, setSelectedVariant, setVariantData, setImgToShow, setImagesToShow}) {
+export default function ProductVariantSelector ({product, selectedVariant, setSelectedVariant, setVariantData, setImgToShow, setImagesToShow, setPrices, slabPrice, setVariantDesc}) {
     const [optionDetailsDropdown, setOptionDetailsDropdown] = useState({});
     const variantTitle = product?.variantData;
     const variantOptions = product?.variants;
@@ -13,7 +13,16 @@ export default function ProductVariantSelector ({product, selectedVariant, setSe
         if(index !== -1){
             setImagesToShow(variantOptions[index].images);
             setImgToShow(variantOptions[index].images[0]);
+            setVariantDesc(variantOptions[index].description);
+            const prices = {
+                finalPrice: variantOptions[index].originalPrice + slabPrice,
+                finalDiscountedPrice: variantOptions[index].price + slabPrice,
+                discount: variantOptions[index].originalPrice - variantOptions[index].price,
+            }
+            // alert(prices.finalPrice + " " + prices.finalDiscountedPrice + " " + prices.discount)
+            setPrices(prices);
         }
+        
         setSelectedVariant(optionId);
         setVariantData(optionDetails);
     }

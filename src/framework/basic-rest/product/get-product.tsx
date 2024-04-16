@@ -34,6 +34,8 @@ export type ProductVariants = {
 	productId: string;
 	barcode: string;
 	sku: string;
+	finalPrice: number;
+	finalDiscountedPrice: number;
 }
 
 export type AttributeVariant = {
