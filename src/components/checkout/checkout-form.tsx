@@ -178,7 +178,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({paymentMethod, setPaymentMet
 				form.appendChild(accessCodeInput);
 
 				document.body.appendChild(form);
-				clearCart();
+				// clearCart();
 				form.submit();
 			}
 			

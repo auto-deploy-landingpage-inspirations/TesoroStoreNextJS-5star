@@ -99,10 +99,13 @@ const ProductSingleDetails: React.FC = () => {
 			price: finalPrice || 0,
 			sale_price: finalDiscountedPrice || 0,
 			isCombination: data?.isCombination,
-			discount: discount
+			discount: discount,
+			variantId: variantData._id
 		}
 
 		const item = generateCartItem(precart, variantData);
+		console.log("Cart Item: ");
+		console.log(item);
 		addItemToCart(item, quantity);
 		toast("Added to the bag", {
 			type: "dark",
@@ -291,6 +294,11 @@ const ProductSingleDetails: React.FC = () => {
 								{variantPrices?.discount !== 0 && (
 									<span className="font-josephine font-normal line-through font-segoe text-gray-400 text-sm md:text-base lg:text-md xl:text-lg ps-2">
 										₹{variantPrices?.finalPrice || 0 + data?.prices.slabPrice}/-
+									</span>
+								)}
+								{variantPrices?.discount !== 0 && (
+									<span className="font-josephine font-normal font-segoe text-red-600 border-2 border-red-600 bg-red-200 rounded-2xl ml-4 p-1 text-sm md:text-base lg:text-md xl:text">
+										{((variantPrices?.discount || 0)/(variantPrices?.finalPrice || 0) * 100).toFixed(1)}% off
 									</span>
 								)}
 							</div>

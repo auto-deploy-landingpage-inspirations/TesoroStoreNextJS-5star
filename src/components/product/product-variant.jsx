@@ -22,7 +22,7 @@ export default function ProductVariantSelector ({product, selectedVariant, setSe
             // alert(prices.finalPrice + " " + prices.finalDiscountedPrice + " " + prices.discount)
             setPrices(prices);
         }
-        
+        // alert(optionId);
         setSelectedVariant(optionId);
         setVariantData(optionDetails);
     }
@@ -51,16 +51,16 @@ export default function ProductVariantSelector ({product, selectedVariant, setSe
                                 return (
                                     <div
                                         key={index}
-                                        className={`w-20 h-20 mx-2 flex flex-col items-center justify-center cursor-pointer border ${selectedVariant === optionId && ('border-gray-700')} rounded transition-all duration-300 ease-in-out`}
+                                        className={`w-20 h-20 mx-2 flex flex-col items-center justify-center cursor-pointer transition-all duration-300 ease-in-out`}
                                         onClick={() => handleSelectVariant(variantTitleOptions, optionId, index)}
                                     >   
                                         <div
-                                            className="w-16 h-16 rounded"
+                                            className={`w-16 h-16 ${selectedVariant === optionId && ('border-green-600 border-2')}`}
                                             style={{
                                                 backgroundImage: `url(${option.images[0]})`,
-                                                backgroundSize: 'cover',
+                                                backgroundSize: 'contain',
                                                 backgroundPosition: 'center',
-                                                border: '1px solid #f7f7f7'
+                                                borderRadius: '50%'
                                             }}
                                         >
                                         </div>

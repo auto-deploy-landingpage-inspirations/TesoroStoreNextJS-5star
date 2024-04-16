@@ -60,13 +60,19 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
 					href={`${ROUTES.PRODUCT}/${item?.slug}`}
 					className="truncate text-sm text-heading mb-1.5 -mt-1"
 				>
-					{generateCartItemName(item.name, item.attributes)}
+					{generateCartItemName(item.name, [])}
 				</Link>
 				<span className="text-sm text-gray-400 mb-2.5">
 					{t("text-unit-price") as string} : &nbsp;
 					{price}
 				</span>
-
+				<span className="text-xl mb-2.5 p-1 text-green-600 border-2 border-green-600 rounded-xl"
+					style={{
+						width: "max-content",
+					}}
+				>
+					Savings: {item.discount}
+				</span>
 				<div className="flex items-end justify-between">
 					<Counter
 						quantity={item.quantity}
