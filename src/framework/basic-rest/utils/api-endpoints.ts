@@ -31,6 +31,7 @@ export const API_ENDPOINTS = {
   RELATED_PRODUCTS: "/related_products.json",
   BEST_SELLER_PRODUCTS: "/products_best_seller.json",
   FLASH_SALE_PRODUCTS: "/products_flash_sale.json",
-  SEARCH: "/search.json",
+  // SEARCH: "http://localhost:5055/api/products/search?search=",
+  SEARCH: "https://tesoro-backend.onrender.com/api/products/search?search=",
   ORDERS: "/orders.json",
 };

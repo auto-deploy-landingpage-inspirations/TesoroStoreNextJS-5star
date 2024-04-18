@@ -1,25 +1,24 @@
-import ProductCard from "@components/product/product-card";
+// import ProductCard from "@components/product/product-card";
 // import Button from "@components/ui/button";
 import type { FC } from "react";
 import { useProductsByCategoryQuery } from "@framework/product/get-product-by-category";
 import { useRouter } from "next/router";
 import ProductFeedLoader from "@components/ui/loaders/product-feed-loader";
-// import { useTranslation } from "next-i18next";
+import ProductCategoryCard from "./product-category-card";
+
 interface ProductGridProps {
 	className?: string;
 	setProductCount: (value: number) => void;
 }
 
-export const ProductGrid: FC<ProductGridProps> = ({ className = "" , setProductCount}) => {
+export const ProductCategoryGrid: FC<ProductGridProps> = ({ className = "" , setProductCount}) => {
 	const { query } = useRouter();
-	// console.log(query)
+	
 	const { 
 		isFetching: isLoading,
 		data,
 		error,
 	} = useProductsByCategoryQuery(query.slug as string);
-	// console.log("Product Data: ",data)
-	// console.log("IsLoading Product: ",isLoading)
 	if (error) return <p>{error.message}</p>;
 
 	if(data?.products){
@@ -36,7 +35,7 @@ export const ProductGrid: FC<ProductGridProps> = ({ className = "" , setProductC
 				) : (
 					data?.products.map((product:any) => {
 						return (
-							<ProductCard
+							<ProductCategoryCard
 								key={`product--key${product._id}`}
 								product={product}
 								variant="grid"

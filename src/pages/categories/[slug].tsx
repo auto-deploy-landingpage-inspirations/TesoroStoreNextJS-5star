@@ -5,7 +5,6 @@ import Subscription from "@components/common/subscription";
 import { ShopFilters } from "@components/shop/filters";
 import CategoryLiner from "@containers/CategoryLiner"
 import StickyBox from "react-sticky-box";
-import { ProductGrid } from "@components/product/product-grid";
 import SearchTopBar from "@components/shop/top-bar";
 import ActiveLink from "@components/ui/active-link";
 import { BreadcrumbItems } from "@components/common/breadcrumb";
@@ -14,10 +13,7 @@ import { ROUTES } from "@utils/routes";
 import { GetServerSideProps } from "next";
 import CategoryBanner from "@containers/category-banner";
 import React from "react";
-// import { fetchCategories } from "@framework/category/get-all-categories";
-// import { useRouter } from "next/router";
-// import CategoryBlock from "@containers/category-block";
-// import CategoryBlock2 from "@containers/CategoryBlock2";
+import { ProductCategoryGrid } from "@components/product/product-category-grid";
 
 const colors:string[] = [
 	'bg-[#f786be]', //pink
@@ -67,7 +63,7 @@ export default function Products() {
 
 					<div className="w-full lg:-ms-9">
 						<SearchTopBar productCount={productCount} />
-						<ProductGrid setProductCount={setProductCount} />
+						<ProductCategoryGrid setProductCount={setProductCount} />
 					</div>
 				</div>
 				<Subscription />

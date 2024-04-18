@@ -11,6 +11,7 @@ import {
 } from "body-scroll-lock";
 import Scrollbar from "@components/common/scrollbar";
 import SearchProduct from "@components/common/search-product";
+// import axios from "axios";
 
 export default function Search() {
 	const { displaySearch, closeSearch } = useUI();
@@ -19,11 +20,25 @@ export default function Search() {
 		text: searchText,
 	});
 
+	// const search = async() => {
+	// 	let cancel;
+	// 	const searchResponse = await axios.get(`http://localhost:5055/api/products/search?search=${searchText}`, {
+	// 		cancelToken: new axios.CancelToken(c => cancel = c)
+	// 	})
+	// 	const product = searchResponse.data.products;
+	// 	const results = searchResponse.data.results;
+	// 	console.log("Search Response!")
+	// 	console.log(searchResponse);
+	// }
+
 	function handleSearch(e: React.SyntheticEvent) {
 		e.preventDefault();
+		// console.log("Search Text: ", searchText);
 	}
 	function handleAutoSearch(e: React.FormEvent<HTMLInputElement>) {
+		// alert("test search")
 		setSearchText(e.currentTarget.value);
+		// search();
 	}
 	function clear() {
 		setSearchText("");
