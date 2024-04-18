@@ -19,6 +19,7 @@ import ProductReviewCards from "./product-review";
 import { Item } from "@contexts/cart/cart.utils";
 import { useUI } from "@contexts/ui.context";
 import ProductVariantSelector from "@components/product/product-variant"
+// import "./product-single-details.css";
 
 interface VariantPrices {
 	finalPrice: number;
@@ -267,7 +268,7 @@ const ProductSingleDetails: React.FC = () => {
 								))}
 							</ul>
 						</div>
-						<div className="lg:col-span-4">
+						<div className="lg:col-span-4 fixed-gallery">
 							<img src={imgToShow ?? data?.image[0]} alt="" style={{ height: '80vh', marginLeft: "auto", marginRight: "auto" }} />
 						</div>
 					</>
@@ -310,6 +311,11 @@ const ProductSingleDetails: React.FC = () => {
 								{data?.prices.discount !== 0 && (
 									<span className="font-josephine font-normal line-through font-segoe text-gray-400 text-sm md:text-base lg:text-md xl:text-lg ps-2">
 										₹{data?.prices.finalPrice}/-
+									</span>
+								)}
+								{data?.prices.discount !== 0 && (
+									<span className="font-josephine font-normal font-segoe text-red-600 border-2 border-red-600 bg-red-200 rounded-2xl ml-4 p-1 text-sm md:text-base lg:text-md xl:text">
+										{((data?.prices?.discount || 0)/(data?.prices?.finalPrice || 0) * 100).toFixed(1)}% off
 									</span>
 								)}
 							</div>

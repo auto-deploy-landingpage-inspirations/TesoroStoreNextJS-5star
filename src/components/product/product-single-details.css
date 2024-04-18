@@ -1,0 +1,5 @@
+.fixed-gallery{
+    position: sticky !important;
+    position: -webkit-sticky !important;
+    top: 20px;
+}

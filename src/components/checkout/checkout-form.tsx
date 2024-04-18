@@ -14,6 +14,7 @@ import {
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
+import router from "next/router";
 
 
 const ccav = require('./../../utils/ccavutil.js');
@@ -45,7 +46,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({paymentMethod, setPaymentMet
 	const {items, removeItemFromCart} = useCart();
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [guestCheckout, setGuestCheckout] = useState(false);
-	const [orderDetails, setOrderDetails] = useState({});
+	// const [orderDetails, setOrderDetails] = useState({});
 
 	function clearCart(){
 		for (let i = 0; i < items.length; i++) {
@@ -76,38 +77,11 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({paymentMethod, setPaymentMet
 				return;
 			}
 
-			const checkPayment = async() => {
-				const orderDetails = await createOrder();
-				if(orderDetails === undefined){
-					toast("Error Creating Order", {
-						type: "error"
-					})
-					return false;
-				}
-				setOrderDetails(orderDetails);
-				return orderDetails;
-			}
 			if(paymentMethod === ''){
 				toast("Please Select Payment Method", {
 					type: "error",
 					autoClose: 2000,
 				})
-				return;
-			} else if(paymentMethod === 'cod'){
-				toast("Cash on Delivery Selected", {
-					type: "success",
-					autoClose: 2000,
-				})
-				checkPayment();
-				let redirectUrl = ''
-				clearCart();
-				console.log(orderDetails)
-				// if(guestCheckout == true){
-				// 	redirectUrl = `/guest-order/${orderDetails.orderId}`
-				// } else {
-				// 	redirectUrl = `/my-account/orders/${orderDetails.orderId}`
-				// }
-				alert(redirectUrl);
 				return;
 			}
 			
@@ -149,37 +123,51 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({paymentMethod, setPaymentMet
 					})
 					return;
 				}
-				// console.log("Order Details: ");
-				// console.log(orderDetails);
-				var form = document.createElement("form");
-				form.setAttribute("method", "post");
-				form.setAttribute("action", "https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction");
-				form.setAttribute("name", "redirect");
-				form.setAttribute("id", "nonseamless");
-				// console.log(input)
-				const username = `${input.firstName} ${input.lastName}`
-				
-				const body = `merchant_id=${merchantId}&order_id=${orderDetails.orderId}&currency=${currency}&amount=${orderDetails.total}&redirect_url=${redirectUrl}&cancel_url=${cancelUrl}&language=${language}&billing_name=${username}&billing_address=${input.address}&billing_city=${input.city}&billing_state=${input.state}&billing_zip=${input.zipCode}&billing_country=&billing_tel=${input.phone}&billing_email=${input.email}&delivery_name=&delivery_address=&delivery_city=&delivery_state=&delivery_zip=&delivery_country=&delivery_tel=&merchant_param1=&merchant_param2=&merchant_param3=&merchant_param4=&merchant_param5=&promo_code=&customer_identifier=`
-				// console.log("body Data: ",body);
-				const encRequest = ccav.encrypt(body, keyBase64, ivBase64);
-				// console.log(encRequest)
-
-				// form fields
-				var encRequestInput = document.createElement("input");
-				encRequestInput.setAttribute("type", "hidden");
-				encRequestInput.setAttribute("name", "encRequest");
-				encRequestInput.setAttribute("value", encRequest);
-				form.appendChild(encRequestInput);
-
-				var accessCodeInput = document.createElement("input");
-				accessCodeInput.setAttribute("type", "hidden");
-				accessCodeInput.setAttribute("name", "access_code");
-				accessCodeInput.setAttribute("value", accessCode);
-				form.appendChild(accessCodeInput);
-
-				document.body.appendChild(form);
-				// clearCart();
-				form.submit();
+				clearCart();
+				if(paymentMethod === 'online'){
+					toast("Redirecting to Payment Gateway", {
+						type: "info"
+					})
+					var form = document.createElement("form");
+					form.setAttribute("method", "post");
+					form.setAttribute("action", "https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction");
+					form.setAttribute("name", "redirect");
+					form.setAttribute("id", "nonseamless");
+					
+					const username = `${input.firstName} ${input.lastName}`
+					
+					const body = `merchant_id=${merchantId}&order_id=${orderDetails.orderId}&currency=${currency}&amount=${orderDetails.total}&redirect_url=${redirectUrl}&cancel_url=${cancelUrl}&language=${language}&billing_name=${username}&billing_address=${input.address}&billing_city=${input.city}&billing_state=${input.state}&billing_zip=${input.zipCode}&billing_country=&billing_tel=${input.phone}&billing_email=${input.email}&delivery_name=&delivery_address=&delivery_city=&delivery_state=&delivery_zip=&delivery_country=&delivery_tel=&merchant_param1=&merchant_param2=&merchant_param3=&merchant_param4=&merchant_param5=&promo_code=&customer_identifier=`
+					
+					const encRequest = ccav.encrypt(body, keyBase64, ivBase64);
+					
+	
+					// form fields
+					var encRequestInput = document.createElement("input");
+					encRequestInput.setAttribute("type", "hidden");
+					encRequestInput.setAttribute("name", "encRequest");
+					encRequestInput.setAttribute("value", encRequest);
+					form.appendChild(encRequestInput);
+	
+					var accessCodeInput = document.createElement("input");
+					accessCodeInput.setAttribute("type", "hidden");
+					accessCodeInput.setAttribute("name", "access_code");
+					accessCodeInput.setAttribute("value", accessCode);
+					form.appendChild(accessCodeInput);
+	
+					document.body.appendChild(form);
+					form.submit();
+				} else {
+					toast("Order Placed!", {
+						type: "success"
+					})
+					let redirectUrl = ''
+					if(guestCheckout === true){
+						redirectUrl = `/guest-order/${orderDetails.orderId}`;
+					} else {
+						redirectUrl = `/my-account/orders/${orderDetails.orderId}`;
+					}
+					router.push(redirectUrl);
+				}
 			}
 			
 
@@ -192,8 +180,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({paymentMethod, setPaymentMet
 					guestCheckout: guestCheckout,
 					paymentMethod: paymentMethod
 				}
-				// console.log("Payload to be sent")
-				// console.log(orderDetails)
+
 				let host = '';
 				if(process.env.NEXT_PUBLIC_ENV === 'PROD'){
 					host += 'https://tesoro-backend.onrender.com';
@@ -221,17 +208,13 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({paymentMethod, setPaymentMet
 						type: "error"
 					})
 					return;
-				} else {
-					toast("Order Created Successfully", {
-						type: "success"
-					})
 				}
 				// console.log(data.order);
 				return data.order;
 			}
-			if(paymentMethod === 'online'){
-				submitForm();
-			}
+			
+			submitForm();
+			
 
 		} catch (error) {
 			toast("Error Checking Out", {

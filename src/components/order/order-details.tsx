@@ -91,7 +91,7 @@ const OrderDetails: React.FC<{ className?: string }> = ({
 	return (
 		<div className={className}>
 			<h2 className="text-lg md:text-xl xl:text-2xl font-bold text-heading mb-6 xl:mb-8">
-				{t("text-order-details") as string}:
+				{t("text-order-details") as string}: {order?.orderId} (Invoice: {order?.invoice})
 			</h2>
 			<table className="w-full text-heading font-semibold text-sm lg:text-base">
 				<thead>
@@ -106,8 +106,8 @@ const OrderDetails: React.FC<{ className?: string }> = ({
 				</thead>
 				<tbody>
 					<tr className="odd:bg-gray-150">
-						<td>Order Id</td>
-						<td>{order?.orderId}</td>
+						<td className="p-4 italic">Order Id</td>
+						<td className="p-4 italic">{order?.orderId}</td>
 					</tr>
 					{order?.cart.map((product:any, index:number) => (
 						<OrderItemCard key={index} product={product} />
@@ -122,6 +122,10 @@ const OrderDetails: React.FC<{ className?: string }> = ({
 						<td className="p-4 italic">Order Status:</td>
 						<td className="p-4">{order?.status}</td>
 					</tr>
+					{/* <tr className="odd:bg-gray-150">
+						<td className="p-4 italic">Payment Mode:</td>
+						<td className="p-4">{order?.paymentMethod}</td>
+					</tr> */}
 					<tr className="odd:bg-gray-150">
 						<td className="p-4 italic">Order Tracking (AWB):</td>
 						<td className="p-4">{order?.awb}</td>

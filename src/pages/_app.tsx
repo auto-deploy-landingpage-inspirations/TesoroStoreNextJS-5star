@@ -18,6 +18,8 @@ import "@fontsource/open-sans/600.css";
 import "@fontsource/open-sans/700.css";
 import "@fontsource/satisfy";
 
+import "@components/product/product-single-details.css";
+
 import "@styles/fonts/VanillaRavioli/VanillaRavioli.ttf"
 import "@styles/fonts/GTHaptik/GTHaptikBoldRegular.ttf"
 // import "@styles/fonts/Josefin_Sans/JosefinSans.ttf"

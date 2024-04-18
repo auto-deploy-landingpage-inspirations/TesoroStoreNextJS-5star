@@ -6,16 +6,23 @@ import { useUI } from "@contexts/ui.context";
 import { useTranslation } from "next-i18next";
 import axios from "axios";
 import { toast } from "react-toastify";
+import router, { useRouter } from "next/router";
+
 
 type FormValues = {
-	email: string;
+    password: string;
+    confirmPassword: string;
 };
 
 const defaultValues = {
-	email: "",
+    password: "",
+    confirmPassword: ""
 };
 
-const ForgetPasswordForm = () => {
+const ResetPasswordForm = () => {
+    const {
+		query: { slug },
+	} = useRouter();
 	const { t } = useTranslation();
 	const { setModalView, openModal, closeModal } = useUI();
 	const {
@@ -34,22 +41,35 @@ const ForgetPasswordForm = () => {
 
 
 	const onSubmit = async(values: FormValues) => {
-		console.log(values, "token"); 
-		const emailId = values.email;
+        const password = values.password;
+        const confirmPassword = values.confirmPassword;
+
+        if(password !== confirmPassword) { 
+            toast("Passwords do not match", {
+                type: "error",
+            });
+            return;
+        }
 		// Call the API to send the reset password link
 		try {
-			const response = await axios.put("http://localhost:5055/api/customer/forgot-password", {
-				email: emailId,
+			const response = await axios.put("http://localhost:5055/api/customer/reset-password", {
+				newPassword: password,
+                token: slug
 			});
-			toast("Reset password link sent successfully", {
+			toast("Reset password successfully", {
 				type: "success",
 			});
+            setTimeout(() => {
+                handleSignIn()
+                router.push("/signin");
+                // window.location.href = "/login";
+            }, 1000)
 			console.log(response.data, "response from customer reset password");
 			// console.log(response.data, "response from customer reset password");
 			
 		} catch(err) {
-			console.log("Failed to send reset password link", err)
-			toast("Failed to send reset password link", {
+			console.log("Failed to reset password", err)
+			toast("Failed to reset password!", {
 				type: "error",
 			});
 			// alert("Failed to send reset password link")
@@ -72,22 +92,29 @@ const ForgetPasswordForm = () => {
 				noValidate
 			>
 				<Input
-					labelKey="forms:label-email"
-					type="email"
+					labelKey="password"
+					type="password"
 					variant="solid"
 					className="mb-4"
-					{...register("email", {
-						required: `${t("forms:email-required")}`,
-						pattern: {
-							value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-							message: t("forms:email-error"),
-						},
+					{...register("password", {
+						required: "Password is required",
 					})}
-					errorKey={errors.email?.message}
+					errorKey={errors.password?.message}
+				/>
+
+<Input
+					labelKey="confirm-password"
+					type="password"
+					variant="solid"
+					className="mb-4"
+					{...register("confirmPassword", {
+						required: "Confirm Password is required",
+					})}
+					errorKey={errors.confirmPassword?.message}
 				/>
 
 				<Button type="submit" className="h-11 md:h-12 w-full mt-2">
-					{t("common:text-reset-password") as string}
+					{t("Update Password") as string}
 				</Button>
 			</form>
 			<div className="flex flex-col items-center justify-center relative text-sm text-heading mt-8 sm:mt-10 mb-6 sm:mb-7">
@@ -110,4 +137,4 @@ const ForgetPasswordForm = () => {
 	);
 };
 
-export default ForgetPasswordForm;
+export default ResetPasswordForm;

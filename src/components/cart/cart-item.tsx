@@ -66,13 +66,15 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
 					{t("text-unit-price") as string} : &nbsp;
 					{price}
 				</span>
-				<span className="text-xl mb-2.5 p-1 text-green-600 border-2 border-green-600 rounded-xl"
-					style={{
-						width: "max-content",
-					}}
-				>
-					Savings: {item.discount}
-				</span>
+				{item?.discount >0 && (
+					<span className="text-xs mb-2.5 p-1 text-green-600 border-2 border-green-600 rounded-xl"
+						style={{
+							width: "max-content",
+						}}
+					>
+						Savings: {item.discount}
+					</span>
+				)}
 				<div className="flex items-end justify-between">
 					<Counter
 						quantity={item.quantity}
