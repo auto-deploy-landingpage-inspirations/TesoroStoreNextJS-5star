@@ -4,10 +4,14 @@ import { useQuery } from "react-query";
 import { FetchCategories } from "@framework/types";
 
 export const fetchCategories = async (slug: string) => {
-    // console.log("Slug in Fetch Categories: ",slug)
-  const { data } = await https.get(`${API_ENDPOINTS.CATEGORY}${slug}`);
-  // console.log("fetchCategories:",data)
-  return data;
+  try {
+    const { data } = await https.get(`${API_ENDPOINTS.CATEGORY}${slug}`);
+    return data;
+  }  catch(err) {
+    console.error("Failed to fetch categories:", err);
+    throw err;
+  }
+  
 };
 
 export const useCategoriesQuery = (slug: string) => {

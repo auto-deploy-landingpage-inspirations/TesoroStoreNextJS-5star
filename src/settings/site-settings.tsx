@@ -26,7 +26,7 @@ export const siteSettings = {
 		menu: [
 			{
 				id: 1,
-				path: "/",
+				path: "/categories/home-decor",
 				label: "Home Decor",
 				subMenu: [
 					{
@@ -63,7 +63,7 @@ export const siteSettings = {
 			},
 			{
 				id: 2,
-				path: "/",
+				path: "/categories/stationery",
 				label: "Stationery",
 				subMenu: [
 					{
@@ -74,7 +74,7 @@ export const siteSettings = {
 					{
 						id: 2,
 						path: '/categories/notebooks-and-planners',
-						label: 'Notebook & Planners'
+						label: 'Notebooks & Planners'
 					},
 					{
 						id: 3,
@@ -110,7 +110,7 @@ export const siteSettings = {
 			},
 			{
 				id: 3,
-				path: "/",
+				path: "/categories/tableware",
 				label: "Tableware",
 				subMenu: [
 					{
@@ -157,33 +157,33 @@ export const siteSettings = {
 			},
 			{
 				id: 4,
-				path: '/accessories',
+				path: '/categories/accessories',
 				label: 'Accessories',
 				subMenu: [
 					{
 						id: 1,
-						path: "",
+						path: "/categories/sunglasses",
 						label: "Sunglasses"
 					},
 					{
 						id: 2,
-						path: "",
+						path: "/categories/jewellery",
 						label: "Jewellery"
 					},{
 						id: 3,
-						path: "",
+						path: "/categories/bags",
 						label: "Bags"
 					},
 					{
 						id: 4,
-						path: "",
+						path: "/categories/hair",
 						label: "Hair"
 					},
 				]
 			},
 			{
 				id: 5,
-				path: "/",
+				path: "/categories/gifting",
 				label: "Gifting",
 				subMenu: [
 					{
@@ -236,7 +236,7 @@ export const siteSettings = {
 				subMenu: [
 					{
 						id: 1,
-						path: "/",
+						path: "/categories/home-decor",
 						label: "Home Decor",
 						subMenu: [
 							{
@@ -274,7 +274,7 @@ export const siteSettings = {
 
 					{
 						id: 2,
-						path: "/",
+						path: "/categories/stationery",
 						label: "Stationary",
 						subMenu: [
 							{
@@ -322,99 +322,125 @@ export const siteSettings = {
 					
 					{
 						id: 3,
-						path: "/search?q=western-wear",
+						path: "/categories/tableware",
 						label: "Tableware",
 						subMenu: [
 							{
 								id: 1,
-								path: "/search?q=dresses",
-								label: "Ceramic Bowls",
+								path: '/categories/ceramic-bowl',
+								label: 'Ceramic Bowls'
 							},
 							{
 								id: 2,
-								path: "/search?q=jumpsuits",
-								label: "Cutlery",
+								path: '/categories/cutlery',
+								label: 'Cutlery'
 							},
 							{
 								id: 3,
-								path: "/search?q=tops-t-shirt",
-								label: "Plates",
+								path: '/categories/plates',
+								label: 'Plates'
 							},
 							{
 								id: 4,
-								path: "/search?q=shorts-skirts",
+								path: '/categories/serving-plates-and-bowls',
 								label: 'Serving Plates and Bowls'
 							},
 							{
 								id: 5,
-								path: "/search?q=shurgs",
+								path: '/categories/mugs',
 								label: 'Mugs'
 							},
 							{
 								id: 6,
-								path: "/search?q=blazers",
+								path: '/categories/cups',
 								label: 'Cups'
 							},
 							{
 								id: 7,
-								path: "/search?q=shurgs",
+								path: '/categories/customizable-products',
 								label: 'Customizable Products'
 							},
 							{
 								id: 8,
-								path: "/search?q=blazers",
+								path: '/categories/glassware',
 								label: 'Glassware'
-							},
-						],
+							}
+						]
 					},
 					{
 						id: 4,
-						path: "/search?q=footwear",
+						path: '/accessories',
+						label: 'Accessories',
+						subMenu: [
+							{
+								id: 1,
+								path: "/categories/sunglasses",
+								label: "Sunglasses"
+							},
+							{
+								id: 2,
+								path: "/categories/jewellery",
+								label: "Jewellery"
+							},{
+								id: 3,
+								path: "/categories/bags",
+								label: "Bags"
+							},
+							{
+								id: 4,
+								path: "/categories/hair",
+								label: "Hair"
+							},
+						]
+					},
+					{
+						id: 5,
+						path: "/categories/gifting",
 						label: "Gifting",
 						subMenu: [
 							{
 								id: 1,
-								path: "/search?q=flats",
+								path: "/categories/gifts-for-her",
 								label: "Gifts for Her",
 							},
 							{
 								id: 2,
-								path: "/search?q=casual-shoes",
+								path: "/categories/gifts-for-him",
 								label: "gifts for Him",
 							},
 							{
 								id: 3,
-								path: "/search?q=heels",
+								path: "/categories/gifts-for-kids",
 								label: "Gifts for Kids",
 							},
 							{
 								id: 4,
-								path: "/search?q=boots",
+								path: "/categories/gifts-for-mom",
 								label: "Gifts for Mom",
 							},
 							{
 								id: 4,
-								path: "/search?q=boots",
+								path: "/categories/gifts-for-dad",
 								label: "Gifts for Dad",
 							},
 						],
 					},
 					
 					{
-						id: 5,
-						path: "/search?q=backpacks",
+						id: 6,
+						path: "/categories/handmade-with-love",
 						label: "Handmade with Love",
 					},
 					{
-						id: 6,
-						path: "/search?q=handbags-wallets",
-						label: "Custom Made",
-					},
-					{
 						id: 7,
-						path: '/accessories',
-						label: 'Accessories'
+						path: "/categories/personal-care",
+						label: "Personal Care",
 					},
+					// {
+					// 	id: 7,
+					// 	path: '/accessories',
+					// 	label: 'Accessories'
+					// },
 				],
 			},
 			{

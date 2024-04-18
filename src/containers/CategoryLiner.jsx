@@ -8,12 +8,16 @@ const CategoryLiner = (category) => {
 		query
 	} = useRouter();
   const router = useRouter();
-	const slug = query.slug;
+  const [slug, setSlug] = React.useState(query.slug);
 	
 	const { data, isLoading, error} = useCategoriesQuery(slug);
-  // console.log("CategoryLiner:")
-	// console.log(data);
   
+  React.useEffect(() => {
+    console.log("Slug is: ", query.slug)
+    setSlug(query.slug)
+  }, [query.slug])
+
+
   if(error){
     console.log("Redirecting to 404")
     router.push('/404')

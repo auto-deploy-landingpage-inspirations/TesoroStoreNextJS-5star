@@ -12,15 +12,11 @@ const CategoryBanner: React.FC<CategoryBannerProps> = ({
 	bgColor,
 	categoryData
 }) => {
-	// const { locale } = useRouter();
-	// const dir = getDirection(locale);
+	console.log(categoryData)
 	const {
 		query,
 	} = useRouter();
 	const slug = query.slug;
-	console.log("Slug = "+ slug)
-	console.log("CategoryDATa")
-	console.log(categoryData)
 	const categoryTitle = slug?.toString().split("-").join("");
 	console.log("Category Title = "+ categoryTitle)
 
