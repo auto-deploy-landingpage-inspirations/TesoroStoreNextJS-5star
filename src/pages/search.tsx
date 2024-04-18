@@ -10,12 +10,11 @@ import ActiveLink from "@components/ui/active-link";
 import { BreadcrumbItems } from "@components/common/breadcrumb";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ROUTES } from "@utils/routes";
-import { useTranslation } from "next-i18next";
 import { GetStaticProps } from "next";
+import React from "react";
 
 export default function Shop() {
-	const { t } = useTranslation("common");
-
+	const [productCount, setProductCount] = React.useState<number>(0);
 	return (
 		<>
 			<ShopDiscount />
@@ -29,13 +28,13 @@ export default function Shop() {
 										href={"/"}
 										activeClassName="font-semibold text-heading"
 									>
-										<a>{t("breadcrumb-home")as string}</a>
+										<a>Home</a>
 									</ActiveLink>
 									<ActiveLink
 										href={ROUTES.SEARCH}
 										activeClassName="font-semibold text-heading"
 									>
-										<a className="capitalize">{t("breadcrumb-search")as string}</a>
+										<a className="capitalize">Search</a>
 									</ActiveLink>
 								</BreadcrumbItems>
 							</div>
@@ -44,8 +43,8 @@ export default function Shop() {
 					</div>
 
 					<div className="w-full lg:-ms-9">
-						<SearchTopBar />
-						<ProductGrid />
+						<SearchTopBar productCount={productCount} />
+						<ProductGrid setProductCount={setProductCount} />
 					</div>
 				</div>
 				<Subscription />

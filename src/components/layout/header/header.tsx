@@ -49,9 +49,6 @@ const Header: React.FC = () => {
 		  setScrollY(window.scrollY);
 		};
 	
-		// just trigger this so that the initial state 
-		// is updated as soon as the component is mounted
-		// related: https://stackoverflow.com/a/63408216
 		handleScroll();
 	
 		window.addEventListener("scroll", handleScroll);
@@ -60,7 +57,6 @@ const Header: React.FC = () => {
 		  clearTimeout(timer);
 		};
 	
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	  }, []);
 
 	return (

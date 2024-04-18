@@ -9,11 +9,11 @@ import { ProductGrid } from "@components/product/product-grid";
 import SearchTopBar from "@components/shop/top-bar";
 import ActiveLink from "@components/ui/active-link";
 import { BreadcrumbItems } from "@components/common/breadcrumb";
-import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ROUTES } from "@utils/routes";
 import { GetServerSideProps } from "next";
 import CategoryBanner from "@containers/category-banner";
+import React from "react";
 // import { fetchCategories } from "@framework/category/get-all-categories";
 // import { useRouter } from "next/router";
 // import CategoryBlock from "@containers/category-block";
@@ -32,8 +32,7 @@ const colors:string[] = [
 export default function Products() {
     
 	// const category = data?.category;
-
-	const { t } = useTranslation("common");
+	const [productCount, setProductCount] = React.useState<number>(0);
 
 	return (
 		<>
@@ -52,7 +51,7 @@ export default function Products() {
 										href={"/"}
 										activeClassName="font-semibold text-heading"
 									>
-										<a>{t("breadcrumb-home") as string}</a>
+										<a>Home</a>
 									</ActiveLink>
 									<ActiveLink
 										href={ROUTES.PRODUCT}
@@ -67,8 +66,8 @@ export default function Products() {
 					</div>
 
 					<div className="w-full lg:-ms-9">
-						<SearchTopBar />
-						<ProductGrid />
+						<SearchTopBar productCount={productCount} />
+						<ProductGrid setProductCount={setProductCount} />
 					</div>
 				</div>
 				<Subscription />

@@ -4,8 +4,8 @@ import Subscription from "@components/common/subscription";
 import ShopDiscount from "@components/shop/discount";
 import { ShopFilters } from "@components/shop/filters";
 import StickyBox from "react-sticky-box";
-import { ProductGrid } from "@components/product/product-grid";
-import SearchTopBar from "@components/shop/top-bar";
+// import { ProductGrid } from "@components/product/product-grid";
+// import SearchTopBar from "@components/shop/top-bar";
 import ActiveLink from "@components/ui/active-link";
 import { BreadcrumbItems } from "@components/common/breadcrumb";
 import { useTranslation } from "next-i18next";
@@ -43,8 +43,8 @@ export default function Products() {
 					</div>
 
 					<div className="w-full lg:-ms-9">
-						<SearchTopBar />
-						<ProductGrid />
+						{/* <SearchTopBar />
+						<ProductGrid /> */}
 					</div>
 				</div>
 				<Subscription />

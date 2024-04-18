@@ -11,10 +11,11 @@ import { useTranslation } from "next-i18next";
 import CollectionTopBar from "@components/collection/collection-top-bar";
 import { CollectionFilters } from "@components/collection/collection-filters";
 import { GetServerSideProps } from "next";
+import React from "react";
 
 export default function Shop() {
 	const { t } = useTranslation("common");
-
+	const [productCount, setProductCount] = React.useState<number>(0);
 	return (
 		<div className="border-t-2 border-borderBottom">
 			<Container>
@@ -42,8 +43,8 @@ export default function Shop() {
 					</div>
 
 					<div className="w-full lg:-ms-9">
-						<CollectionTopBar />
-						<ProductGrid />
+						<CollectionTopBar productCount={productCount} />
+						<ProductGrid setProductCount={setProductCount} />
 					</div>
 				</div>
 				<Subscription />

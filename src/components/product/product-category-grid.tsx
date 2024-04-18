@@ -13,7 +13,7 @@ interface ProductGridProps {
 export const ProductGrid: FC<ProductGridProps> = ({ className = "" , setProductCount}) => {
 	const { query } = useRouter();
 	// console.log(query)
-	const {
+	const { 
 		isFetching: isLoading,
 		data,
 		error,
@@ -60,4 +60,3 @@ export const ProductGrid: FC<ProductGridProps> = ({ className = "" , setProductC
 		</>
 	);
 };
-

@@ -6,8 +6,13 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { getDirection } from "@utils/get-direction";
 import CollectionFilterSidebar from "./collection-filter-sidebar";
+import { FC } from "react";
 
-const CollectionTopBar = () => {
+interface CollectionTopBarProps {
+	productCount: number;
+}
+
+const CollectionTopBar: FC<CollectionTopBarProps> = ({ productCount }) => {
 	const { openFilter, displayFilter, closeFilter } = useUI();
 	const { t } = useTranslation("common");
 	const {
@@ -37,7 +42,7 @@ const CollectionTopBar = () => {
 			</button>
 			<div className="flex items-center justify-end">
 				<div className="flex-shrink-0 text-body text-xs md:text-sm leading-4">
-					9,608 {t("text-items") as string}
+					{productCount} {t("text-items") as string}
 				</div>
 			</div>
 			<Drawer

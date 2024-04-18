@@ -16,6 +16,6 @@ export const ROUTES = {
   SIGN_UP: "/signup",
   SEARCH: "/search",
   COLLECTIONS: "/collections",
-  CATEGORY: "/category",
+  CATEGORY: "/categories",
   ORDER: "/order",
 };

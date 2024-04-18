@@ -1,4 +1,5 @@
 import { Drawer } from "@components/common/drawer/drawer";
+import type { FC } from "react";
 import FilterIcon from "@components/icons/filter-icon";
 import Text from "@components/ui/text";
 import { useUI } from "@contexts/ui.context";
@@ -8,7 +9,11 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { getDirection } from "@utils/get-direction";
 
-const SearchTopBar = () => {
+interface SearchTopBarProps {
+	productCount: number;
+}
+
+const SearchTopBar: FC<SearchTopBarProps> = ({productCount}) => {
 	const { openFilter, displayFilter, closeFilter } = useUI();
 	const { t } = useTranslation("common");
 	const { locale } = useRouter();
@@ -17,7 +22,7 @@ const SearchTopBar = () => {
 	return (
 		<div className="flex justify-between items-center mb-7">
 			<Text variant="pageHeading" className="hidden lg:inline-flex pb-1">
-				{t("Find your perfect Gift")}
+				Explore The Treasures
 			</Text>
 			<button
 				className="lg:hidden text-heading text-sm px-4 py-2 font-semibold border border-gray-300 rounded-md flex items-center transition duration-200 ease-in-out focus:outline-none hover:bg-gray-200"
@@ -28,7 +33,7 @@ const SearchTopBar = () => {
 			</button>
 			<div className="flex items-center justify-end">
 				<div className="flex-shrink-0 text-body text-xs md:text-sm leading-4 pe-4 md:me-6 ps-2 hidden lg:block">
-					165 {t("text-items") as string}
+					{productCount} products
 				</div>
 				<ListBox
 					options={[
