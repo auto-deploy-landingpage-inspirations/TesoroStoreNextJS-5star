@@ -92,6 +92,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({paymentMethod, setPaymentMet
 			let workingKey = '';
 			let redirectUrl = '';
 			let cancelUrl = '';
+			console.log("ENV: ",process.env.NEXT_PUBLIC_ENV)
 			if(process.env.NEXT_PUBLIC_ENV === 'PROD'){
 				accessCode += "AVXZ47LA41AP26ZXPA";
 				workingKey += "298BE0AC1AF59F06692096195F57D059"

@@ -22,7 +22,6 @@ export default function CheckoutPage() {
 						<CheckoutCard paymentMethod={paymentMethod} />
 					</div>
 				</div>
-				{/* <Subscription /> */}
 			</Container>
 		</>
 	);
