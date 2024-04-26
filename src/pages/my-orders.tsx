@@ -1,13 +1,13 @@
 import Layout from "@components/layout/layout"
 import Container from "@components/ui/container";
+import { useMyOrdersQuery } from "@framework/order/get-all-orders";
 // import { useGuestOrderQuery } from "@framework/order/get-guest-order";
-import { useOrderQuery } from "@framework/order/get-order";
 import axios from "axios";
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 interface statusProps {
     [key: string]: number
@@ -25,13 +25,13 @@ const statuses: statusProps = {
 }
 
 export default function OrderDetails () {
-    const {
-		query: { id },
-	} = useRouter();
-    const {data, error, isLoading} = useOrderQuery(id?.toString()!);
-    
+    const {data, error, isLoading} = useMyOrdersQuery({});
+    const orders = data?.orders;
     if(error){
-        console.log("ERror: ", error)
+        console.log("Error: ", error)
+        toast(`${error}`, {
+            type: "error",
+        })
     }
     if(isLoading){
         return <h1>Loading...</h1>
@@ -42,58 +42,76 @@ export default function OrderDetails () {
         <>
         <div className="mt-[20vh] w-[80vw] ml-[10vw]">
             <Container>
-                <div className="flex w-full justify-between mb-5">
-                    <h1 className="text-gray-900 font-bold text-2xl">Order #{data?.invoice}
-                        <span className="ml-2 text-[#6366f1] text-sm cursor-pointer">View Invoice</span>
-                    </h1>
-                    <p className="text-sm text-gray-700 flex flex-col items-end">
-                        Order Placed
-                        <span className="font-bold text-sm"> {data?.createdAt && !isNaN(new Date(data.createdAt).valueOf()) ? new Date(data.createdAt).toDateString() : 'Invalid Date'}</span>
-                    </p>
-                </div>
-                {data?.cart !== undefined && data?.cart.map((product:any) => {
+                <h1 className="text-2xl text-black font-bold mt-10 mb-1">Order History</h1>
+                <p className="text-md text-gray-900 m-0 p-0 mb-5">Check the status of recent orders, manage returns, and discover similar products.</p>
+                
+                {Array.isArray(orders) && orders.length > 0 && orders.map((order: any) => {
                     return (
-                        <ProductBox product={product} customer={data.user_info} sellerStatus={data?.sellerStatus} />
+                        <div className="mb-10">
+                            <div className="flex w-full justify-around rounded-md py-5 mt-5" 
+                                style={{
+                                    border: '1px solid #e5e7eb',
+                                }}
+                            >
+                                <div className="flex flex-col justify-around items-start">
+                                    <p className="font-bold text-sm p-0 m-0">
+                                        Order number
+                                    </p>
+                                    <p className="text-sm">#{order?.orderId}</p>
+                                    {/* <span className="ml-2 text-[#6366f1] text-sm cursor-pointer">View Invoice</span> */}
+                                </div>
+                                <div className="flex flex-col justify-around items-start">
+                                    <p className="font-semibold text-sm p-0 m-0">
+                                        Date Placed
+                                    </p>
+                                    <p className="text-sm"> {order?.createdAt && !isNaN(new Date(order.createdAt).valueOf()) ? new Date(order.createdAt).toDateString() : 'Invalid Date'}</p>
+                                </div>
+                                <div className="flex flex-col justify-around items-start">
+                                    <p className="font-semibold text-sm p-0 m-0">
+                                        Payment Method
+                                    </p>
+                                    <p className="text-sm p-0 m-0">{order?.paymentMethod === "cod"? "COD": "Prepaid"}</p>
+                                </div>
+                                <div className="flex flex-col justify-around items-start">
+                                    <p className="font-semibold text-sm p-0 m-0">
+                                        Total Amount
+                                    </p>
+                                    <p className="text-sm p-0 m-0 font-bold text-blue-500">₹{order?.total}</p>
+                                </div>
+                                <div className="flex">
+                                    <button 
+                                        className="px-2 rounded-md font-semibold"
+                                        style={{
+                                            border: '1px solid #e5e7eb',
+                                            height: '45px'
+                                        }}
+                                    >   
+                                        <Link
+                                            href={`/my-account/orders/${order?.orderId}`}
+                                        >
+                                            View Order
+                                        </Link>
+                                    </button>
+                                    <button
+                                        className="px-2 rounded-md font-semibold"
+                                        style={{
+                                            border: '1px solid #e5e7eb',
+                                            height: '45px',
+                                            marginLeft: '5px'
+                                        }}
+                                    >
+                                        View Invoice
+                                    </button>
+                                </div>
+                            </div>
+                            {order?.cart !== undefined && order?.cart.map((product:any) => {
+                                return (
+                                    <ProductBox product={product} customer={order.user_info} sellerStatus={order?.sellerStatus} />
+                                )
+                            })}
+                        </div>
                     )
                 })}
-                <div className="my-5 flex justify-between items-start">
-                    <div>
-                        <h1 className="font-bold text-md">Payment Information</h1>
-                        <p className="mt-2 mb-0 p-0 text-sm">Payment Method: {data?.paymentMethod === "cod" ? "Cash on Delivery": "Prepaid"}</p>
-                        <p className="mt-1 mb-0 p-0 text-sm">Payment Status: {data?.paymentStatus ? "Paid" : "Pending"}</p>
-                    </div>
-                    <div className="flex flex-col w-[33%] mr-[5%]">
-                        <div className="flex justify-between py-3"
-                            style={{
-                                borderBottom: '1px solid #e5e7eb',
-                            }}
-                        >
-                            <p className="text-sm m-0 p-0">Subtotal</p>
-                            <p className="text-sm font-semibold m-0 p-0">₹{data?.subTotal}</p>
-                        </div>
-                        <div className="flex justify-between py-3"
-                            style={{
-                                borderBottom: '1px solid #e5e7eb',
-                            }}
-                        >
-                            <p className="text-sm m-0 p-0">Cod Charges</p>
-                            <p className="text-sm font-semibold m-0 p-0">₹{data?.codCharges}</p>
-                        </div>
-                        <div className="flex justify-between py-3"
-                            style={{
-                                borderBottom: '1px solid #e5e7eb',
-                            }}
-                        >
-                            <p className="text-sm mb-1">Discounts</p>
-                            <p className="text-sm font-semibold mb-1">₹{data?.discount}</p>
-                        </div>
-                        <div className="flex justify-between py-3">
-                            <p className="font-bold text-sm m-0 p-0">Order Total</p>
-                            <p className="text-sm font-bold text-blue-500 m-0 p-0">₹{data?.total}</p>
-                        </div>
-                    </div>
-                </div>
-                
             </Container>
         </div>
         </>
@@ -119,7 +137,7 @@ const ProductBox = ({product, customer, sellerStatus}: any) => {
     }, [])
     return (
         <>
-        <div className="w-full rounded-md p-3 flex flex-col mb-10"
+        <div className="w-full rounded-md p-3 flex flex-col"
             style={{
                 border: '1px solid #e5e7eb',
             }}
@@ -183,24 +201,6 @@ const ProductBox = ({product, customer, sellerStatus}: any) => {
                         </Link>
                     </span>
                 </p>
-                <div className="h-2 w-[95%] ml-[2.5%] bg-gray-500 mt-4 rounded-md">
-                    <div className={`h-2 ${text_status||'w-[10%]'} bg-blue-500 rounded-md`}></div>
-                </div>
-                <div className="grid grid-cols-4 w-[95%] ml-[2.5%] mt-3">
-                    <div className={`text-left text-sm font-bold ${statuses[sellerStatus[product.store].status] > 0 ? 'text-blue-500': ''}`}>
-                        <p className="text-xs">Order Placed</p>
-                    </div>
-                    <div className={`text-center text-sm font-bold ${statuses[sellerStatus[product.store].status] > 30 ? 'text-blue-500': ''}`}>
-                        <p className="text-xs">Processing</p>
-                    </div>
-                    <div className={`text-center text-sm font-bold ${statuses[sellerStatus[product.store].status] > 55 ? 'text-blue-500': ''}`}>
-                        <p className="text-xs">Shipped</p>
-                    </div>
-                    <div className={`text-right text-sm font-bold ${statuses[sellerStatus[product.store].status] > 90 ? 'text-blue-500': ''}`}>
-                        <p className="text-xs">Delivered</p>
-                    </div>
-                </div>
-
             </div>
         </div>
         </>
@@ -209,7 +209,7 @@ const ProductBox = ({product, customer, sellerStatus}: any) => {
 
 OrderDetails.Layout = Layout;
 
-export const getServerSideProps: GetServerSideProps = async({locale}) => {
+export const getStaticProps: GetStaticProps = async({locale}) => {
     return {
         props: {
             ...(await serverSideTranslations(locale!, [

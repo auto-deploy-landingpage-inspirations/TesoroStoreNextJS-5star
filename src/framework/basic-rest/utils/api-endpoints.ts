@@ -20,6 +20,7 @@ export const API_ENDPOINTS = {
   PRODUCTS_CATEGORY: "https://tesoro-backend.onrender.com/api/products/category/",
   PRODUCTS: "https://tesoro-backend.onrender.com/api/products/category/",
   HOMEPAGE_VISIBILITY: "https://tesoro-backend.onrender.com/api/homepage/visibility",
+  MYORDER: "https://tesoro-backend.onrender.com/api/order/all",
 
   LOGOUT: "/logout",
   FORGET_PASSWORD: "/forget-password",

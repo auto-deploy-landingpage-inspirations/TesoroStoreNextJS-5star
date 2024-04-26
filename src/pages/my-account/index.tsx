@@ -16,7 +16,7 @@ export default function AccountPage() {
 			<p className=" text-sm leading-7 md:text-base md:leading-loose lowercase">
 				{t("text-account-dashboard") as string}{" "}
 				<Link
-					href={ROUTES.ORDERS}
+					href={'/my-orders'}
 					className="text-heading underline font-semibold"
 				>
 					{t("text-recent-orders") as string}

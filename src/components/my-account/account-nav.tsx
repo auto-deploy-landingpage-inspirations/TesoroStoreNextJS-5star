@@ -18,8 +18,8 @@ const accountMenu = [
 		icon: <IoHomeOutline className="w-5 h-5" />,
 	},
 	{
-		slug: ROUTES.ORDERS,
-		name: "text-orders",
+		slug: '/my-orders',
+		name: "Order History",
 		icon: <IoCartOutline className="w-5 h-5" />,
 	},
 	{

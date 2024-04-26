@@ -138,12 +138,15 @@ export type courierDetails= {
   label?: String;
 }
 
+
 export type Order = {
   _id: string | number;
   name: string;
+  codCharges: number;
   discount: number;
   invoice: string;
   orderId: string;
+  sellerStatus: {};
   cart: OrderedProduct[];
   shipping: number;
   confirmed: boolean;
