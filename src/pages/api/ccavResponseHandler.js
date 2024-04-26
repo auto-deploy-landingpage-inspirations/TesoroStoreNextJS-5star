@@ -70,7 +70,7 @@ export default async function handler(req, res) {
     } catch (error) {
         console.log("--------------------------------------");
         console.log(error);
-        res.writeHead(302, {location: `http://localhost:3001/404`})
+        res.writeHead(302, {location: `https://tesorostore.in/404`})
         res.end()
     }
     
