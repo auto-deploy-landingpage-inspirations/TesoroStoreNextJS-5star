@@ -29,7 +29,6 @@ interface ProductProps {
 
 const AddToCartButton: React.FC<{setAddToCart:any, addToCart:Boolean, addToCartFunc:any}> = ({setAddToCart, addToCart, addToCartFunc}) => {
 	return(
-		// <Tooltip message="add to cart">
 			<button 
 				className="w-auto lg:w-3/5 group relative flex rounded-lg items-center py-2 px-2 lg:py-1 lg:px-6 mx-auto text-center bg-[#FFE583] stroke-[black] hover:stroke-[white] transition ease-in-out duration-300 shadow-navigation hover:bg-heading hover:text-white transform lg:translate-y-full lg:opacity-0 lg:group-hover:opacity-100 lg:group-hover:translate-y-0" 
 				type="button"
@@ -39,15 +38,11 @@ const AddToCartButton: React.FC<{setAddToCart:any, addToCart:Boolean, addToCartF
 				}}
 				style={{
 					fontWeight: 'bold',
-					// border: '1px solid indigo',
 					lineHeight: '4px',
 					fontSize: '12px'
 				}}
 			>	
-			{/* <span className="text-sm mr-2">
-				{addToCart?(<>Added</>):(<>Add</>)}
-				{" to Cart  "}
-			</span> */}
+
 			<span className="text-sm font-bold text-center w-full">
 
 			{
@@ -55,7 +50,6 @@ const AddToCartButton: React.FC<{setAddToCart:any, addToCart:Boolean, addToCartF
 				(
 					<p>
 						Added!
-					{/* <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 15"><path fill="pink" d="M5 3.5a2.5 2.5 0 0 1 5 0V4h1v-.5a3.5 3.5 0 1 0-7 0V4h1v-.5Z"/><path fill="pink" fill-rule="evenodd" d="M1.904 6.334A1.5 1.5 0 0 1 3.395 5h8.21a1.5 1.5 0 0 1 1.49 1.334l.779 7A1.5 1.5 0 0 1 12.383 15H2.617a1.5 1.5 0 0 1-1.49-1.666l.777-7ZM7 9V7h1v2h2v1H8v2H7v-2H5V9h2Z" clip-rule="evenodd"/></svg> */}
 					</p>
 				):(
 					<>
@@ -69,11 +63,7 @@ const AddToCartButton: React.FC<{setAddToCart:any, addToCart:Boolean, addToCartF
 				)
 			}
 			</span>
-			{/* <span className="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-sm text-gray-100 rounded-md absolute top-0 left-1/2 
-			-translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto">Tooltip</span> */}
-			
 		</button>
-		// </Tooltip>
 	)
 }
 
