@@ -42,8 +42,8 @@ const BannerCarouselBlock: React.FC<BannerProps> = ({
 
 	}
 	if(data){
-		// console.log("Offer Zone Data")
-		// console.log(data)
+		console.log("Offer Zone Data")
+		console.log(data)
 	}
 	return (
 		<div className={className}>
@@ -57,7 +57,7 @@ const BannerCarouselBlock: React.FC<BannerProps> = ({
 							idx={idx}
 							title={banner.offerTitle}
 							banner={banner}
-							href={`${banner.offferLink}`}
+							href={banner.offerLink || '/collections/home'}
 							effectActive={true}
 						/>
 						<BannerCard2Mobile
@@ -66,7 +66,7 @@ const BannerCarouselBlock: React.FC<BannerProps> = ({
 							title={banner.offerTitle}
 							color={banner.backgroundColor}
 							banner={banner}
-							href={`${banner.offferLink}`}
+							href={banner.offerLink || '/collections/home'}
 							effectActive={true}
 						/>
 					</SwiperSlide>

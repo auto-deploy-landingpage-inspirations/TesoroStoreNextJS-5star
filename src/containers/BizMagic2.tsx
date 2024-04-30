@@ -50,7 +50,7 @@ export default function BizMagic2() {
     if(error) return <p>{error.message}</p>
   return (
     <>
-    <div className='for-desktop flex w-full h-[80vh] my-10 pb-0 p-5 text-center items-center bg-[#d4d1f5] drop-shadow-md relative overflow-hidden'>
+    <div className='for-desktop flex w-full h-[80vh] my-10 pb-0 p-5 text-center items-center bg-[#F3D4DA] min-h-[570px] drop-shadow-md relative overflow-hidden'>
         {/* <h3 className='absolute top-10 mt-2 left-0 z-10 w-full text-center font-semibold mb-20 text-lg '>
                 Our marketplace champions over 5,000 small businesses – including these ones…
             </h3> */}

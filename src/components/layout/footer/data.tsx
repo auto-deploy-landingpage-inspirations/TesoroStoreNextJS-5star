@@ -77,6 +77,11 @@ export const footer = {
 					title: "link-about-us",
 					path: "/about-us",
 				},
+				{
+					id: 6,
+					title: "Sell with Us",
+					path: "/form"
+				}
 				// {
 				// 	id: 4,
 				// 	title: "link-copyright",
@@ -129,11 +134,7 @@ export const footer = {
 				// 	title: "link-site-map",
 				// 	path: "/",
 				// },
-				{
-					id: 6,
-					title: "Sell with Us",
-					path: "/form"
-				}
+				
 			],
 		},
 		{
@@ -143,32 +144,32 @@ export const footer = {
 				{
 					id: 1,
 					title: "Home Decor",
-					path: "/search",
+					path: "/categories/home-decor",
 				},
 				{
 					id: 2,
 					title: "Stationary",
-					path: "/search",
+					path: "/categories/stationary",
 				},
 				{
 					id: 3,
 					title: "Tableware",
-					path: "/search",
+					path: "/categories/tableware",
 				},
 				{
 					id: 4,
 					title: "Gifts",
-					path: "/search",
+					path: "/categories/gifting",
 				},
 				{
 					id: 5,
 					title: "Handmade with Love",
-					path: "/search",
+					path: "/categories/handmade-with-love",
 				},
 				{
 					id: 6,
 					title: "Custom Made",
-					path: "/search",
+					path: "/categories/personal-care",
 				},
 			],
 		},

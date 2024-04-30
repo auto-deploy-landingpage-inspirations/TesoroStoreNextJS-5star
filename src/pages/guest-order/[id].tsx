@@ -12,15 +12,31 @@ interface statusProps {
     [key: string]: number
 }
 
+interface statusProgressProps {
+    [key: string]: string
+}
+
+
 const statuses: statusProps = {
     'PaymentPending': 10,
     'Confirmed': 20,
-    'Processing': 25,
+    'Processing': 24,
     'ReadyToShip': 40,
     'PickupInitiated': 45,
     'Shipped': 60,
     'Delivered': 100,
     'Cancelled': 0,
+}
+
+const statusProgress: statusProgressProps = {
+    'PaymentPending': 'w-1/5',
+    'Confirmed': 'w-1/5',
+    'Processing': 'w-2/5',
+    'ReadyToShip': 'w-2/5',
+    'PickupInitiated': 'w-2/5',
+    'Shipped': 'w-3/5',
+    'Delivered': 'w-1',
+    'Cancelled': 'w-0',
 }
 
 export default function OrderDetails () {
@@ -103,7 +119,7 @@ const ProductBox = ({product, customer, sellerStatus}: any) => {
 
     const [productThumbnail, setProductThumbnail] = useState<string>("");
     console.log(product)
-    const text_status = `w-[${statuses[sellerStatus?.[product?.store]?.status]}%]`;
+    const text_status = `${statusProgress[sellerStatus?.[product?.store]?.status]}`;
     console.log(text_status)
     // console.log(text_status)
     useEffect(() => {

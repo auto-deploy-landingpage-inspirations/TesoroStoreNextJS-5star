@@ -1,24 +1,16 @@
 // import Image from "next/image";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 // import { getDirection } from "@utils/get-direction";
 interface CategoryBannerProps {
 	className?: string;
 	bgColor?: string;
-	categoryData?: any;
 }
 
 const CategoryBanner: React.FC<CategoryBannerProps> = ({
 	className = "mb-7",
 	bgColor,
-	categoryData
 }) => {
-	console.log(categoryData)
-	const {
-		query,
-	} = useRouter();
-	const slug = query.slug;
-	const categoryTitle = slug?.toString().split("-").join("");
-	console.log("Category Title = "+ categoryTitle)
+	
 
 	return (
 		<div

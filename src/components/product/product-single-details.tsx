@@ -347,7 +347,7 @@ const ProductSingleDetails: React.FC = () => {
 							</div>
 						</div>
 	
-						<div className="mt-4">
+						{/* <div className="mt-4">
 							<table className="table-fixed sm:w-full md:w-2/3 "
 								style={
 									{ borderBottomRightRadius: '10px', borderTopLeftRadius: '10px', padding: '5px', margin: '10px', boxShadow: '1.5px 1.5px 1.5px 2px rgba(248, 113, 113, 0.3)' }
@@ -375,7 +375,7 @@ const ProductSingleDetails: React.FC = () => {
 									</tr>
 								</tbody>
 							</table>
-						</div>
+						</div> */}
 						<div className="my-5">
 							<PinCodeCheckForm />
 						</div>

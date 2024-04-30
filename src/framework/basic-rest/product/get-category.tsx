@@ -1,7 +1,7 @@
 import https from "@framework/utils/https";
 import { API_ENDPOINTS } from "@framework/utils/api-endpoints";
 import { useQuery } from "react-query";
-import { FetchCategories } from "@framework/types";
+import { Category } from "@framework/types";
 
 export const fetchCategories = async (slug: string) => {
   try {
@@ -15,6 +15,6 @@ export const fetchCategories = async (slug: string) => {
 };
 
 export const useCategoriesQuery = (slug: string) => {
-  return useQuery<FetchCategories, Error>([API_ENDPOINTS.CATEGORIES],() => fetchCategories(slug));
+  return useQuery<Category[], Error>([API_ENDPOINTS.CATEGORIES],() => fetchCategories(slug));
 };
 // export { useCategoriesQuery, fetchCategories };

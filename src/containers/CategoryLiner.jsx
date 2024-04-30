@@ -1,27 +1,23 @@
 import React, { useEffect } from 'react'
-import Image from "next/image"
-const { useCategoriesQuery } = require("@framework/product/get-category");
+// import Image from "next/image"
+import { useCategoriesQuery } from "@framework/product/get-category";
 import { useRouter } from "next/router";
 
-const CategoryLiner = (category) => {
-  const {
-		query
-	} = useRouter();
+const CategoryLiner = () => {
+  const { query } = useRouter();
   const router = useRouter();
-  const [slug, setSlug] = React.useState(query.slug);
 	
-	const { data, isLoading, error} = useCategoriesQuery(slug);
-  
-  React.useEffect(() => {
-    console.log("Slug is: ", query.slug)
-    setSlug(query.slug)
-  }, [query.slug])
-
+	const { data, isLoading, error, refetch} = useCategoriesQuery(query.slug);
 
   if(error){
     console.log("Redirecting to 404")
     router.push('/404')
   }
+
+  useEffect(() => {
+    refetch()
+  }, [query.slug, refetch])
+
   return (
     <>
     <div className='grid grid-cols-5 gap-1 bg-pink-100 font-josephine rounded-md px-5 py-10 drop-shadow-lg for-desktop'>

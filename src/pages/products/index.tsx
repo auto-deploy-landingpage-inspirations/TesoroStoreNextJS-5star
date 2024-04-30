@@ -2,51 +2,30 @@ import Container from "@components/ui/container";
 import Layout from "@components/layout/layout";
 import Subscription from "@components/common/subscription";
 import ShopDiscount from "@components/shop/discount";
-import { ShopFilters } from "@components/shop/filters";
-import StickyBox from "react-sticky-box";
+// import { ShopFilters } from "@components/shop/filters";
+// import StickyBox from "react-sticky-box";
 // import { ProductGrid } from "@components/product/product-grid";
 // import SearchTopBar from "@components/shop/top-bar";
-import ActiveLink from "@components/ui/active-link";
-import { BreadcrumbItems } from "@components/common/breadcrumb";
-import { useTranslation } from "next-i18next";
+// import ActiveLink from "@components/ui/active-link";
+// import { BreadcrumbItems } from "@components/common/breadcrumb";
+// import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { ROUTES } from "@utils/routes";
+// import { ROUTES } from "@utils/routes";
 import { GetStaticProps } from "next";
+// import { useWindowSize } from "@utils/use-window-size";
+import { useEffect } from "react";
 
 export default function Products() {
-	const { t } = useTranslation("common");
+	
+	// const { t } = useTranslation("common");
+	useEffect(() => {
+		window.location.href = '/categories/home';
+	}, []);
 	return (
 		<>
 			<ShopDiscount />
 			<Container>
-				<div className={`flex pt-8 pb-16 lg:pb-20`}>
-					<div className="flex-shrink-0 pe-24 hidden lg:block w-96">
-						<StickyBox offsetTop={50} offsetBottom={20}>
-							<div className="pb-7">
-								<BreadcrumbItems separator="/">
-									<ActiveLink
-										href={"/"}
-										activeClassName="font-semibold text-heading"
-									>
-										<a>{t("breadcrumb-home") as string}</a>
-									</ActiveLink>
-									<ActiveLink
-										href={ROUTES.PRODUCT}
-										activeClassName="font-semibold text-heading"
-									>
-										<a className="capitalize">{t("breadcrumb-products") as string}</a>
-									</ActiveLink>
-								</BreadcrumbItems>
-							</div>
-							<ShopFilters />
-						</StickyBox>
-					</div>
-
-					<div className="w-full lg:-ms-9">
-						{/* <SearchTopBar />
-						<ProductGrid /> */}
-					</div>
-				</div>
+				
 				<Subscription />
 			</Container>
 		</>
