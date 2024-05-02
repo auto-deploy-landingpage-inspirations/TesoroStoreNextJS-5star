@@ -40,11 +40,6 @@ export const siteSettings = {
 						label: "Candles",
 					},
 					{
-						id: 3,
-						path: "/categories/candle-stand",
-						label: "Candle Stand",
-					},
-					{
 						id: 4,
 						path: "/categories/mirrors",
 						label: "Mirrors",
@@ -57,7 +52,7 @@ export const siteSettings = {
 					{
 						id: 6,
 						path: "/categories/frames",
-						label: "Frames",
+						label: "Wall Frames",
 					},
 				],
 			},
@@ -82,11 +77,6 @@ export const siteSettings = {
 						label: 'Journals'
 					},
 					{
-						id: 4,
-						path: '/categories/photo-books',
-						label: 'Photo Books'
-					},
-					{
 						id: 5,
 						path: '/categories/bookmarks',
 						label: 'Bookmarks'
@@ -98,14 +88,9 @@ export const siteSettings = {
 					},
 					{
 						id: 7,
-						path: '/categories/to-do-lists-notepad',
+						path: '/categories/to-do-lists-and-notepads',
 						label: 'To-Do List & Notepad'
 					},
-					{
-						id: 8,
-						path: '/categories/pencils',
-						label: 'Pencils'
-					}
 				]
 			},
 			{
@@ -115,7 +100,7 @@ export const siteSettings = {
 				subMenu: [
 					{
 						id: 1,
-						path: '/categories/ceramic-bowl',
+						path: '/categories/ceramic-bowls',
 						label: 'Ceramic Bowls'
 					},
 					{
@@ -167,8 +152,8 @@ export const siteSettings = {
 					},
 					{
 						id: 2,
-						path: "/categories/jewellery",
-						label: "Jewellery"
+						path: "/categories/earrings",
+						label: "Earrings"
 					},{
 						id: 3,
 						path: "/categories/bags",
@@ -176,8 +161,8 @@ export const siteSettings = {
 					},
 					{
 						id: 4,
-						path: "/categories/hair",
-						label: "Hair"
+						path: "/categories/necklace",
+						label: "Necklace"
 					},
 				]
 			},
@@ -194,12 +179,12 @@ export const siteSettings = {
 					{
 						id: 2,
 						path: '/categories/gifts-for-him',
-						label: 'Gift for Him'
+						label: 'Gifts for Him'
 					},
 					{
 						id: 3,
 						path: '/categories/gifts-for-kids',
-						label: 'Kids for Kids'
+						label: 'Gifts for Kids'
 					},
 					{
 						id: 4,
@@ -250,11 +235,6 @@ export const siteSettings = {
 								label: "Candles",
 							},
 							{
-								id: 3,
-								path: "/categories/candle-stand",
-								label: "Candle Stand",
-							},
-							{
 								id: 4,
 								path: "/categories/mirrors",
 								label: "Mirrors",
@@ -267,7 +247,7 @@ export const siteSettings = {
 							{
 								id: 6,
 								path: "/categories/frames",
-								label: "Frames",
+								label: "Wall Frames",
 							},
 						],
 					},
@@ -288,34 +268,24 @@ export const siteSettings = {
 								label: 'Notebook & Planners',
 							},
 							{
-								id: 3,
-								path: "/categories/photo-books",
-								label: 'Photo Books',
-							},
-							{
 								id: 4,
 								path: "/categories/bookmarks",
 								label:'Bookmarks',
 							},
 							{
 								id: 5,
-								path: "/sticky-notes",
+								path: "/categories/sticky-notes",
 								label: 'Sticky Notes',
 							},
 							{
 								id: 6,
-								path: "/search?q=jackets",
+								path: "/categories/to-do-lists-and-notepads",
 								label: 'To-Do List & Notepad',
 							},
 							{
 								id: 7,
-								path: "/search?q=suits",
+								path: "/categories/journals",
 								label: 'Journals',
-							},
-							{
-								id: 8,
-								path: "/search?q=jackets",
-								label: 'Pencils',
 							},
 						],
 					},
@@ -327,7 +297,7 @@ export const siteSettings = {
 						subMenu: [
 							{
 								id: 1,
-								path: '/categories/ceramic-bowl',
+								path: '/categories/ceramic-bowls',
 								label: 'Ceramic Bowls'
 							},
 							{
@@ -379,8 +349,8 @@ export const siteSettings = {
 							},
 							{
 								id: 2,
-								path: "/categories/jewellery",
-								label: "Jewellery"
+								path: "/categories/earrings",
+								label: "Earrings"
 							},{
 								id: 3,
 								path: "/categories/bags",
@@ -388,8 +358,8 @@ export const siteSettings = {
 							},
 							{
 								id: 4,
-								path: "/categories/hair",
-								label: "Hair"
+								path: "/categories/necklace",
+								label: "Necklace"
 							},
 						]
 					},

@@ -14,6 +14,7 @@ import { GetServerSideProps } from "next";
 import CategoryBanner from "@containers/category-banner";
 import React from "react";
 import { ProductCategoryGrid } from "@components/product/product-category-grid";
+import { ProductDetails } from "@framework/product/get-product";
 
 const colors:string[] = [
 	'bg-[#f786be]', //pink
@@ -29,6 +30,7 @@ export default function Products() {
     
 	// const category = data?.category;
 	const [productCount, setProductCount] = React.useState<number>(0);
+	const [products, setProducts] = React.useState<ProductDetails[]>([]);
 
 	return (
 		<>
@@ -63,7 +65,7 @@ export default function Products() {
 
 					<div className="w-full lg:-ms-9">
 						<SearchTopBar productCount={productCount} />
-						<ProductCategoryGrid setProductCount={setProductCount} />
+						<ProductCategoryGrid setProductCount={setProductCount} products={products} setProducts={setProducts} />
 					</div>
 				</div>
 				<Subscription />

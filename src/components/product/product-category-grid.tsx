@@ -5,10 +5,13 @@ import { useProductsByCategoryQuery } from "@framework/product/get-product-by-ca
 import { useRouter } from "next/router";
 import ProductFeedLoader from "@components/ui/loaders/product-feed-loader";
 import ProductCategoryCard from "./product-category-card";
+import { ProductDetails } from "@framework/product/get-product";
 
 interface ProductGridProps {
 	className?: string;
 	setProductCount: (value: number) => void;
+	products?: ProductDetails[];
+	setProducts?: (value: ProductDetails[]) => void;
 }
 
 export const ProductCategoryGrid: FC<ProductGridProps> = ({ className = "" , setProductCount}) => {
