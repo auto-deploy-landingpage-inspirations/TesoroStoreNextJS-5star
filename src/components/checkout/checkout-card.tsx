@@ -10,12 +10,18 @@ interface CheckoutCardProps {
 
 const CheckoutCard: React.FC<CheckoutCardProps> = ({paymentMethod}) => {
 	let { items, total, isEmpty } = useCart();
-	
+	let subtotal = 0;
 	if(paymentMethod === "cod"){
 		console.log("COD Selected! Adding Rs 50/-");
-		total = Number(50) + Number(total);
+		subtotal = Number(50) + Number(total);
+	} else {
+		subtotal = Number(total);
 	}
-	let { price: subtotal } = usePrice({
+	let { price: subtotalAmount } = usePrice({
+		amount: subtotal,
+		currencyCode: "INR",
+	});
+	let { price: totalAmount } = usePrice({
 		amount: total,
 		currencyCode: "INR",
 	});
@@ -24,7 +30,7 @@ const CheckoutCard: React.FC<CheckoutCardProps> = ({paymentMethod}) => {
 		{
 			id: 1,
 			name: t("text-sub-total"),
-			price: subtotal,
+			price: subtotalAmount,
 		},
 		{
 			id: 2,
@@ -33,8 +39,13 @@ const CheckoutCard: React.FC<CheckoutCardProps> = ({paymentMethod}) => {
 		},
 		{
 			id: 3,
+			name: "COD Charges",
+			price: paymentMethod === "cod" ? "₹50/-" : "₹0/-",
+		},
+		{
+			id: 3,
 			name: t("text-total"),
-			price: subtotal,
+			price: totalAmount,
 		},
 	];
 	return (
@@ -46,11 +57,18 @@ const CheckoutCard: React.FC<CheckoutCardProps> = ({paymentMethod}) => {
 				<span>{t("text-product") as string}</span>
 				<span className="ms-auto flex-shrink-0">{t("text-sub-total") as string}</span>
 			</div>
+			
 			{!isEmpty ? (
 				items.map((item) => <CheckoutItem item={item} key={item.id} />)
 			) : (
 				<p className="text-red-500 lg:px-3 py-4">{t("text-empty-cart") as string}</p>
 			)}
+			{/* {paymentMethod === "cod" && (
+				<div className="flex items-center py-4 lg:py-5 border-b border-gray-300 text-sm lg:px-3 w-full font-semibold text-heading last:border-b-0 last:text-base last:pb-0">
+					<span>COD Charges</span>
+					<span className="ms-auto flex-shrink-0">₹50/-</span>
+				</div>
+			)} */}
 			{checkoutFooter.map((item: any) => (
 				<CheckoutCardFooterItem item={item} key={item.id} />
 			))}

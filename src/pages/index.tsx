@@ -98,16 +98,6 @@ export default function Home() {
 						<CollectionBlockMobile />
 					</Fade>
 					
-					{/* <BannerCard
-						key={`banner--key${banner.id}`}
-						banner={banner}
-						href={`${ROUTES.COLLECTIONS}/${banner.slug}`}
-						className="mb-12 lg:mb-14 xl:mb-16 pb-0.5 lg:pb-1 xl:pb-0"
-						classNameInner="h-full sm:h-auto"
-					/> */}
-					
-					{/* <Divider /> */}
-					{/* <BrandBlock sectionHeading="text-top-brands" /> */}
 					{blogsVisibility && (
 						<>
 							<SpecialSection /> 

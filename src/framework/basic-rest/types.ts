@@ -261,3 +261,15 @@ export type SmallBIzStar = {
   sectionTitle: string;
   offerBlock?: bannerType[];
 }
+
+export type FoundersPick = {
+  storeDetails: storeDetails;
+  visible: boolean;
+  productRef: ProductDetails[];
+  categoryRef?: string[];
+  BlogLinkReference?: string[];
+  _id: string;
+  sectionCode: string;
+  sectionTitle: string;
+  offerBlock?: bannerType[];
+}

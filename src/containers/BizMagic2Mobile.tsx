@@ -79,7 +79,7 @@ export default function BizMagic2Mobile() {
                 <div className='flex w-full my-2 mx-auto justify-center'>
                     {isLoading? (<>Loading...</>): data.productRef.map((product: any, index: number) => {
                         return (
-                            <div key={index} className='w-28 h-28 rounded-xl drop-shadow-md mx-3 mt-2' style={{background: `url(${product.image[0]})`, backgroundPosition: 'center', backgroundSize: 'cover'}}></div>
+                            <div key={index} onClick={() => window.location.href = `/products/${product.slug}`} className='w-28 h-28 cursor-pointer rounded-xl drop-shadow-md mx-3 mt-2' style={{background: `url(${product.image[0]})`, backgroundPosition: 'center', backgroundSize: 'cover'}}></div>
                         )
                     })}
                     {/* <div className='w-28 h-28 rounded-xl drop-shadow-md mx-3 mt-2' style={{background: `url(${showCaseProducts[0].img})`, backgroundPosition: 'center', backgroundSize: 'cover'}}></div>

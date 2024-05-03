@@ -11,6 +11,7 @@ export const API_ENDPOINTS = {
   OFFER_BANNER: "https://tesoro-backend.onrender.com/api/homepage/offer-banner",
   PRODUCT: "https://tesoro-backend.onrender.com/api/products/product/",
   SMALL_BIZ_STAR: "https://tesoro-backend.onrender.com/api/homepage/small-biz-stars",
+  FOUNDERSPICK: "https://tesoro-backend.onrender.com/api/homepage/founders-pick",
   ORDER: "https://tesoro-backend.onrender.com/api/order/order_id/",
   GUEST_ORDER: "https://tesoro-backend.onrender.com/api/order/guest-order/",
   COLLECTIONS: "https://tesoro-backend.onrender.com/api/category/",

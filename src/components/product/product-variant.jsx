@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react";
 
-export default function ProductVariantSelector ({product, selectedVariant, setSelectedVariant, setVariantData, setImgToShow, setImagesToShow, setPrices, slabPrice, setVariantDesc}) {
+export default function ProductVariantSelector ({product, selectedVariant, setSelectedVariant, setVariantData, setImgToShow, setImagesToShow, setPrices, slabPrice, setVariantDesc, setOutOfStock}) {
     const [optionDetailsDropdown, setOptionDetailsDropdown] = useState({});
     const variantTitle = product?.variantData;
     const variantOptions = product?.variants;
     console.log(variantOptions, "VariantOptions");
 
-    const handleSelectVariant = (variantTitleOptions, optionId, index= -1) => {
+    const handleSelectVariant = (variantTitleOptions, optionId, index=-1) => {
         const optionDetails = variantTitleOptions.filter(variant => variant._id === optionId)[0];
         // alert(optionDetails.name.en);
         // alert(index);
+        if(optionDetails.quantity === 0){
+            setOutOfStock(true);
+            return;
+        }
+        // console.log("index got: ", index);
         if(index !== -1){
             setImagesToShow(variantOptions[index].images);
             setImgToShow(variantOptions[index].images[0]);
@@ -18,6 +23,11 @@ export default function ProductVariantSelector ({product, selectedVariant, setSe
                 finalPrice: variantOptions[index].originalPrice + slabPrice,
                 finalDiscountedPrice: variantOptions[index].price + slabPrice,
                 discount: variantOptions[index].originalPrice - variantOptions[index].price,
+            }
+            if(variantOptions[index].quantity === 0){
+                setOutOfStock(true);
+            } else {
+                setOutOfStock(false);
             }
             // alert(prices.finalPrice + " " + prices.finalDiscountedPrice + " " + prices.discount)
             setPrices(prices);
@@ -34,7 +44,7 @@ export default function ProductVariantSelector ({product, selectedVariant, setSe
             {variantTitle.map((variant, index) => {
                 const variantOptionId = variant._id;
                 const variantTitleOptions = variant.variants;
-                console.log(variantTitleOptions, "VariantTitleOptions")
+                // console.log(variantTitleOptions, "VariantTitleOptions")
                 return (
                     <div
                         key={index}
@@ -45,9 +55,9 @@ export default function ProductVariantSelector ({product, selectedVariant, setSe
                         >   
                             {variant.option == "Radio" && variantOptions.map((option, index) => {
                                 const optionId = option[variantOptionId];
-                                console.log("find optionId: ", optionId, ", in variantTitleOptions: ", variantTitleOptions);
+                                // console.log("find optionId: ", optionId, ", in variantTitleOptions: ", variantTitleOptions);
                                 const optionDetails = variantTitleOptions.filter(variant => variant._id === optionId)[0];
-                                console.log("optionDetails", optionDetails);
+                                // console.log("optionDetails", optionDetails);
                                 return (
                                     <div
                                         key={index}
@@ -60,7 +70,8 @@ export default function ProductVariantSelector ({product, selectedVariant, setSe
                                                 backgroundImage: `url(${option.images[0]})`,
                                                 backgroundSize: 'contain',
                                                 backgroundPosition: 'center',
-                                                borderRadius: '50%'
+                                                borderRadius: '50%',
+                                                opacity: option.quantity === 0 ? 0.5 : 1
                                             }}
                                         >
                                         </div>
@@ -74,16 +85,17 @@ export default function ProductVariantSelector ({product, selectedVariant, setSe
                                 <div className="">
                                     <select 
                                         onChange={(event) => {
-                                            console.log("selected value: ", event.target.value)
-                                            handleSelectVariant(variantTitleOptions, event.target.value)
+                                            // console.log("selected value: ", event.target.value)
+                                            handleSelectVariant(variantTitleOptions, event.target.value, 1);
+                                            
                                         }}
                                     >
                                         <option value="">Select</option>
                                         {variantOptions.map((option, index) => {
                                             const optionId = option[variantOptionId];
-                                            console.log("find optionId: ", optionId, ", in variantTitleOptions: ", variantTitleOptions);
+                                            // console.log("find optionId: ", optionId, ", in variantTitleOptions: ", variantTitleOptions);
                                             const optionDetails = variantTitleOptions.filter(variant => variant._id === optionId)[0];
-                                            console.log("optionDetails", optionDetails);
+                                            // console.log("optionDetails", optionDetails);
                                             if(optionDetailsDropdown == {}){
                                                 setOptionDetailsDropdown(optionDetails);
                                             }

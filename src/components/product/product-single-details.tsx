@@ -36,6 +36,7 @@ const ProductSingleDetails: React.FC = () => {
 
 	const [variantData, setVariantData] = useState<any>({});
 	const [variantDesc, setVariantDesc] = useState<string>("");
+	const [outOfStock, setOutOfStock] = useState<boolean>(false);
 	const [variantPrices, setVariantPrices] = useState<VariantPrices | null>(null);
 	const [selectedVariant, setSelectedVariant] = useState<string>('');
 	const [quantity, setQuantity] = useState<number>(1);
@@ -66,10 +67,16 @@ const ProductSingleDetails: React.FC = () => {
 				setVariantPrices({
 					finalPrice: data?.variants[0].originalPrice + data?.prices.slabPrice,
 					finalDiscountedPrice: data?.variants[0].price + data?.prices.slabPrice,
-					discount: data?.variants[0].originalPrice + data?.prices.slabPrice - data?.variants[0].price + data?.prices.slabPrice
+					discount: data?.variants[0].originalPrice - data?.variants[0].price
 				});
+				if(data?.variants[0].quantity === 0){
+					setOutOfStock(true);
+				}
 			}
 		} else {
+			if(Number(data?.stock) === 0){
+				setOutOfStock(true);
+			}
 			setImgToShow(data?.image[0] ?? "");
 			setImagesToShow(data?.image);
 		}
@@ -179,6 +186,9 @@ const ProductSingleDetails: React.FC = () => {
 		closeCart();
 		router.push("/checkout");
 	}
+	// useEffect(() => {
+
+	// }, [variantData]);
 	if(data?.approved === false){
 		window.location.href = "/";
 		return <p>Product is not available</p>
@@ -331,7 +341,16 @@ const ProductSingleDetails: React.FC = () => {
 							)}
 						</div>
 						{data?.isCombination && (
-							<ProductVariantSelector product={data} selectedVariant={selectedVariant} setSelectedVariant={setSelectedVariant} setVariantData={setVariantData} setImagesToShow={setImagesToShow} setImgToShow={setImgToShow} setPrices={setVariantPrices} slabPrice={data?.prices.slabPrice} setVariantDesc={setVariantDesc} />
+							<ProductVariantSelector product={data} selectedVariant={selectedVariant} setSelectedVariant={setSelectedVariant} setVariantData={setVariantData} setImagesToShow={setImagesToShow} setImgToShow={setImgToShow} setPrices={setVariantPrices} slabPrice={data?.prices.slabPrice} setVariantDesc={setVariantDesc} setOutOfStock={setOutOfStock} />
+						)}
+						{outOfStock && (
+							<div className="text-red text-sm inline-flex px-5 bg-red-300 roudned-md p-2 mt-2 text-center"
+								style={{
+									border: '1px solid red',
+								}}
+							>
+								Out Of Stock
+							</div>
 						)}
 	
 						<div className="py-3 border-b border-gray-300">
@@ -342,7 +361,8 @@ const ProductSingleDetails: React.FC = () => {
 									onDecrement={() =>
 										setQuantity((prev) => (prev !== 1 ? prev - 1 : 1))
 									}
-									disableDecrement={quantity === 1}
+									disableDecrement={quantity === 1 || outOfStock}
+									disableIncrement={outOfStock || Number(data?.stock) === Number(quantity)}
 								/>
 							</div>
 						</div>
@@ -383,6 +403,7 @@ const ProductSingleDetails: React.FC = () => {
 							<Button
 								onClick={addToCart}
 								variant="new"
+								disabled={outOfStock}
 								className={`font-josephine m-2 inline-flex whitespace-nowrap `}
 								// disabled={!isSelected}
 								loading={addToCartLoader}
@@ -394,6 +415,7 @@ const ProductSingleDetails: React.FC = () => {
 									clearCart();
 									buyNow();
 								}}
+								disabled={outOfStock}
 								variant="new-2"
 								className={`font-josephine inline-flex whitespace-nowrap hover:bg-white hover:drop-shadow-md bg-indigo-500 hover:text-indigo-500 text-white`}
 								// disabled={!isSelected}

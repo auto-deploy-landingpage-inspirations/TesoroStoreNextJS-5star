@@ -1,41 +1,37 @@
 import Link from "@components/ui/link";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
+import { ProductDetails } from "@framework/product/get-product";
 
 interface Props {
 	uniqueKey: number,
 	imgWidth?: number | string;
 	imgHeight?: number | string;
 	contactClassName?: string;
-	collection: {
-		slug: string;
-		image: string;
-		title: string;
-		description?: string;
-	};
+	product: ProductDetails;
 }
 
 const CollectionCard: React.FC<Props> = ({
 	uniqueKey,
-	collection,
 	imgWidth = 580,
 	imgHeight = 580,
+	product,
 	contactClassName = "",
 }) => {
-	const { slug, image, title } = collection;
 	const { t } = useTranslation("common");
 	console.log(uniqueKey)
+	const productUrl = `/products/${product.slug}`
 	if(uniqueKey<=1)
 	return (
 			<Link
-				href={slug}
+				href={productUrl}
 				className="group text-center flex flex-col justify-between sm:even:flex-col-reverse even:mt-16 odd:mb-16 sm:last:hidden lg:last:flex border sm:border-0 border-gray-300 overflow-hidden sm:pb-0"
 			>
 				<div className="flex mx-auto flex-col relative">
 					<div className="flex">
 						<Image
-							src={image ?? "/assets/placeholder/collection.svg"}
-							alt={t(`${title}`) || t("text-card-thumbnail")}
+							src={product.image[0] ?? "/assets/placeholder/collection.svg"}
+							alt={t(`${product.title.en}`) || t("text-card-thumbnail")}
 							width={imgWidth}
 							height={imgHeight}
 							className="bg-gray-300 object-cover transition duration-200 ease-in-out group-hover:opacity-90"

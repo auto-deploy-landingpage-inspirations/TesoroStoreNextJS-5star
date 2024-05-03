@@ -42,7 +42,7 @@ import {Reveal} from "react-reveal"
 const {useSmallBizStars} = require('@framework/homepage/get-small-biz')
 
 
-export default function BizMagic2() {
+export default function BizMagic2() { 
     const {data, error, isLoading} = useSmallBizStars();
     console.log("Small Biz Stars")
     console.log(data);
@@ -79,7 +79,7 @@ export default function BizMagic2() {
                 <div className='flex w-full mt-10 mx-auto justify-center'>
                     {isLoading? (<>Loading...</>): data.productRef.map((product: any, index: number) => {
                         return (
-                            <div key={index} className='w-36 h-36 rounded-xl drop-shadow-md mx-3 mt-2' style={{background: `url(${product.image[0]})`, backgroundPosition: 'center', backgroundSize: 'cover'}}></div>
+                            <div key={index} onClick={() => window.location.href = `/products/${product.slug}`} className='w-36 h-36 cursor-pointer rounded-xl drop-shadow-md mx-3 mt-2' style={{background: `url(${product.image[0]})`, backgroundPosition: 'center', backgroundSize: 'cover'}}></div>
                         )
                     })}
                     {/* <div className='w-36 h-36 rounded-xl drop-shadow-md mx-3 mt-2' style={{background: `url(${showCaseProducts[0].img})`, backgroundPosition: 'center', backgroundSize: 'cover'}}></div>
