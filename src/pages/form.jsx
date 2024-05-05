@@ -1,7 +1,8 @@
 import React from 'react'
 import Layout from "@components/layout/layout"
 import Container from "@components/ui/container"
-
+// import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export default function Form() {
   return (
@@ -24,3 +25,16 @@ export default function Form() {
 }
 
 Form.Layout = Layout
+
+export const getStaticProps = async ({ locale }) => {
+    return {
+		props: {
+			...(await serverSideTranslations(locale, [
+				"common",
+				"forms",
+				"menu",
+				"footer",
+			])),
+		},
+	};
+}
