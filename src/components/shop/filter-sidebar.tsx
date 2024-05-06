@@ -5,8 +5,13 @@ import { IoArrowBack, IoArrowForward } from "react-icons/io5";
 import { useTranslation } from "next-i18next";
 import { getDirection } from "@utils/get-direction";
 import { useRouter } from "next/router";
+import React from "react";
 
-const FilterSidebar = () => {
+interface FilterSidebarProps {
+	productCount: number;
+}
+
+const FilterSidebar: React.FC<FilterSidebarProps> = ({productCount}) => {
 	const { closeFilter } = useUI();
 	const router = useRouter();
 	const { t } = useTranslation("common");
@@ -37,7 +42,7 @@ const FilterSidebar = () => {
 			</Scrollbar>
 
 			<div className="text-sm md:text-base leading-4 flex items-center justify-center px-7 flex-shrink-0 h-14 bg-heading text-white">
-				9,608 {t("text-items") as string}
+				{productCount} {t("text-items") as string}
 			</div>
 		</div>
 	);

@@ -54,7 +54,7 @@ const SearchTopBar: FC<SearchTopBarProps> = ({productCount}) => {
 				level={null}
 				contentWrapperStyle={contentWrapperCSS}
 			>
-				<FilterSidebar />
+				<FilterSidebar productCount={productCount} />
 			</Drawer>
 		</div>
 	);
