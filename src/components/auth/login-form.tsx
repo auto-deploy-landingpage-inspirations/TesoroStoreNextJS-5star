@@ -14,7 +14,7 @@ const LoginForm: React.FC = () => {
 	const { mutate: login, isLoading } = useLoginMutation();
 
 	const {
-		register,
+		register, 
 		handleSubmit,
 		formState: { errors },
 	} = useForm<LoginInputType>();

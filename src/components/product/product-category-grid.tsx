@@ -6,6 +6,8 @@ import { useRouter } from "next/router";
 import ProductFeedLoader from "@components/ui/loaders/product-feed-loader";
 import ProductCategoryCard from "./product-category-card";
 import { ProductDetails } from "@framework/product/get-product";
+import React, { useEffect } from "react";
+// import axios from "axios";
 
 interface ProductGridProps {
 	className?: string;
@@ -21,9 +23,15 @@ export const ProductCategoryGrid: FC<ProductGridProps> = ({ className = "" , set
 		isFetching: isLoading,
 		data,
 		error,
+		refetch
 	} = useProductsByCategoryQuery(query.slug as string);
+
+	
 	if (error) return <p>{error.message}</p>;
 
+	useEffect(() => {
+		refetch();
+	}, [query, refetch]);
 	if(data?.products){
 		setProductCount(data.products.length)
 	}

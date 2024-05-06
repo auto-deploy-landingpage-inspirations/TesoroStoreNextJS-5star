@@ -65,7 +65,7 @@ export default function Products() {
 
 					<div className="w-full lg:-ms-9">
 						<SearchTopBar productCount={productCount} />
-						<ProductCategoryGrid setProductCount={setProductCount} products={products} setProducts={setProducts} />
+						<ProductCategoryGrid setProductCount={setProductCount}  products={products} setProducts={setProducts} />
 					</div>
 				</div>
 				<Subscription />

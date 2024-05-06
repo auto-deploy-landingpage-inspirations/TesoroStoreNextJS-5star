@@ -19,6 +19,7 @@ export const API_ENDPOINTS = {
   CATEGORY: "https://tesoro-backend.onrender.com/api/category/slug/",
   COLLECTION: "https://tesoro-backend.onrender.com/api/categories/slug/",
   PRODUCTS_CATEGORY: "https://tesoro-backend.onrender.com/api/products/category/",
+  // PRODUCTS_CATEGORY: "http://localhost:5055/api/products/category/",
   PRODUCTS: "https://tesoro-backend.onrender.com/api/products/category/",
   HOMEPAGE_VISIBILITY: "https://tesoro-backend.onrender.com/api/homepage/visibility",
   MYORDER: "https://tesoro-backend.onrender.com/api/order/all",

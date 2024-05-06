@@ -46,7 +46,8 @@ const colorFilterItems = [
 		hexColor: "#e1e1e1",
 	},
 ];
-export const ColorFilter = () => {
+
+export const ColorFilter: React.FC = () => {
 	const { t } = useTranslation("common");
 	const router = useRouter();
 	const { pathname, query } = router;
@@ -57,6 +58,7 @@ export const ColorFilter = () => {
 	}, [query?.color]);
 	function handleItemClick(e: React.FormEvent<HTMLInputElement>): void {
 		const { value } = e.currentTarget;
+		// setProductColorFilter({color: value})
 		let currentFormState = formState.includes(value)
 			? formState.filter((i) => i !== value)
 			: [...formState, value];

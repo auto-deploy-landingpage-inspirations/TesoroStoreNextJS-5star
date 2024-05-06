@@ -15,7 +15,10 @@ interface ProductData {
 
 const fetchProducts = async (_slug: string) => {
 	try {
-	  const response = await https.get(`${API_ENDPOINTS.PRODUCTS_CATEGORY}${_slug}`);
+		const query = window.location.search;
+		const response = await https.get(`${API_ENDPOINTS.PRODUCTS_CATEGORY}${_slug}${query}`);
+		// alert(`${API_ENDPOINTS.PRODUCTS_CATEGORY}${_slug}${query}`)
+	//   const response = await https.get(`${API_ENDPOINTS.PRODUCTS_CATEGORY}${_slug}`);
 	  const data: ProductData = response.data;
 	//   console.log("fetchProducts:",data)
 	  return data;
@@ -24,13 +27,6 @@ const fetchProducts = async (_slug: string) => {
 	  throw error;
 	}
 };
-
-// const fetchProducts = async (_slug: string) => {
-// 	const response = await https.get(`${API_ENDPOINTS.PRODUCTS_CATEGORY}${_slug}`);
-//     const data: ProductData = response.data;
-//     console.log("fetchProducts:",data)
-// 	return data;
-// };
 
 const useProductsByCategoryQuery = (slug: string) => {
 	return useQuery<ProductData, Error>(

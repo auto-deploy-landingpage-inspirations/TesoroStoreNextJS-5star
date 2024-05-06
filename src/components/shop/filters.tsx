@@ -1,4 +1,4 @@
-import { CategoryFilter } from "./category-filter";
+// import { CategoryFilter } from "./category-filter";
 // import { BrandFilter } from "./brand-filter";
 import { FilteredItem } from "./filtered-item";
 import { ColorFilter } from "./color-filter";
@@ -9,18 +9,13 @@ import { useTranslation } from "next-i18next";
 // import { ProductDetails } from "@framework/product/get-product";
 // import { useEffect } from "react";
 
-// interface ShopFiltersProps {
-// 	setProductCount: (value: number) => void;
-// 	products?: ProductDetails[];
-// 	setProducts?: (value: ProductDetails[]) => void;
-// }
+
 
 export const ShopFilters: React.FC = () => {
 	const router = useRouter();
 	const { pathname, query } = router;
 	const { t } = useTranslation("common");
 
-	
 	return (
 		<div className="pt-1">
 			<div className="block border-b border-gray-300 pb-7 mb-7">
@@ -55,10 +50,10 @@ export const ShopFilters: React.FC = () => {
 				</div>
 			</div>
 
-			<CategoryFilter />
+			{/* <CategoryFilter /> */}
 			{/* <BrandFilter /> */}
-			<PriceFilter />
-			<ColorFilter />
+			<PriceFilter/>
+			<ColorFilter/>
 		</div>
 	);
 };
