@@ -11,6 +11,7 @@ export default function WriteProductReview() {
 	const {
 		query: { id },
 	} = useRouter();
+	console.log(id)
     // const {data, error, isLoading} = useGuestOrderQuery(id?.toString()!);
 	const {data, error, isLoading} = useGuestOrderQuery('zVdArmmhA');
     
@@ -42,7 +43,7 @@ export default function WriteProductReview() {
 					</div>
 					{data?.cart !== undefined && data?.cart.map((product:any) => {
 						return (
-							<ProductBox product={product} customer={data.user_info} sellerStatus={data?.sellerStatus} />
+							<ProductBox product={product} customer={data.user_info} />
 						)
 					})}
 
@@ -120,7 +121,7 @@ const ProductDropdownOption = ({product}: any) => {
 		</option>
 	)
 }
-const ProductBox = ({product, customer, sellerStatus}: any) => {
+const ProductBox = ({product, customer}: any) => {
 
     const [productThumbnail, setProductThumbnail] = useState<string>("");
     console.log(product)
