@@ -49,11 +49,11 @@ export const siteSettings = {
 						path: "/categories/candles",
 						label: "Candles",
 					},
-					{
-						id: 4,
-						path: "/categories/mirrors",
-						label: "Mirrors",
-					},
+					// {
+					// 	id: 4,
+					// 	path: "/categories/mirrors",
+					// 	label: "Mirrors",
+					// },
 					{
 						id: 5,
 						path: "/categories/vases",
@@ -255,11 +255,11 @@ export const siteSettings = {
 								path: "/categories/candles",
 								label: "Candles",
 							},
-							{
-								id: 4,
-								path: "/categories/mirrors",
-								label: "Mirrors",
-							},
+							// {
+							// 	id: 4,
+							// 	path: "/categories/mirrors",
+							// 	label: "Mirrors",
+							// },
 							{
 								id: 5,
 								path: "/categories/vases",
