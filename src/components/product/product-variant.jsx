@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function ProductVariantSelector ({product, selectedVariant, setSelectedVariant, setVariantData, setImgToShow, setImagesToShow, setPrices, slabPrice, setVariantDesc, setOutOfStock}) {
+export default function ProductVariantSelector ({product, selectedVariant, setSelectedVariant, setVariantData, setImgToShow, setImagesToShow, setPrices, slabPrice, setVariantDesc, setStockLoading, setOutOfStock}) {
     const [optionDetailsDropdown, setOptionDetailsDropdown] = useState({});
     const variantTitle = product?.variantData;
     const variantOptions = product?.variants;
@@ -11,6 +11,7 @@ export default function ProductVariantSelector ({product, selectedVariant, setSe
         // alert(optionDetails.name.en);
         // alert(index);
         if(optionDetails.quantity === 0){
+            setStockLoading(false);
             setOutOfStock(true);
             return;
         }
@@ -26,8 +27,10 @@ export default function ProductVariantSelector ({product, selectedVariant, setSe
             }
             if(variantOptions[index].quantity === 0){
                 setOutOfStock(true);
+                setStockLoading(false)
             } else {
                 setOutOfStock(false);
+                setStockLoading(false)
             }
             // alert(prices.finalPrice + " " + prices.finalDiscountedPrice + " " + prices.discount)
             setPrices(prices);

@@ -9,7 +9,7 @@ function TopBar() {
         zIndex: 50}}
     >
       <h1 className='font-bold text-md h-7' style={{color: '#000'}}>
-        <Marquee className="h-7"> Free shipping on all orders.{" "}<a href="/collection/sale">Shop Now</a></Marquee>
+        <Marquee className="h-7"> Free shipping on all orders. <span className='w-1 block'></span><a href="#">{" Shop Now "}</a></Marquee>
         {/* <div className="h-7 text-center font-josphine"> Free shipping on all orders.{" "}<a href="/collection/sale">Shop Now</a></div> */}
 
       </h1>

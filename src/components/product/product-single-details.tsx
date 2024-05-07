@@ -36,6 +36,7 @@ const ProductSingleDetails: React.FC = () => {
 
 	const [variantData, setVariantData] = useState<any>({});
 	const [variantDesc, setVariantDesc] = useState<string>("");
+	const [stockLoading, setStockLoading] = useState<boolean>(true);
 	const [outOfStock, setOutOfStock] = useState<boolean>(false);
 	const [variantPrices, setVariantPrices] = useState<VariantPrices | null>(null);
 	const [selectedVariant, setSelectedVariant] = useState<string>('');
@@ -44,6 +45,7 @@ const ProductSingleDetails: React.FC = () => {
 	const [buyNowLoader, setBuyNowLoader] = useState<boolean>(false);
 	const [imgToShow, setImgToShow] = useState<string>("");
 	const [imagesToShow, setImagesToShow] = useState<any>([]);
+	
 
 	const {
 		query: { slug },
@@ -57,7 +59,7 @@ const ProductSingleDetails: React.FC = () => {
 			toast("Product is not available", {
 				type: "error"
 			})
-			// router.push("/");
+
 			window.location.href = "/";
 		}
 		if (data?.isCombination) {
@@ -71,11 +73,13 @@ const ProductSingleDetails: React.FC = () => {
 				});
 				if(data?.variants[0].quantity === 0){
 					setOutOfStock(true);
+					setStockLoading(false);
 				}
 			}
 		} else {
 			if(Number(data?.stock) === 0){
 				setOutOfStock(true);
+				setStockLoading(false);
 			}
 			setImgToShow(data?.image[0] ?? "");
 			setImagesToShow(data?.image);
@@ -83,11 +87,15 @@ const ProductSingleDetails: React.FC = () => {
 
 	}, [data]);
 
+	useEffect(() => {
+		if(outOfStock === false || stockLoading === true){
+			setStockLoading(false);
+		}
+	}, [outOfStock])
 
 	if (isLoading) return <p>Loading...</p>;
 
 	function addToCart() {
-
 		setAddToCartLoader(true);
 		setTimeout(() => {
 			setAddToCartLoader(false);
@@ -341,17 +349,29 @@ const ProductSingleDetails: React.FC = () => {
 							)}
 						</div>
 						{data?.isCombination && (
-							<ProductVariantSelector product={data} selectedVariant={selectedVariant} setSelectedVariant={setSelectedVariant} setVariantData={setVariantData} setImagesToShow={setImagesToShow} setImgToShow={setImgToShow} setPrices={setVariantPrices} slabPrice={data?.prices.slabPrice} setVariantDesc={setVariantDesc} setOutOfStock={setOutOfStock} />
+							<ProductVariantSelector product={data} selectedVariant={selectedVariant} setSelectedVariant={setSelectedVariant} setVariantData={setVariantData} setImagesToShow={setImagesToShow} setImgToShow={setImgToShow} setPrices={setVariantPrices} slabPrice={data?.prices.slabPrice} setVariantDesc={setVariantDesc} setStockLoading={setStockLoading} setOutOfStock={setOutOfStock} />
 						)}
-						{outOfStock && (
-							<div className="text-red text-sm inline-flex px-5 bg-red-300 roudned-md p-2 mt-2 text-center"
-								style={{
-									border: '1px solid red',
-								}}
-							>
-								Out Of Stock
-							</div>
-						)}
+						{stockLoading === true ? 
+							(
+								<div className="text-red text-sm inline-flex px-5 bg-blue-300 rounded-md p-2 mt-2 text-center"
+									style={{ border: '1px solid blue' }}
+								>
+									Loading...
+								</div>
+							)
+							: outOfStock === true ? 
+							(
+								<div className="text-red text-sm inline-flex px-5 bg-red-300 rounded-md p-2 mt-2 text-center"
+									style={{ border: '1px solid red' }}
+								>
+									Out Of Stock
+								</div>
+							)
+							: 
+							(
+								<></>
+							)
+						}
 	
 						<div className="py-3 border-b border-gray-300">
 							<div className="md:w-1/3 sm:w-1/2">
