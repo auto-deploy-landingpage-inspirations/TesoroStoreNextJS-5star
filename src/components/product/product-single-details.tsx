@@ -487,15 +487,21 @@ const ProductSingleDetails: React.FC = () => {
 					<div className="lg:col-span-4">
 						<div className="py-6">
 							<ul className="text-lg space-y-5 pb-1">
-	
-								<li className="font-josephine ">
-									<span className="font-josephine font-semibold text-heading inline-block pe-2">
-										Dimensions:
-									</span>
-									<span className="font-josephine">
-										{data?.length && data?.length}cm x {data?.width}cm x {data?.height}cm
-									</span>
-								</li>
+
+								{data?.length !== undefined && data?.width !== undefined && data?.height !== undefined && (
+									<li className="font-josephine ">
+										<span className="font-josephine font-semibold text-heading inline-block pe-2">
+											Dimensions:
+										</span>
+										<span className="font-josephine">
+											{data?.length!==undefined && (
+												<>{data?.length}cm</>)} x {data?.width!==undefined && (
+													<>{data?.width}cm</>)} x {data?.height!==undefined && (
+														<>{data?.height}cm</>
+													)}
+										</span>
+									</li>
+								)}
 								<li className="font-josephine ">
 									<span className="font-josephine font-semibold text-heading inline-block pe-2">
 										Composition:
