@@ -31,6 +31,16 @@ export const siteSettings = {
 				subMenu: [
 					{
 						id: 1,
+						path: "/categories/cushion-covers",
+						label: "Cushion Covers",
+					},
+					{
+						id: 1,
+						path: "/categories/throws",
+						label: "Throws",
+					},
+					{
+						id: 1,
 						path: "/categories/planters",
 						label: "Planters",
 					},
@@ -51,8 +61,8 @@ export const siteSettings = {
 					},
 					{
 						id: 6,
-						path: "/categories/frames",
-						label: "Wall Frames",
+						path: "/categories/wall-art",
+						label: "Wall Art",
 					},
 				],
 			},
@@ -63,29 +73,29 @@ export const siteSettings = {
 				subMenu: [
 					{
 						id: 1,
-						path: '/categories/pens-and-highlighters',
-						label: 'Pens & Highlighters'
+						path: '/categories/notebooks',
+						label: 'Notebooks'
 					},
 					{
 						id: 2,
-						path: '/categories/notebooks-and-planners',
-						label: 'Notebooks & Planners'
+						path: '/categories/planners',
+						label: 'Planners'
 					},
 					{
 						id: 3,
 						path: '/categories/journals',
 						label: 'Journals'
 					},
-					{
-						id: 5,
-						path: '/categories/bookmarks',
-						label: 'Bookmarks'
-					},
-					{
-						id: 6,
-						path: '/categories/sticky-notes',
-						label: 'Sticky Notes'
-					},
+					// {
+					// 	id: 5,
+					// 	path: '/categories/bookmarks',
+					// 	label: 'Bookmarks'
+					// },
+					// {
+					// 	id: 6,
+					// 	path: '/categories/sticky-notes',
+					// 	label: 'Sticky Notes'
+					// },
 					{
 						id: 7,
 						path: '/categories/to-do-lists-and-notepads',
@@ -104,40 +114,35 @@ export const siteSettings = {
 						label: 'Ceramic Bowls'
 					},
 					{
-						id: 2,
-						path: '/categories/cutlery',
-						label: 'Cutlery'
-					},
-					{
-						id: 3,
-						path: '/categories/plates',
-						label: 'Plates'
-					},
-					{
 						id: 4,
-						path: '/categories/serving-plates-and-bowls',
-						label: 'Serving Plates and Bowls'
+						path: '/categories/serving-plates-and-platters',
+						label: 'Serving Plates & Platters'
 					},
 					{
-						id: 5,
-						path: '/categories/mugs',
-						label: 'Mugs'
+						id: 2,
+						path: '/categories/dinnerware',
+						label: 'Dinnerware'
 					},
 					{
 						id: 6,
-						path: '/categories/cups',
-						label: 'Cups'
+						path: '/categories/cups-and-mugs',
+						label: 'Cups & Mugs'
+					},
+					{
+						id: 3,
+						path: '/categories/coasters',
+						label: 'Coasters'
 					},
 					{
 						id: 7,
-						path: '/categories/customizable-products',
-						label: 'Customizable Products'
+						path: '/categories/table-runners',
+						label: 'Table Runners'
 					},
-					{
-						id: 8,
-						path: '/categories/glassware',
-						label: 'Glassware'
-					}
+					// {
+					// 	id: 8,
+					// 	path: '/categories/glassware',
+					// 	label: 'Glassware'
+					// }
 				]
 			},
 			{
@@ -154,15 +159,21 @@ export const siteSettings = {
 						id: 2,
 						path: "/categories/earrings",
 						label: "Earrings"
-					},{
+					},
+					{
+						id: 3,
+						path: "/categories/necklace",
+						label: "Nacklaces"
+					},
+					{
 						id: 3,
 						path: "/categories/bags",
 						label: "Bags"
 					},
 					{
 						id: 4,
-						path: "/categories/necklace",
-						label: "Necklace"
+						path: "/categories/hair",
+						label: "Hair"
 					},
 				]
 			},
@@ -226,6 +237,16 @@ export const siteSettings = {
 						subMenu: [
 							{
 								id: 1,
+								path: "/categories/cushion-covers",
+								label: "Cushion Covers",
+							},
+							{
+								id: 1,
+								path: "/categories/throws",
+								label: "Throws",
+							},
+							{
+								id: 1,
 								path: "/categories/planters",
 								label: "Planters",
 							},
@@ -246,50 +267,48 @@ export const siteSettings = {
 							},
 							{
 								id: 6,
-								path: "/categories/frames",
-								label: "Wall Frames",
+								path: "/categories/wall-art",
+								label: "Wall Art",
 							},
 						],
 					},
-
 					{
 						id: 2,
 						path: "/categories/stationery",
-						label: "Stationary",
+						label: "Stationery",
 						subMenu: [
 							{
 								id: 1,
-								path: "/categories/pens-&-highlighters",
-								label: 'Pens & Highlighters',
+								path: '/categories/notebooks',
+								label: 'Notebooks'
 							},
 							{
 								id: 2,
-								path: "/categories/notebook-&-planers",
-								label: 'Notebook & Planners',
+								path: '/categories/planners',
+								label: 'Planners'
 							},
 							{
-								id: 4,
-								path: "/categories/bookmarks",
-								label:'Bookmarks',
+								id: 3,
+								path: '/categories/journals',
+								label: 'Journals'
 							},
-							{
-								id: 5,
-								path: "/categories/sticky-notes",
-								label: 'Sticky Notes',
-							},
-							{
-								id: 6,
-								path: "/categories/to-do-lists-and-notepads",
-								label: 'To-Do List & Notepad',
-							},
+							// {
+							// 	id: 5,
+							// 	path: '/categories/bookmarks',
+							// 	label: 'Bookmarks'
+							// },
+							// {
+							// 	id: 6,
+							// 	path: '/categories/sticky-notes',
+							// 	label: 'Sticky Notes'
+							// },
 							{
 								id: 7,
-								path: "/categories/journals",
-								label: 'Journals',
+								path: '/categories/to-do-lists-and-notepads',
+								label: 'To-Do List & Notepad'
 							},
-						],
+						]
 					},
-					
 					{
 						id: 3,
 						path: "/categories/tableware",
@@ -301,45 +320,40 @@ export const siteSettings = {
 								label: 'Ceramic Bowls'
 							},
 							{
-								id: 2,
-								path: '/categories/cutlery',
-								label: 'Cutlery'
-							},
-							{
-								id: 3,
-								path: '/categories/plates',
-								label: 'Plates'
-							},
-							{
 								id: 4,
-								path: '/categories/serving-plates-and-bowls',
-								label: 'Serving Plates and Bowls'
+								path: '/categories/serving-plates-and-platters',
+								label: 'Serving Plates & Platters'
 							},
 							{
-								id: 5,
-								path: '/categories/mugs',
-								label: 'Mugs'
+								id: 2,
+								path: '/categories/dinnerware',
+								label: 'Dinnerware'
 							},
 							{
 								id: 6,
-								path: '/categories/cups',
-								label: 'Cups'
+								path: '/categories/cups-and-mugs',
+								label: 'Cups & Mugs'
+							},
+							{
+								id: 3,
+								path: '/categories/coasters',
+								label: 'Coasters'
 							},
 							{
 								id: 7,
-								path: '/categories/customizable-products',
-								label: 'Customizable Products'
+								path: '/categories/table-runners',
+								label: 'Table Runners'
 							},
-							{
-								id: 8,
-								path: '/categories/glassware',
-								label: 'Glassware'
-							}
+							// {
+							// 	id: 8,
+							// 	path: '/categories/glassware',
+							// 	label: 'Glassware'
+							// }
 						]
 					},
 					{
 						id: 4,
-						path: '/accessories',
+						path: '/categories/accessories',
 						label: 'Accessories',
 						subMenu: [
 							{
@@ -351,15 +365,21 @@ export const siteSettings = {
 								id: 2,
 								path: "/categories/earrings",
 								label: "Earrings"
-							},{
+							},
+							{
+								id: 3,
+								path: "/categories/necklace",
+								label: "Nacklaces"
+							},
+							{
 								id: 3,
 								path: "/categories/bags",
 								label: "Bags"
 							},
 							{
 								id: 4,
-								path: "/categories/necklace",
-								label: "Necklace"
+								path: "/categories/hair",
+								label: "Hair"
 							},
 						]
 					},
