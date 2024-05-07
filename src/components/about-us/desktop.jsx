@@ -104,7 +104,7 @@ export default function AboutUsDesktop() {
             </div>
             <div className='w-[90%] ml-[5%] mb-[10vh] grid grid-cols-2 rounded-3xl bg-[#FFF5F8]'>
                 <div className='p-20'>
-                <h1 className='text-[#F4769F] text-2xl text-center mb-7 font-josephine'>Saumya & Shalini </h1>
+                    <h1 className='text-[#F4769F] text-2xl text-center mb-7 font-josephine'>Saumya & Shalini </h1>
                     <p className='text-center font-josephine'>
                     Hey there, lovely souls! We're Saumya and Shalini, your friendly neighborhood co-founders of Tesoro Store. Back in the day, we embarked on a journey together at the National Institute of Fashion Technology, where we not only acquired degrees in fashion management but also discovered a friendship that's more precious than a pot of gold.
                     </p>
@@ -119,7 +119,8 @@ export default function AboutUsDesktop() {
                     </p>
                 </div>
                 <div className='pt-16 pr-20'>
-                <img src="/assets/images/about-us/us.jpg" style={{borderRadius: '100%'}} className='' alt="" />
+                    <img src="/assets/images/about-us/us1.jpg" style={{borderRadius: '100%', height: '50vh', margin: 'auto', marginBottom: '10px'}} className='' alt="" />
+                    <img src="/assets/images/about-us/us2.jpg" style={{borderRadius: '100%', height: '50vh', margin: 'auto'}} className='' alt="" />
                 </div>
             </div>
             </>

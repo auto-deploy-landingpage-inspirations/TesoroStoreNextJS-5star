@@ -4,6 +4,12 @@ import React from "react";
 import { useTranslation } from "next-i18next";
 const colorFilterItems = [
 	{
+		id: "0",
+		name: "multicolour",
+		slug: "multicolour",
+		hexColor: "#000",
+	},
+	{
 		id: "1",
 		name: "Black",
 		slug: "black",

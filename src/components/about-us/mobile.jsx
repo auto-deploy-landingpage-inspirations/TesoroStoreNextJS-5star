@@ -105,14 +105,16 @@ export default function AboutUsMobile() {
                     <h1 className='text-[3.5rem] text-center text-[#F4769F] font-normal font-playfair' style={{fontStyle: 'italic'}}>Meet Our Founders</h1>
                 </div>
                 <div className='w-[90%] ml-[5%] mb-[10vh] rounded-3xl bg-[#FFF5F8]'>
-                    <div className='pt-16'>
-                        <img src="/assets/images/about-us/us.jpg" style={{borderRadius: '100%'}} className='w-[90%] ml-[5%]' alt="" />
-                    </div>
                     <div className='p-5'>
                         <h1 className='text-[#F4769F] text-2xl text-center mb-7 font-josephine'>Saumya & Shalini </h1>
+                        <div className='py-4 flex'>
+                            <img src="/assets/images/about-us/us1.jpg" style={{borderRadius: '100%', width: '40vw', marginRight: '2vw'}} className='w-[100%] ' alt="" />
+                            <img src="/assets/images/about-us/us2.jpg" style={{borderRadius: '100%', width: '40vw'}} className='w-[100%]' alt="" />
+                        </div>
                         <p className='text-center font-josephine'>
                             Hey there, lovely souls! We're Saumya and Shalini, your friendly neighborhood co-founders of Tesoro Store. Back in the day, we embarked on a journey together at the National Institute of Fashion Technology, where we not only acquired degrees in fashion management but also discovered a friendship that's more precious than a pot of gold.
                         </p>
+                    
                         <p className='text-center font-josephine'>
                             With our small businesses in tow, we've danced to the entrepreneurial beat and understood the hustle like no other. 
                         </p>
