@@ -23,6 +23,7 @@ export const API_ENDPOINTS = {
   PRODUCTS: "https://tesoro-backend.onrender.com/api/products/category/",
   HOMEPAGE_VISIBILITY: "https://tesoro-backend.onrender.com/api/homepage/visibility",
   MYORDER: "https://tesoro-backend.onrender.com/api/order/all",
+  XPRESSBEES_PINCODE: "https://tesoro-backend.onrender.com/api/seller/xpressbees/check-pincode",
 
   LOGOUT: "/logout",
   FORGET_PASSWORD: "/forget-password",
