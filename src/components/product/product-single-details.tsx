@@ -445,7 +445,7 @@ const ProductSingleDetails: React.FC = () => {
 										</Link>
 									</li>
 								)}
-								<>
+								{/* <>
 									{data?.tag && Array.isArray(data.tag) && (
 										<li className="productTags">
 											<span className="text-xl font-josephine font-semibold text-gray-900 inline-block pe-2">
@@ -463,7 +463,7 @@ const ProductSingleDetails: React.FC = () => {
 											))}
 										</li>
 									)}
-								</>
+								</> */}
 							</ul>
 						</div>
 					</div>
