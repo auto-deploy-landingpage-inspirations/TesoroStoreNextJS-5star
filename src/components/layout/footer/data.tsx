@@ -17,16 +17,16 @@ export const footer = {
 					path: "https://www.instagram.com/tesorostore.in?igsh=MWUzZjJ6NTB0emFiOQ==",
 					icon: <IoLogoInstagram />,
 				},
-				{
-					id: 2,
-					title: "link-twitter",
-					path: "https://twitter.com/",
-					icon: <IoLogoTwitter />,
-				},
+				// {
+				// 	id: 2,
+				// 	title: "link-twitter",
+				// 	path: "https://twitter.com/",
+				// 	icon: <IoLogoTwitter />,
+				// },
 				{
 					id: 3,
 					title: "link-facebook",
-					path: "https://www.facebook.com/",
+					path: "https://www.facebook.com/profile.php?id=61552949775873",
 					icon: <IoLogoFacebook />,
 				},
 				{
