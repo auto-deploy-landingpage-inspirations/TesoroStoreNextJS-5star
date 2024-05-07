@@ -119,8 +119,8 @@ export default function AboutUsDesktop() {
                     </p>
                 </div>
                 <div className='pt-16 pr-20'>
-                    <img src="/assets/images/about-us/us1.jpg" style={{borderRadius: '100%', height: '50vh', margin: 'auto', marginBottom: '10px'}} className='' alt="" />
-                    <img src="/assets/images/about-us/us2.jpg" style={{borderRadius: '100%', height: '50vh', margin: 'auto'}} className='' alt="" />
+                    <img src="/assets/images/about-us/us1.jpg" style={{borderRadius: '100%', height: '50vh', margin: 'auto', transform: 'translateX(-10vw)'}} className='' alt="" />
+                    <img src="/assets/images/about-us/us2.jpg" style={{borderRadius: '100%', height: '50vh', margin: 'auto', transform: 'translate(10vw, -10vh)'}} className='' alt="" />
                 </div>
             </div>
             </>
