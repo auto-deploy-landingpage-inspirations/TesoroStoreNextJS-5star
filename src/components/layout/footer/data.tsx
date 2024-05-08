@@ -32,7 +32,7 @@ export const footer = {
 				{
 					id: 4,
 					title: "Pinterest",
-					path: "https://pin.it/6pByKQuNI",
+					path: "https://www.pinterest.com/tesorostoreindia/?actingBusinessId=908882905957354466",
 					icon: <IoLogoPinterest />,
 				},
 			],
