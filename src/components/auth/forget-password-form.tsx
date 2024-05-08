@@ -38,7 +38,7 @@ const ForgetPasswordForm = () => {
 		const emailId = values.email;
 		// Call the API to send the reset password link
 		try {
-			const response = await axios.put("http://localhost:5055/api/customer/forgot-password", {
+			const response = await axios.put("https://tesoro-backend.onrender.com/api/customer/forgot-password", {
 				email: emailId,
 			});
 			toast("Reset password link sent successfully", {
