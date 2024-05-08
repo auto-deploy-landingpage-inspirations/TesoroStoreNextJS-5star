@@ -116,12 +116,12 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({paymentMethod, setPaymentMet
 			var ivBase64 = Buffer.from([0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d,0x0e, 0x0f]).toString('base64');
 
 			const submitForm = async () => {
+				let orderDetails = await createOrder();
 				
-				const orderDetails = await createOrder();
-				if(orderDetails === undefined){
-					toast("Error Creating Order", {
-						type: "error"
-					})
+				if(orderDetails === false){
+					// toast("Error Creating Order", {
+					// 	type: "error"
+					// })
 					return;
 				}
 				clearCart();
@@ -204,11 +204,13 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({paymentMethod, setPaymentMet
 				})
 				// console.log("API Response: ");
 				const data = await response.json();
-				if(data.error){
+				console.log('response from failed requests = ', data)
+				if(data.message !== undefined){
+					console.log(data)
 					toast(data.message, {
 						type: "error"
 					})
-					return;
+					return false;
 				}
 				// console.log(data.order);
 				return data.order;
@@ -217,8 +219,8 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({paymentMethod, setPaymentMet
 			submitForm();
 			
 
-		} catch (error) {
-			toast("Error Checking Out", {
+		} catch (error: any) {
+			toast(`${error.message}`, {
 				type: "error"
 			})
 			console.log("Error Creating Order: ")
