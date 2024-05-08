@@ -205,12 +205,14 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({paymentMethod, setPaymentMet
 				// console.log("API Response: ");
 				const data = await response.json();
 				console.log('response from failed requests = ', data)
-				if(data.message !== undefined){
-					console.log(data)
-					toast(data.message, {
-						type: "error"
-					})
-					return false;
+				if(data.error){
+					if(data.message !== undefined){
+						console.log(data)
+						toast(data.message, {
+							type: "error"
+						})
+						return false;
+					}
 				}
 				// console.log(data.order);
 				return data.order;

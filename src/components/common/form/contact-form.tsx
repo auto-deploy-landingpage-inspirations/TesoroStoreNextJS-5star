@@ -25,7 +25,6 @@ const ContactForm: React.FC = () => {
 		try {
 			// send data to the server
 			const response = await axios.post('https://tesoro-backend.onrender.com/api/customer/contact', values);
-			// const response = await axios.post('http://localhost:5055/api/customer/contact', values);
 
 			console.log(response.data);
 			toast.success("We've recorded your response, we will get back to you shortly");
