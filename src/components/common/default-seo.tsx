@@ -9,7 +9,7 @@ export const DefaultSeo = () => {
       openGraph={{
         type: "website",
         locale: "en_IE",
-        site_name: siteSettings.name,
+        site_name: "Tesoro Store",
       }}
       twitter={{
         handle: "@handle",
