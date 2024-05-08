@@ -32,7 +32,7 @@ export const footer = {
 				{
 					id: 4,
 					title: "Pinterest",
-					path: "https://in.pinterest.com/pin/tesoro-fashion-store-by-n-design-team-karachi-pakistan--113504853082361775/",
+					path: "https://pin.it/6pByKQuNI",
 					icon: <IoLogoPinterest />,
 				},
 			],
