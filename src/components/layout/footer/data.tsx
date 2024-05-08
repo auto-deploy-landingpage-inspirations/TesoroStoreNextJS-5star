@@ -1,6 +1,6 @@
 import {
 	IoLogoInstagram,
-	IoLogoTwitter,
+	// IoLogoTwitter,
 	IoLogoFacebook,
 	IoLogoPinterest,
 } from "react-icons/io5";
