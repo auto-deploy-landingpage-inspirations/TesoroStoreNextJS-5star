@@ -3,6 +3,8 @@ import Button from "@components/ui/button";
 import { useForm } from "react-hook-form";
 import TextArea from "@components/ui/text-area";
 import { useTranslation } from "next-i18next";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 interface ContactFormValues {
 	name: string;
@@ -15,10 +17,23 @@ const ContactForm: React.FC = () => {
 	const {
 		register,
 		handleSubmit,
+		reset,
 		formState: { errors },
 	} = useForm<ContactFormValues>();
-	function onSubmit(values: ContactFormValues) {
+	async function onSubmit(values: ContactFormValues) {
 		console.log(values, "contact");
+		try {
+			// send data to the server
+			const response = await axios.post('https://tesoro-backend.onrender.com/api/customer/contact', values);
+			// const response = await axios.post('http://localhost:5055/api/customer/contact', values);
+
+			console.log(response.data);
+			toast.success("We've recorded your response, we will get back to you shortly");
+			reset();
+		} catch (error) {
+			console.log(error);
+			toast.error("Unable to record your response! Please mail us at support@tesorostore.in")
+		}
 	}
 	const { t } = useTranslation();
 	return (
