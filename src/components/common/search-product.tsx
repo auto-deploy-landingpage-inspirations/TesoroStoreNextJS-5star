@@ -28,8 +28,8 @@ const SearchProduct: React.FC<SearchProductProps> = ({ item }) => {
 			<div className="flex flex-col w-full overflow-hidden">
 				<h3 className="truncate text-sm text-heading mb-2 font-bold">{item.title.en}</h3>
 				<div className="text-heading font-semibold text-sm">
-					₹{item.prices.finalDiscountedPrice}/-{" "}
-					<del className="ps-2 text-gray-400 font-normal">₹{item.prices.finalPrice}/-</del>
+					₹{item.prices.salePrice}/-{" "}
+					<del className="ps-2 text-gray-400 font-normal">₹{item.prices.markedPrice}/-</del>
 				</div>
 			</div>
 		</Link>

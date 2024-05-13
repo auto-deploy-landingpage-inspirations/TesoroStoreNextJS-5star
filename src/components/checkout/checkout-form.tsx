@@ -213,6 +213,10 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({paymentMethod, setPaymentMet
 						})
 						return false;
 					}
+				} else {
+					toast(data.message, {
+						type: "success"
+					})
 				}
 				// console.log(data.order);
 				return data.order;

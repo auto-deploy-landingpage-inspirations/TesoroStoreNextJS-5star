@@ -6,6 +6,11 @@ export type prices = {
 	price: number;
 	originalPrice: number;
 	discount: number;
+	markedPrice: number;
+	salePrice: number;
+	markedTaxAmount: number;
+	saleTaxAmount: number;
+	taxPercent: number;
 }
 export type title = {
 	en: string;
@@ -64,6 +69,7 @@ export type ProductDetails = {
 	image: string[];
 	isCombination: object;
 	prices: prices;
+	taxPercent: number;
 	productId: string;
 	sku: string;
 	slug: string;

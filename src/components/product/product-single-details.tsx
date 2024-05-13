@@ -25,6 +25,8 @@ interface VariantPrices {
 	finalPrice: number;
 	finalDiscountedPrice: number;
 	discount: number;
+	markedPrice: number;
+	salePrice: number;
 }
 
 
@@ -66,10 +68,16 @@ const ProductSingleDetails: React.FC = () => {
 			if (data?.variants && data?.variants.length > 0) {
 				setImgToShow(data?.variants[0].images[0]);
 				setImagesToShow(data?.variants[0].images);
+				const finalPrice = data?.variants[0].originalPrice + data?.prices.slabPrice;
+				const finalDiscountedPrice = data?.variants[0].price + data?.prices.slabPrice;
+				const markedPrice = finalPrice * (100 + data?.taxPercent) / 100;
+				const salePrice = finalDiscountedPrice * (100 + data?.taxPercent) / 100;
 				setVariantPrices({
-					finalPrice: data?.variants[0].originalPrice + data?.prices.slabPrice,
-					finalDiscountedPrice: data?.variants[0].price + data?.prices.slabPrice,
-					discount: data?.variants[0].originalPrice - data?.variants[0].price
+					finalPrice: finalPrice,
+					finalDiscountedPrice: finalDiscountedPrice,
+					discount: data?.variants[0].originalPrice - data?.variants[0].price,
+					markedPrice: markedPrice,
+					salePrice: salePrice
 				});
 				if(data?.variants[0].quantity === 0){
 					setOutOfStock(true);
@@ -102,15 +110,15 @@ const ProductSingleDetails: React.FC = () => {
 		}, 600);
 
 		let name = data?.title.en;
-		let finalPrice = data?.prices.finalPrice;
-		let finalDiscountedPrice = data?.prices.finalDiscountedPrice;
+		let finalPrice = data?.prices.markedPrice;
+		let finalDiscountedPrice = data?.prices.salePrice;
 
 		let discount = 0;
 
 		if (data?.isCombination) {
 			name = `${name}-${variantData.name.en}`;
-			finalDiscountedPrice = variantPrices?.finalDiscountedPrice || 0;
-			finalPrice = variantPrices?.finalPrice || 0;
+			finalDiscountedPrice = variantPrices?.salePrice || 0;
+			finalPrice = variantPrices?.markedPrice || 0;
 			discount = variantPrices?.discount || 0;
 		}
 
@@ -333,11 +341,11 @@ const ProductSingleDetails: React.FC = () => {
 							) : (
 								<div className="flex items-center mt-5">
 									<div className="font-josephine text-gray-600 font-semibold text-base md:text-md lg:text-lg 2xl:text-2xl pe-2 md:pe-0 lg:pe-2 2xl:pe-0">
-										₹{data?.prices.finalDiscountedPrice}/-
+										₹{data?.prices.salePrice}/-
 									</div>
 									{data?.prices.discount !== 0 && (
 										<span className="font-josephine font-normal line-through font-segoe text-gray-400 text-sm md:text-base lg:text-md xl:text-lg ps-2">
-											₹{data?.prices.finalPrice}/-
+											₹{data?.prices.markedPrice}/-
 										</span>
 									)}
 									{data?.prices.discount !== 0 && (
@@ -347,6 +355,7 @@ const ProductSingleDetails: React.FC = () => {
 									)}
 								</div>
 							)}
+							<span className="text-sm text-green-600 font-extrabold">inclusive of all taxes</span>
 						</div>
 						{data?.isCombination && (
 							<ProductVariantSelector product={data} selectedVariant={selectedVariant} setSelectedVariant={setSelectedVariant} setVariantData={setVariantData} setImagesToShow={setImagesToShow} setImgToShow={setImgToShow} setPrices={setVariantPrices} slabPrice={data?.prices.slabPrice} setVariantDesc={setVariantDesc} setStockLoading={setStockLoading} setOutOfStock={setOutOfStock} />

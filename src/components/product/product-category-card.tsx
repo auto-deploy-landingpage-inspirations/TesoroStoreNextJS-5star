@@ -100,8 +100,8 @@ const ProductCategoryCard: FC<ProductProps> = ({
 	
 
 	let discount = product.prices.finalPrice - product.prices.finalDiscountedPrice;
-	const price = `₹${product.prices.finalDiscountedPrice}/-`;
-	const basePrice = `₹${product.prices.finalPrice}/-`;
+	const price = `₹${product.prices.salePrice}/-`;
+	const basePrice = `₹${product.prices.markedPrice}/-`;
 	if(product.prices.finalDiscountedPrice === 0 || product.prices.finalDiscountedPrice === null || product.prices.finalDiscountedPrice === undefined){
 		discount = 0;
 	}
@@ -119,8 +119,8 @@ const ProductCategoryCard: FC<ProductProps> = ({
 			quantity: 1,
 			image: product.image[0],
 			slug: product.slug,
-			price: product.prices.finalPrice,
-			sale_price: product.prices.finalDiscountedPrice
+			price: product.prices.markedPrice,
+			sale_price: product.prices.salePrice
 		}
 		const item = generateCartItem(precart, ProductAttributes)
 		addItemToCart(item, 1);

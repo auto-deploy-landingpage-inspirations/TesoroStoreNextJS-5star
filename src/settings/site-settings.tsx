@@ -7,7 +7,7 @@
 export const siteSettings = {
 	name: "Tesoro Store",
 	description:
-		"Your own gift shop",
+		"Your go to marketplace to discover and shop from a diverse range of small businesses in categories like home decor, stationery, accessories, gifting and many more!",
 	author: {
 		name: "Reillusions",
 		websiteUrl: "https://reillusions.com/",
@@ -163,7 +163,7 @@ export const siteSettings = {
 					{
 						id: 3,
 						path: "/categories/necklace",
-						label: "Nacklaces"
+						label: "Necklaces"
 					},
 					{
 						id: 3,
@@ -369,7 +369,7 @@ export const siteSettings = {
 							{
 								id: 3,
 								path: "/categories/necklace",
-								label: "Nacklaces"
+								label: "Necklaces"
 							},
 							{
 								id: 3,

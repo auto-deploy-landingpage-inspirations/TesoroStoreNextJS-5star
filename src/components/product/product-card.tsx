@@ -89,10 +89,10 @@ const ProductCard: FC<ProductProps> = ({
 	const placeholderImage = `/assets/placeholder/products/product-${variant}.svg`;
 	
 
-	let discount = product.prices.finalPrice - product.prices.finalDiscountedPrice;
-	const price = `₹${product.prices.finalDiscountedPrice}/-`;
-	const basePrice = `₹${product.prices.finalPrice}/-`;
-	if(product.prices.finalDiscountedPrice === 0 || product.prices.finalDiscountedPrice === null || product.prices.finalDiscountedPrice === undefined){
+	let discount = product.prices.markedPrice - product.prices.salePrice;
+	const price = `₹${product.prices.salePrice}/-`;
+	const basePrice = `₹${product.prices.markedPrice}/-`;
+	if(product.prices.salePrice === 0 || product.prices.salePrice === null || product.prices.salePrice === undefined){
 		discount = 0;
 	}
 	function handlePopupView() {
@@ -113,8 +113,8 @@ const ProductCard: FC<ProductProps> = ({
 			quantity: 1,
 			image: product.image[0],
 			slug: product.slug,
-			price: product.prices.finalPrice,
-			sale_price: product.prices.finalDiscountedPrice
+			price: product.prices.markedPrice,
+			sale_price: product.prices.salePrice
 		}
 		const item = generateCartItem(precart, ProductAttributes)
 		addItemToCart(item, 1);
