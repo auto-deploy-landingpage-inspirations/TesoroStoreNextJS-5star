@@ -52,7 +52,7 @@ const ResetPasswordForm = () => {
         }
 		// Call the API to send the reset password link
 		try {
-			const response = await axios.put("http://localhost:5055/api/customer/reset-password", {
+			const response = await axios.put("https://tesoro-backend.onrender.com/api/customer/reset-password", {
 				newPassword: password,
                 token: slug
 			});
