@@ -167,16 +167,6 @@ export const siteSettings = {
 					},
 					{
 						id: 3,
-						path: "/categories/bags",
-						label: "Bags"
-					},
-					{
-						id: 4,
-						path: "/categories/hair",
-						label: "Hair"
-					},
-					{
-						id: 3,
 						path: "/categories/rings",
 						label: "Rings"
 					},
@@ -184,6 +174,16 @@ export const siteSettings = {
 						id: 4,
 						path: "/categories/bracelets",
 						label: "Bracelets"
+					},
+					{
+						id: 3,
+						path: "/categories/bags",
+						label: "Bags"
+					},
+					{
+						id: 4,
+						path: "/categories/hair",
+						label: "Hair"
 					},
 				]
 			},
@@ -388,16 +388,6 @@ export const siteSettings = {
 							},
 							{
 								id: 3,
-								path: "/categories/bags",
-								label: "Bags"
-							},
-							{
-								id: 4,
-								path: "/categories/hair",
-								label: "Hair"
-							},
-							{
-								id: 3,
 								path: "/categories/rings",
 								label: "Rings"
 							},
@@ -406,6 +396,16 @@ export const siteSettings = {
 								path: "/categories/bracelets",
 								label: "Bracelets"
 							},
+							{
+								id: 3,
+								path: "/categories/bags",
+								label: "Bags"
+							},
+							{
+								id: 4,
+								path: "/categories/hair",
+								label: "Hair"
+							}
 						]
 					},
 					{
