@@ -49,11 +49,6 @@ export const siteSettings = {
 						path: "/categories/candles",
 						label: "Candles",
 					},
-					// {
-					// 	id: 4,
-					// 	path: "/categories/mirrors",
-					// 	label: "Mirrors",
-					// },
 					{
 						id: 5,
 						path: "/categories/vases",
@@ -63,6 +58,11 @@ export const siteSettings = {
 						id: 6,
 						path: "/categories/wall-art",
 						label: "Wall Art",
+					},
+					{
+						id: 4,
+						path: "/categories/dried-flowers",
+						label: "Dried Flowers",
 					},
 				],
 			},
@@ -175,6 +175,16 @@ export const siteSettings = {
 						path: "/categories/hair",
 						label: "Hair"
 					},
+					{
+						id: 3,
+						path: "/categories/rings",
+						label: "Rings"
+					},
+					{
+						id: 4,
+						path: "/categories/bracelets",
+						label: "Bracelets"
+					},
 				]
 			},
 			{
@@ -269,6 +279,11 @@ export const siteSettings = {
 								id: 6,
 								path: "/categories/wall-art",
 								label: "Wall Art",
+							},
+							{
+								id: 4,
+								path: "/categories/dried-flowers",
+								label: "Dried Flowers",
 							},
 						],
 					},
@@ -380,6 +395,16 @@ export const siteSettings = {
 								id: 4,
 								path: "/categories/hair",
 								label: "Hair"
+							},
+							{
+								id: 3,
+								path: "/categories/rings",
+								label: "Rings"
+							},
+							{
+								id: 4,
+								path: "/categories/bracelets",
+								label: "Bracelets"
 							},
 						]
 					},
