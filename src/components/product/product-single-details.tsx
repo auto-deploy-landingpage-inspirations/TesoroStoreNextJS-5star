@@ -70,12 +70,13 @@ const ProductSingleDetails: React.FC = () => {
 				setImagesToShow(data?.variants[0].images);
 				const finalPrice = data?.variants[0].originalPrice + data?.prices.slabPrice;
 				const finalDiscountedPrice = data?.variants[0].price + data?.prices.slabPrice;
-				const markedPrice = finalPrice * (100 + data?.taxPercent) / 100;
-				const salePrice = finalDiscountedPrice * (100 + data?.taxPercent) / 100;
+				const markedPrice = Math.round(finalPrice * (100 + data?.taxPercent) / 100);
+				const salePrice = Math.round(finalDiscountedPrice * (100 + data?.taxPercent) / 100);
+				const discount = markedPrice - salePrice;
 				setVariantPrices({
 					finalPrice: finalPrice,
 					finalDiscountedPrice: finalDiscountedPrice,
-					discount: data?.variants[0].originalPrice - data?.variants[0].price,
+					discount: discount,
 					markedPrice: markedPrice,
 					salePrice: salePrice
 				});
@@ -94,6 +95,13 @@ const ProductSingleDetails: React.FC = () => {
 		}
 
 	}, [data]);
+
+
+	useEffect(() => {
+		if(data?.isCombination){
+			
+		}
+	}, [variantData])
 
 	useEffect(() => {
 		if(outOfStock === false || stockLoading === true){
@@ -205,7 +213,7 @@ const ProductSingleDetails: React.FC = () => {
 	// useEffect(() => {
 
 	// }, [variantData]);
-	if(data?.approved === false){
+	if(data?.approved === false || data?.status === "hide"){
 		window.location.href = "/";
 		return <p>Product is not available</p>
 	} else if(data?.approved === true) {
@@ -325,16 +333,16 @@ const ProductSingleDetails: React.FC = () => {
 							{data?.isCombination ? (
 								<div className="flex items-center mt-5">
 									<div className="font-josephine text-gray-600 font-semibold text-base md:text-md lg:text-lg 2xl:text-2xl pe-2 md:pe-0 lg:pe-2 2xl:pe-0">
-										₹{variantPrices?.finalDiscountedPrice || 0 + data?.prices.slabPrice}/-
+										₹{variantPrices?.salePrice}/-
 									</div>
 									{variantPrices?.discount !== 0 && (
 										<span className="font-josephine font-normal line-through font-segoe text-gray-400 text-sm md:text-base lg:text-md xl:text-lg ps-2">
-											₹{variantPrices?.finalPrice || 0 + data?.prices.slabPrice}/-
+											₹{variantPrices?.markedPrice }/-
 										</span>
 									)}
 									{variantPrices?.discount !== 0 && (
 										<span className="font-josephine font-normal font-segoe text-red-600 border-2 border-red-600 bg-red-200 rounded-2xl ml-4 p-1 text-sm md:text-base lg:text-md xl:text">
-											{((variantPrices?.discount || 0)/(variantPrices?.finalPrice || 0) * 100).toFixed(1)}% off
+											{((variantPrices?.discount || 0)/(variantPrices?.markedPrice || 0) * 100).toFixed(1)}% off
 										</span>
 									)}
 								</div>

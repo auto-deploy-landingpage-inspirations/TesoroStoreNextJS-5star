@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function ProductVariantSelector ({product, selectedVariant, setSelectedVariant, setVariantData, setImgToShow, setImagesToShow, setPrices, slabPrice, setVariantDesc, setStockLoading, setOutOfStock}) {
     const [optionDetailsDropdown, setOptionDetailsDropdown] = useState({});
+    const taxPercent = product.taxPercent;
     const variantTitle = product?.variantData;
     const variantOptions = product?.variants;
     console.log(variantOptions, "VariantOptions");
@@ -20,10 +21,17 @@ export default function ProductVariantSelector ({product, selectedVariant, setSe
             setImagesToShow(variantOptions[index].images);
             setImgToShow(variantOptions[index].images[0]);
             setVariantDesc(variantOptions[index].description);
+            const finalPrice = variantOptions[index].originalPrice + slabPrice;
+            const finalDiscountedPrice = variantOptions[index].price + slabPrice;
+            const markedPrice = Math.round(finalPrice * (100 + taxPercent) / 100);
+            const salePrice = Math.round(finalDiscountedPrice * (100 + taxPercent) / 100);
+            const discount = markedPrice - salePrice;
             const prices = {
-                finalPrice: variantOptions[index].originalPrice + slabPrice,
-                finalDiscountedPrice: variantOptions[index].price + slabPrice,
-                discount: variantOptions[index].originalPrice - variantOptions[index].price,
+                finalPrice: finalPrice,
+                finalDiscountedPrice: finalDiscountedPrice,
+                markedPrice: markedPrice,
+                salePrice: salePrice,
+                discount: discount, 
             }
             if(variantOptions[index].quantity === 0){
                 setOutOfStock(true);
