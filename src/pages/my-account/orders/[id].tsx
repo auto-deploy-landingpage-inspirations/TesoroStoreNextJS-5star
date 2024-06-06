@@ -87,6 +87,14 @@ export default function OrderDetails () {
                             <p className="text-sm mb-1">Discounts</p>
                             <p className="text-sm font-semibold mb-1">₹{data?.discount}</p>
                         </div>
+                        <div className="flex justify-between py-3"
+                            style={{
+                                borderBottom: '1px solid #e5e7eb',
+                            }}
+                        >
+                            <p className="text-sm mb-1">Coupon ({data?.couponApplied.discountPercent}%)</p>
+                            <p className="text-sm font-semibold mb-1 text-red-400">-₹{data?.couponApplied.discountAmount}</p>
+                        </div>
                         <div className="flex justify-between py-3">
                             <p className="font-bold text-sm m-0 p-0">Order Total</p>
                             <p className="text-sm font-bold text-blue-500 m-0 p-0">₹{data?.total}</p>
