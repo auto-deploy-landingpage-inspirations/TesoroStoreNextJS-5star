@@ -138,6 +138,32 @@ export type courierDetails= {
   label?: String;
 }
 
+export type discountType = {
+  type: string;
+  value: number;
+}
+
+export type Coupon = {
+  _id: string;
+  status: string;
+  title: title;
+  couponCode: string;
+  endTime: Date;
+  minimumAmount: number;
+  logo: string;
+  discountType: discountType;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+
+export type couponApplied = {
+  coupon: Coupon;
+  couponCode: string;
+  discountAmount: number;
+  discountPercent: number;
+}
+
 
 export type Order = {
   _id: string | number;
@@ -162,6 +188,7 @@ export type Order = {
   awb?: string;
   shipmentDetails?: OrderShipmentDetails;
   courierDetails?: courierDetails;
+  couponApplied: couponApplied
 };
 
 interface bannerType {

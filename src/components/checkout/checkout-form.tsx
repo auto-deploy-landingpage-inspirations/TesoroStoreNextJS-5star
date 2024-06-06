@@ -33,14 +33,16 @@ interface CheckoutInputType {
 	save: boolean;
 	note: string;
 	guestCheckout: boolean;
+	couponCode: string;
 }
 
 interface CheckoutFormProps {
 	paymentMethod: string;
 	setPaymentMethod: (paymentMethod: string) => void;
+	couponCode: string;
 }
 
-const CheckoutForm: React.FC<CheckoutFormProps> = ({paymentMethod, setPaymentMethod}) => {
+const CheckoutForm: React.FC<CheckoutFormProps> = ({paymentMethod, setPaymentMethod, couponCode}) => {
 	const { t } = useTranslation();
 	// const [paymentMethod, setPaymentMethod] = useState('');
 	const {items, removeItemFromCart} = useCart();
@@ -50,7 +52,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({paymentMethod, setPaymentMet
 
 	function clearCart(){
 		for (let i = 0; i < items.length; i++) {
-			removeItemFromCart(items[i].id);
+			removeItemFromCart(items[i].id); 
 		}
 	}
 	const { 
@@ -179,7 +181,8 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({paymentMethod, setPaymentMet
 					cart: items,
 					billing: input,
 					guestCheckout: guestCheckout,
-					paymentMethod: paymentMethod
+					paymentMethod: paymentMethod,
+					couponCode: couponCode
 				}
 
 				let host = '';
@@ -254,9 +257,12 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({paymentMethod, setPaymentMet
 			>
 				<div className="flex flex-col space-y-4 lg:space-y-5">
 					{!isLoggedIn && (
-						<div>
+						<div className="flex">
 							<div className="relative flex items-center">
 								<CheckBox label="Guest Checkout" onChange={handleGuestCheckout} />
+							</div>
+							<div className="text-base ml-2">
+								Or <span className="text-blue-500 font-bold cursor-pointer">Login</span>
 							</div>
 						</div>
 					)}
