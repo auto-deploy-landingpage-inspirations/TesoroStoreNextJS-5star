@@ -207,13 +207,13 @@ export const footer = {
 			width: 26,
 			height: 20,
 		},
-		{
-			id: 5,
-			path: "/",
-			image: "/assets/images/payment/skrill.svg",
-			name: "payment-skrill",
-			width: 39,
-			height: 20,
-		},
+		// {
+		// 	id: 5,
+		// 	path: "/",
+		// 	image: "/assets/images/payment/skrill.svg",
+		// 	name: "payment-skrill",
+		// 	width: 39,
+		// 	height: 20,
+		// },
 	],
 };

@@ -458,11 +458,11 @@ export const siteSettings = {
 					// },
 				],
 			},
-			{
-				id: 2,
-				path: "/sale-page",
-				label: "Sale",
-			},
+			// {
+			// 	id: 2,
+			// 	path: "/sale-page",
+			// 	label: "Sale",
+			// },
 			{
 				id: 3,
 				path: "/contact-us",
@@ -470,19 +470,19 @@ export const siteSettings = {
 				subMenu: [
 					{
 						id: 1,
-						path: "/email",
-						label: "contact@tesorostore.com",
+						path: "#",
+						label: "support@tesorostore.in",
 						
 					},
 					{
 						id: 2,
-						path: "/phone",
-						label: "+91 931 961 6722",
+						path: "#",
+						label: "+91 88008 89492",
 					},
 					{
 						id: 3,
-						path: "/address",
-						label: "Hauz Khas New Delhi",
+						path: "#",
+						label: "103, First Floor, Vardhman Complex, Savita Vihar, New Delhi- 110092",
 					},
 				],
 			},

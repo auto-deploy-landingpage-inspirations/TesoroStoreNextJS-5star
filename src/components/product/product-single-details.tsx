@@ -404,7 +404,7 @@ const ProductSingleDetails: React.FC = () => {
 							</div>
 						</div>
 	
-						{/* <div className="mt-4">
+						<div className="mt-4">
 							<table className="table-fixed sm:w-full md:w-2/3 "
 								style={
 									{ borderBottomRightRadius: '10px', borderTopLeftRadius: '10px', padding: '5px', margin: '10px', boxShadow: '1.5px 1.5px 1.5px 2px rgba(248, 113, 113, 0.3)' }
@@ -420,19 +420,19 @@ const ProductSingleDetails: React.FC = () => {
 										<td className="">
 											<div className="font-josephine bg-black w-2/3 ml-5 mt-2 mb-2" style={{ height: '1px' }}></div>
 											<div className="font-josephine font-semibold w-full pl-5 mr-10 mb-0">Get 5% Off sitewide</div>
-											<div className="font-josephine flex pl-5 items-center mb-1">Use Code <span className="p-1 ml-4 text-gray-600 border-2 bg-[#FFE583] font-bold text-sm">MAKEHOMESPECIAL</span> </div>
+											<div className="font-josephine flex pl-5 items-center mb-1">Use Code <span className="p-1 ml-4 text-gray-600 border-2 bg-[#FFE583] font-bold text-sm">MYFIRSTTESORO</span> </div>
 										</td>
 									</tr>
-									<tr>
+									{/* <tr>
 										<td>
 											<div className="font-josephine bg-black w-2/3 ml-5 mt-2 mb-2" style={{ height: '1px' }}></div>
 											<div className="font-josephine font-semibold w-full pl-5 mr-10">Get Rs 150 Off on your first purchase</div>
 											<div className="font-josephine flex pl-5 items-center mb-1">Use Code <span className="p-1 ml-4 text-gray-600 border-2 bg-[#FFE583] font-bold text-sm">WELCOMETESORO</span> </div>
 										</td>
-									</tr>
+									</tr> */}
 								</tbody>
 							</table>
-						</div> */}
+						</div>
 						<div className="my-5">
 							<PinCodeCheckForm />
 						</div>

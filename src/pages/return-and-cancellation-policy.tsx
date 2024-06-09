@@ -20,7 +20,7 @@ export default function ReturnPage() {
 			<div style={{height: '90vh'}} className="mt-12 lg:mt-14 xl:mt-16 lg:py-1 xl:py-0 border-b border-gray-300 px-4 md:px-10 lg:px-7 xl:px-16 2xl:px-24 3xl:px-32 pb-9 md:pb-14 lg:pb-16 2xl:pb-20 3xl:pb-24 h-[80vh]">
 				<Container className="h-[80vh]">
 				<Iframe 
-					url="https://docs.google.com/document/d/e/2PACX-1vSUwan12xw6N7oXTNFJEW5O1BsPPbWyJzlTWpFrN-02hPLJOvwCSKn433bd2DpHeA/pub?embedded=true"
+					url=""
 					width="95%"
 					height="100%"
 					id="something_new"
