@@ -420,7 +420,7 @@ const ProductSingleDetails: React.FC = () => {
 										<td className="">
 											<div className="font-josephine bg-black w-2/3 ml-5 mt-2 mb-2" style={{ height: '1px' }}></div>
 											<div className="font-josephine font-semibold w-full pl-5 mr-10 mb-0">Get 5% Off sitewide</div>
-											<div className="font-josephine flex pl-5 items-center mb-1">Use Code <span className="p-1 ml-4 text-gray-600 border-2 bg-[#FFE583] font-bold text-sm">MYFIRSTTESORO</span> </div>
+											<div className="font-josephine flex pl-5 items-center mb-1">Use Code <span className="p-1 ml-4 text-gray-600 border-2 bg-[#FFE583] font-bold text-sm">TESOROLOVESYOU</span> </div>
 										</td>
 									</tr>
 									{/* <tr>
