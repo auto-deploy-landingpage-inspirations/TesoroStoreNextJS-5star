@@ -168,6 +168,7 @@ export type couponApplied = {
 export type Order = {
   _id: string | number;
   name: string;
+  couponStatus?: boolean;
   codCharges: number;
   discount: number;
   invoice: string;

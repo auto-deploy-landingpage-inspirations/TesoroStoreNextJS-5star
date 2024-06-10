@@ -74,7 +74,7 @@ const CheckoutCard: React.FC<CheckoutCardProps> = ({paymentMethod, couponCode, s
 		// http://localhost:5055/api/coupon/apply-coupon-to-cart/
 		const alreadyAppliedCoupon = couponApplied === "" ? null : couponApplied;
 		try{
-			const response = await axios.post(`http://localhost:5055/api/coupon/apply-coupon-to-cart`, {
+			const response = await axios.post(`https://tesoro-backend.onrender.com/api/coupon/apply-coupon-to-cart`, {
 				couponCode: couponCode,
 				cart: items,
 				alreadyAppliedCoupon: alreadyAppliedCoupon
