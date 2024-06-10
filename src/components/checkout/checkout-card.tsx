@@ -134,7 +134,7 @@ const CheckoutCard: React.FC<CheckoutCardProps> = ({paymentMethod, couponCode, s
 						type="text"
 						name="Coupon"
 						value={couponCode}
-						onChange={(e) => setCouponCode(e.target.value)}
+						onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
 						required={false}
 
 						className="w-full lg:w-1/2 lg:ms-3 text-center text-xs font-bold p-1 mt-2 md:mt-0 uppercase border border-gray-800 rounded"
