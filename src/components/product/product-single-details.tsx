@@ -35,7 +35,7 @@ const ProductSingleDetails: React.FC = () => {
 	const { items, removeItemFromCart, addItemToCart } = useCart();
 	const { closeCart } = useUI();
 	const router = useRouter();
-
+	
 	const [variantData, setVariantData] = useState<any>({});
 	const [variantDesc, setVariantDesc] = useState<string>("");
 	const [stockLoading, setStockLoading] = useState<boolean>(true);
@@ -55,8 +55,11 @@ const ProductSingleDetails: React.FC = () => {
 
 	const { data, isLoading  } = useProductQuery(slug as string);
 
-	useEffect(() => {
+	
 
+	useEffect(() => {
+		console.log("Query: ");
+		console.log(router.query);
 		if(data?.approved === false){
 			toast("Product is not available", {
 				type: "error"
